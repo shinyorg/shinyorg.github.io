@@ -1,23 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
+<!DOCTYPE html><html><head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="/assets/bootstrap/bootstrap.css" rel="stylesheet" />
-    <link href="/assets/css/styles.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto+Slab:wght@400;700&family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet" data-no-mirror>
+    <link href="/assets/bootstrap/bootstrap.css" rel="stylesheet">
+    <link href="/assets/css/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&amp;family=Roboto+Slab:wght@400;700&amp;family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&amp;display=swap" rel="stylesheet" data-no-mirror="">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/themes/prism.css">
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/a1cad7ed9a.js" crossorigin="anonymous" data-no-mirror></script>
+    <script src="https://kit.fontawesome.com/a1cad7ed9a.js" crossorigin="anonymous" data-no-mirror=""></script>
     <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/components/prism-core.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/plugins/autoloader/prism-autoloader.min.js" data-no-mirror></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/plugins/autoloader/prism-autoloader.min.js" data-no-mirror=""></script>
 
     <title>Shiny.NET - Native</title>
 </head>
@@ -154,7 +152,7 @@
                                                             <a href="/push/aws">AWS</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/push/onesignal">One Signal</a>
+                                                            <a href="/push/onesignal">OneSignal</a>
                                                         </div>
                                                 </div>
                                             <div class="sidebar-nav-item has-children">
@@ -231,9 +229,6 @@
                                                         </div>
                                                         <div class="sidebar-nav-child">
                                                             <a href="/httptransfers/advanced">Advanced</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/httptransfers/delegate">Delegate</a>
                                                         </div>
                                                 </div>
                                             <div class="sidebar-nav-item has-children">
@@ -360,7 +355,7 @@ within this document generally apply to all.</p>
 <tbody>
 <tr>
 <td><strong>NuGet</strong></td>
-<td><a href="https://www.nuget.org/packages/Shiny.Push/" target="Shiny.Push"><img src="https://img.shields.io/nuget/v/Shiny.Push.svg?style=for-the-badge&label=Shiny.Push" /></a></td>
+<td><a href="https://www.nuget.org/packages/Shiny.Push/" target="Shiny.Push"><img src="https://img.shields.io/nuget/v/Shiny.Push.svg?style=for-the-badge&amp;label=Shiny.Push"></a></td>
 </tr>
 <tr>
 <td><strong>Service</strong></td>
@@ -380,11 +375,11 @@ within this document generally apply to all.</p>
 </tr>
 <tr>
 <td>- <em>iOS</em></td>
-<td>9 ([OS Configuration Required](xref: iOS))</td>
+<td>9 (<a href="/setup/ios">OS Configuration Required</a>)</td>
 </tr>
 <tr>
 <td>- <em>Android</em></td>
-<td>8.0 ([OS Configuration Required](xref: Android))</td>
+<td>8.0 (<a href="/setup/android">OS Configuration Required</a>)</td>
 </tr>
 <tr>
 <td>- <em>Uwp</em></td>
@@ -393,17 +388,17 @@ within this document generally apply to all.</p>
 </tbody>
 </table>
 <h2 id="native-push-provider">Native Push Provider</h2>
-<p>If you don't intend to use a 3rd party provider, this library still uses everything applied from &quot;Getting Started&quot;.  To register it with Shiny, simply do the following in your Shiny Startup:</p>
+<p>If you don't intend to use a 3rd party provider, this library still uses everything applied from "Getting Started".  To register it with Shiny, simply do the following in your Shiny Startup:</p>
 <pre><code class="language-csharp">services.UsePush&lt;MyPushDelegate&gt;();
 </code></pre>
 <h2 id="android-setup">Android Setup</h2>
 <p>The process of setting up Android is a bit of process</p>
 <pre><code class="language-csharp">&lt;ItemGroup&gt;
-    &lt;GoogleServicesJson Include=&quot;google-services.json&quot;&gt;
+    &lt;GoogleServicesJson Include="google-services.json"&gt;
         &lt;CopyToOutputDirectory&gt;PreserveNewest&lt;/CopyToOutputDirectory&gt;
     &lt;/GoogleServicesJson&gt;
-    &lt;PackageReference Include=&quot;Xamarin.GooglePlayServices.Basement&quot; Version=&quot;The same version Shiny.Push is using&quot; /&gt;
-    &lt;PackageReference Include=&quot;Xamarin.GooglePlayServices.Tasks&quot; Version=&quot;The same version Shiny.Push is using&quot; /&gt;
+    &lt;PackageReference Include="Xamarin.GooglePlayServices.Basement" Version="The same version Shiny.Push is using" /&gt;
+    &lt;PackageReference Include="Xamarin.GooglePlayServices.Tasks" Version="The same version Shiny.Push is using" /&gt;
 &lt;/ItemGroup&gt;
 
 </code></pre>
@@ -477,5 +472,5 @@ within this document generally apply to all.</p>
             }
         });
     </script>
-</body>
-</html>
+
+</body></html>

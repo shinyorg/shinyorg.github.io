@@ -1,23 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
+<!DOCTYPE html><html><head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="/assets/bootstrap/bootstrap.css" rel="stylesheet" />
-    <link href="/assets/css/styles.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto+Slab:wght@400;700&family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet" data-no-mirror>
+    <link href="/assets/bootstrap/bootstrap.css" rel="stylesheet">
+    <link href="/assets/css/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&amp;family=Roboto+Slab:wght@400;700&amp;family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&amp;display=swap" rel="stylesheet" data-no-mirror="">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/themes/prism.css">
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/a1cad7ed9a.js" crossorigin="anonymous" data-no-mirror></script>
+    <script src="https://kit.fontawesome.com/a1cad7ed9a.js" crossorigin="anonymous" data-no-mirror=""></script>
     <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/components/prism-core.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/plugins/autoloader/prism-autoloader.min.js" data-no-mirror></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/plugins/autoloader/prism-autoloader.min.js" data-no-mirror=""></script>
 
     <title>Shiny.NET - Geofencing</title>
 </head>
@@ -154,7 +152,7 @@
                                                             <a href="/push/aws">AWS</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/push/onesignal">One Signal</a>
+                                                            <a href="/push/onesignal">OneSignal</a>
                                                         </div>
                                                 </div>
                                             <div class="sidebar-nav-item has-children">
@@ -231,9 +229,6 @@
                                                         </div>
                                                         <div class="sidebar-nav-child">
                                                             <a href="/httptransfers/advanced">Advanced</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/httptransfers/delegate">Delegate</a>
                                                         </div>
                                                 </div>
                                             <div class="sidebar-nav-item has-children">
@@ -358,7 +353,7 @@
 <tbody>
 <tr>
 <td><strong>NuGet</strong></td>
-<td><a href="https://www.nuget.org/packages/Shiny.Locations/" target="Shiny.Locations"><img src="https://img.shields.io/nuget/v/Shiny.Locations.svg?style=for-the-badge&label=Shiny.Locations" /></a></td>
+<td><a href="https://www.nuget.org/packages/Shiny.Locations/" target="Shiny.Locations"><img src="https://img.shields.io/nuget/v/Shiny.Locations.svg?style=for-the-badge&amp;label=Shiny.Locations"></a></td>
 </tr>
 <tr>
 <td><strong>Service</strong></td>
@@ -378,7 +373,7 @@
 </tr>
 <tr>
 <td>- <em>iOS</em></td>
-<td>9 ([OS Configuration Required](xref: iOS))</td>
+<td>9 (<a href="/setup/ios">OS Configuration Required</a>)</td>
 </tr>
 <tr>
 <td>- <em>Android</em></td>
@@ -471,8 +466,8 @@ namespace Shiny.Locations
         /// &lt;summary&gt;
         /// This is fired when the geofence region status has changed
         /// &lt;/summary&gt;
-        /// &lt;param name=&quot;newStatus&quot;&gt;The new geofence state.&lt;/param&gt;
-        /// &lt;param name=&quot;region&quot;&gt;The geofence region.&lt;/param&gt;
+        /// &lt;param name="newStatus"&gt;The new geofence state.&lt;/param&gt;
+        /// &lt;param name="region"&gt;The geofence region.&lt;/param&gt;
         Task OnStatusChanged(GeofenceState newStatus, GeofenceRegion region);
     }
 }
@@ -568,7 +563,7 @@ public class GeofenceUsage
         if (result == AccessState.Available)
         {
             await manager.StartMonitoring(new GeofenceRegion(
-                &quot;YourIdentifier&quot;,
+                "YourIdentifier",
                 new Position(1, 1),
                 Distance.FromKilometers(1)
             ));
@@ -578,7 +573,7 @@ public class GeofenceUsage
 
     public async Task Stop()
     {
-        await ShinyHost.Resolve&lt;IGeofenceManager&gt;().StopMonitoring(&quot;YourIdentifier&quot;);
+        await ShinyHost.Resolve&lt;IGeofenceManager&gt;().StopMonitoring("YourIdentifier");
 
         // or
 
@@ -647,5 +642,5 @@ public class GeofenceUsage
             }
         });
     </script>
-</body>
-</html>
+
+</body></html>
