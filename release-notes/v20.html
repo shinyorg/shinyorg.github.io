@@ -82,6 +82,12 @@
 <a href="/setup">Setup</a>                                            </div>
                                                 <div class="sidebar-nav-children">
                                                         <div class="sidebar-nav-child">
+                                                            <a href="/setup/startup">Startup</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/setup/boilerplate">Boilerplate</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
                                                             <a href="/setup/ios">Platform - iOS</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
@@ -95,12 +101,6 @@
                                                         </div>
                                                         <div class="sidebar-nav-child">
                                                             <a href="/setup/best-practices">Best Practices</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/setup/boilerplate">Boilerplate</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/setup/logging">Logging</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
                                                             <a href="/setup/nuget">NuGet Packages</a>
@@ -155,31 +155,6 @@
                                                         </div>
                                                         <div class="sidebar-nav-child">
                                                             <a href="/push/onesignal">One Signal</a>
-                                                        </div>
-                                                </div>
-                                            <div class="sidebar-nav-item has-children">
-<a href="/other">Other</a>                                            </div>
-                                                <div class="sidebar-nav-children">
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/other/connectivity">Connectivity</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/other/keyvalue">Key/Value Stores</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/other/messagebus">Message Bus</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/other/nfc">NFC</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/other/power">Power Management</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/other/speech-recognition">Speech Recognition</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/other/sqlite">SQLite Integrations</a>
                                                         </div>
                                                 </div>
                                             <div class="sidebar-nav-item has-children">
@@ -278,6 +253,31 @@
                                                         </div>
                                                 </div>
                                             <div class="sidebar-nav-item has-children">
+<a href="/other">Other</a>                                            </div>
+                                                <div class="sidebar-nav-children">
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/other/connectivity">Connectivity</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/other/keyvalue">Key/Value Stores</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/other/messagebus">Message Bus</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/other/nfc">NFC</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/other/power">Power Management</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/other/speech-recognition">Speech Recognition</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/other/sqlite">SQLite Integrations</a>
+                                                        </div>
+                                                </div>
+                                            <div class="sidebar-nav-item has-children">
 <a href="/sensors">Sensors</a>                                            </div>
                                                 <div class="sidebar-nav-children">
                                                         <div class="sidebar-nav-child">
@@ -348,22 +348,31 @@
                                                 </div>
                                 </div>
                                 <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4">
-                                    <h3 id="core">Core</h3>
+                                    <h2 id="core">Core</h2>
 <ul>
 <li>[BREAKING] Jobs no longer return Task of bool, they now only return Task</li>
 <li>[BREAKING][Android] All previous monikers have been removed, only android 10+ targets are supported now, this includes only AndroidX compatibility</li>
 <li>[BREAKING] Caching has been removed.  Use Microsoft.Extensions.Caching</li>
-<li>[Fix][Settings] Nullable enums and set null to remove</li>
 <li>[FEATURE] Source Generators - Generate all of the boilerplate needed by Shiny for iOS &amp; Android with nothing more than a single assembly attribute. Simply install Shiny (not Shiny.Core) on your head iOS &amp; Android projects</li>
 <li>[BREAKING] All Shiny logging has been replaced with Microsoft.Extensions.Logging</li>
 <li>[BREAKING] Settings is now gone - enter key/value stores with file, memory, settings, and secure storage</li>
 </ul>
-<h3 id="bluetoothle">BluetoothLE</h3>
+<h2 id="bluetoothle">BluetoothLE</h2>
 <ul>
 <li>[BREAKING] The original library has been split into 2 separate libraries (Client - Shiny.BluetoothLE and Server - Shiny.BluetoothLE.Hosting) with some common ties</li>
-<li>[Client] You don't like RX - there are new async extensions to skip the RX</li>
+<li>[BREAKING] DiscoverServices is now called GetServices and returns IEnumerable instead of a single service</li>
+<li>[BREAKING] DiscoverCharacteristics is now called GetCharacteristics and returns IEnumerable instead of a single characteristic</li>
+<li>[Feature] You don't like RX - there are new async extensions to skip the RX</li>
+<li>[Feature] ManagedScan now properly manages an observable collection of peripherals using all the best practices for safely updating the collection and even removing peripherals that haven't been seen for a configured time period</li>
+<li>[Feature] ManagedPeripheral now manages everything during the reconnection process like resubscription to characteristics and all of the internal discovery is done for you.  No more mass setup per peripheral connection.</li>
 </ul>
-<h3 id="locations">Locations</h3>
+<h2 id="beacons">Beacons</h2>
+<ul>
+<li>[BREAKING] Beacons are now separated into 2 different injection points, services.UseBeaconMonitoring()/IBeaconMonitoringManager and services.UseBeaconRanging()/IBeaconRangingManager</li>
+<li>[Feature][Android] Uses foreground services to achieve real time beacon scanning while your app is in the background</li>
+<li>[Feature] ManagedScan now properly manages an observable collection of beacons using all the best practices for safely updating the collection and even removing beacons that haven't been seen for a configured time period</li>
+</ul>
+<h2 id="locations">Locations</h2>
 <ul>
 <li>[BREAKING] IsListening is gone in favor of CurrentListener configuration</li>
 <li>[Feature][Android] Now uses foreground service to achieve fast &quot;background&quot; GPS</li>
@@ -373,20 +382,18 @@
 <ul>
 <li>[BREAKING][Feature] Channels - this exists to fit with the Android channels model and iOS category model</li>
 <li>[Feature][Android] More Android specific configuration added</li>
-<li>[Feature][Android][Uwp] Persistent &amp; Progress notifications</li>
 </ul>
 <h3 id="push">Push</h3>
 <ul>
-<li>Firebase implementation is now released for iOS and Android  (Shiny.Push.FirebaseMessaging)</li>
+<li>[BREAKING] Delegate now returns a type of PushNotification for OnReceived</li>
+<li>[BREAKING] Delegate now returns a type of PushNotificationEntry for OnEntry</li>
+<li>[BREAKING] WhenReceived foreground listener returns type of PushNotification</li>
+<li>[Feature] New Firebase provider for iOS and Android (Shiny.Push.FirebaseMessaging)</li>
+<li>Azure Notification Hubs provider is now fully released</li>
 </ul>
 <h3 id="nfc">NFC</h3>
 <ul>
-<li>Full release</li>
-</ul>
-<h3 id="beacons">Beacons</h3>
-<ul>
-<li>[BREAKING] Beacons are now separated into 2 different injection points, services.UseBeaconMonitoring()/IBeaconMonitoringManager and services.UseBeaconRanging()/IBeaconRangingManager</li>
-<li>[Android] Now uses a foreground service to maintain a continuous scan when using beacon monitoring</li>
+<li>Is now fully released</li>
 </ul>
 
                                 </div>

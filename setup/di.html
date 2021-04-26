@@ -82,6 +82,12 @@
 <a href="/setup">Setup</a>                                            </div>
                                                 <div class="sidebar-nav-children active">
                                                         <div class="sidebar-nav-child">
+                                                            <a href="/setup/startup">Startup</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/setup/boilerplate">Boilerplate</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
                                                             <a href="/setup/ios">Platform - iOS</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
@@ -95,12 +101,6 @@
                                                         </div>
                                                         <div class="sidebar-nav-child">
                                                             <a href="/setup/best-practices">Best Practices</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/setup/boilerplate">Boilerplate</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/setup/logging">Logging</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
                                                             <a href="/setup/nuget">NuGet Packages</a>
@@ -155,31 +155,6 @@
                                                         </div>
                                                         <div class="sidebar-nav-child">
                                                             <a href="/push/onesignal">One Signal</a>
-                                                        </div>
-                                                </div>
-                                            <div class="sidebar-nav-item has-children">
-<a href="/other">Other</a>                                            </div>
-                                                <div class="sidebar-nav-children">
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/other/connectivity">Connectivity</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/other/keyvalue">Key/Value Stores</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/other/messagebus">Message Bus</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/other/nfc">NFC</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/other/power">Power Management</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/other/speech-recognition">Speech Recognition</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/other/sqlite">SQLite Integrations</a>
                                                         </div>
                                                 </div>
                                             <div class="sidebar-nav-item has-children">
@@ -278,6 +253,31 @@
                                                         </div>
                                                 </div>
                                             <div class="sidebar-nav-item has-children">
+<a href="/other">Other</a>                                            </div>
+                                                <div class="sidebar-nav-children">
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/other/connectivity">Connectivity</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/other/keyvalue">Key/Value Stores</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/other/messagebus">Message Bus</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/other/nfc">NFC</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/other/power">Power Management</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/other/speech-recognition">Speech Recognition</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/other/sqlite">SQLite Integrations</a>
+                                                        </div>
+                                                </div>
+                                            <div class="sidebar-nav-item has-children">
 <a href="/sensors">Sensors</a>                                            </div>
                                                 <div class="sidebar-nav-children">
                                                         <div class="sidebar-nav-child">
@@ -361,6 +361,23 @@ public class YourModule : ShinyModule
     }
 }
 </code></pre>
+<p>And then to register this with your startup</p>
+<pre><code class="language-csharp">using Microsoft.Extensions.DependencyInjection;
+using Shiny;
+
+namespace YourNamespace
+{
+    public class YourShinyStartup : ShinyStartup
+    {
+        public override void ConfigureServices(IServiceCollection services, IPlatform platform)
+        { 
+            
+services.RegisterModule(new YourModule());
+ 
+        }
+    }
+}
+</code></pre>
 <h2 id="startup-tasks">Startup Tasks</h2>
 <p>Startup tasks are great for wiring up events and spinning up infrastructure.  These fire immediately after the container is built.  However, don't do any sort of blocking operation in them as this will cause your app to pause starting up causing a poor user experience.</p>
 <p><strong>CAUTION:</strong> You can do async processes here, but your app could start before the process finishes, so if you are pre-loading data, it may not be ready for use before your app starts</p>
@@ -375,16 +392,29 @@ public class YourStartupTask : IShinyStartupTask
     }
 }
 </code></pre>
+<p>To register them and have them automatically run:</p>
+<pre><code class="language-csharp">using Microsoft.Extensions.DependencyInjection;
+using Shiny;
+
+namespace YourNamespace
+{
+    public class YourShinyStartup : ShinyStartup
+    {
+        public override void ConfigureServices(IServiceCollection services, IPlatform platform)
+        { 
+            
+services.AddSingleton&lt;YourStartupTask&gt;();
+ 
+        }
+    }
+}
+</code></pre>
 <h2 id="state-restorable-services">State Restorable Services</h2>
 <p>This is pretty cool, imagine you want the state of your service preserved across restarts - Shiny does this in epic fashion</p>
 <p>Simply turn your service implement INotifyPropertyChanged (or the easy Shiny.NotifyPropertyChanged) and register it in your shiny startup and Shiny will take care of the rest</p>
 <pre><code class="language-cs">using Shiny;
 
-#region RestorableServices
-public class MyBadAssService :
-    NotifyPropertyChanged,
-    IMyBadAssService,
-    IShinyStartupTask
+public class MyBadAssService : NotifyPropertyChanged, IShinyStartupTask
 {
     int count;
 
@@ -399,11 +429,22 @@ public class MyBadAssService :
         this.Count++;
     }
 }
+</code></pre>
+<p>and the same to register this guy</p>
+<pre><code class="language-csharp">using Microsoft.Extensions.DependencyInjection;
+using Shiny;
 
-#endregion
-
-public interface IMyBadAssService
+namespace YourNamespace
 {
+    public class YourShinyStartup : ShinyStartup
+    {
+        public override void ConfigureServices(IServiceCollection services, IPlatform platform)
+        { 
+            
+services.AddSingleton&lt;MyBadAssService&gt;();
+ 
+        }
+    }
 }
 </code></pre>
 

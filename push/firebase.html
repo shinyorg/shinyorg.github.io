@@ -80,6 +80,12 @@
 <a href="/setup">Setup</a>                                            </div>
                                                 <div class="sidebar-nav-children">
                                                         <div class="sidebar-nav-child">
+                                                            <a href="/setup/startup">Startup</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/setup/boilerplate">Boilerplate</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
                                                             <a href="/setup/ios">Platform - iOS</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
@@ -93,12 +99,6 @@
                                                         </div>
                                                         <div class="sidebar-nav-child">
                                                             <a href="/setup/best-practices">Best Practices</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/setup/boilerplate">Boilerplate</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/setup/logging">Logging</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
                                                             <a href="/setup/nuget">NuGet Packages</a>
@@ -153,31 +153,6 @@
                                                         </div>
                                                         <div class="sidebar-nav-child">
                                                             <a href="/push/onesignal">One Signal</a>
-                                                        </div>
-                                                </div>
-                                            <div class="sidebar-nav-item has-children">
-<a href="/other">Other</a>                                            </div>
-                                                <div class="sidebar-nav-children">
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/other/connectivity">Connectivity</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/other/keyvalue">Key/Value Stores</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/other/messagebus">Message Bus</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/other/nfc">NFC</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/other/power">Power Management</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/other/speech-recognition">Speech Recognition</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/other/sqlite">SQLite Integrations</a>
                                                         </div>
                                                 </div>
                                             <div class="sidebar-nav-item has-children">
@@ -273,6 +248,31 @@
                                                         </div>
                                                         <div class="sidebar-nav-child">
                                                             <a href="/locations/motionactivity">Motion Activity</a>
+                                                        </div>
+                                                </div>
+                                            <div class="sidebar-nav-item has-children">
+<a href="/other">Other</a>                                            </div>
+                                                <div class="sidebar-nav-children">
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/other/connectivity">Connectivity</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/other/keyvalue">Key/Value Stores</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/other/messagebus">Message Bus</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/other/nfc">NFC</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/other/power">Power Management</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/other/speech-recognition">Speech Recognition</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/other/sqlite">SQLite Integrations</a>
                                                         </div>
                                                 </div>
                                             <div class="sidebar-nav-item has-children">
@@ -372,16 +372,18 @@
 </tr>
 <tr>
 <td>- <em>iOS</em></td>
-<td>9 (<a href="/setup/ios">OS Configuration Required</a>)</td>
+<td>9 ([OS Configuration Required](xref: iOS))</td>
 </tr>
 <tr>
 <td>- <em>Android</em></td>
-<td>8.0 (<a href="/setup/android">OS Configuration Required</a>)</td>
+<td>8.0 ([OS Configuration Required](xref: Android))</td>
 </tr>
 </tbody>
 </table>
 <h2 id="android">Android</h2>
 <p>Follow the exact same setup process as the <a href="/push/native">native push provider</a></p>
+<p>Please read the following <a href="https://docs.microsoft.com/en-us/xamarin/android/data-cloud/google-messaging/firebase-cloud-messaging">Microsoft Document</a> on
+how to setup firebase within your Android application.</p>
 <h2 id="ios">iOS</h2>
 <p>Follow the exact same setup process as the <a href="/push/native">native push provider</a> with one addition</p>
 <p>After setting up your iOS app within the firebase admin portal, add GoogleService-Info.plist to your iOS head project
