@@ -91,7 +91,7 @@
                                                             <a href="/setup/uwp">Platform - UWP</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/setup/advanced">Advanced Dependency Injection</a>
+                                                            <a href="/setup/di">Dependency Injection</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
                                                             <a href="/setup/best-practices">Best Practices</a>
@@ -299,9 +299,6 @@
                                                             <a href="/sensors/gyroscope">Gyroscope</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/sensors/heartrate">Heart Rate</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
                                                             <a href="/sensors/humidity">Humidity</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
@@ -351,23 +348,57 @@
                                                 </div>
                                 </div>
                                 <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4">
-                                    <p>Settings is installed into the Shiny container automatically.  Settings are a fairly essential service of any framework.  You can resolve this using dependency injection or using the Shiny.ShinyHost.Resolve.  The interface to use is Shiny.Settings.ISettings</p>
-<h2 id="to-use-simply-call">To use, simply call:</h2>
-<pre><code class="language-csharp">var int1 = settings.Get&lt;int&gt;(&quot;Key&quot;);
-var int2 = settings.Get&lt;int?&gt;(&quot;Key&quot;);
-
-settings.Set(&quot;Key&quot;, AnyObject); // your object is serialized under the hood
-var obj = settings.Get&lt;AnyObject&gt;(&quot;Key&quot;);
-</code></pre>
+                                    <p>Shiny has several ways of storing key/values such as</p>
+<ul>
+<li>OS Settings/Preferences</li>
+<li>Secure Storage (NOTE: not currently support on UWP)</li>
+<li>In Memory (per session)</li>
+<li>File</li>
+</ul>
+<h2 id="keyvalue">Key/Value</h2>
+<p>Shiny automatically registers the following stores
+To access the various key/values, simply use Shiny.Stores.IKeyValueStoreFactory.</p>
 <h2 id="object-binding">Object Binding</h2>
-<pre><code class="language-csharp">var myInpcObj = settings.Bind&lt;MyInpcObject&gt;(); // Your object must implement INotifyPropertyChanged
-myInpcObj.SomeProperty = &quot;Hi&quot;; // everything is automatically synchronized to settings right here
+<p>But what makes key/value storage particularily unique in Shiny is the object binding.  You can bind
+any object that support INotifyPropertyChanged &amp; has public get/set values</p>
+<pre><code class="language-csharp">public class MySettings : Shiny.NotifyPropertyChanged 
+{
+    string myProperty?;
+    public string? MyProperty 
+    {
+        get =&gt; this.myProperty;
+        set =&gt; this.Set(ref this.myProperty, value);
+    }
+}
+</code></pre>
+<p>Now, to start using this is simple - first add this to your shiny startup</p>
+<pre><code class="language-csharp">services.AddSingleton&lt;MySettings&gt;();
+</code></pre>
+<p>Now to use it</p>
+<pre><code class="language-chsarp">// inject or 
+var mySettings = ShinyHost.Resolve&lt;MySettings&gt;();
 
-//From your viewmodel
-settings.Bind(this);
+mySettings.MyProperty = null; // to remove it 
 
-// make sure to unbind when your model is done
-settings.UnBind(obj);
+mySettings.MyProperty = &quot;hello&quot;;
+</code></pre>
+<p>And to make things EVEN COOLER.  Object bindings like this also support different key/value stores by
+adding the attribute [Shiny.ObjectBinder(&quot;alias of store&quot;)] on top of your class like so:</p>
+<pre><code class="language-csharp">[Shiny.ObjectBinderAttribute(&quot;secure&quot;)]
+public class MySettings ...
+</code></pre>
+<p>There are 4 values currently supported by Shiny object binder - settings (default), secure, memory, and file</p>
+<h2 id="manual-binding">Manual Binding</h2>
+<p>There may be cases where you want to manual restore an object, maybe you want to save viewmodel state in something like</p>
+<p><strong>EXAMPLE</strong></p>
+<pre><code class="language-csharp">// within your viewmodel
+var binder = ShinyHost.Resolve&lt;Shiny.Stores.IObjectBinder&gt;();
+
+// when starting or navigating to your viewmodel
+binder.Bind(this);
+
+// NOTE: most viewmodels are transient (as they should be), so be sure to unbind the instance upon your viewmodel being navigated away from
+binder.UnBind(obj);
 </code></pre>
 
                                 </div>
@@ -380,9 +411,9 @@ settings.UnBind(obj);
     </div>
     <div id="footer" class="p-3 text-white font-size-sm">
         <div class="container">
-            <div>hiny
-                <span>© 2021 S</span>
-                <span class="float-right" style="color: #888888;"></span>
+            <div>
+                <span>© 2021 Shiny.NET</span>
+                <span class="float-right" style="color: #888888;">Documentation Built by <a href="https://statiq.dev" target="statiq">Statiq</a></span>
             </div>
         </div>
     </div>

@@ -91,7 +91,7 @@
                                                             <a href="/setup/uwp">Platform - UWP</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/setup/advanced">Advanced Dependency Injection</a>
+                                                            <a href="/setup/di">Dependency Injection</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
                                                             <a href="/setup/best-practices">Best Practices</a>
@@ -299,9 +299,6 @@
                                                             <a href="/sensors/gyroscope">Gyroscope</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/sensors/heartrate">Heart Rate</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
                                                             <a href="/sensors/humidity">Humidity</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
@@ -351,44 +348,47 @@
                                                 </div>
                                 </div>
                                 <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4">
-                                    <h1 id="platforms-supported">Platforms Supported</h1>
-<table>
+                                    <table>
 <thead>
 <tr>
-<th>Platform</th>
-<th>Version</th>
+<th>Area</th>
+<th>Info</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Android</td>
-<td>5</td>
+<td><strong>NuGet</strong></td>
+<td><a href="https://www.nuget.org/packages/Shiny.Sensors/" target="Shiny.Sensors"><img src="https://img.shields.io/nuget/v/Shiny.Sensors.svg?style=for-the-badge&label=Shiny.Sensors" /></a></td>
 </tr>
 <tr>
-<td>iOS</td>
+<td><strong>Service</strong></td>
+<td>Shiny.Sensors.IGyroscope</td>
+</tr>
+<tr>
+<td><strong>Startup</strong></td>
+<td>services.UseGyroscope</td>
+</tr>
+<tr>
+<td><strong>Static</strong></td>
+<td>ShinyGyroscope</td>
+</tr>
+<tr>
+<td>- <em>iOS</em></td>
 <td>9</td>
 </tr>
 <tr>
-<td>tizen</td>
-<td>4</td>
+<td>- <em>Android</em></td>
+<td>8.0</td>
 </tr>
 <tr>
-<td>UWP</td>
-<td>16299</td>
-</tr>
-<tr>
-<td>watchOS</td>
-<td>5</td>
+<td>- <em>Uwp</em></td>
+<td>17763</td>
 </tr>
 </tbody>
 </table>
 
                                 </div>
                             <div class="col-lg-2 d-none d-lg-block bg-body pl-3 pt-3">
-                                        <div class="border-bottom mb-3">
-                                            <p class="small font-weight-bold">On This Page</p>
-                                                <p class="small"><a href="#platforms-supported">Platforms Supported</a></p>
-                                        </div>
                             </div>
                         </div>
                     </div>
@@ -397,9 +397,9 @@
     </div>
     <div id="footer" class="p-3 text-white font-size-sm">
         <div class="container">
-            <div>hiny
-                <span>© 2021 S</span>
-                <span class="float-right" style="color: #888888;"></span>
+            <div>
+                <span>© 2021 Shiny.NET</span>
+                <span class="float-right" style="color: #888888;">Documentation Built by <a href="https://statiq.dev" target="statiq">Statiq</a></span>
             </div>
         </div>
     </div>
