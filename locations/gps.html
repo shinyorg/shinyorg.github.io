@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="/assets/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="/assets/css/styles.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto+Slab:wght@400;700&family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet" data-no-mirror>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/themes/prism.css">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a1cad7ed9a.js" crossorigin="anonymous" data-no-mirror></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/components/prism-core.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/plugins/autoloader/prism-autoloader.min.js" data-no-mirror></script>
+
+    <title>Shiny.NET - GPS</title>
+</head>
+<body class="d-flex flex-column">
+    <div class="flex-grow-1 d-flex flex-column">
+
+        <nav id="topnav" class="navbar navbar-expand-lg navbar-light">
+            <div class="container py-3">
+                <a class="navbar-brand" href="/"><img id="logo" src="/assets/logo.svg" alt="Shiny.NET"> Shiny.NET</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav mr-auto">
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-light font-size-lg text-red" href="https://github.com/sponsors/aritchie"><i class="far fa-heart"></i> Sponsor</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-light font-size-lg" href="https://github.com/shinyorg/shiny"><i class="fab fa-github"></i> GitHub</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="flex-grow-1 d-flex  bg-body flex-column section-docs">
+                <div id="titlebar" class="py-4">
+                    <div class="container">
+                        <div class="row">
+                            <div class="offset-md-3 offset-lg-2 px-3 px-md-0">
+                                <div class="section text-uppercase">Shiny.NET</div>
+                                <div class="text-white m-0 title">GPS</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="undertitle">
+                    <div class="container bg-body">
+                        <div class="row">
+                                <div class="col-md-3 col-lg-2 bg-body">
+                                </div>
+                                <div class="col-md-9 col-lg-8 bg-white">
+                                </div>
+                            <div class="col-lg-2 d-none d-lg-block bg-section">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <div class="flex-grow-1 d-flex flex-column bg-body">
+                    <div class="container flex-grow-1 d-flex flex-column bg-white">
+                        <div class="row flex-grow-1 align-items-stretch">
+                                <div class="sidebar col-md-3 col-lg-2 pt-2 bg-body">
+                                        <div class="sidebar-nav-item">
+<a href="/">Welcome</a>                                        </div>
+                                            <div class="sidebar-nav-item">
+<a href="/quickstart">Quick Start</a>                                            </div>
+                                            <div class="sidebar-nav-item has-children">
+<a href="/setup">Setup</a>                                            </div>
+                                                <div class="sidebar-nav-children">
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/setup/ios">Platform - iOS</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/setup/android">Platform - Android</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/setup/uwp">Platform - UWP</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/setup/advanced">Advanced Dependency Injection</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/setup/best-practices">Best Practices</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/setup/boilerplate">Boilerplate</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/setup/logging">Logging</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/setup/nuget">NuGet Packages</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/setup/statics">Static Class Generation</a>
+                                                        </div>
+                                                </div>
+                                            <div class="sidebar-nav-item has-children">
+<a href="/jobs">Jobs</a>                                            </div>
+                                                <div class="sidebar-nav-children">
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/jobs/getting-started">Getting Started</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/jobs/faq">FAQ</a>
+                                                        </div>
+                                                </div>
+                                            <div class="sidebar-nav-item has-children">
+<a href="/beacons">Beacons</a>                                            </div>
+                                                <div class="sidebar-nav-children">
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/beacons/gettingstarted">Getting Started</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/beacons/monitoring">Monitoring</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/beacons/ranging">Ranging</a>
+                                                        </div>
+                                                </div>
+                                            <div class="sidebar-nav-item has-children">
+<a href="/ble">Bluetooth LE</a>                                            </div>
+                                                <div class="sidebar-nav-children">
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/ble/getting-started">Getting Started</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/ble/scanning">Scanning</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/ble/best-practices">Best Practices</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/ble/blemanager">BLE Manager</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/ble/connecting">Connecting</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/ble/peripheral">Peripheral</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/ble/delegate">Delegate</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/ble/services">Services</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/ble/characteristics">Characteristics</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/ble/descriptors">Descriptors</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/ble/managed-peripheral">Managed Peripheral</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/ble/managed-scan">Managed Scans</a>
+                                                        </div>
+                                                </div>
+                                            <div class="sidebar-nav-item has-children">
+<a href="/blehosting">Bluetooth LE Hosting</a>                                            </div>
+                                                <div class="sidebar-nav-children">
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/blehosting/getting-started">Getting Started</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/blehosting/advertising">Advertising</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/blehosting/hosting">Hosting</a>
+                                                        </div>
+                                                </div>
+                                            <div class="sidebar-nav-item has-children">
+<a href="/httptransfers">HTTP Transfers</a>                                            </div>
+                                                <div class="sidebar-nav-children">
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/httptransfers/getting-started">Getting Started</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/httptransfers/advanced">Advanced</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/httptransfers/delegate">Delegate</a>
+                                                        </div>
+                                                </div>
+                                            <div class="sidebar-nav-item has-children">
+<a href="/locations">Locations</a>                                            </div>
+                                                <div class="sidebar-nav-children active">
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/locations/getting-started">Getting Started</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/locations/geofences">Geofencing</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child active">
+                                                            <a href="/locations/gps">GPS</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/locations/motionactivity">Motion Activity</a>
+                                                        </div>
+                                                </div>
+                                            <div class="sidebar-nav-item has-children">
+<a href="/notifications">Notifications (Local)</a>                                            </div>
+                                                <div class="sidebar-nav-children">
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/notifications/getting-started">Getting Started</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/notifications/androidspecific">Android Specifics</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/notifications/channels">Channels</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/notifications/delegate">Events and Delegates</a>
+                                                        </div>
+                                                </div>
+                                            <div class="sidebar-nav-item has-children">
+<a href="/other">Other</a>                                            </div>
+                                                <div class="sidebar-nav-children">
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/other/connectivity">Connectivity</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/other/keyvalue">Key/Value Stores</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/other/messagebus">Message Bus</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/other/nfc">NFC</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/other/power">Power Management</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/other/speech-recognition">Speech Recognition</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/other/sqlite">SQLite Integrations</a>
+                                                        </div>
+                                                </div>
+                                            <div class="sidebar-nav-item has-children">
+<a href="/push">Notifications (Push)</a>                                            </div>
+                                                <div class="sidebar-nav-children">
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/push/getting-started">Getting Started</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/push/native">Native</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/push/azure">Azure Notification Hubs</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/push/firebase">Firebase Messaging</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/push/aws">AWS</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/push/onesignal">One Signal</a>
+                                                        </div>
+                                                </div>
+                                            <div class="sidebar-nav-item has-children">
+<a href="/sensors">Sensors</a>                                            </div>
+                                                <div class="sidebar-nav-children">
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/sensors/getting-started">Getting Started</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/sensors/accelerometer">Accelerometer</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/sensors/ambientlight">Ambient Light</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/sensors/barometer">Barometer</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/sensors/compass">Compass</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/sensors/gyroscope">Gyroscope</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/sensors/heartrate">Heart Rate</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/sensors/humidity">Humidity</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/sensors/magnetometer">Magnetometer</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/sensors/pedometer">Pedometer</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/sensors/proximity">Proximity</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/sensors/temperature">Temperature</a>
+                                                        </div>
+                                                </div>
+                                            <div class="sidebar-nav-item has-children">
+<a href="/appservices">App Services</a>                                            </div>
+                                                <div class="sidebar-nav-children">
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/appservices/calldirectory">Call Directory</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/appservices/datasync">Data Sync</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/appservices/geodispatch">GeoDispatch</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/appservices/locsync">Location Sync</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/appservices/mediasync">Media Sync</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/appservices/obd">OBD Communications</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/appservices/triptracker">Trip Tracker</a>
+                                                        </div>
+                                                </div>
+                                            <div class="sidebar-nav-item has-children">
+<a href="/release-notes">Release Notes</a>                                            </div>
+                                                <div class="sidebar-nav-children">
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/release-notes/v20">v2.0.0 (April 24, 2021)</a>
+                                                        </div>
+                                                </div>
+                                </div>
+                                <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4">
+                                    <p>The Global Position System (GPS) on Shiny is actually a bit more complicated than other Shiny modules as it can really &quot;hammer&quot; away on your resources if you set it up wrong.</p>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Info</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>NuGet</strong></td>
+<td><a href="https://www.nuget.org/packages/Shiny.Locations/" target="Shiny.Locations"><img src="https://img.shields.io/nuget/v/Shiny.Locations.svg?style=for-the-badge&label=Shiny.Locations" /></a></td>
+</tr>
+<tr>
+<td><strong>Service</strong></td>
+<td>Shiny.Locations.IGpsManager</td>
+</tr>
+<tr>
+<td><strong>Startup</strong></td>
+<td>services.UseGps</td>
+</tr>
+<tr>
+<td><strong>Delegate</strong></td>
+<td>Shiny.Locations.IGpsDelegate</td>
+</tr>
+<tr>
+<td><strong>Static</strong></td>
+<td>ShinyGps</td>
+</tr>
+<tr>
+<td>- <em>iOS</em></td>
+<td>10 (<a href="/setup/ios">OS Configuration Required</a>)</td>
+</tr>
+<tr>
+<td>- <em>Android</em></td>
+<td>8.0</td>
+</tr>
+<tr>
+<td>- <em>Uwp</em></td>
+<td>17763</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-cs">using Microsoft.Extensions.DependencyInjection;
+
+using Shiny;
+
+public class GpsStartup : ShinyStartup
+{
+    public override void ConfigureServices(IServiceCollection services)
+    {
+        services.UseGps();
+
+        // OR
+
+        services.UseGps&lt;GpsDelegate&gt;();
+    }
+}
+
+```cs
+using System;
+using System.Threading.Tasks;
+using Shiny.Infrastructure;
+
+
+namespace Shiny.Locations
+{
+    public interface IGpsDelegate : IShinyDelegate
+    {
+        /// &lt;summary&gt;
+        /// This is fired when the gps reading has changed. 
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;reading&quot;&gt;The gps reading.&lt;/param&gt;
+        Task OnReading(IGpsReading reading);
+    }
+}
+
+</code></pre>
+<pre><code class="language-cs">using System;
+using System.Threading.Tasks;
+using Shiny.Jobs;
+
+
+namespace Shiny.Locations.Sync.Infrastructure
+{
+    public class SyncGpsDelegate : NotifyPropertyChanged, IGpsDelegate
+    {
+        readonly IJobManager jobManager;
+        readonly IMotionActivityManager activityManager;
+        readonly IGpsDataService dataService;
+
+
+        public SyncGpsDelegate(IJobManager jobManager,
+                               IMotionActivityManager activityManager,
+                               IGpsDataService dataService)
+        {
+            this.jobManager = jobManager;
+            this.activityManager = activityManager;
+            this.dataService = dataService;
+        }
+
+
+        public async Task OnReading(IGpsReading reading)
+        {
+            var job = await this.jobManager.GetJob(Constants.GpsJobIdentifier);
+            if (job == null)
+                return;
+
+            var config = job.GetSyncConfig();
+            MotionActivityEvent? activity = null;
+            if (config.IncludeMotionActivityEvents)
+                activity = await this.activityManager.GetCurrentActivity();
+
+            var e = new GpsEvent
+            {
+                Id = Guid.NewGuid().ToString(),
+                DateCreated = DateTimeOffset.UtcNow,
+
+                Latitude = reading.Position.Latitude,
+                Longitude = reading.Position.Longitude,
+                Heading = reading.Heading,
+                HeadingAccuracy = reading.HeadingAccuracy,
+                Speed = reading.Speed,
+                PositionAccuracy = reading.PositionAccuracy,
+                Activities = activity?.Types
+            };
+            await this.dataService.Create(e);
+            var batchSize = await this.dataService.GetPendingCount();
+
+            if (batchSize &gt;= config.BatchSize)
+            {
+                Console.WriteLine(&quot;GPS Location Sync batch size reached, will attempt to sync&quot;);
+                if (!this.jobManager.IsRunning)
+                    await this.jobManager.RunJobAsTask(Constants.GpsJobIdentifier);
+            }
+        }
+    }
+}
+
+</code></pre>
+<pre><code class="language-cs">using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Shiny.Locations;
+using Shiny.Settings;
+
+
+namespace Shiny.TripTracker.Internals
+{
+    public class TripTrackerGpsDelegate : IGpsDelegate
+    {
+        readonly ITripTrackerManager manager;
+        readonly IMotionActivityManager activityManager;
+        readonly IDataService dataService;
+        readonly ISettings settings;
+        readonly IEnumerable&lt;ITripTrackerDelegate&gt; delegates;
+
+
+        public TripTrackerGpsDelegate(ITripTrackerManager manager,
+                                      IMotionActivityManager activityManager,
+                                      IDataService dataService,
+                                      ISettings settings,
+                                      IEnumerable&lt;ITripTrackerDelegate&gt; delegates)
+        {
+            this.manager = manager;
+            this.activityManager = activityManager;
+            this.dataService = dataService;
+            this.settings = settings;
+            this.delegates = delegates;
+        }
+
+
+        int? CurrentTripId
+        {
+            get =&gt; this.settings.CurrentTripId();
+            set =&gt; this.settings.CurrentTripId(value);
+        }
+
+
+        public async Task OnReading(IGpsReading reading)
+        {
+            if (this.manager.TrackingType == null)
+                return;
+
+            // TODO: watch for sensor blips?
+            // TODO: watch for overlap
+            var n = nameof(TripTrackerGpsDelegate);
+            var currentMotion = await this.GetLastActivity();
+            var track = this.IsTracked(currentMotion);
+            Logging.Log.Write(n, $&quot;Current Motion: {currentMotion?.Types.ToString() ?? &quot;Empty&quot;} - Track: {track} - Current: {this.CurrentTripId}&quot;);
+
+            if (this.CurrentTripId == null)
+            {
+                if (!track)
+                    return;
+
+                var trip = new Trip
+                {
+                    StartLatitude = reading.Position.Latitude,
+                    StartLongitude = reading.Position.Longitude,
+                    Type = this.manager.TrackingType.Value,
+                    DateStarted = DateTimeOffset.UtcNow
+                };
+                await this.dataService.Save(trip);
+                this.settings.CurrentTripId(trip.Id);
+
+                await this.dataService.Checkin(trip.Id, reading);
+                await this.delegates.RunDelegates(x =&gt; x.OnTripStart(trip));
+            }
+            else
+            {
+                await this.dataService.Checkin(this.CurrentTripId.Value, reading);
+
+                if (!track)
+                {
+                    // stop trip
+                    var trip = await this.dataService.GetTrip(this.CurrentTripId.Value);
+                    trip.DateFinished = DateTimeOffset.UtcNow;
+                    trip.AverageSpeedMetersPerHour = await this.dataService.GetTripAverageSpeedInMetersPerHour(trip.Id);
+                    trip.TotalDistanceMeters = await this.dataService.GetTripTotalDistanceInMeters(trip.Id);
+                    trip.EndLongitude = reading.Position.Longitude;
+                    trip.EndLatitude = reading.Position.Latitude;
+
+                    this.settings.CurrentTripId(null);
+                    await this.dataService.Save(trip);
+                    await this.delegates.RunDelegates(x =&gt; x.OnTripEnd(trip));
+                }
+            }
+        }
+
+
+        async Task&lt;MotionActivityEvent&gt; GetLastActivity()
+        {
+            var ts = TimeSpan.FromMinutes(5);
+            var currentTripId = this.settings.CurrentTripId();
+
+            if (currentTripId != null)
+            {
+                var trip = await this.dataService.GetTrip(currentTripId.Value);
+                ts = DateTimeOffset.UtcNow.Subtract(trip.DateStarted);
+            }
+            return await this.activityManager.GetCurrentActivity(ts);
+        }
+
+
+        bool IsTracked(MotionActivityEvent? e)
+        {
+            if (e == null)
+                return this.settings.CurrentTripId() != null;
+
+            switch (this.manager.TrackingType.Value)
+            {
+                case TripTrackingType.Stationary:
+                    return e.Types.HasFlag(MotionActivityType.Stationary);
+
+                case TripTrackingType.Cycling:
+                    return e.Types.HasFlag(MotionActivityType.Cycling);
+
+                case TripTrackingType.Running:
+                    return e.Types.HasFlag(MotionActivityType.Running);
+
+                case TripTrackingType.Walking:
+                    return e.Types.HasFlag(MotionActivityType.Walking);
+
+                case TripTrackingType.Automotive:
+                    return e.Types.HasFlag(MotionActivityType.Automotive);
+
+                case TripTrackingType.Exercise:
+                    return e.Types.HasFlag(MotionActivityType.Cycling) ||
+                           e.Types.HasFlag(MotionActivityType.Running) ||
+                           e.Types.HasFlag(MotionActivityType.Walking);
+
+                case TripTrackingType.OnFoot:
+                    return e.Types.HasFlag(MotionActivityType.Running) ||
+                           e.Types.HasFlag(MotionActivityType.Walking);
+
+                default:
+                    throw new Exception(&quot;Invalid Flag&quot;);
+            }
+        }
+    }
+}
+
+</code></pre>
+<pre><code class="language-cs">using System.Threading.Tasks;
+using Shiny.Locations;
+
+public class GpsDelegate : IGpsDelegate
+{
+    public async Task OnReading(IGpsReading reading)
+    {
+    }
+}
+</code></pre>
+<pre><code class="language-cs">using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+using Shiny.Locations.Sync;
+
+public class LocationSyncGpsDelegate : IGpsSyncDelegate
+{
+    public Task Process(IEnumerable&lt;GpsEvent&gt; gpsEvent, CancellationToken cancelToken)
+    {
+        throw new NotImplementedException();
+    }
+}
+</code></pre>
+<pre><code class="language-cs">using System.Threading.Tasks;
+using Shiny;
+using Shiny.Locations;
+
+
+public class GpsUsage
+{
+    public async Task Usage()
+    {
+        var manager = ShinyHost.Resolve&lt;IGpsManager&gt;();
+        var result = await manager.RequestAccess(GpsRequest.Realtime(true));
+        if (result == AccessState.Available)
+        {
+            //manager.WhenReading().Subscribe(reading =&gt;
+            //{
+
+            //});
+            await manager.StartListener(GpsRequest.Realtime(true));
+
+            await manager.StopListener();
+        }
+    }
+}
+</code></pre>
+
+                                </div>
+                            <div class="col-lg-2 d-none d-lg-block bg-body pl-3 pt-3">
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer" class="p-3 text-white font-size-sm">
+        <div class="container">
+            <div>hiny
+                <span>© 2021 S</span>
+                <span class="float-right" style="color: #888888;"></span>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+            mermaid.initialize(
+            {
+                flowchart:
+                {
+                    useMaxWidth: false
+                },
+                startOnLoad: false,
+                cloneCssStyles: false
+            });
+            mermaid.init(undefined, ".mermaid");
+
+            // Remove the max-width setting that Mermaid sets
+            var mermaidSvg = $('.mermaid svg');
+            mermaidSvg.addClass('img-responsive');
+            mermaidSvg.css('max-width', '');
+
+            // Make it scrollable
+            var target = document.querySelector(".mermaid svg");
+            if(target !== null)
+            {
+                var panZoom = window.panZoom = svgPanZoom(target, {
+                    zoomEnabled: true,
+                    controlIconsEnabled: true,
+                    fit: true,
+                    center: true,
+                    maxZoom: 20,
+                    zoomScaleSensitivity: 0.6
+                });
+
+                // Do the reset once right away to fit the diagram
+                panZoom.resize();
+                panZoom.fit();
+                panZoom.center();
+
+                $(window).resize(function(){
+                    panZoom.resize();
+                    panZoom.fit();
+                    panZoom.center();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
