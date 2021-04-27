@@ -177,31 +177,16 @@
                                                             <a href="/ble/getting-started">Getting Started</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/ble/scanning">Scanning</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
                                                             <a href="/ble/best-practices">Best Practices</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
                                                             <a href="/ble/blemanager">BLE Manager</a>
                                                         </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/ble/connecting">Connecting</a>
-                                                        </div>
                                                         <div class="sidebar-nav-child active">
                                                             <a href="/ble/peripheral">Peripheral</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/ble/delegate">Delegate</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/ble/services">Services</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/ble/characteristics">Characteristics</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/ble/descriptors">Descriptors</a>
+                                                            <a href="/ble/gatt">Services, Characteristics, &amp; Descriptors</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
                                                             <a href="/ble/managed-peripheral">Managed Peripheral</a>
@@ -348,6 +333,30 @@
                                     <h1 id="device">Device</h1>
 <p>This section deals with gatt connections and state monitoring for a device.
 You should maintain a reference to a device if you intend to connect to it.</p>
+<p>Once you have scanned and found your peripheral, you can move on to connecting to it.  BLE operates on something called GATT (Generic Attributes).</p>
+<p>GATT is composed of 3 components</p>
+<ol>
+<li>Services - this is a logical grouping of characteristics</li>
+<li>Characteristics - this is the MAIN area of things that you will work with.  This is where the reading, writing, &amp; notifications take place</li>
+<li>Descriptors - these are less important in terms of use cases, but do support read/write scenarios.  They are grouped under each characteristic</li>
+</ol>
+<h2 id="peripheral.connect-void">Peripheral.Connect() - void</h2>
+<p>Connect simply issues a request to connect.  It may connect now or days from now when the device is nearby.  You should use IBleCentralDelegate when using this method.  We'll talk more about that later</p>
+<pre><code class="language-csharp">peripheral.Connect();
+</code></pre>
+<p>If you need to wait for a connection and you know your device is nearby, you can use</p>
+<pre><code class="language-csharp">await peripheral.ConnectAwait();
+</code></pre>
+<p>It is important to put your own timeout on these things using RX Timeout or supplying a cancellation token as shown below</p>
+<pre><code class="language-csharp">// this will throw an exception if it times out
+await peripheral.Timeout(TimeSpan.FromSeconds(10)).ConnectAwait();
+
+// or supply your own cancellation token
+var cancelSource = new CancellationTokenSource();
+await peripheral.ConnectAwait(cancelSource.Token);
+
+cancelSource.Cancel();
+</code></pre>
 <p><strong>Connect/Disconnect to a device</strong></p>
 <pre><code class="language-csharp">// connect
 device.Connect(new GattConnectionConfig 

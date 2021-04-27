@@ -177,31 +177,16 @@
                                                             <a href="/ble/getting-started">Getting Started</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/ble/scanning">Scanning</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
                                                             <a href="/ble/best-practices">Best Practices</a>
                                                         </div>
                                                         <div class="sidebar-nav-child active">
                                                             <a href="/ble/blemanager">BLE Manager</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/ble/connecting">Connecting</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
                                                             <a href="/ble/peripheral">Peripheral</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/ble/delegate">Delegate</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/ble/services">Services</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/ble/characteristics">Characteristics</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/ble/descriptors">Descriptors</a>
+                                                            <a href="/ble/gatt">Services, Characteristics, &amp; Descriptors</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
                                                             <a href="/ble/managed-peripheral">Managed Peripheral</a>
@@ -345,10 +330,9 @@
                                                 </div>
                                 </div>
                                 <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4">
-                                    <h1 id="adapter">Adapter</h1>
+                                    <h1 id="blemanager">BleManager</h1>
 <p>The adapter is where everything begins and ends.  Unlike the platform implementations of the adapter scan, the BLE plugin Scan()
 method will scan continuously (or restart the scan when the cycle completes) until you dispose of the Scan() token.</p>
-<p><strong>NOTE:</strong> The samples refer to <strong>BleManager</strong> which is resolved from dependency injection or ShinyHost.Resolve&lt;Shiny.BluetoothLE.IBleManager&gt;()</p>
 <h2 id="general">General</h2>
 <p><strong>Monitor and read status of adapter</strong></p>
 <pre><code class="language-csharp">// current status
@@ -378,19 +362,24 @@ scanner.Dispose(); // to stop scanning
 {
 })
 </code></pre>
-<p><strong>Open Device Settings</strong></p>
-<p><em>Currently support by iOS8, iOS9, and Android only</em></p>
-<pre><code class="language-csharp">if (IBleManager.CanOpenSettings)
-    CrossBleAdapter.Current.OpenSettings();
+<h2 id="general-scan">General Scan</h2>
+<pre><code class="language-csharp">var scan = CentralManager.Scan().Subscribe(scanResult =&gt; {});
+
+// to stop scan 
+scan.Dispose();
+
+</code></pre>
+<h2 id="specific-scans">Specific Scans</h2>
+<p><em>Find a named peripheral</em></p>
+<pre><code class="language-csharp">// this will return a single result and complete - you can await it if you want
+var peripheral = CentralManager.ScanForPeripheral(&quot;YourDevice&quot;);
+
+var peripheral = CentralManager.ScanForPeripheral(YourDevice);
 </code></pre>
 <p><strong>Change Adapter State (Power on/off)</strong></p>
 <p><em>Supported by Android only</em></p>
 <pre><code class="language-csharp">if (CrossBleAdapter.Current.CanChangeAdapterState)
     CrossBleAdapter.Current.SetAdapterState(true); // or false to disable
-</code></pre>
-<p><strong>Listen to scans for decoupled components</strong></p>
-<p><em>With the use of observables everywhere, the option to hook up to the scan result events were taken away.  There are good cases to have listening options without actually starting a scan.  This is that option!</em>_</p>
-<pre><code class="language-csharp">BleAdapter.Current.ScanListen().Subscribe(scanResult =&gt; {});
 </code></pre>
 <p><strong>Get Connected Devices</strong></p>
 <pre><code class="language-csharp">var devices = CrossBleAdapter.Current.GetConnectedDevices();
@@ -408,19 +397,12 @@ CrossBleAdapter.Current.ScanInterval(TimeSpan).Subscribe(scanResult =&gt; {});
 <pre><code class="language-csharp">// returns true if successful
 CrossBleAdapter.Current.ToggleAdapterState();
 </code></pre>
-<h2 id="open-settings">Open Settings</h2>
-<pre><code class="language-csharp">CrossBleAdapter.Current.OpenSettings();
-</code></pre>
-<h2 id="get-known-device">Get Known Device</h2>
-<p><em>Allows you to get a known device by the device ID (GUID/UUID).  Note that this ID will be different platform to platform</em></p>
-<pre><code class="language-csharp">var device = CrossBleAdapter.Current.GetKnownDevice(Guid);
-</code></pre>
 
                                 </div>
                             <div class="col-lg-2 d-none d-lg-block bg-body pl-3 pt-3">
                                         <div class="border-bottom mb-3">
                                             <p class="small font-weight-bold">On This Page</p>
-                                                <p class="small"><a href="#adapter">Adapter</a></p>
+                                                <p class="small"><a href="#blemanager">BleManager</a></p>
                                         </div>
                             </div>
                         </div>

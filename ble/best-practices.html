@@ -176,9 +176,6 @@
                                                         <div class="sidebar-nav-child">
                                                             <a href="/ble/getting-started">Getting Started</a>
                                                         </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/ble/scanning">Scanning</a>
-                                                        </div>
                                                         <div class="sidebar-nav-child active">
                                                             <a href="/ble/best-practices">Best Practices</a>
                                                         </div>
@@ -186,22 +183,10 @@
                                                             <a href="/ble/blemanager">BLE Manager</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/ble/connecting">Connecting</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
                                                             <a href="/ble/peripheral">Peripheral</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/ble/delegate">Delegate</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/ble/services">Services</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/ble/characteristics">Characteristics</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/ble/descriptors">Descriptors</a>
+                                                            <a href="/ble/gatt">Services, Characteristics, &amp; Descriptors</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
                                                             <a href="/ble/managed-peripheral">Managed Peripheral</a>
@@ -345,34 +330,7 @@
                                                 </div>
                                 </div>
                                 <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4">
-                                    <h1 id="ios">iOS</h1>
-<p>Apple has some very interesting limitations on Bluetooth especially when it comes to background scanning</p>
-<h2 id="backgrounding">Backgrounding</h2>
-<ul>
-<li>Device names are not available at all</li>
-<li>When scanning in the background, pass a ScanConfig argument with a service UUID you wish to scan for.  Without this, you will get nothing</li>
-</ul>
-<pre><code class="language-csharp">BleAdapter.Current.Scan(
-    new ScanSettings 
-    {
-        ServiceUUID = new Guid(&quot;&lt;your guid here&gt;&quot;)
-    }
-)
-.Subscribe(scanResult =&gt; 
-{
-})
-</code></pre>
-<h2 id="background-restoration">Background Restoration</h2>
-<p><em>This feature is only provided on iOS.  It allows for a CBCentralManager to be restored upon a device reconnection (and in turn, get the device that reconnected)</em>
-<em>There is additional configuration required to use this event</em></p>
-<pre><code class="language-csharp">
-// then in your shared code (somewhere near your initialization)
-BleAdapter.Current.WhenDeviceStateRestored().Subscribe(device =&gt; 
-{
-    // will return the device(s) that are reconnecting
-});
-</code></pre>
-<h1 id="android">Android</h1>
+                                    <h1 id="android">Android</h1>
 <p>Android Bluetooth is painful and that's being nice.  This library attempts to deal with the necessary thread handling all internally.</p>
 <p>All of the classes and members listed in this page can only be called from your Android project, not your PCL/Core library.  You should call and set
 these values at your main launcher activity or even at an application level.</p>
@@ -426,7 +384,6 @@ CrossBleAdapter.PauseBetweenAutoReconnectAttempts { get; set; } = TimeSpan.FromS
                             <div class="col-lg-2 d-none d-lg-block bg-body pl-3 pt-3">
                                         <div class="border-bottom mb-3">
                                             <p class="small font-weight-bold">On This Page</p>
-                                                <p class="small"><a href="#ios">iOS</a></p>
                                                 <p class="small"><a href="#android">Android</a></p>
                                         </div>
                             </div>

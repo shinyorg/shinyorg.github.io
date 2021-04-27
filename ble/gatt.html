@@ -19,7 +19,7 @@
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/components/prism-core.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/plugins/autoloader/prism-autoloader.min.js" data-no-mirror></script>
 
-    <title>Shiny.NET - Connecting</title>
+    <title>Shiny.NET - Services, Characteristics, &amp; Descriptors</title>
 </head>
 <body class="d-flex flex-column">
     <div class="flex-grow-1 d-flex flex-column">
@@ -52,7 +52,7 @@
                         <div class="row">
                             <div class="offset-md-3 offset-lg-2 px-3 px-md-0">
                                 <div class="section text-uppercase">Shiny.NET</div>
-                                <div class="text-white m-0 title">Connecting</div>
+                                <div class="text-white m-0 title">Services, Characteristics, &amp; Descriptors</div>
                             </div>
                         </div>
                     </div>
@@ -177,31 +177,16 @@
                                                             <a href="/ble/getting-started">Getting Started</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/ble/scanning">Scanning</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
                                                             <a href="/ble/best-practices">Best Practices</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
                                                             <a href="/ble/blemanager">BLE Manager</a>
                                                         </div>
-                                                        <div class="sidebar-nav-child active">
-                                                            <a href="/ble/connecting">Connecting</a>
-                                                        </div>
                                                         <div class="sidebar-nav-child">
                                                             <a href="/ble/peripheral">Peripheral</a>
                                                         </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/ble/delegate">Delegate</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/ble/services">Services</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/ble/characteristics">Characteristics</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/ble/descriptors">Descriptors</a>
+                                                        <div class="sidebar-nav-child active">
+                                                            <a href="/ble/gatt">Services, Characteristics, &amp; Descriptors</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
                                                             <a href="/ble/managed-peripheral">Managed Peripheral</a>
@@ -345,29 +330,128 @@
                                                 </div>
                                 </div>
                                 <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4">
-                                    <p>Once you have scanned and found your peripheral, you can move on to connecting to it.  BLE operates on something called GATT (Generic Attributes).</p>
-<p>GATT is composed of 3 components</p>
-<ol>
-<li>Services - this is a logical grouping of characteristics</li>
-<li>Characteristics - this is the MAIN area of things that you will work with.  This is where the reading, writing, &amp; notifications take place</li>
-<li>Descriptors - these are less important in terms of use cases, but do support read/write scenarios.  They are grouped under each characteristic</li>
-</ol>
-<h2 id="peripheral.connect-void">Peripheral.Connect() - void</h2>
-<p>Connect simply issues a request to connect.  It may connect now or days from now when the device is nearby.  You should use IBleCentralDelegate when using this method.  We'll talk more about that later</p>
-<pre><code class="language-csharp">peripheral.Connect();
+                                    <ul>
+<li><a href="#services">Services</a></li>
+<li><a href="#characteristics">Characteristics</a></li>
+<li><a href="#descriptors">Descriptors</a></li>
+</ul>
+<h2 id="services">Services</h2>
+<p>Once connected to a device, you can initiate service discovery (it is pretty much all you can do against services).  It is important
+not to hold a reference to a service in your code as it will be invalidated with new connections.  You can called for WhenServicesDiscovered()
+with or without a connection.  When the device becomes connected, it will initiate the discovery process.  Note that you can call WhenServicesDiscovered() repeatedly
+and it will simply replay what has been discovered since the connection occurred.</p>
+<p><strong>Discover services on a device</strong></p>
+<pre><code class="language-csharp">Device.GetServices().Subscribe(services =&gt; 
+{
+});
 </code></pre>
-<p>If you need to wait for a connection and you know your device is nearby, you can use</p>
-<pre><code class="language-csharp">await peripheral.ConnectAwait();
+<p><strong>Skip the Services</strong></p>
+<p>In a lot of cases, you won't care about the service discovery portion.  You can use the extension
+device.WhenAnyCharacteristicDiscovered() to bypass and just discover all characteristics across all services.</p>
+<p>Characteristics are the heart and soul of the BLE GATT connections.  You can read, write, and monitor the values (depending on permissions) with this plugin.</p>
+<p><em>It important thing with characteristics is NOT to store a reference to an object.  This reference becomes invalidated between connections to a device!</em></p>
+<h2 id="general-usage">General Usage</h2>
+<p><strong>Discover characteristics on service</strong></p>
+<pre><code class="language-csharp">Service.DiscoverCharacteristics().Subscribe(characteristics =&gt; {});
 </code></pre>
-<p>It is important to put your own timeout on these things using RX Timeout or supplying a cancellation token as shown below</p>
-<pre><code class="language-csharp">// this will throw an exception if it times out
-await peripheral.Timeout(TimeSpan.FromSeconds(10)).ConnectAwait();
+<p><strong>Read and Write to a characteristic</strong></p>
+<pre><code class="language-csharp">// once you have your characteristic instance from the service discovery
+Characteristic.Read().Subscribe(
+    result =&gt; {
+        result.Data (byte[])
+    },
+    exception =&gt; {
+        // reads can error!
+    }
+);
 
-// or supply your own cancellation token
-var cancelSource = new CancellationTokenSource();
-await peripheral.ConnectAwait(cancelSource.Token);
+Characteristic.Write(bytes).Subscribe(
+    result =&gt; {
+        // you don't really need to do anything with the result
+    },
+    exception =&gt; {
+        // writes can error!
+    }
+);
+</code></pre>
+<p><strong>Write Without Response</strong></p>
+<pre><code class="language-csharp">Characteristic.WriteWithoutResponse(bytes).Subscribe();
+</code></pre>
+<p><strong>Notifications</strong></p>
+<pre><code class="language-csharp"> // pass true to use indications (if available on android or UWP)
+Characteristic.EnableNotifications(true);
+var sub = characteristic
+    .WhenNotificationReceived()
+    .Subscribe(
+        result =&gt; { result.Data... }
+    );
 
-cancelSource.Cancel();
+// don't forget to turn them off when you're done
+characteristic.DisableNotifications().Subscribe(); // pass true to enable indications if supported
+
+// there are also some nice extensions to help speed this up
+Characteristic.RegisterAndNotify().Subscribe(result =&gt; {
+    // if you don't care when the notifications have been enabled
+});
+
+// From the device, this will attempt to discover a known service /w a known characteristic and hook that characteristic
+// for notifications - 1 stop shop all the way
+Device.HookCharacteristic(serviceUuid, characteristicUuid).Subscribe(result =&gt; {
+});
+</code></pre>
+<p><strong>Discover descriptors on a characteristic</strong></p>
+<pre><code class="language-csharp">// once you have your characteristic instance from the service discovery.
+
+var sub = characteristic.WhenDescriptorsDiscovered().Subscribe(bytes =&gt; {});
+
+characteristic.WhenDescriptorsDiscovered().Subscribe(descriptor =&gt; {});
+</code></pre>
+<p><strong>BLOB Writes</strong></p>
+<p>Used for sending larger arrays or streams of data without working with the MTU byte gap</p>
+<pre><code class="language-csharp">characteristic.BlobWrite(stream).Subscribe(x =&gt; 
+{
+	// subscription will give you current position and pulse every time a buffer is written
+	// if write no response is used, a 100ms gap is placed after each write.  Note that this event will fire quicker as well
+});
+
+
+// same as above but with a byte array
+characteristic.BlobWrite(bytes).Subscribe(x =&gt; {}); 
+</code></pre>
+<p><strong>Reliable Write Transactions</strong></p>
+<pre><code class="language-csharp">// TODO
+</code></pre>
+<pre><code class="language-csharp">
+// register and subscribe to notifications
+characteristic.RegisterAndNotify().Subscribe(result =&gt; {});
+
+// read a characteristic on a given interval.  This is a substitute for SubscribeToNotifications()
+characteristic.ReadInterval(TimeSpan).Subscribe(result =&gt; { result.Data... });
+
+// discover all characteristics without finding services first
+// you should not use this in production - it is more for easy discovery
+// you should use GetKnownService/GetKnownCharacteristic
+device.WhenAnyCharacteristicDiscovered().Subscribe(characteristic =&gt; {});
+
+// will continue to read in a loop until ending bytes (argument) is detected
+device.ReadUntil(new byte[] { 0x0 }).Subscribe(result =&gt; { result.Data... });
+</code></pre>
+<h2 id="descriptors">Descriptors</h2>
+<p>Descriptors have minimal functionality.  You can read &amp; write their values.</p>
+<p><em>It is important (like services and characteristics) that you do not maintain an instance to descriptors across connections</em></p>
+<p><strong>Read/Write to a Descriptor</strong></p>
+<pre><code class="language-csharp">// once you have your characteristic instance from the characteristic
+await descriptor.Write(bytes);
+
+await descriptor.Read();
+</code></pre>
+<p><strong>Monitor Descriptor Read/Writes</strong></p>
+<pre><code class="language-csharp">
+descriptor.WhenRead().Subscribe(x =&gt; {});
+
+
+descriptor.WhenWritten().Subscribe(x =&gt; {});
+
 </code></pre>
 
                                 </div>
