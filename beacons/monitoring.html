@@ -102,6 +102,9 @@
                                                             <a href="/setup/best-practices">Best Practices</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
+                                                            <a href="/setup/integrations">Integrations</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
                                                             <a href="/setup/nuget">NuGet Packages</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
@@ -328,7 +331,7 @@
                                                         </div>
                                                 </div>
                                 </div>
-                                <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4">
+                                <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4" style="overflow-y: auto">
                                     <p>Beacon monitoring is quite a bit different than ranging.  Monitoring does not provide distance and has many limitations, but it works in the background.  Monitoring uses beacon regions much like ranging, however, the region is all that is returned in the delegate to protect user privacy
 Monitoring is limited to a maximum of 20 regions on iOS.  On Android &amp; UWP, there currently isn't a limit HOWEVER the BLE scans do emit quite a number of scan packets.  If you have too many, your scan will slow down your app quite a bit.</p>
 <table>
