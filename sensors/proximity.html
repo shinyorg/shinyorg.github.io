@@ -107,9 +107,6 @@
                                                             <a href="/setup/integrations">Integrations</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/setup/nuget">NuGet Packages</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
                                                             <a href="/setup/statics">Static Class Generation</a>
                                                         </div>
                                                 </div>
@@ -313,6 +310,9 @@
                                                             <a href="/appservices/geodispatch">GeoDispatch</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
+                                                            <a href="/appservices/gpstags">GPS Tags</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
                                                             <a href="/appservices/locsync">Location Sync</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
@@ -329,45 +329,52 @@
 <a href="/release-notes">Release Notes</a>                                            </div>
                                                 <div class="sidebar-nav-children">
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/release-notes/v20">v2.0.0 (April 24, 2021)</a>
+                                                            <a href="/release-notes/v20">v2.0.2639 (May 5, 2021)</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/release-notes/v201">v2.0-preview (May 7, 2021)</a>
                                                         </div>
                                                 </div>
                                 </div>
                                 <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4" style="overflow-y: auto">
-                                    <table>
-<thead>
-<tr>
-<th>Area</th>
-<th>Info</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>NuGet</strong></td>
-<td><a href="https://www.nuget.org/packages/Shiny.Sensors/" target="Shiny.Sensors"><img src="https://img.shields.io/nuget/v/Shiny.Sensors.svg?style=for-the-badge&label=Shiny.Sensors" /></a></td>
-</tr>
-<tr>
-<td><strong>Service</strong></td>
-<td>Shiny.Sensors.IProximity</td>
-</tr>
-<tr>
-<td><strong>Startup</strong></td>
-<td>services.UseProximity</td>
-</tr>
-<tr>
-<td><strong>Static</strong></td>
-<td>ShinyProximity</td>
-</tr>
-<tr>
-<td>- <em>iOS</em></td>
-<td>9</td>
-</tr>
-<tr>
-<td>- <em>Android</em></td>
-<td>8.0</td>
-</tr>
-</tbody>
-</table>
+                                    <div class="tab-wrap">
+<input type="radio" id="e37f7e66279e4605ab190a7d1bc188ba-d4dfb5da26614d7792d3ce0a7ec4f486" name="e37f7e66279e4605ab190a7d1bc188ba" class="tab" checked><label for="e37f7e66279e4605ab190a7d1bc188ba-d4dfb5da26614d7792d3ce0a7ec4f486" >General</label>
+<input type="radio" id="e37f7e66279e4605ab190a7d1bc188ba-68f0e94447ff497ba102fce01dab8d32" name="e37f7e66279e4605ab190a7d1bc188ba" class="tab" ><label for="e37f7e66279e4605ab190a7d1bc188ba-68f0e94447ff497ba102fce01dab8d32" >Startup</label>
+<input type="radio" id="e37f7e66279e4605ab190a7d1bc188ba-b62878a55e5f4c5d83d3f174a7acca81" name="e37f7e66279e4605ab190a7d1bc188ba" class="tab" ><label for="e37f7e66279e4605ab190a7d1bc188ba-b62878a55e5f4c5d83d3f174a7acca81" >Android</label>
+<input type="radio" id="e37f7e66279e4605ab190a7d1bc188ba-247fb08f43604bc9b1e88aba604538b1" name="e37f7e66279e4605ab190a7d1bc188ba" class="tab" ><label for="e37f7e66279e4605ab190a7d1bc188ba-247fb08f43604bc9b1e88aba604538b1" >iOS</label>
+<div class="tab__content">
+<p>|Area|Info|
+|---|---|
+|Description||
+|Service|Shiny.Sensors.IProximity
+|NuGet|<a href="https://www.nuget.org/packages/Shiny.Sensors/" target="Shiny.Sensors"><img src="https://img.shields.io/nuget/v/Shiny.Sensors.svg?style=for-the-badge&label=Shiny.Sensors" /></a>|
+|Static Generated Class|ShinyProximity</p>
+</div>
+<div class="tab__content">
+<pre><code class="language-csharp">using Microsoft.Extensions.DependencyInjection;
+using Shiny;
+
+namespace YourNamespace
+{
+    public class YourShinyStartup : ShinyStartup
+    {
+        public override void ConfigureServices(IServiceCollection services, IPlatform platform)
+        { 
+            
+&lt;p&gt;services.UseProximity 
+        }
+    }
+}
+</code></pre>
+</p>
+</div>
+<div class="tab__content">
+<h2>Minimum Version: 8.0</h2>
+</div>
+<div class="tab__content">
+<h2>Minimum Version: 10</h2>
+</div>
+</div>
 
                                 </div>
                             <div class="col-lg-2 d-none d-lg-block bg-body pl-3 pt-3">

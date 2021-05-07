@@ -1,21 +1,23 @@
-<!DOCTYPE html><html><head>
+﻿<!DOCTYPE html>
+<html>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="/assets/bootstrap/bootstrap.css" rel="stylesheet">
-    <link href="/assets/css/styles.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&amp;family=Roboto+Slab:wght@400;700&amp;family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&amp;display=swap" rel="stylesheet" data-no-mirror="">
+    <link href="/assets/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="/assets/css/styles.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto+Slab:wght@400;700&family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet" data-no-mirror>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/themes/prism.css">
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/a1cad7ed9a.js" crossorigin="anonymous" data-no-mirror=""></script>
+    <script src="https://kit.fontawesome.com/a1cad7ed9a.js" crossorigin="anonymous" data-no-mirror></script>
     <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/components/prism-core.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/plugins/autoloader/prism-autoloader.min.js" data-no-mirror=""></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/plugins/autoloader/prism-autoloader.min.js" data-no-mirror></script>
 
     <title>Shiny.NET - Geofencing</title>
     <link href="/scss/TabGroup.css" rel="stylesheet" type="text/css">
@@ -103,9 +105,6 @@
                                                         </div>
                                                         <div class="sidebar-nav-child">
                                                             <a href="/setup/integrations">Integrations</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/setup/nuget">NuGet Packages</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
                                                             <a href="/setup/statics">Static Class Generation</a>
@@ -311,6 +310,9 @@
                                                             <a href="/appservices/geodispatch">GeoDispatch</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
+                                                            <a href="/appservices/gpstags">GPS Tags</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
                                                             <a href="/appservices/locsync">Location Sync</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
@@ -327,53 +329,91 @@
 <a href="/release-notes">Release Notes</a>                                            </div>
                                                 <div class="sidebar-nav-children">
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/release-notes/v20">v2.0.0 (April 24, 2021)</a>
+                                                            <a href="/release-notes/v20">v2.0.2639 (May 5, 2021)</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/release-notes/v201">v2.0-preview (May 7, 2021)</a>
                                                         </div>
                                                 </div>
                                 </div>
                                 <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4" style="overflow-y: auto">
-                                    <table>
-<thead>
-<tr>
-<th>Area</th>
-<th>Info</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>NuGet</strong></td>
-<td><a href="https://www.nuget.org/packages/Shiny.Locations/" target="Shiny.Locations"><img src="https://img.shields.io/nuget/v/Shiny.Locations.svg?style=for-the-badge&amp;label=Shiny.Locations"></a></td>
-</tr>
-<tr>
-<td><strong>Service</strong></td>
-<td>Shiny.Locations.IGeofenceManager</td>
-</tr>
-<tr>
-<td><strong>Startup</strong></td>
-<td>services.UseGeofencing</td>
-</tr>
-<tr>
-<td><strong>Delegate</strong></td>
-<td>Shiny.Locations.IGeofenceDelegate (Required)</td>
-</tr>
-<tr>
-<td><strong>Static</strong></td>
-<td>ShinyGeofencing</td>
-</tr>
-<tr>
-<td>- <em>iOS</em></td>
-<td>9 (<a href="/setup/ios">OS Configuration Required</a>)</td>
-</tr>
-<tr>
-<td>- <em>Android</em></td>
-<td>8.0</td>
-</tr>
-<tr>
-<td>- <em>Uwp</em></td>
-<td>17763</td>
-</tr>
-</tbody>
-</table>
+                                    <div class="tab-wrap">
+<input type="radio" id="60ee5600e3b54286b9a5890a38491ecd-d7940913bc6c4ef08d4c4a2e21f2309f" name="60ee5600e3b54286b9a5890a38491ecd" class="tab" checked><label for="60ee5600e3b54286b9a5890a38491ecd-d7940913bc6c4ef08d4c4a2e21f2309f" >General</label>
+<input type="radio" id="60ee5600e3b54286b9a5890a38491ecd-108ee9d982fe434fa440321dd36b41b7" name="60ee5600e3b54286b9a5890a38491ecd" class="tab" ><label for="60ee5600e3b54286b9a5890a38491ecd-108ee9d982fe434fa440321dd36b41b7" >Startup</label>
+<input type="radio" id="60ee5600e3b54286b9a5890a38491ecd-120185bb06a84d89bb239e7211ad51e8" name="60ee5600e3b54286b9a5890a38491ecd" class="tab" ><label for="60ee5600e3b54286b9a5890a38491ecd-120185bb06a84d89bb239e7211ad51e8" >Android</label>
+<input type="radio" id="60ee5600e3b54286b9a5890a38491ecd-c15e566a32324042891e86e75d1250d4" name="60ee5600e3b54286b9a5890a38491ecd" class="tab" ><label for="60ee5600e3b54286b9a5890a38491ecd-c15e566a32324042891e86e75d1250d4" >iOS</label>
+<input type="radio" id="60ee5600e3b54286b9a5890a38491ecd-69c11c9503c541789623c1106410f39c" name="60ee5600e3b54286b9a5890a38491ecd" class="tab" ><label for="60ee5600e3b54286b9a5890a38491ecd-69c11c9503c541789623c1106410f39c" >Windows</label>
+<div class="tab__content">
+<p>|Area|Info|
+|---|---|
+|Description||
+|Service|Shiny.Locations.IGeofenceManager
+|NuGet|<a href="https://www.nuget.org/packages/Shiny.Locations/" target="Shiny.Locations"><img src="https://img.shields.io/nuget/v/Shiny.Locations.svg?style=for-the-badge&label=Shiny.Locations" /></a>|
+|Static Generated Class|ShinyGeofencing</p>
+</div>
+<div class="tab__content">
+<pre><code class="language-csharp">using Microsoft.Extensions.DependencyInjection;
+using Shiny;
+
+namespace YourNamespace
+{
+    public class YourShinyStartup : ShinyStartup
+    {
+        public override void ConfigureServices(IServiceCollection services, IPlatform platform)
+        { 
+            
+&lt;p&gt;services.UseGeofencing&amp;lt;Shiny.Locations.IGeofenceDelegate&amp;gt;();
+services.UseGeofencing 
+        }
+    }
+}
+</code></pre>
+</p>
+</div>
+<div class="tab__content">
+<h2>Minimum Version: 8.0</h2>
+<h3>AndroidManifest.xml</h3>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; android:versionCode=&quot;1&quot; android:versionName=&quot;1.0&quot; package=&quot;com.org.yourapp&quot; android:installLocation=&quot;preferExternal&quot;&gt;
+    &lt;uses-permission android:name=&quot;android.permission.ACCESS_COARSE_LOCATION&quot; /&gt;
+    &lt;uses-permission android:name=&quot;android.permission.ACCESS_FINE_LOCATION&quot; /&gt;
+    &lt;uses-permission android:name=&quot;android.permission.ACCESS_BACKGROUND_LOCATION&quot; /&gt;
+    &lt;uses-permission android:name=&quot;android.permission.FOREGROUND_SERVICE&quot; /&gt;
+    &lt;uses-feature android:name=&quot;android.hardware.location.gps&quot; /&gt;
+    &lt;uses-feature android:name=&quot;android.hardware.location.network&quot; /&gt;
+&lt;/manifest&gt;
+</code></pre>
+</div>
+<div class="tab__content">
+<h2>Minimum Version: 10</h2>
+<h3>Info.plist</h3>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot; -//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+&lt;dict&gt;
+    &lt;key&gt;NSLocationAlwaysUsageDescription&lt;/key&gt;
+    &lt;string&gt;Say something useful here that your users will understand&lt;/string&gt;
+    &lt;key&gt;NSLocationAlwaysAndWhenInUseUsageDescription&lt;/key&gt;
+    &lt;string&gt;Say something useful here that your users will understand&lt;/string&gt;
+    &lt;key&gt;NSLocationWhenInUseUsageDescription&lt;/key&gt;
+    &lt;string&gt;Say something useful here that your users will understand&lt;/string&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
+</code></pre>
+</div>
+<div class="tab__content">
+<h3>Package.appxmanifest</h3>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+&lt;Package&gt;
+    &lt;Applications&gt;
+    &lt;/Applications&gt;
+    &lt;Capabilities&gt;
+        &lt;DeviceCapability Name=&quot;location&quot; /&gt;
+    &lt;/Capabilities&gt;
+&lt;/Package&gt;
+</code></pre>
+</div>
+</div>
 <pre><code class="language-cs">using Microsoft.Extensions.DependencyInjection;
 using Shiny;
 
@@ -455,8 +495,8 @@ namespace Shiny.Locations
         /// &lt;summary&gt;
         /// This is fired when the geofence region status has changed
         /// &lt;/summary&gt;
-        /// &lt;param name="newStatus"&gt;The new geofence state.&lt;/param&gt;
-        /// &lt;param name="region"&gt;The geofence region.&lt;/param&gt;
+        /// &lt;param name=&quot;newStatus&quot;&gt;The new geofence state.&lt;/param&gt;
+        /// &lt;param name=&quot;region&quot;&gt;The geofence region.&lt;/param&gt;
         Task OnStatusChanged(GeofenceState newStatus, GeofenceRegion region);
     }
 }
@@ -552,7 +592,7 @@ public class GeofenceUsage
         if (result == AccessState.Available)
         {
             await manager.StartMonitoring(new GeofenceRegion(
-                "YourIdentifier",
+                &quot;YourIdentifier&quot;,
                 new Position(1, 1),
                 Distance.FromKilometers(1)
             ));
@@ -562,7 +602,7 @@ public class GeofenceUsage
 
     public async Task Stop()
     {
-        await ShinyHost.Resolve&lt;IGeofenceManager&gt;().StopMonitoring("YourIdentifier");
+        await ShinyHost.Resolve&lt;IGeofenceManager&gt;().StopMonitoring(&quot;YourIdentifier&quot;);
 
         // or
 
@@ -632,5 +672,5 @@ public class GeofenceUsage
             }
         });
     </script>
-
-</body></html>
+</body>
+</html>

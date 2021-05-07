@@ -107,9 +107,6 @@
                                                             <a href="/setup/integrations">Integrations</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/setup/nuget">NuGet Packages</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
                                                             <a href="/setup/statics">Static Class Generation</a>
                                                         </div>
                                                 </div>
@@ -313,6 +310,9 @@
                                                             <a href="/appservices/geodispatch">GeoDispatch</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
+                                                            <a href="/appservices/gpstags">GPS Tags</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
                                                             <a href="/appservices/locsync">Location Sync</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
@@ -329,50 +329,73 @@
 <a href="/release-notes">Release Notes</a>                                            </div>
                                                 <div class="sidebar-nav-children">
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/release-notes/v20">v2.0.0 (April 24, 2021)</a>
+                                                            <a href="/release-notes/v20">v2.0.2639 (May 5, 2021)</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/release-notes/v201">v2.0-preview (May 7, 2021)</a>
                                                         </div>
                                                 </div>
                                 </div>
                                 <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4" style="overflow-y: auto">
                                     <p>Ranging is a foreground only operation.  You can scan for &quot;all&quot; beacons with a particular filter set.  Meaning if you only filter by UUID, all beacons under that UUID will be returned.  With ranging, all of the identifier values are provided.  You are</p>
-<table>
-<thead>
-<tr>
-<th>Area</th>
-<th>Info</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>NuGet</strong></td>
-<td><a href="https://www.nuget.org/packages/Shiny.Beacons/" target="Shiny.Beacons"><img src="https://img.shields.io/nuget/v/Shiny.Beacons.svg?style=for-the-badge&label=Shiny.Beacons" /></a></td>
-</tr>
-<tr>
-<td><strong>Service</strong></td>
-<td>Shiny.Beacons.IBeaconRangingManager</td>
-</tr>
-<tr>
-<td><strong>Startup</strong></td>
-<td>services.UseBeaconRanging</td>
-</tr>
-<tr>
-<td><strong>Static</strong></td>
-<td>ShinyBeaconRangingManager</td>
-</tr>
-<tr>
-<td>- <em>iOS</em></td>
-<td>9</td>
-</tr>
-<tr>
-<td>- <em>Android</em></td>
-<td>8.0</td>
-</tr>
-<tr>
-<td>- <em>Uwp</em></td>
-<td>17763</td>
-</tr>
-</tbody>
-</table>
+<div class="tab-wrap">
+<input type="radio" id="ace9b314ee3d4fc681bc5afb4ec96b34-8ca7990949eb4cb4905a25ef2447497a" name="ace9b314ee3d4fc681bc5afb4ec96b34" class="tab" checked><label for="ace9b314ee3d4fc681bc5afb4ec96b34-8ca7990949eb4cb4905a25ef2447497a" >General</label>
+<input type="radio" id="ace9b314ee3d4fc681bc5afb4ec96b34-078d0bf3dd334b9182342044bfdf2d8a" name="ace9b314ee3d4fc681bc5afb4ec96b34" class="tab" ><label for="ace9b314ee3d4fc681bc5afb4ec96b34-078d0bf3dd334b9182342044bfdf2d8a" >Startup</label>
+<input type="radio" id="ace9b314ee3d4fc681bc5afb4ec96b34-9853f8f979ae43dca004dd0d7f00db8d" name="ace9b314ee3d4fc681bc5afb4ec96b34" class="tab" ><label for="ace9b314ee3d4fc681bc5afb4ec96b34-9853f8f979ae43dca004dd0d7f00db8d" >Android</label>
+<input type="radio" id="ace9b314ee3d4fc681bc5afb4ec96b34-5f453c3b7bbb40838a1e3d6a43310840" name="ace9b314ee3d4fc681bc5afb4ec96b34" class="tab" ><label for="ace9b314ee3d4fc681bc5afb4ec96b34-5f453c3b7bbb40838a1e3d6a43310840" >iOS</label>
+<div class="tab__content">
+<p>|Area|Info|
+|---|---|
+|Description||
+|Service|Shiny.Beacons.IBeaconRangingManager
+|NuGet|<a href="https://www.nuget.org/packages/Shiny.Beacons/" target="Shiny.Beacons"><img src="https://img.shields.io/nuget/v/Shiny.Beacons.svg?style=for-the-badge&label=Shiny.Beacons" /></a>|
+|Static Generated Class|ShinyBeaconRangingManager</p>
+</div>
+<div class="tab__content">
+<pre><code class="language-csharp">using Microsoft.Extensions.DependencyInjection;
+using Shiny;
+
+namespace YourNamespace
+{
+    public class YourShinyStartup : ShinyStartup
+    {
+        public override void ConfigureServices(IServiceCollection services, IPlatform platform)
+        { 
+            
+&lt;p&gt;services.UseBeaconRanging 
+        }
+    }
+}
+</code></pre>
+</p>
+</div>
+<div class="tab__content">
+<h2>Minimum Version: 8.0</h2>
+<h3>AndroidManifest.xml</h3>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; android:versionCode=&quot;1&quot; android:versionName=&quot;1.0&quot; package=&quot;com.org.yourapp&quot; android:installLocation=&quot;preferExternal&quot;&gt;
+    &lt;uses-permission android:name=&quot;android.permission.ACCESS_COARSE_LOCATION&quot; /&gt;
+    &lt;uses-permission android:name=&quot;android.permission.ACCESS_FINE_LOCATION&quot; /&gt;
+    &lt;uses-permission android:name=&quot;android.permission.BLUETOOTH_PRIVILEGED&quot; /&gt;
+    &lt;uses-permission android:name=&quot;android.permission.BLUETOOTH_ADMIN&quot; /&gt;
+    &lt;uses-permission android:name=&quot;android.permission.BLUETOOTH&quot; /&gt;
+&lt;/manifest&gt;
+</code></pre>
+</div>
+<div class="tab__content">
+<h2>Minimum Version: 10</h2>
+<h3>Info.plist</h3>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot; -//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+&lt;dict&gt;
+    &lt;key&gt;NSLocationWhenInUseUsageDescription&lt;/key&gt;
+    &lt;string&gt;Say something useful here that your users will understand&lt;/string&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
+</code></pre>
+</div>
+</div>
 <pre><code class="language-csharp">using Microsoft.Extensions.DependencyInjection;
 using Shiny;
 

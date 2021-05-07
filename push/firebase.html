@@ -105,9 +105,6 @@
                                                             <a href="/setup/integrations">Integrations</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/setup/nuget">NuGet Packages</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
                                                             <a href="/setup/statics">Static Class Generation</a>
                                                         </div>
                                                 </div>
@@ -311,6 +308,9 @@
                                                             <a href="/appservices/geodispatch">GeoDispatch</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
+                                                            <a href="/appservices/gpstags">GPS Tags</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
                                                             <a href="/appservices/locsync">Location Sync</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
@@ -327,45 +327,97 @@
 <a href="/release-notes">Release Notes</a>                                            </div>
                                                 <div class="sidebar-nav-children">
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/release-notes/v20">v2.0.0 (April 24, 2021)</a>
+                                                            <a href="/release-notes/v20">v2.0.2639 (May 5, 2021)</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/release-notes/v201">v2.0-preview (May 7, 2021)</a>
                                                         </div>
                                                 </div>
                                 </div>
                                 <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4" style="overflow-y: auto">
-                                    <table>
-<thead>
-<tr>
-<th>Area</th>
-<th>Info</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>NuGet</strong></td>
-<td><a href="https://www.nuget.org/packages/Shiny.Push.FirebaseMessaging/" target="Shiny.Push.FirebaseMessaging"><img src="https://img.shields.io/nuget/v/Shiny.Push.FirebaseMessaging.svg?style=for-the-badge&amp;label=Shiny.Push.FirebaseMessaging"></a></td>
-</tr>
-<tr>
-<td><strong>Service</strong></td>
-<td>Shiny.Push.IPushManager</td>
-</tr>
-<tr>
-<td><strong>Startup</strong></td>
-<td>services.UseFirebaseMessaging</td>
-</tr>
-<tr>
-<td><strong>Delegate</strong></td>
-<td>Shiny.Push.IPushDelegate (Required)</td>
-</tr>
-<tr>
-<td>- <em>iOS</em></td>
-<td>9 (<a href="/setup/ios">OS Configuration Required</a>)</td>
-</tr>
-<tr>
-<td>- <em>Android</em></td>
-<td>8.0 (<a href="/setup/android">OS Configuration Required</a>)</td>
-</tr>
-</tbody>
-</table>
+                                    <div class="tab-wrap">
+<input type="radio" id="fe86e0e80baf4b489c7855df8a1468d7-b291d6ac32614fcb970116db197d0294" name="fe86e0e80baf4b489c7855df8a1468d7" class="tab" checked=""><label for="fe86e0e80baf4b489c7855df8a1468d7-b291d6ac32614fcb970116db197d0294">General</label>
+<input type="radio" id="fe86e0e80baf4b489c7855df8a1468d7-55857886a2e249a28e5f29cab6eabd96" name="fe86e0e80baf4b489c7855df8a1468d7" class="tab"><label for="fe86e0e80baf4b489c7855df8a1468d7-55857886a2e249a28e5f29cab6eabd96">Startup</label>
+<input type="radio" id="fe86e0e80baf4b489c7855df8a1468d7-b59436e6c00442ddacc5926ccdc6f352" name="fe86e0e80baf4b489c7855df8a1468d7" class="tab"><label for="fe86e0e80baf4b489c7855df8a1468d7-b59436e6c00442ddacc5926ccdc6f352">Android</label>
+<input type="radio" id="fe86e0e80baf4b489c7855df8a1468d7-c7666982469244eb930aadc70a482cfd" name="fe86e0e80baf4b489c7855df8a1468d7" class="tab"><label for="fe86e0e80baf4b489c7855df8a1468d7-c7666982469244eb930aadc70a482cfd">iOS</label>
+<div class="tab__content">
+<p>|Area|Info|
+|---|---|
+|Description||
+|Service|Shiny.Push.IPushManager
+|NuGet|<a href="https://www.nuget.org/packages/Shiny.Push.FirebaseMessaging/" target="Shiny.Push.FirebaseMessaging"><img src="https://img.shields.io/nuget/v/Shiny.Push.FirebaseMessaging.svg?style=for-the-badge&amp;label=Shiny.Push.FirebaseMessaging"></a>|
+|Static Generated Class|</p>
+</div>
+<div class="tab__content">
+<pre><code class="language-csharp">using Microsoft.Extensions.DependencyInjection;
+using Shiny;
+
+namespace YourNamespace
+{
+    public class YourShinyStartup : ShinyStartup
+    {
+        public override void ConfigureServices(IServiceCollection services, IPlatform platform)
+        { 
+            
+&lt;p&gt;services.UseFirebaseMessaging&amp;lt;Shiny.Push.IPushDelegate&amp;gt;();
+services.UseFirebaseMessaging 
+        }
+    }
+}
+</code></pre>
+<p></p>
+</div>
+<div class="tab__content">
+<h2>Minimum Version: 8.0</h2>
+</div>
+<div class="tab__content">
+<h2>Minimum Version: 10</h2>
+<h3>AppDelegate</h3>
+<pre><code class="language-csharp">using System;
+using Foundation;
+using Xamarin.Forms.Platform.iOS;
+using Shiny;
+</code><p><code class="language-csharp">namespace YourIosApp
+{
+[Register("AppDelegate")]
+public partial class AppDelegate : FormsApplicationDelegate
+{
+public override bool FinishedLaunching(UIApplication app, NSDictionary options)
+{
+this.ShinyFinishedLaunching(new Samples.SampleStartup());
+global::Xamarin.Forms.Forms.Init();
+this.LoadApplication(new Samples.App());
+}
+public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken) =&gt; this.ShinyRegisteredForRemoteNotifications(deviceToken);
+public override void FailedToRegisterForRemoteNotifications(UIApplication application, NSError error) =&gt; this.ShinyFailedToRegisterForRemoteNotifications(error);
+public override void DidReceiveRemoteNotification(UIApplication application, NSDictionary userInfo, Action&lt;UIBackgroundFetchResult&gt; completionHandler) =&gt; this.ShinyDidReceiveRemoteNotification(userInfo, completionHandler);
+}
+}
+</code></p></pre><p></p>
+<h3>Info.plist</h3>
+<pre><code class="language-xml">&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;!DOCTYPE plist PUBLIC " -//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1.0"&gt;
+&lt;dict&gt;
+    &lt;key&gt;UIBackgroundModes&lt;/key&gt;
+    &lt;array&gt;
+     &lt;string&gt;remote-notification&lt;/string&gt;
+    &lt;/array&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
+</code></pre>
+<h3>Entitlements.plist</h3>
+<pre><code class="language-xml">&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;!DOCTYPE plist PUBLIC " -//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1.0"&gt;
+&lt;dict&gt;
+   &lt;key&gt;aps-environment&lt;/key&gt;
+   &lt;string&gt;development OR production&lt;/string&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
+</code></pre>
+</div>
+</div>
 <h2 id="android">Android</h2>
 <p>Follow the exact same setup process as the <a href="/push/native">native push provider</a></p>
 <p>Please read the following <a href="https://docs.microsoft.com/en-us/xamarin/android/data-cloud/google-messaging/firebase-cloud-messaging">Microsoft Document</a> on

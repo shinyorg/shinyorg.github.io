@@ -107,9 +107,6 @@
                                                             <a href="/setup/integrations">Integrations</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/setup/nuget">NuGet Packages</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
                                                             <a href="/setup/statics">Static Class Generation</a>
                                                         </div>
                                                 </div>
@@ -313,6 +310,9 @@
                                                             <a href="/appservices/geodispatch">GeoDispatch</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
+                                                            <a href="/appservices/gpstags">GPS Tags</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
                                                             <a href="/appservices/locsync">Location Sync</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
@@ -329,20 +329,50 @@
 <a href="/release-notes">Release Notes</a>                                            </div>
                                                 <div class="sidebar-nav-children">
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/release-notes/v20">v2.0.0 (April 24, 2021)</a>
+                                                            <a href="/release-notes/v20">v2.0.2639 (May 5, 2021)</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/release-notes/v201">v2.0-preview (May 7, 2021)</a>
                                                         </div>
                                                 </div>
                                 </div>
                                 <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4" style="overflow-y: auto">
-                                    |Area|Info|
-|----|----|
-|**NuGet**|<a href="https://www.nuget.org/packages/Shiny.BluetoothLE.Hosting/" target="Shiny.BluetoothLE.Hosting"><img src="https://img.shields.io/nuget/v/Shiny.BluetoothLE.Hosting.svg?style=for-the-badge&label=Shiny.BluetoothLE.Hosting" /></a>|
-|**Service**|Shiny.BluetoothLE.IBleHostingManager|
-|**Startup**|services.UseBleHosting|
-|**Static**|ShinyBleHosting|
-| - *iOS*|9|
-| - *Android*|8.0|
-| - *Uwp*|17763|
+                                    <div class="tab-wrap">
+<input type="radio" id="56ebfadd804b4291875884232bd1dc2f-098d3eecb85541619b082bede595b16b" name="56ebfadd804b4291875884232bd1dc2f" class="tab" checked><label for="56ebfadd804b4291875884232bd1dc2f-098d3eecb85541619b082bede595b16b" >General</label>
+<input type="radio" id="56ebfadd804b4291875884232bd1dc2f-09bf872a5d7e48ac85c44786e50974f8" name="56ebfadd804b4291875884232bd1dc2f" class="tab" ><label for="56ebfadd804b4291875884232bd1dc2f-09bf872a5d7e48ac85c44786e50974f8" >Startup</label>
+<input type="radio" id="56ebfadd804b4291875884232bd1dc2f-c92beca0e9f54790b3123ca7c49ac877" name="56ebfadd804b4291875884232bd1dc2f" class="tab" ><label for="56ebfadd804b4291875884232bd1dc2f-c92beca0e9f54790b3123ca7c49ac877" >Android</label>
+<input type="radio" id="56ebfadd804b4291875884232bd1dc2f-91ec9e99e73841c99411474b86f34243" name="56ebfadd804b4291875884232bd1dc2f" class="tab" ><label for="56ebfadd804b4291875884232bd1dc2f-91ec9e99e73841c99411474b86f34243" >iOS</label>
+<div class="tab__content">
+
+<p>|Area|Info|
+|---|---|
+|Description||
+|Service|Shiny.BluetoothLE.IBleHostingManager
+|NuGet|<a href="https://www.nuget.org/packages/Shiny.BluetoothLE.Hosting/" target="Shiny.BluetoothLE.Hosting"><img src="https://img.shields.io/nuget/v/Shiny.BluetoothLE.Hosting.svg?style=for-the-badge&label=Shiny.BluetoothLE.Hosting" /></a>|
+|Static Generated Class|ShinyBleHosting</p>
+
+
+</div>
+<div class="tab__content">
+
+<?! Startup ?>
+<p>services.UseBleHosting<?!/ Startup ?></p>
+
+
+</div>
+<div class="tab__content">
+
+<h2>Minimum Version: 8.0</h2>
+
+
+</div>
+<div class="tab__content">
+
+<h2>Minimum Version: 10</h2>
+
+
+</div>
+</div>
 
 <pre><code class="language-csharp">using Microsoft.Extensions.DependencyInjection;
 using Shiny;

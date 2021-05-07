@@ -105,9 +105,6 @@
                                                             <a href="/setup/integrations">Integrations</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/setup/nuget">NuGet Packages</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
                                                             <a href="/setup/statics">Static Class Generation</a>
                                                         </div>
                                                 </div>
@@ -311,6 +308,9 @@
                                                             <a href="/appservices/geodispatch">GeoDispatch</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
+                                                            <a href="/appservices/gpstags">GPS Tags</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
                                                             <a href="/appservices/locsync">Location Sync</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
@@ -327,22 +327,95 @@
 <a href="/release-notes">Release Notes</a>                                            </div>
                                                 <div class="sidebar-nav-children">
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/release-notes/v20">v2.0.0 (April 24, 2021)</a>
+                                                            <a href="/release-notes/v20">v2.0.2639 (May 5, 2021)</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/release-notes/v201">v2.0-preview (May 7, 2021)</a>
                                                         </div>
                                                 </div>
                                 </div>
                                 <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4" style="overflow-y: auto">
                                     <p>Bluetooth LE is divided into 2 separate categories - the central manager (client) and the peripheral manager (server).</p>
-|Area|Info|
-|----|----|
-|**NuGet**|<a href="https://www.nuget.org/packages/Shiny.BluetoothLE/" target="Shiny.BluetoothLE"><img src="https://img.shields.io/nuget/v/Shiny.BluetoothLE.svg?style=for-the-badge&amp;label=Shiny.BluetoothLE"></a>|
-|**Service**|Shiny.BluetoothLE.IBleManager|
-|**Startup**|services.UseBleClient|
-|**Delegate**|Shiny.BluetoothLE.IBleDelegate|
-|**Static**|ShinyBle|
-| - *iOS*|9|
-| - *Android*|8.0|
-| - *Uwp*|17763|
+<div class="tab-wrap">
+<input type="radio" id="7a1167ea48354bdaa85c964fbe6a5231-eee8f16509114da3939d9d8fdff2629f" name="7a1167ea48354bdaa85c964fbe6a5231" class="tab" checked=""><label for="7a1167ea48354bdaa85c964fbe6a5231-eee8f16509114da3939d9d8fdff2629f">General</label>
+<input type="radio" id="7a1167ea48354bdaa85c964fbe6a5231-8146c788e536426d8e3b5d5053890e73" name="7a1167ea48354bdaa85c964fbe6a5231" class="tab"><label for="7a1167ea48354bdaa85c964fbe6a5231-8146c788e536426d8e3b5d5053890e73">Startup</label>
+<input type="radio" id="7a1167ea48354bdaa85c964fbe6a5231-9f71cb1f49cd48d8bdb13c86a6384350" name="7a1167ea48354bdaa85c964fbe6a5231" class="tab"><label for="7a1167ea48354bdaa85c964fbe6a5231-9f71cb1f49cd48d8bdb13c86a6384350">Android</label>
+<input type="radio" id="7a1167ea48354bdaa85c964fbe6a5231-3e969ee56d69436f92b70de820d3b415" name="7a1167ea48354bdaa85c964fbe6a5231" class="tab"><label for="7a1167ea48354bdaa85c964fbe6a5231-3e969ee56d69436f92b70de820d3b415">iOS</label>
+<input type="radio" id="7a1167ea48354bdaa85c964fbe6a5231-d0b5ae887f4d49259303725a6d5811d5" name="7a1167ea48354bdaa85c964fbe6a5231" class="tab"><label for="7a1167ea48354bdaa85c964fbe6a5231-d0b5ae887f4d49259303725a6d5811d5">Windows</label>
+<div class="tab__content">
+
+<p>|Area|Info|
+|---|---|
+|Description||
+|Service|Shiny.BluetoothLE.IBleManager
+|NuGet|<a href="https://www.nuget.org/packages/Shiny.BluetoothLE/" target="Shiny.BluetoothLE"><img src="https://img.shields.io/nuget/v/Shiny.BluetoothLE.svg?style=for-the-badge&amp;label=Shiny.BluetoothLE"></a>|
+|Static Generated Class|ShinyBle</p>
+
+
+</div>
+<div class="tab__content">
+
+<?! Startup ?>
+<p>services.UseBleClient&lt;Shiny.BluetoothLE.IBleDelegate&gt;();</p>
+<p>services.UseBleClient();
+services.UseBleClient<?!/ Startup ?></p>
+
+
+</div>
+<div class="tab__content">
+
+<h2>Minimum Version: 8.0</h2>
+<h3>AndroidManifest.xml</h3>
+<pre><code class="language-xml">&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.org.yourapp" android:installLocation="preferExternal"&gt;
+    &lt;uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /&gt;
+    &lt;uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /&gt;
+    &lt;uses-permission android:name="android.permission.BLUETOOTH_PRIVILEGED" /&gt;
+    &lt;uses-permission android:name="android.permission.BLUETOOTH_ADMIN" /&gt;
+    &lt;uses-permission android:name="android.permission.BLUETOOTH" /&gt;
+&lt;/manifest&gt;
+</code></pre>
+
+
+</div>
+<div class="tab__content">
+
+<h2>Minimum Version: 10</h2>
+<h3>Info.plist</h3>
+<pre><code class="language-xml">&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;!DOCTYPE plist PUBLIC " -//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1.0"&gt;
+&lt;dict&gt;
+    &lt;key&gt;NSBluetoothPeripheralUsageDescription&lt;/key&gt;
+    &lt;string&gt;Say something useful here that your users will understand&lt;/string&gt;
+    &lt;key&gt;NSBluetoothAlwaysUsageDescription&lt;/key&gt;
+    &lt;string&gt;Say something useful here that your users will understand&lt;/string&gt;
+    &lt;key&gt;UIBackgroundModes&lt;/key&gt;
+    &lt;array&gt;
+        &lt;string&gt;bluetooth-central&lt;/string&gt;
+    &lt;/array&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
+</code></pre>
+
+
+</div>
+<div class="tab__content">
+
+<h3>Package.appxmanifest</h3>
+<pre><code class="language-xml">&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;Package&gt;
+    &lt;Applications&gt;
+    &lt;/Applications&gt;
+    &lt;Capabilities&gt;
+        &lt;DeviceCapability Name="bluetooth" /&gt;
+    &lt;/Capabilities&gt;
+&lt;/Package&gt;
+</code></pre>
+
+
+</div>
+</div>
 
 <h2 id="setup">Setup</h2>
 <ol>

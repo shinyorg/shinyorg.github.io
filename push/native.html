@@ -1,21 +1,23 @@
-<!DOCTYPE html><html><head>
+﻿<!DOCTYPE html>
+<html>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="/assets/bootstrap/bootstrap.css" rel="stylesheet">
-    <link href="/assets/css/styles.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&amp;family=Roboto+Slab:wght@400;700&amp;family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&amp;display=swap" rel="stylesheet" data-no-mirror="">
+    <link href="/assets/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="/assets/css/styles.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto+Slab:wght@400;700&family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet" data-no-mirror>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/themes/prism.css">
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/a1cad7ed9a.js" crossorigin="anonymous" data-no-mirror=""></script>
+    <script src="https://kit.fontawesome.com/a1cad7ed9a.js" crossorigin="anonymous" data-no-mirror></script>
     <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/components/prism-core.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/plugins/autoloader/prism-autoloader.min.js" data-no-mirror=""></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/plugins/autoloader/prism-autoloader.min.js" data-no-mirror></script>
 
     <title>Shiny.NET - Native</title>
     <link href="/scss/TabGroup.css" rel="stylesheet" type="text/css">
@@ -103,9 +105,6 @@
                                                         </div>
                                                         <div class="sidebar-nav-child">
                                                             <a href="/setup/integrations">Integrations</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/setup/nuget">NuGet Packages</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
                                                             <a href="/setup/statics">Static Class Generation</a>
@@ -311,6 +310,9 @@
                                                             <a href="/appservices/geodispatch">GeoDispatch</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
+                                                            <a href="/appservices/gpstags">GPS Tags</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
                                                             <a href="/appservices/locsync">Location Sync</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
@@ -327,79 +329,126 @@
 <a href="/release-notes">Release Notes</a>                                            </div>
                                                 <div class="sidebar-nav-children">
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/release-notes/v20">v2.0.0 (April 24, 2021)</a>
+                                                            <a href="/release-notes/v20">v2.0.2639 (May 5, 2021)</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/release-notes/v201">v2.0-preview (May 7, 2021)</a>
                                                         </div>
                                                 </div>
                                 </div>
                                 <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4" style="overflow-y: auto">
                                     <p>Native push is the root of all other push providers.  It works at the native OS level and is usually feeding other providers like Azure Notification Hubs and Firebase.  As such, the setup instructions found
 within this document generally apply to all.</p>
-<table>
-<thead>
-<tr>
-<th>Area</th>
-<th>Info</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>NuGet</strong></td>
-<td><a href="https://www.nuget.org/packages/Shiny.Push/" target="Shiny.Push"><img src="https://img.shields.io/nuget/v/Shiny.Push.svg?style=for-the-badge&amp;label=Shiny.Push"></a></td>
-</tr>
-<tr>
-<td><strong>Service</strong></td>
-<td>Shiny.Push.IPushManager</td>
-</tr>
-<tr>
-<td><strong>Startup</strong></td>
-<td>services.UsePush</td>
-</tr>
-<tr>
-<td><strong>Delegate</strong></td>
-<td>Shiny.Push.IPushDelegate (Required)</td>
-</tr>
-<tr>
-<td><strong>Static</strong></td>
-<td>ShinyPush</td>
-</tr>
-<tr>
-<td>- <em>iOS</em></td>
-<td>9 (<a href="/setup/ios">OS Configuration Required</a>)</td>
-</tr>
-<tr>
-<td>- <em>Android</em></td>
-<td>8.0 (<a href="/setup/android">OS Configuration Required</a>)</td>
-</tr>
-<tr>
-<td>- <em>Uwp</em></td>
-<td>17763</td>
-</tr>
-</tbody>
-</table>
+<div class="tab-wrap">
+<input type="radio" id="62dfe350a00a4039a19459f00b8bbd79-a903952c3539459385f58ee0bb1c9411" name="62dfe350a00a4039a19459f00b8bbd79" class="tab" checked><label for="62dfe350a00a4039a19459f00b8bbd79-a903952c3539459385f58ee0bb1c9411" >General</label>
+<input type="radio" id="62dfe350a00a4039a19459f00b8bbd79-0d2fbf4f58bb4dfdbc7c3de899b36a85" name="62dfe350a00a4039a19459f00b8bbd79" class="tab" ><label for="62dfe350a00a4039a19459f00b8bbd79-0d2fbf4f58bb4dfdbc7c3de899b36a85" >Startup</label>
+<input type="radio" id="62dfe350a00a4039a19459f00b8bbd79-013a9cff0b28456484d5307a52c37f7f" name="62dfe350a00a4039a19459f00b8bbd79" class="tab" ><label for="62dfe350a00a4039a19459f00b8bbd79-013a9cff0b28456484d5307a52c37f7f" >Android</label>
+<input type="radio" id="62dfe350a00a4039a19459f00b8bbd79-8d70cb544d7f4030a4708b8355cb893c" name="62dfe350a00a4039a19459f00b8bbd79" class="tab" ><label for="62dfe350a00a4039a19459f00b8bbd79-8d70cb544d7f4030a4708b8355cb893c" >iOS</label>
+<input type="radio" id="62dfe350a00a4039a19459f00b8bbd79-c86b6aa86acd4293a53afcec95a9a3e7" name="62dfe350a00a4039a19459f00b8bbd79" class="tab" ><label for="62dfe350a00a4039a19459f00b8bbd79-c86b6aa86acd4293a53afcec95a9a3e7" >Windows</label>
+<div class="tab__content">
+<p>|Area|Info|
+|---|---|
+|Description||
+|Service|Shiny.Push.IPushManager
+|NuGet|<a href="https://www.nuget.org/packages/Shiny.Push/" target="Shiny.Push"><img src="https://img.shields.io/nuget/v/Shiny.Push.svg?style=for-the-badge&label=Shiny.Push" /></a>|
+|Static Generated Class|ShinyPush</p>
+</div>
+<div class="tab__content">
+<pre><code class="language-csharp">using Microsoft.Extensions.DependencyInjection;
+using Shiny;
+
+namespace YourNamespace
+{
+    public class YourShinyStartup : ShinyStartup
+    {
+        public override void ConfigureServices(IServiceCollection services, IPlatform platform)
+        { 
+            
+&lt;p&gt;services.UsePush&amp;lt;Shiny.Push.IPushDelegate&amp;gt;();
+services.UsePush 
+        }
+    }
+}
+</code></pre>
+</p>
+</div>
+<div class="tab__content">
+<h2>Minimum Version: 8.0</h2>
+</div>
+<div class="tab__content">
+<h2>Minimum Version: 10</h2>
+<h3>AppDelegate</h3>
+<pre><code class="language-csharp">using System;
+using Foundation;
+using Xamarin.Forms.Platform.iOS;
+using Shiny;
+<p>namespace YourIosApp
+{
+[Register(&quot;AppDelegate&quot;)]
+public partial class AppDelegate : FormsApplicationDelegate
+{
+public override bool FinishedLaunching(UIApplication app, NSDictionary options)
+{
+this.ShinyFinishedLaunching(new Samples.SampleStartup());
+global::Xamarin.Forms.Forms.Init();
+this.LoadApplication(new Samples.App());
+}
+public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken) =&gt; this.ShinyRegisteredForRemoteNotifications(deviceToken);
+public override void FailedToRegisterForRemoteNotifications(UIApplication application, NSError error) =&gt; this.ShinyFailedToRegisterForRemoteNotifications(error);
+public override void DidReceiveRemoteNotification(UIApplication application, NSDictionary userInfo, Action&lt;UIBackgroundFetchResult&gt; completionHandler) =&gt; this.ShinyDidReceiveRemoteNotification(userInfo, completionHandler);
+}
+}
+</code></pre></p>
+<h3>Info.plist</h3>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot; -//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+&lt;dict&gt;
+    &lt;key&gt;UIBackgroundModes&lt;/key&gt;
+    &lt;array&gt;
+     &lt;string&gt;remote-notification&lt;/string&gt;
+    &lt;/array&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
+</code></pre>
+<h3>Entitlements.plist</h3>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot; -//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+&lt;dict&gt;
+   &lt;key&gt;aps-environment&lt;/key&gt;
+   &lt;string&gt;development OR production&lt;/string&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
+</code></pre>
+</div>
+<div class="tab__content">
+<h3>Package.appxmanifest</h3>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+&lt;Package&gt;
+    &lt;Applications&gt;
+        &lt;Extensions&gt;
+            &lt;Task Type=&quot;pushNotification&quot; /&gt;        &lt;/Extensions&gt;
+    &lt;/Applications&gt;
+&lt;/Package&gt;
+</code></pre>
+</div>
+</div>
 <h2 id="native-push-provider">Native Push Provider</h2>
-<p>If you don't intend to use a 3rd party provider, this library still uses everything applied from "Getting Started".  To register it with Shiny, simply do the following in your Shiny Startup:</p>
+<p>If you don't intend to use a 3rd party provider, this library still uses everything applied from &quot;Getting Started&quot;.  To register it with Shiny, simply do the following in your Shiny Startup:</p>
 <pre><code class="language-csharp">services.UsePush&lt;MyPushDelegate&gt;();
 </code></pre>
-<h2 id="android-setup">Android Setup</h2>
+<h2 id="android-additional-setup">Android Additional Setup</h2>
 <p>The process of setting up Android is a bit of process</p>
 <pre><code class="language-csharp">&lt;ItemGroup&gt;
-    &lt;GoogleServicesJson Include="google-services.json"&gt;
+    &lt;GoogleServicesJson Include=&quot;google-services.json&quot;&gt;
         &lt;CopyToOutputDirectory&gt;PreserveNewest&lt;/CopyToOutputDirectory&gt;
     &lt;/GoogleServicesJson&gt;
-    &lt;PackageReference Include="Xamarin.GooglePlayServices.Basement" Version="The same version Shiny.Push is using" /&gt;
-    &lt;PackageReference Include="Xamarin.GooglePlayServices.Tasks" Version="The same version Shiny.Push is using" /&gt;
+    &lt;PackageReference Include=&quot;Xamarin.GooglePlayServices.Basement&quot; Version=&quot;The same version Shiny.Push is using&quot; /&gt;
+    &lt;PackageReference Include=&quot;Xamarin.GooglePlayServices.Tasks&quot; Version=&quot;The same version Shiny.Push is using&quot; /&gt;
 &lt;/ItemGroup&gt;
 
 </code></pre>
-<h2 id="ios-specific">iOS Specific</h2>
-<ol>
-<li>Add the following to your Info.plist</li>
-</ol>
-<pre><code class="language-xml"></code></pre>
-<ol start="2">
-<li>Add the following to your Entitlements.plist</li>
-</ol>
-<pre><code class="language-xml"></code></pre>
 
                                 </div>
                             <div class="col-lg-2 d-none d-lg-block bg-body pl-3 pt-3">
@@ -462,5 +511,5 @@ within this document generally apply to all.</p>
             }
         });
     </script>
-
-</body></html>
+</body>
+</html>
