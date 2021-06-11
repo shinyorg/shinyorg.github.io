@@ -86,9 +86,6 @@
                                                             <a href="/setup/startup">Startup</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/setup/boilerplate">Boilerplate</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
                                                             <a href="/setup/ios">Platform - iOS</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
@@ -251,6 +248,9 @@
                                                             <a href="/other/nfc">NFC</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
+                                                            <a href="/other/platform">Platform</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
                                                             <a href="/other/power">Power Management</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
@@ -332,18 +332,18 @@
                                                             <a href="/release-notes/v20">v2.0.2639 (May 5, 2021)</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/release-notes/v201">v2.0-preview (May 10, 2021)</a>
+                                                            <a href="/release-notes/v210">v2.1.0 (June 10, 2021)</a>
                                                         </div>
                                                 </div>
                                 </div>
                                 <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4" style="overflow-y: auto">
                                     <p>The Global Position System (GPS) on Shiny is actually a bit more complicated than other Shiny modules as it can really &quot;hammer&quot; away on your resources if you set it up wrong.</p>
 <div class="tab-wrap">
-<input type="radio" id="08967b0a9f5d47e7806c52eeacf33b9c-8520df2ed9cc4e829be76d20e9740ea6" name="08967b0a9f5d47e7806c52eeacf33b9c" class="tab" checked><label for="08967b0a9f5d47e7806c52eeacf33b9c-8520df2ed9cc4e829be76d20e9740ea6" >General</label>
-<input type="radio" id="08967b0a9f5d47e7806c52eeacf33b9c-5a35c449125c4c1793980604e9dab527" name="08967b0a9f5d47e7806c52eeacf33b9c" class="tab" ><label for="08967b0a9f5d47e7806c52eeacf33b9c-5a35c449125c4c1793980604e9dab527" >Startup</label>
-<input type="radio" id="08967b0a9f5d47e7806c52eeacf33b9c-8d63b650299d489081cf04ef9bee9eda" name="08967b0a9f5d47e7806c52eeacf33b9c" class="tab" ><label for="08967b0a9f5d47e7806c52eeacf33b9c-8d63b650299d489081cf04ef9bee9eda" >Android</label>
-<input type="radio" id="08967b0a9f5d47e7806c52eeacf33b9c-ebb0a9f2f4294dc9b395fe37a4c1634c" name="08967b0a9f5d47e7806c52eeacf33b9c" class="tab" ><label for="08967b0a9f5d47e7806c52eeacf33b9c-ebb0a9f2f4294dc9b395fe37a4c1634c" >iOS</label>
-<input type="radio" id="08967b0a9f5d47e7806c52eeacf33b9c-f386926b5ae242b7b801f52d6fd5f700" name="08967b0a9f5d47e7806c52eeacf33b9c" class="tab" ><label for="08967b0a9f5d47e7806c52eeacf33b9c-f386926b5ae242b7b801f52d6fd5f700" >Windows</label>
+<input type="radio" id="7e74df3486d24cccb4d6ffa16a6f53f3-75e0c994086a4cf38a96b255e4430e7b" name="7e74df3486d24cccb4d6ffa16a6f53f3" class="tab" checked><label for="7e74df3486d24cccb4d6ffa16a6f53f3-75e0c994086a4cf38a96b255e4430e7b" >General</label>
+<input type="radio" id="7e74df3486d24cccb4d6ffa16a6f53f3-700be2e9cd9b48c290517763ca7da257" name="7e74df3486d24cccb4d6ffa16a6f53f3" class="tab" ><label for="7e74df3486d24cccb4d6ffa16a6f53f3-700be2e9cd9b48c290517763ca7da257" >Startup</label>
+<input type="radio" id="7e74df3486d24cccb4d6ffa16a6f53f3-11f4667e035c4e7b9894179b81f2b698" name="7e74df3486d24cccb4d6ffa16a6f53f3" class="tab" ><label for="7e74df3486d24cccb4d6ffa16a6f53f3-11f4667e035c4e7b9894179b81f2b698" >Android</label>
+<input type="radio" id="7e74df3486d24cccb4d6ffa16a6f53f3-383205fa2e7c4ad4b1d19824115a4f12" name="7e74df3486d24cccb4d6ffa16a6f53f3" class="tab" ><label for="7e74df3486d24cccb4d6ffa16a6f53f3-383205fa2e7c4ad4b1d19824115a4f12" >iOS</label>
+<input type="radio" id="7e74df3486d24cccb4d6ffa16a6f53f3-a9638fcb814244c5aa0a7aff03ddce10" name="7e74df3486d24cccb4d6ffa16a6f53f3" class="tab" ><label for="7e74df3486d24cccb4d6ffa16a6f53f3-a9638fcb814244c5aa0a7aff03ddce10" >Windows</label>
 <div class="tab__content">
 <p>|Area|Info|
 |---|---|
@@ -491,7 +491,7 @@ public class GpsUsage
 
                                 </div>
                             <div class="col-lg-2 d-none d-lg-block bg-body pl-3 pt-3">
-                                    <p class="small font-weight-bold"><a href="https://github.com/shinyorg/shiny/edit/master/docs/input/locations/gps.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
+                                    <p class="small font-weight-bold"><a href="https://github.com/shinyorg/shiny/edit/master/docs/Input/locations/gps.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
                             </div>
                         </div>
                     </div>

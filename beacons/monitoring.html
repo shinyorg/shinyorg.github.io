@@ -84,9 +84,6 @@
                                                             <a href="/setup/startup">Startup</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/setup/boilerplate">Boilerplate</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
                                                             <a href="/setup/ios">Platform - iOS</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
@@ -249,6 +246,9 @@
                                                             <a href="/other/nfc">NFC</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
+                                                            <a href="/other/platform">Platform</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
                                                             <a href="/other/power">Power Management</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
@@ -330,7 +330,7 @@
                                                             <a href="/release-notes/v20">v2.0.2639 (May 5, 2021)</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/release-notes/v201">v2.0-preview (May 10, 2021)</a>
+                                                            <a href="/release-notes/v210">v2.1.0 (June 10, 2021)</a>
                                                         </div>
                                                 </div>
                                 </div>
@@ -338,10 +338,10 @@
                                     <p>Beacon monitoring is quite a bit different than ranging.  Monitoring does not provide distance and has many limitations, but it works in the background.  Monitoring uses beacon regions much like ranging, however, the region is all that is returned in the delegate to protect user privacy
 Monitoring is limited to a maximum of 20 regions on iOS.  On Android &amp; UWP, there currently isn't a limit HOWEVER the BLE scans do emit quite a number of scan packets.  If you have too many, your scan will slow down your app quite a bit.</p>
 <div class="tab-wrap">
-<input type="radio" id="56cd52ad58a14e2bbca9d68a1d6c0575-6b84fb79eb1642ae807a4d3fdedb80e8" name="56cd52ad58a14e2bbca9d68a1d6c0575" class="tab" checked=""><label for="56cd52ad58a14e2bbca9d68a1d6c0575-6b84fb79eb1642ae807a4d3fdedb80e8">General</label>
-<input type="radio" id="56cd52ad58a14e2bbca9d68a1d6c0575-f7fdf13ea76b4fdda077c7e41b321768" name="56cd52ad58a14e2bbca9d68a1d6c0575" class="tab"><label for="56cd52ad58a14e2bbca9d68a1d6c0575-f7fdf13ea76b4fdda077c7e41b321768">Startup</label>
-<input type="radio" id="56cd52ad58a14e2bbca9d68a1d6c0575-5c15ad47a1944036b4ca06b8e386260f" name="56cd52ad58a14e2bbca9d68a1d6c0575" class="tab"><label for="56cd52ad58a14e2bbca9d68a1d6c0575-5c15ad47a1944036b4ca06b8e386260f">Android</label>
-<input type="radio" id="56cd52ad58a14e2bbca9d68a1d6c0575-8b5dad90514640e3a68fa0ea71dbc0be" name="56cd52ad58a14e2bbca9d68a1d6c0575" class="tab"><label for="56cd52ad58a14e2bbca9d68a1d6c0575-8b5dad90514640e3a68fa0ea71dbc0be">iOS</label>
+<input type="radio" id="9d57129dac774c8a8235caa7f8c43907-bce9f0f0d00d44f9b716bf2401df045b" name="9d57129dac774c8a8235caa7f8c43907" class="tab" checked=""><label for="9d57129dac774c8a8235caa7f8c43907-bce9f0f0d00d44f9b716bf2401df045b">General</label>
+<input type="radio" id="9d57129dac774c8a8235caa7f8c43907-16318b373ab3484aa74e55f11b1ba868" name="9d57129dac774c8a8235caa7f8c43907" class="tab"><label for="9d57129dac774c8a8235caa7f8c43907-16318b373ab3484aa74e55f11b1ba868">Startup</label>
+<input type="radio" id="9d57129dac774c8a8235caa7f8c43907-9e11c0a3d6784d56b16af699093ff2f3" name="9d57129dac774c8a8235caa7f8c43907" class="tab"><label for="9d57129dac774c8a8235caa7f8c43907-9e11c0a3d6784d56b16af699093ff2f3">Android</label>
+<input type="radio" id="9d57129dac774c8a8235caa7f8c43907-2d0b4ed0dbc94dc1aca03d9871b5fb84" name="9d57129dac774c8a8235caa7f8c43907" class="tab"><label for="9d57129dac774c8a8235caa7f8c43907-2d0b4ed0dbc94dc1aca03d9871b5fb84">iOS</label>
 <div class="tab__content">
 <p>|Area|Info|
 |---|---|
@@ -450,7 +450,7 @@ service.UseBeaconMonitoring&lt;MyBeaconMonitorDelegate&gt;();
 
                                 </div>
                             <div class="col-lg-2 d-none d-lg-block bg-body pl-3 pt-3">
-                                    <p class="small font-weight-bold"><a href="https://github.com/shinyorg/shiny/edit/master/docs/input/beacons/monitoring.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
+                                    <p class="small font-weight-bold"><a href="https://github.com/shinyorg/shiny/edit/master/docs/Input/beacons/monitoring.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
                             </div>
                         </div>
                     </div>

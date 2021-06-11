@@ -86,9 +86,6 @@
                                                             <a href="/setup/startup">Startup</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/setup/boilerplate">Boilerplate</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
                                                             <a href="/setup/ios">Platform - iOS</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
@@ -251,6 +248,9 @@
                                                             <a href="/other/nfc">NFC</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
+                                                            <a href="/other/platform">Platform</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
                                                             <a href="/other/power">Power Management</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
@@ -332,16 +332,161 @@
                                                             <a href="/release-notes/v20">v2.0.2639 (May 5, 2021)</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/release-notes/v201">v2.0-preview (May 10, 2021)</a>
+                                                            <a href="/release-notes/v210">v2.1.0 (June 10, 2021)</a>
                                                         </div>
                                                 </div>
                                 </div>
                                 <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4" style="overflow-y: auto">
                                     <h1 id="uwp">UWP</h1>
 <ol>
-<li>Add the following to your App.xaml.cs constructor</li>
+<li>In order to process background tasks, you first need to create a &quot;Windows Runtime Library&quot;</li>
 </ol>
-<pre><code class="language-csharp">this.ShinyInit(new YourStartup());
+<img src="images/uwp_runtime_proj.png" width="550" />
+<ol start="2">
+<li>Add <div class="tab-wrap">
+<input type="radio" id="f1c2a952c32e41c4af66a8b106e41d95-ec3f9332c4a749f4bd2b3c736c4557ae" name="f1c2a952c32e41c4af66a8b106e41d95" class="tab" checked><label for="f1c2a952c32e41c4af66a8b106e41d95-ec3f9332c4a749f4bd2b3c736c4557ae" >General</label>
+<input type="radio" id="f1c2a952c32e41c4af66a8b106e41d95-af015121ce82418d825b653bf74f8319" name="f1c2a952c32e41c4af66a8b106e41d95" class="tab" ><label for="f1c2a952c32e41c4af66a8b106e41d95-af015121ce82418d825b653bf74f8319" >Startup</label>
+<input type="radio" id="f1c2a952c32e41c4af66a8b106e41d95-0c9ce5addd414475a87a317fcc03cdf6" name="f1c2a952c32e41c4af66a8b106e41d95" class="tab" ><label for="f1c2a952c32e41c4af66a8b106e41d95-0c9ce5addd414475a87a317fcc03cdf6" >Android</label>
+<input type="radio" id="f1c2a952c32e41c4af66a8b106e41d95-7acaaaab20a640d290c6802db119d901" name="f1c2a952c32e41c4af66a8b106e41d95" class="tab" ><label for="f1c2a952c32e41c4af66a8b106e41d95-7acaaaab20a640d290c6802db119d901" >iOS</label>
+<input type="radio" id="f1c2a952c32e41c4af66a8b106e41d95-21ad0baacfee4c0dbd46479218e906fd" name="f1c2a952c32e41c4af66a8b106e41d95" class="tab" ><label for="f1c2a952c32e41c4af66a8b106e41d95-21ad0baacfee4c0dbd46479218e906fd" >Windows</label></li>
+</ol>
+<div class="tab__content">
+<p>|Area|Info|
+|---|---|
+|Description||
+|Service|Shiny.Jobs.IJobManager
+|NuGet|<a href="https://www.nuget.org/packages/Shiny.Core/" target="Shiny.Core"><img src="https://img.shields.io/nuget/v/Shiny.Core.svg?style=for-the-badge&label=Shiny.Core" /></a>|
+|Static Generated Class|ShinyJobs</p>
+</div>
+<div class="tab__content">
+<pre><code class="language-csharp">using Microsoft.Extensions.DependencyInjection;
+using Shiny;
+
+namespace YourNamespace
+{
+    public class YourShinyStartup : ShinyStartup
+    {
+        public override void ConfigureServices(IServiceCollection services, IPlatform platform)
+        { 
+            
+&lt;p&gt;services.RegisterJob 
+        }
+    }
+}
+</code></pre>
+</p>
+</div>
+<div class="tab__content">
+<h2>Minimum Version: 8.0</h2>
+<h3>AndroidManifest.xml</h3>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; android:versionCode=&quot;1&quot; android:versionName=&quot;1.0&quot; package=&quot;com.org.yourapp&quot; android:installLocation=&quot;preferExternal&quot;&gt;
+    &lt;uses-permission android:name=&quot;android.permission.ACCESS_NETWORK_STATE&quot; /&gt;
+    &lt;uses-permission android:name=&quot;android.permission.ACCESS_WIFI_STATE&quot; /&gt;
+    &lt;uses-permission android:name=&quot;android.permission.BATTERY_STATS&quot; /&gt;
+    &lt;uses-permission android:name=&quot;android.permission.RECEIVE_BOOT_COMPLETED&quot; /&gt;
+    &lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot; /&gt;
+    &lt;uses-permission android:name=&quot;android.permission.READ_EXTERNAL_STORAGE&quot; /&gt;
+    &lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
+&lt;/manifest&gt;
+</code></pre>
+</div>
+<div class="tab__content">
+<h2>Minimum Version: 10</h2>
+<h3>AppDelegate</h3>
+<pre><code class="language-csharp">using System;
+using Foundation;
+using Xamarin.Forms.Platform.iOS;
+using Shiny;
+<p>namespace YourIosApp
+{
+[Register(&quot;AppDelegate&quot;)]
+public partial class AppDelegate : FormsApplicationDelegate
+{
+public override bool FinishedLaunching(UIApplication app, NSDictionary options)
+{
+this.ShinyFinishedLaunching(new Samples.SampleStartup());
+global::Xamarin.Forms.Forms.Init();
+this.LoadApplication(new Samples.App());
+}
+public override void PerformFetch(UIApplication application, Action&lt;UIBackgroundFetchResult&gt; completionHandler) =&gt; this.ShinyPerformFetch(completionHandler);
+}
+}
+</code></pre></p>
+<h3>Info.plist</h3>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot; -//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+&lt;dict&gt;
+<pre><code>&amp;lt;key&amp;gt;BGTaskSchedulerPermittedIdentifiers&amp;lt;/key&amp;gt;
+&amp;lt;array&amp;gt;
+    &amp;lt;string&amp;gt;com.shiny.job&amp;lt;/string&amp;gt;
+    &amp;lt;string&amp;gt;com.shiny.jobpower&amp;lt;/string&amp;gt;
+    &amp;lt;string&amp;gt;com.shiny.jobnet&amp;lt;/string&amp;gt;
+    &amp;lt;string&amp;gt;com.shiny.jobpowernet&amp;lt;/string&amp;gt;
+&amp;lt;/array&amp;gt;
+&amp;lt;key&amp;gt;UIBackgroundModes&amp;lt;/key&amp;gt;
+&amp;lt;array&amp;gt;
+   &amp;lt;string&amp;gt;processing&amp;lt;/string&amp;gt;
+   &amp;lt;string&amp;gt;fetch&amp;lt;/string&amp;gt;
+&amp;lt;/array&amp;gt;
+</code></pre>
+<p>&lt;/dict&gt;
+&lt;/plist&gt;
+</code></pre></p>
+</div>
+<div class="tab__content">
+<p>No Special Configuration Required</p>
+</div>
+</div>
+ nuget to this new library.
+<ol start="3">
+<li><p>Add a references to your shared/netstandard library</p>
+</li>
+<li><p>Add a class and call the following hook to Shiny</p>
+</li>
+</ol>
+<pre><code class="language-csharp">using System;
+using Windows.ApplicationModel.Background;
+using Shiny;
+
+
+namespace Samples.UWP
+{
+    public sealed class MyShinyBackgroundTask : IBackgroundTask
+    {
+        public void Run(IBackgroundTaskInstance taskInstance)
+            =&gt; this.ShinyRunBackgroundTask(taskInstance, new YourSharedLibrary.YourStartup());
+    }
+}
+
+</code></pre>
+<ol start="5">
+<li><p>Now add this &quot;Windows Runtime Library&quot; as a reference to your head UWP project.</p>
+</li>
+<li><p>Add the following to your App.xaml.cs constructor in your head UWP project (Note the generic reference to your new runtime component)</p>
+</li>
+</ol>
+<pre><code class="language-csharp">this.ShinyInit&lt;YourShinyBackgroundTask&gt;(new YourSharedLibrary.YourStartup());
+</code></pre>
+<ol start="7">
+<li>In your Package.appxmanifest, add the following under the Application node (NOTE: the permissions you use will depend on the libraries from Shiny that you use)</li>
+</ol>
+<pre><code class="language-xml">&lt;Extensions&gt;
+    &lt;Extension Category=&quot;windows.backgroundTasks&quot; EntryPoint=&quot;FullNamespaceToYour.ShinyBackgroundTask&quot;&gt;
+        &lt;BackgroundTasks&gt;
+            &lt;Task Type=&quot;bluetooth&quot;/&gt;
+            &lt;Task Type=&quot;deviceConnectionChange&quot;/&gt;
+            &lt;Task Type=&quot;deviceServicing&quot;/&gt;
+            &lt;Task Type=&quot;deviceUse&quot;/&gt;
+            &lt;Task Type=&quot;general&quot;/&gt;
+            &lt;Task Type=&quot;location&quot;/&gt;
+            &lt;Task Type=&quot;systemEvent&quot;/&gt;
+            &lt;Task Type=&quot;pushNotification&quot;/&gt;
+            &lt;Task Type=&quot;timer&quot;/&gt;
+        &lt;/BackgroundTasks&gt;
+    &lt;/Extension&gt;
+&lt;/Extensions&gt;
 </code></pre>
 
                                 </div>
@@ -350,7 +495,7 @@
                                             <p class="small font-weight-bold">On This Page</p>
                                                 <p class="small"><a href="#uwp">UWP</a></p>
                                         </div>
-                                    <p class="small font-weight-bold"><a href="https://github.com/shinyorg/shiny/edit/master/docs/input/setup/uwp.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
+                                    <p class="small font-weight-bold"><a href="https://github.com/shinyorg/shiny/edit/master/docs/Input/setup/uwp.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
                             </div>
                         </div>
                     </div>

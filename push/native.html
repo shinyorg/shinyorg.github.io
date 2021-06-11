@@ -86,9 +86,6 @@
                                                             <a href="/setup/startup">Startup</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/setup/boilerplate">Boilerplate</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
                                                             <a href="/setup/ios">Platform - iOS</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
@@ -251,6 +248,9 @@
                                                             <a href="/other/nfc">NFC</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
+                                                            <a href="/other/platform">Platform</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
                                                             <a href="/other/power">Power Management</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
@@ -332,7 +332,7 @@
                                                             <a href="/release-notes/v20">v2.0.2639 (May 5, 2021)</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/release-notes/v201">v2.0-preview (May 10, 2021)</a>
+                                                            <a href="/release-notes/v210">v2.1.0 (June 10, 2021)</a>
                                                         </div>
                                                 </div>
                                 </div>
@@ -340,11 +340,11 @@
                                     <p>Native push is the root of all other push providers.  It works at the native OS level and is usually feeding other providers like Azure Notification Hubs and Firebase.  As such, the setup instructions found
 within this document generally apply to all.</p>
 <div class="tab-wrap">
-<input type="radio" id="2d4acc0c26744b7582841ab3fdf1a0fd-f84bdea35107490aacc2a6da595093f4" name="2d4acc0c26744b7582841ab3fdf1a0fd" class="tab" checked><label for="2d4acc0c26744b7582841ab3fdf1a0fd-f84bdea35107490aacc2a6da595093f4" >General</label>
-<input type="radio" id="2d4acc0c26744b7582841ab3fdf1a0fd-61b83270fee240c8a1e6ec65e96b8bcb" name="2d4acc0c26744b7582841ab3fdf1a0fd" class="tab" ><label for="2d4acc0c26744b7582841ab3fdf1a0fd-61b83270fee240c8a1e6ec65e96b8bcb" >Startup</label>
-<input type="radio" id="2d4acc0c26744b7582841ab3fdf1a0fd-0f24723de45646dc85492adf968dfc35" name="2d4acc0c26744b7582841ab3fdf1a0fd" class="tab" ><label for="2d4acc0c26744b7582841ab3fdf1a0fd-0f24723de45646dc85492adf968dfc35" >Android</label>
-<input type="radio" id="2d4acc0c26744b7582841ab3fdf1a0fd-65a6369887d04c21b4c9cc420df6299b" name="2d4acc0c26744b7582841ab3fdf1a0fd" class="tab" ><label for="2d4acc0c26744b7582841ab3fdf1a0fd-65a6369887d04c21b4c9cc420df6299b" >iOS</label>
-<input type="radio" id="2d4acc0c26744b7582841ab3fdf1a0fd-e3cd1e957ab44342ba283d42766925d3" name="2d4acc0c26744b7582841ab3fdf1a0fd" class="tab" ><label for="2d4acc0c26744b7582841ab3fdf1a0fd-e3cd1e957ab44342ba283d42766925d3" >Windows</label>
+<input type="radio" id="42055f0e7dcf4626bbc9e674760e56cd-7632115c605b40b4a45b1ac6929ef182" name="42055f0e7dcf4626bbc9e674760e56cd" class="tab" checked><label for="42055f0e7dcf4626bbc9e674760e56cd-7632115c605b40b4a45b1ac6929ef182" >General</label>
+<input type="radio" id="42055f0e7dcf4626bbc9e674760e56cd-dce92456f95e40fba338a1af408a87c8" name="42055f0e7dcf4626bbc9e674760e56cd" class="tab" ><label for="42055f0e7dcf4626bbc9e674760e56cd-dce92456f95e40fba338a1af408a87c8" >Startup</label>
+<input type="radio" id="42055f0e7dcf4626bbc9e674760e56cd-5f256b0f5fc741ec93a1d0c0d51ae9bc" name="42055f0e7dcf4626bbc9e674760e56cd" class="tab" ><label for="42055f0e7dcf4626bbc9e674760e56cd-5f256b0f5fc741ec93a1d0c0d51ae9bc" >Android</label>
+<input type="radio" id="42055f0e7dcf4626bbc9e674760e56cd-57c3b53d596c4c48aa8a42490b7fa0e2" name="42055f0e7dcf4626bbc9e674760e56cd" class="tab" ><label for="42055f0e7dcf4626bbc9e674760e56cd-57c3b53d596c4c48aa8a42490b7fa0e2" >iOS</label>
+<input type="radio" id="42055f0e7dcf4626bbc9e674760e56cd-e1d1cd7e4ee24aca8bad4abd49b547c1" name="42055f0e7dcf4626bbc9e674760e56cd" class="tab" ><label for="42055f0e7dcf4626bbc9e674760e56cd-e1d1cd7e4ee24aca8bad4abd49b547c1" >Windows</label>
 <div class="tab__content">
 <p>|Area|Info|
 |---|---|
@@ -452,7 +452,7 @@ public override void DidReceiveRemoteNotification(UIApplication application, NSD
 
                                 </div>
                             <div class="col-lg-2 d-none d-lg-block bg-body pl-3 pt-3">
-                                    <p class="small font-weight-bold"><a href="https://github.com/shinyorg/shiny/edit/master/docs/input/push/native.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
+                                    <p class="small font-weight-bold"><a href="https://github.com/shinyorg/shiny/edit/master/docs/Input/push/native.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
                             </div>
                         </div>
                     </div>

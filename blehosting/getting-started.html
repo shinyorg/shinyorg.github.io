@@ -86,9 +86,6 @@
                                                             <a href="/setup/startup">Startup</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/setup/boilerplate">Boilerplate</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
                                                             <a href="/setup/ios">Platform - iOS</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
@@ -251,6 +248,9 @@
                                                             <a href="/other/nfc">NFC</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
+                                                            <a href="/other/platform">Platform</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
                                                             <a href="/other/power">Power Management</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
@@ -332,16 +332,16 @@
                                                             <a href="/release-notes/v20">v2.0.2639 (May 5, 2021)</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/release-notes/v201">v2.0-preview (May 10, 2021)</a>
+                                                            <a href="/release-notes/v210">v2.1.0 (June 10, 2021)</a>
                                                         </div>
                                                 </div>
                                 </div>
                                 <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4" style="overflow-y: auto">
                                     <div class="tab-wrap">
-<input type="radio" id="c015f57f71c944079497945298f21d4b-347e1520feda4eb0a82e3af6f472caa0" name="c015f57f71c944079497945298f21d4b" class="tab" checked><label for="c015f57f71c944079497945298f21d4b-347e1520feda4eb0a82e3af6f472caa0" >General</label>
-<input type="radio" id="c015f57f71c944079497945298f21d4b-e46f1773542f4b0ab260198c7294e5c8" name="c015f57f71c944079497945298f21d4b" class="tab" ><label for="c015f57f71c944079497945298f21d4b-e46f1773542f4b0ab260198c7294e5c8" >Startup</label>
-<input type="radio" id="c015f57f71c944079497945298f21d4b-8880f72b10d647f78f99142e5ed1fd81" name="c015f57f71c944079497945298f21d4b" class="tab" ><label for="c015f57f71c944079497945298f21d4b-8880f72b10d647f78f99142e5ed1fd81" >Android</label>
-<input type="radio" id="c015f57f71c944079497945298f21d4b-fee777a3876f494e997de6f244058940" name="c015f57f71c944079497945298f21d4b" class="tab" ><label for="c015f57f71c944079497945298f21d4b-fee777a3876f494e997de6f244058940" >iOS</label>
+<input type="radio" id="778bd94a70b74d4cbdb38fa282bd0f9e-04b437049f9c4d9c916d1cda0378a4f4" name="778bd94a70b74d4cbdb38fa282bd0f9e" class="tab" checked><label for="778bd94a70b74d4cbdb38fa282bd0f9e-04b437049f9c4d9c916d1cda0378a4f4" >General</label>
+<input type="radio" id="778bd94a70b74d4cbdb38fa282bd0f9e-95cc3dbc0c6b4dd1adf2a16f7a4d98ca" name="778bd94a70b74d4cbdb38fa282bd0f9e" class="tab" ><label for="778bd94a70b74d4cbdb38fa282bd0f9e-95cc3dbc0c6b4dd1adf2a16f7a4d98ca" >Startup</label>
+<input type="radio" id="778bd94a70b74d4cbdb38fa282bd0f9e-fd63b5b967bf478d83d4e564d55876dc" name="778bd94a70b74d4cbdb38fa282bd0f9e" class="tab" ><label for="778bd94a70b74d4cbdb38fa282bd0f9e-fd63b5b967bf478d83d4e564d55876dc" >Android</label>
+<input type="radio" id="778bd94a70b74d4cbdb38fa282bd0f9e-bf8353115753476ba64ac72b59b96c68" name="778bd94a70b74d4cbdb38fa282bd0f9e" class="tab" ><label for="778bd94a70b74d4cbdb38fa282bd0f9e-bf8353115753476ba64ac72b59b96c68" >iOS</label>
 <div class="tab__content">
 
 <p>|Area|Info|
@@ -369,6 +369,22 @@
 <div class="tab__content">
 
 <h2>Minimum Version: 10</h2>
+<h3>Info.plist</h3>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot; -//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+&lt;dict&gt;
+    &lt;key&gt;NSBluetoothPeripheralUsageDescription&lt;/key&gt;
+    &lt;string&gt;Say something useful here that your users will understand&lt;/string&gt;
+    &lt;key&gt;NSBluetoothAlwaysUsageDescription&lt;/key&gt;
+    &lt;string&gt;Say something useful here that your users will understand&lt;/string&gt;
+    &lt;key&gt;UIBackgroundModes&lt;/key&gt;
+    &lt;array&gt;
+        &lt;string&gt;bluetooth-peripheral&lt;/string&gt;
+    &lt;/array&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
+</code></pre>
 
 
 </div>
@@ -393,7 +409,7 @@ services.UseBleHosting();
 
                                 </div>
                             <div class="col-lg-2 d-none d-lg-block bg-body pl-3 pt-3">
-                                    <p class="small font-weight-bold"><a href="https://github.com/shinyorg/shiny/edit/master/docs/input/blehosting/getting-started.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
+                                    <p class="small font-weight-bold"><a href="https://github.com/shinyorg/shiny/edit/master/docs/Input/blehosting/getting-started.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
                             </div>
                         </div>
                     </div>

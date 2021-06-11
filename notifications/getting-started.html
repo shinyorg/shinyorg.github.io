@@ -84,9 +84,6 @@
                                                             <a href="/setup/startup">Startup</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/setup/boilerplate">Boilerplate</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
                                                             <a href="/setup/ios">Platform - iOS</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
@@ -249,6 +246,9 @@
                                                             <a href="/other/nfc">NFC</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
+                                                            <a href="/other/platform">Platform</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
                                                             <a href="/other/power">Power Management</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
@@ -330,7 +330,7 @@
                                                             <a href="/release-notes/v20">v2.0.2639 (May 5, 2021)</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/release-notes/v201">v2.0-preview (May 10, 2021)</a>
+                                                            <a href="/release-notes/v210">v2.1.0 (June 10, 2021)</a>
                                                         </div>
                                                 </div>
                                 </div>
@@ -339,11 +339,11 @@
 of letting your users know that you've done something in the background.  Maybe your job ran and determined that you need to do something OR you connected
 to a BLE peripheral... who knows, but you'll definitely need local notifications at some point well using Shiny</p>
 <div class="tab-wrap">
-<input type="radio" id="d5f6131c0b5540ba88e35ba3f81a1e68-529dd215e9b24cb39861c043a3858227" name="d5f6131c0b5540ba88e35ba3f81a1e68" class="tab" checked=""><label for="d5f6131c0b5540ba88e35ba3f81a1e68-529dd215e9b24cb39861c043a3858227">General</label>
-<input type="radio" id="d5f6131c0b5540ba88e35ba3f81a1e68-7c0d548986154b8f948fcb634798b4b2" name="d5f6131c0b5540ba88e35ba3f81a1e68" class="tab"><label for="d5f6131c0b5540ba88e35ba3f81a1e68-7c0d548986154b8f948fcb634798b4b2">Startup</label>
-<input type="radio" id="d5f6131c0b5540ba88e35ba3f81a1e68-52ef8826dd1d40b19d314651b87fbff5" name="d5f6131c0b5540ba88e35ba3f81a1e68" class="tab"><label for="d5f6131c0b5540ba88e35ba3f81a1e68-52ef8826dd1d40b19d314651b87fbff5">Android</label>
-<input type="radio" id="d5f6131c0b5540ba88e35ba3f81a1e68-89e785ebdd6943c7aa0c727decf423a9" name="d5f6131c0b5540ba88e35ba3f81a1e68" class="tab"><label for="d5f6131c0b5540ba88e35ba3f81a1e68-89e785ebdd6943c7aa0c727decf423a9">iOS</label>
-<input type="radio" id="d5f6131c0b5540ba88e35ba3f81a1e68-27327420dbd743f0bf88c3debfa4afe6" name="d5f6131c0b5540ba88e35ba3f81a1e68" class="tab"><label for="d5f6131c0b5540ba88e35ba3f81a1e68-27327420dbd743f0bf88c3debfa4afe6">Windows</label>
+<input type="radio" id="e9f54a11a8b04fba96240f3c197cc19f-d42c7e32d3374959bcc135ffff29b7bd" name="e9f54a11a8b04fba96240f3c197cc19f" class="tab" checked=""><label for="e9f54a11a8b04fba96240f3c197cc19f-d42c7e32d3374959bcc135ffff29b7bd">General</label>
+<input type="radio" id="e9f54a11a8b04fba96240f3c197cc19f-666399c6416e431e8e50d91c32329126" name="e9f54a11a8b04fba96240f3c197cc19f" class="tab"><label for="e9f54a11a8b04fba96240f3c197cc19f-666399c6416e431e8e50d91c32329126">Startup</label>
+<input type="radio" id="e9f54a11a8b04fba96240f3c197cc19f-ec387c5a462d457795d6fa1b0cba04a5" name="e9f54a11a8b04fba96240f3c197cc19f" class="tab"><label for="e9f54a11a8b04fba96240f3c197cc19f-ec387c5a462d457795d6fa1b0cba04a5">Android</label>
+<input type="radio" id="e9f54a11a8b04fba96240f3c197cc19f-3a805cb2b3504fe489b8178d0c9180b1" name="e9f54a11a8b04fba96240f3c197cc19f" class="tab"><label for="e9f54a11a8b04fba96240f3c197cc19f-3a805cb2b3504fe489b8178d0c9180b1">iOS</label>
+<input type="radio" id="e9f54a11a8b04fba96240f3c197cc19f-eca545abe19846338a7a7f3fcda7c43d" name="e9f54a11a8b04fba96240f3c197cc19f" class="tab"><label for="e9f54a11a8b04fba96240f3c197cc19f-eca545abe19846338a7a7f3fcda7c43d">Windows</label>
 <div class="tab__content">
 <p>|Area|Info|
 |---|---|
@@ -418,7 +418,7 @@ public class NotificationDelegate : INotificationDelegate
                                             <p class="small font-weight-bold">On This Page</p>
                                                 <p class="small"><a href="#notifications">Notifications</a></p>
                                         </div>
-                                    <p class="small font-weight-bold"><a href="https://github.com/shinyorg/shiny/edit/master/docs/input/notifications/getting-started.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
+                                    <p class="small font-weight-bold"><a href="https://github.com/shinyorg/shiny/edit/master/docs/Input/notifications/getting-started.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
                             </div>
                         </div>
                     </div>

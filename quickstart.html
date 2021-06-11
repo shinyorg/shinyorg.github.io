@@ -84,9 +84,6 @@
                                                             <a href="/setup/startup">Startup</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/setup/boilerplate">Boilerplate</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
                                                             <a href="/setup/ios">Platform - iOS</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
@@ -249,6 +246,9 @@
                                                             <a href="/other/nfc">NFC</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
+                                                            <a href="/other/platform">Platform</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
                                                             <a href="/other/power">Power Management</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
@@ -330,17 +330,29 @@
                                                             <a href="/release-notes/v20">v2.0.2639 (May 5, 2021)</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/release-notes/v201">v2.0-preview (May 10, 2021)</a>
+                                                            <a href="/release-notes/v210">v2.1.0 (June 10, 2021)</a>
                                                         </div>
                                                 </div>
                                 </div>
                                 <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4" style="overflow-y: auto">
                                     <h2 id="setup">Setup</h2>
+<h3 id="warning-this-method-does-require-a-later-build-of-msbuild-16.8-which-is-not-yet-available-in-most-ci-systems.you-can">WARNING: This method does require a later build of MSBuild - 16.8+ which is not yet available in most CI systems.  You can</h3>
+<p>use a utility like boots to install the latest beta of Mono, Xamarin Android, &amp; Xamarin iOS on macOS to build your app.</p>
 <ol>
-<li><p>The first thing is to install Shiny.Core as it used by all of the Shiny libraries (or Shiny which contains the code gen, but we'll get to that later).</p>
+<li><p>The first thing is to install <a href="https://www.nuget.org/packages/Shiny/" target="Shiny"><img src="https://img.shields.io/nuget/v/Shiny.svg?style=for-the-badge"></a> to your application head project (ie. MyProject.iOS and MyProject.Android).  This library contains the Shiny.Core and source generators designed to plugin
+all of the boilerplate code you'll need.</p>
 </li>
-<li><p>In your shared code project.  Create a Shiny startup file:</p>
+<li><p>Add the following anywhere in each head project</p>
 </li>
+</ol>
+<pre><code class="language-csharp">// NOTE THE USE OF THE FULL TYPE NAME INCLUDING NAMESPACE
+[assembly: Shiny.ShinyApplication(
+    ShinyStartupTypeName = "YourNamespace.YourApp",
+    XamarinFormsAppTypeName = "YourNamespace.YourXamarinFormsApp"
+)]
+</code></pre>
+<ol start="3">
+<li>In your shared code project.  Create a Shiny startup file:</li>
 </ol>
 <pre><code class="language-csharp">using Microsoft.Extensions.DependencyInjection;
 using Shiny;
@@ -359,27 +371,34 @@ namespace YourNamespace
     }
 }
 </code></pre>
-<p>As another alternative, you can have Shiny generate a startup file automatically at compile time.</p>
-<h3 id="android-ios">Android &amp; iOS</h3>
-<ol>
-<li>The best option is to install the <a href="https://www.nuget.org/packages/Shiny/" target="Shiny"><img src="https://img.shields.io/nuget/v/Shiny.svg?style=for-the-badge"></a> in your head Android, iOS, and UWP head projects.</li>
-<li>In each head project, add the following anywhere in your project:</li>
+<ol start="4">
+<li><p>For iOS AppDelegate is marked partial.  If you have any methods that Shiny uses already implemented, you'll receive
+a build warning to manually hook the method.</p>
+</li>
+<li><p>For Android, Shiny will automatically create the necessary Android application class.  For your main activity (or multiple activities),
+ensure each one is marked as partial.  Shiny will again, auto hook the necessary methods.</p>
+</li>
+<li><p>Install any of the service modules Shiny has to offer and register them with your startup.  Be sure to follow any special
+OS setup instructions in each module.</p>
+</li>
 </ol>
-<pre><code class="language-csharp">// NOTE THE USE OF THE FULL TYPE NAME INCLUDING NAMESPACE
-[assembly: Shiny.ShinyApplication(
-    ShinyStartupTypeName = "YourNamespace.YourApp",
-    XamarinFormsAppTypeName = "YourNamespace.YourXamarinFormsApp"
-)]
-</code></pre>
-<ol start="3">
-<li>iOS: Make sure your AppDelegate is marked as a partial class.  If you implement any of the methods in it, consider removing them.  If you have any custom code in them, take a look at <a href="/setup/boilerplate">boilerplate</a> for more custom scenarios</li>
-<li>Android: Consider deleting any Android application classes you have and make sure all of your activities are marked partial.</li>
-</ol>
-<p>Out of the box, Shiny automatically adds all of the services for Jobs, file system, power monitoring, and key/value storage (as well as several other services need by the Shiny internals)</p>
+<hr>
+<p>The Shiny source generators also automatically wire the following 3rd party libraries for you:</p>
+<ul>
+<li><a href="https://github.com/xamarin/xamarin.forms">Xamarin Forms</a></li>
+<li><a href="https://github.com/xamarin/essentials">Xamarin Essentials</a></li>
+<li><a href="https://github.com/aritchie/userdialogs">ACR User Dialogs</a></li>
+<li><a href="https://github.com/muak/AiForms.SettingsView">AIForms Settings View</a></li>
+<li><a href="https://github.com/Baseflow/XF-Material-Library">XF Material</a></li>
+<li><a href="https://github.com/rotorgames/Rg.Plugins.Popup">RG Popups</a></li>
+<li><a href="https://github.com/AzureAD/microsoft-authentication-library-for-dotnet">Microsoft Identity Client (MSAL)</a></li>
+</ul>
+<p>If you have a truly custom application and you have a great deal of code in your AppDelegate or Android classes, you can manually
+hook Shiny into these methods.  Take a look at <a href="/setup/ios">iOS Setup</a> and <a href="/setup/android">Android Setup</a> for how to do this.</p>
 
                                 </div>
                             <div class="col-lg-2 d-none d-lg-block bg-body pl-3 pt-3">
-                                    <p class="small font-weight-bold"><a href="https://github.com/shinyorg/shiny/edit/master/docs/input/quickstart.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
+                                    <p class="small font-weight-bold"><a href="https://github.com/shinyorg/shiny/edit/master/docs/Input/quickstart.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
                             </div>
                         </div>
                     </div>
