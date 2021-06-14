@@ -207,6 +207,31 @@
                                                         </div>
                                                 </div>
                                             <div class="sidebar-nav-item has-children">
+<a href="/framework">Framework</a>                                            </div>
+                                                <div class="sidebar-nav-children">
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/framework/gettingstarted">Getting Started</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/framework/viewmodel">ViewModels</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/framework/exceptions">Global Command Exception Handler</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/framework/dialogs">Dialogs</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/framework/localization">Localization</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/framework/extensions">Extensions</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/framework/msal">Microsoft Authentication Library (MSAL)</a>
+                                                        </div>
+                                                </div>
+                                            <div class="sidebar-nav-item has-children">
 <a href="/httptransfers">HTTP Transfers</a>                                            </div>
                                                 <div class="sidebar-nav-children">
                                                         <div class="sidebar-nav-child">
@@ -313,9 +338,6 @@
                                                             <a href="/appservices/gpstags">GPS Tags</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/appservices/locsync">Location Sync</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
                                                             <a href="/appservices/mediasync">Media Sync</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
@@ -334,17 +356,20 @@
                                                         <div class="sidebar-nav-child">
                                                             <a href="/release-notes/v210">v2.1.0 (June 10, 2021)</a>
                                                         </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/release-notes/v220">v2.2.0 (June 14, 2021)</a>
+                                                        </div>
                                                 </div>
                                 </div>
                                 <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4" style="overflow-y: auto">
                                     <p>Native push is the root of all other push providers.  It works at the native OS level and is usually feeding other providers like Azure Notification Hubs and Firebase.  As such, the setup instructions found
 within this document generally apply to all.</p>
 <div class="tab-wrap">
-<input type="radio" id="f52feba6205e4afd8510d6b8bd4aa692-240e25050aa04ab9a6c0ab1720fc41d9" name="f52feba6205e4afd8510d6b8bd4aa692" class="tab" checked><label for="f52feba6205e4afd8510d6b8bd4aa692-240e25050aa04ab9a6c0ab1720fc41d9" >General</label>
-<input type="radio" id="f52feba6205e4afd8510d6b8bd4aa692-70e255038e76489eb8c3246914089ea0" name="f52feba6205e4afd8510d6b8bd4aa692" class="tab" ><label for="f52feba6205e4afd8510d6b8bd4aa692-70e255038e76489eb8c3246914089ea0" >Startup</label>
-<input type="radio" id="f52feba6205e4afd8510d6b8bd4aa692-bde8db141dc041a395c95ee8d3c84580" name="f52feba6205e4afd8510d6b8bd4aa692" class="tab" ><label for="f52feba6205e4afd8510d6b8bd4aa692-bde8db141dc041a395c95ee8d3c84580" >Android</label>
-<input type="radio" id="f52feba6205e4afd8510d6b8bd4aa692-7af0722a9b8d47728bb6462095096366" name="f52feba6205e4afd8510d6b8bd4aa692" class="tab" ><label for="f52feba6205e4afd8510d6b8bd4aa692-7af0722a9b8d47728bb6462095096366" >iOS</label>
-<input type="radio" id="f52feba6205e4afd8510d6b8bd4aa692-274a85af6072408f91fdfab7e7796aa5" name="f52feba6205e4afd8510d6b8bd4aa692" class="tab" ><label for="f52feba6205e4afd8510d6b8bd4aa692-274a85af6072408f91fdfab7e7796aa5" >Windows</label>
+<input type="radio" id="a8beb877cc934522bef1670dcefac879-0e985be9b6c04b748900b31ca7b09e93" name="a8beb877cc934522bef1670dcefac879" class="tab" checked><label for="a8beb877cc934522bef1670dcefac879-0e985be9b6c04b748900b31ca7b09e93" >General</label>
+<input type="radio" id="a8beb877cc934522bef1670dcefac879-5e694cd8420949f68d1e0af10bb38faa" name="a8beb877cc934522bef1670dcefac879" class="tab" ><label for="a8beb877cc934522bef1670dcefac879-5e694cd8420949f68d1e0af10bb38faa" >Startup</label>
+<input type="radio" id="a8beb877cc934522bef1670dcefac879-36366fd388dd40dfa6c542787da513bd" name="a8beb877cc934522bef1670dcefac879" class="tab" ><label for="a8beb877cc934522bef1670dcefac879-36366fd388dd40dfa6c542787da513bd" >Android</label>
+<input type="radio" id="a8beb877cc934522bef1670dcefac879-c5cdadf48ec74fc3a8dccf6efcb548c8" name="a8beb877cc934522bef1670dcefac879" class="tab" ><label for="a8beb877cc934522bef1670dcefac879-c5cdadf48ec74fc3a8dccf6efcb548c8" >iOS</label>
+<input type="radio" id="a8beb877cc934522bef1670dcefac879-ce5b3ecf08ef4a70a991e0400931063c" name="a8beb877cc934522bef1670dcefac879" class="tab" ><label for="a8beb877cc934522bef1670dcefac879-ce5b3ecf08ef4a70a991e0400931063c" >Windows</label>
 <div class="tab__content">
 <p>|Area|Info|
 |---|---|

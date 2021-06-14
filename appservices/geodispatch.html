@@ -207,6 +207,31 @@
                                                         </div>
                                                 </div>
                                             <div class="sidebar-nav-item has-children">
+<a href="/framework">Framework</a>                                            </div>
+                                                <div class="sidebar-nav-children">
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/framework/gettingstarted">Getting Started</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/framework/viewmodel">ViewModels</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/framework/exceptions">Global Command Exception Handler</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/framework/dialogs">Dialogs</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/framework/localization">Localization</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/framework/extensions">Extensions</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/framework/msal">Microsoft Authentication Library (MSAL)</a>
+                                                        </div>
+                                                </div>
+                                            <div class="sidebar-nav-item has-children">
 <a href="/httptransfers">HTTP Transfers</a>                                            </div>
                                                 <div class="sidebar-nav-children">
                                                         <div class="sidebar-nav-child">
@@ -313,9 +338,6 @@
                                                             <a href="/appservices/gpstags">GPS Tags</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/appservices/locsync">Location Sync</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
                                                             <a href="/appservices/mediasync">Media Sync</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
@@ -334,18 +356,44 @@
                                                         <div class="sidebar-nav-child">
                                                             <a href="/release-notes/v210">v2.1.0 (June 10, 2021)</a>
                                                         </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/release-notes/v220">v2.2.0 (June 14, 2021)</a>
+                                                        </div>
                                                 </div>
                                 </div>
                                 <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4" style="overflow-y: auto">
-                                    <p>Push + GPS</p>
-<h1 id="coming-soon">COMING SOON</h1>
+                                    <p>Push + GPS - By sending a push notification with incident data in the payload, your users will now receive a notification if they are within the sent &quot;geofence&quot; to ask them if they are able to manage a situation.</p>
+<pre><code class="language-csharp">namespace Shiny.GeoDispatch
+{
+    public interface IGeoDispatchManager
+    {
+        bool IsEnabled { get; set; }
+        Task&lt;PushAccessState&gt; RequestAccess();
+
+        Task RespondToDispatch(string identifier, bool accept, string? textReply);
+        Task&lt;IEnumerable&lt;GeoDispatchMessage&gt;&gt; GetPendingDispatches();
+    }
+}
+</code></pre>
+<h3 id="configuration">Configuration</h3>
+<pre><code class="language-csharp">    public ChannelImportance NotificationChannelImportance { get; set; } = ChannelImportance.Normal;
+    public string NotificationAcceptText { get; set; } = &quot;Accept&quot;;
+    public string NotificationRejectText { get; set; } = &quot;Reject&quot;;
+    public bool AllowAcceptTextReplies { get; set; }
+    public bool AllowRejectTextReplies { get; set; }
+
+    /// &lt;summary&gt;
+    /// If true, unit is processed as meters else processed as miles
+    /// &lt;/summary&gt;
+    public bool PayloadRadiusInMetricUnit { get; set; } = true;
+    public string PayloadIdKey { get; set; } = &quot;id&quot;;
+    public string PayloadLatitudeKey { get; set; } = &quot;lat&quot;;
+    public string PayloadLongitudeKey { get; set; } = &quot;lng&quot;;
+    public string PayloadRadiusKey { get; set; } = &quot;rad&quot;;
+</code></pre>
 
                                 </div>
                             <div class="col-lg-2 d-none d-lg-block bg-body pl-3 pt-3">
-                                        <div class="border-bottom mb-3">
-                                            <p class="small font-weight-bold">On This Page</p>
-                                                <p class="small"><a href="#coming-soon">COMING SOON</a></p>
-                                        </div>
                                     <p class="small font-weight-bold"><a href="https://github.com/shinyorg/shiny/edit/master/docs/input/appservices/geodispatch.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
                             </div>
                         </div>
