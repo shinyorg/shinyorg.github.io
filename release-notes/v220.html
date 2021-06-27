@@ -362,7 +362,11 @@
                                                 </div>
                                 </div>
                                 <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4" style="overflow-y: auto">
-                                    <p>[BREAKING][Android] Android now uses monoandroid11.0 which means you will need to update your major target framework in order for android to be referenced</p>
+                                    <h3 id="core">Core</h3>
+<ul>
+<li>[BREAKING] Moving from full blown MSFT Logging to just the abstractions.  This will negate being able to inject ILogger<T></li>
+<li>[Enhancement][Android] Xamarin.Essentials.Platform.OnNewIntent is now wired in automatically by the source generators [#620]</li>
+</ul>
 <h3 id="bluetoothle">BluetoothLE</h3>
 <ul>
 <li>[Fix][Android] IBleManager.WhenStateChanged now responds properly on Android 10+</li>
