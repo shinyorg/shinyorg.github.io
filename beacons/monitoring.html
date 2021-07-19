@@ -154,6 +154,19 @@
                                                         </div>
                                                 </div>
                                             <div class="sidebar-nav-item has-children">
+<a href="/beacons">Beacons</a>                                            </div>
+                                                <div class="sidebar-nav-children active">
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/beacons/gettingstarted">Getting Started</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child active">
+                                                            <a href="/beacons/monitoring">Monitoring</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/beacons/ranging">Ranging</a>
+                                                        </div>
+                                                </div>
+                                            <div class="sidebar-nav-item has-children">
 <a href="/ble">Bluetooth LE</a>                                            </div>
                                                 <div class="sidebar-nav-children">
                                                         <div class="sidebar-nav-child">
@@ -179,19 +192,6 @@
                                                         </div>
                                                 </div>
                                             <div class="sidebar-nav-item has-children">
-<a href="/beacons">Beacons</a>                                            </div>
-                                                <div class="sidebar-nav-children active">
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/beacons/gettingstarted">Getting Started</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child active">
-                                                            <a href="/beacons/monitoring">Monitoring</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/beacons/ranging">Ranging</a>
-                                                        </div>
-                                                </div>
-                                            <div class="sidebar-nav-item has-children">
 <a href="/blehosting">Bluetooth LE Hosting</a>                                            </div>
                                                 <div class="sidebar-nav-children">
                                                         <div class="sidebar-nav-child">
@@ -202,16 +202,6 @@
                                                         </div>
                                                         <div class="sidebar-nav-child">
                                                             <a href="/blehosting/hosting">Hosting</a>
-                                                        </div>
-                                                </div>
-                                            <div class="sidebar-nav-item has-children">
-<a href="/httptransfers">HTTP Transfers</a>                                            </div>
-                                                <div class="sidebar-nav-children">
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/httptransfers/getting-started">Getting Started</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/httptransfers/advanced">Advanced</a>
                                                         </div>
                                                 </div>
                                             <div class="sidebar-nav-item has-children">
@@ -237,6 +227,16 @@
                                                         </div>
                                                         <div class="sidebar-nav-child">
                                                             <a href="/framework/msal">Microsoft Authentication Library (MSAL)</a>
+                                                        </div>
+                                                </div>
+                                            <div class="sidebar-nav-item has-children">
+<a href="/httptransfers">HTTP Transfers</a>                                            </div>
+                                                <div class="sidebar-nav-children">
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/httptransfers/getting-started">Getting Started</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/httptransfers/advanced">Advanced</a>
                                                         </div>
                                                 </div>
                                             <div class="sidebar-nav-item has-children">
@@ -366,10 +366,10 @@
                                     <p>Beacon monitoring is quite a bit different than ranging.  Monitoring does not provide distance and has many limitations, but it works in the background.  Monitoring uses beacon regions much like ranging, however, the region is all that is returned in the delegate to protect user privacy
 Monitoring is limited to a maximum of 20 regions on iOS.  On Android &amp; UWP, there currently isn't a limit HOWEVER the BLE scans do emit quite a number of scan packets.  If you have too many, your scan will slow down your app quite a bit.</p>
 <div class="tab-wrap">
-<input type="radio" id="e98a4addbf5a426c99708aa436b9caf5-37851cc228dd4c66ba877ba3449a0eb4" name="e98a4addbf5a426c99708aa436b9caf5" class="tab" checked=""><label for="e98a4addbf5a426c99708aa436b9caf5-37851cc228dd4c66ba877ba3449a0eb4">General</label>
-<input type="radio" id="e98a4addbf5a426c99708aa436b9caf5-d71d20c668dc4db88ea3c89a77859803" name="e98a4addbf5a426c99708aa436b9caf5" class="tab"><label for="e98a4addbf5a426c99708aa436b9caf5-d71d20c668dc4db88ea3c89a77859803">Startup</label>
-<input type="radio" id="e98a4addbf5a426c99708aa436b9caf5-1ab07a68fcba4860bf287ddab884cb42" name="e98a4addbf5a426c99708aa436b9caf5" class="tab"><label for="e98a4addbf5a426c99708aa436b9caf5-1ab07a68fcba4860bf287ddab884cb42">Android</label>
-<input type="radio" id="e98a4addbf5a426c99708aa436b9caf5-c57556ccc8944b92a139dcf61ff1c26e" name="e98a4addbf5a426c99708aa436b9caf5" class="tab"><label for="e98a4addbf5a426c99708aa436b9caf5-c57556ccc8944b92a139dcf61ff1c26e">iOS</label>
+<input type="radio" id="f5c41957144f42b38b21267f03c9e887-810e9d747bcb4d74861727927b9af0c9" name="f5c41957144f42b38b21267f03c9e887" class="tab" checked=""><label for="f5c41957144f42b38b21267f03c9e887-810e9d747bcb4d74861727927b9af0c9">General</label>
+<input type="radio" id="f5c41957144f42b38b21267f03c9e887-8fc438cf26ed4d9ea6944b2e04ac7a10" name="f5c41957144f42b38b21267f03c9e887" class="tab"><label for="f5c41957144f42b38b21267f03c9e887-8fc438cf26ed4d9ea6944b2e04ac7a10">Startup</label>
+<input type="radio" id="f5c41957144f42b38b21267f03c9e887-7b9ef45f8b05455aa244833c7ad81789" name="f5c41957144f42b38b21267f03c9e887" class="tab"><label for="f5c41957144f42b38b21267f03c9e887-7b9ef45f8b05455aa244833c7ad81789">Android</label>
+<input type="radio" id="f5c41957144f42b38b21267f03c9e887-c1685dce0e4c450b9676e6f5ba357461" name="f5c41957144f42b38b21267f03c9e887" class="tab"><label for="f5c41957144f42b38b21267f03c9e887-c1685dce0e4c450b9676e6f5ba357461">iOS</label>
 <div class="tab__content">
 <p>|Area|Info|
 |---|---|
