@@ -389,7 +389,9 @@
 <h3 id="locations">Locations</h3>
 <ul>
 <li>[BREAKING] IGpsManager/IGeofenceManager.WhenAccessStatusChanged &amp; IGpsManager/IGeofenceManager.Status removed - RequestAccess is a one stop shop</li>
+<li>[Enhancement] New extensions IGpsManager.GetCurrentPosition or IGpsManager.GetLastReadingOrCurrentPosition</li>
 <li>[Fix][Android] Automatically ensure notifications are registered for foreground service <a href="https://github.com/shinyorg/shiny/issues/653">GH-653</a></li>
+<li>[Fix] GetLastReading will now request a reading if no location is current set on all platforms</li>
 </ul>
 <h3 id="beacons">Beacons</h3>
 <ul>
