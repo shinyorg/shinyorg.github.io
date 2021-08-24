@@ -96,9 +96,6 @@
                                                             <a href="/setup/di">Dependency Injection</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/setup/best-practices">Best Practices</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
                                                             <a href="/setup/integrations">Integrations</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
@@ -145,9 +142,6 @@
                                                         </div>
                                                         <div class="sidebar-nav-child">
                                                             <a href="/push/firebase">Firebase Messaging</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/push/aws">AWS</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
                                                             <a href="/push/onesignal">OneSignal</a>
@@ -366,7 +360,78 @@
                                                 </div>
                                 </div>
                                 <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4" style="overflow-y: auto">
-                                    <p>As developers, we often take internet connectivity and speed for granted.  Mobile phones are taking HUGE sized photos these days that can take quite some time to upload.</p>
+                                    <div class="tab-wrap">
+<input type="radio" id="618092c5089a450ebc7c28696dc04888-d8392bac83fc4b8e9b9665088591cfa1" name="618092c5089a450ebc7c28696dc04888" class="tab" checked=""><label for="618092c5089a450ebc7c28696dc04888-d8392bac83fc4b8e9b9665088591cfa1">General</label>
+<input type="radio" id="618092c5089a450ebc7c28696dc04888-7d6511a195d04deabe566cce205464fe" name="618092c5089a450ebc7c28696dc04888" class="tab"><label for="618092c5089a450ebc7c28696dc04888-7d6511a195d04deabe566cce205464fe">Startup</label>
+<input type="radio" id="618092c5089a450ebc7c28696dc04888-543ed6c8bd634c25aedb658d05822c52" name="618092c5089a450ebc7c28696dc04888" class="tab"><label for="618092c5089a450ebc7c28696dc04888-543ed6c8bd634c25aedb658d05822c52">Android</label>
+<input type="radio" id="618092c5089a450ebc7c28696dc04888-cab2c494e192418f961fbe7484cb187d" name="618092c5089a450ebc7c28696dc04888" class="tab"><label for="618092c5089a450ebc7c28696dc04888-cab2c494e192418f961fbe7484cb187d">iOS</label>
+<input type="radio" id="618092c5089a450ebc7c28696dc04888-d528c89012cb40588bd34330d47bf869" name="618092c5089a450ebc7c28696dc04888" class="tab"><label for="618092c5089a450ebc7c28696dc04888-d528c89012cb40588bd34330d47bf869">Windows</label>
+<div class="tab__content">
+<p>|Area|Info|
+|---|---|
+|Description||
+|Service|Shiny.Net.Http.IHttpTransferManager
+|NuGet|<a href="https://www.nuget.org/packages/Shiny.Net.Http/" target="Shiny.Net.Http"><img src="https://img.shields.io/nuget/v/Shiny.Net.Http.svg?style=for-the-badge&amp;label=Shiny.Net.Http"></a>|
+|Static Generated Class|ShinyHttpTransfers</p>
+</div>
+<div class="tab__content">
+<pre><code class="language-csharp">using Microsoft.Extensions.DependencyInjection;
+using Shiny;
+
+namespace YourNamespace
+{
+    public class YourShinyStartup : ShinyStartup
+    {
+        public override void ConfigureServices(IServiceCollection services, IPlatform platform)
+        { 
+            
+&lt;p&gt;services.UseHttpTransfers&amp;lt;Shiny.Net.Http.IHttpTransferDelegate&amp;gt;();
+services.UseHttpTransfers 
+        }
+    }
+}
+</code></pre>
+<p></p>
+</div>
+<div class="tab__content">
+<h2>Minimum Version: 8.0</h2>
+</div>
+<div class="tab__content">
+<h2>Minimum Version: 10</h2>
+<h3>AppDelegate</h3>
+<pre><code class="language-csharp">using System;
+using Foundation;
+using Xamarin.Forms.Platform.iOS;
+using Shiny;
+</code><p><code class="language-csharp">namespace YourIosApp
+{
+[Register("AppDelegate")]
+public partial class AppDelegate : FormsApplicationDelegate
+{
+public override bool FinishedLaunching(UIApplication app, NSDictionary options)
+{
+this.ShinyFinishedLaunching(new Samples.SampleStartup());
+global::Xamarin.Forms.Forms.Init();
+this.LoadApplication(new Samples.App());
+}
+public override void HandleEventsForBackgroundUrl(UIApplication application, string sessionIdentifier, Action completionHandler) =&gt; this.ShinyHandleEventsForBackgroundUrl(sessionIdentifier, completionHandler);
+}
+}
+</code></p></pre><p></p>
+<h3>Info.plist</h3>
+<pre><code class="language-xml">&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;!DOCTYPE plist PUBLIC " -//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1.0"&gt;
+&lt;dict&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
+</code></pre>
+</div>
+<div class="tab__content">
+<p>No Special Configuration Required</p>
+</div>
+</div>
+<p>As developers, we often take internet connectivity and speed for granted.  Mobile phones are taking HUGE sized photos these days that can take quite some time to upload.</p>
 <h2 id="features">Features</h2>
 <ul>
 <li>Background Uploads &amp; Downloads on each platform</li>
@@ -382,11 +447,11 @@
 </li>
 </ul>
 <div class="tab-wrap">
-<input type="radio" id="278b2275868449f1a64c5fd4b5be8612-c4736939782c4f00ae954ed94370ae8b" name="278b2275868449f1a64c5fd4b5be8612" class="tab" checked=""><label for="278b2275868449f1a64c5fd4b5be8612-c4736939782c4f00ae954ed94370ae8b">General</label>
-<input type="radio" id="278b2275868449f1a64c5fd4b5be8612-edc61a13d4a74ed189abdc67710f1753" name="278b2275868449f1a64c5fd4b5be8612" class="tab"><label for="278b2275868449f1a64c5fd4b5be8612-edc61a13d4a74ed189abdc67710f1753">Startup</label>
-<input type="radio" id="278b2275868449f1a64c5fd4b5be8612-93e1d26e047d4f9f9e1c49d3ee55072c" name="278b2275868449f1a64c5fd4b5be8612" class="tab"><label for="278b2275868449f1a64c5fd4b5be8612-93e1d26e047d4f9f9e1c49d3ee55072c">Android</label>
-<input type="radio" id="278b2275868449f1a64c5fd4b5be8612-41db2ff4bfc74d37b9369e9632246426" name="278b2275868449f1a64c5fd4b5be8612" class="tab"><label for="278b2275868449f1a64c5fd4b5be8612-41db2ff4bfc74d37b9369e9632246426">iOS</label>
-<input type="radio" id="278b2275868449f1a64c5fd4b5be8612-9d5cb03d8d3849c68beab5bafe9914a6" name="278b2275868449f1a64c5fd4b5be8612" class="tab"><label for="278b2275868449f1a64c5fd4b5be8612-9d5cb03d8d3849c68beab5bafe9914a6">Windows</label>
+<input type="radio" id="615543f1891c4a75a7118a99f1acee1e-2197efda336c4df3b638b5b30de2db06" name="615543f1891c4a75a7118a99f1acee1e" class="tab" checked=""><label for="615543f1891c4a75a7118a99f1acee1e-2197efda336c4df3b638b5b30de2db06">General</label>
+<input type="radio" id="615543f1891c4a75a7118a99f1acee1e-8b75056bd2c2458dbb1e5ae18e319c7b" name="615543f1891c4a75a7118a99f1acee1e" class="tab"><label for="615543f1891c4a75a7118a99f1acee1e-8b75056bd2c2458dbb1e5ae18e319c7b">Startup</label>
+<input type="radio" id="615543f1891c4a75a7118a99f1acee1e-3e132ba2b4344b2798ebe1a469f6be99" name="615543f1891c4a75a7118a99f1acee1e" class="tab"><label for="615543f1891c4a75a7118a99f1acee1e-3e132ba2b4344b2798ebe1a469f6be99">Android</label>
+<input type="radio" id="615543f1891c4a75a7118a99f1acee1e-d011c4eaadd343cbb885b3eccb1a7b18" name="615543f1891c4a75a7118a99f1acee1e" class="tab"><label for="615543f1891c4a75a7118a99f1acee1e-d011c4eaadd343cbb885b3eccb1a7b18">iOS</label>
+<input type="radio" id="615543f1891c4a75a7118a99f1acee1e-307a7cb0aed64183913cdfaef8b6837c" name="615543f1891c4a75a7118a99f1acee1e" class="tab"><label for="615543f1891c4a75a7118a99f1acee1e-307a7cb0aed64183913cdfaef8b6837c">Windows</label>
 <div class="tab__content">
 <p>|Area|Info|
 |---|---|

@@ -98,9 +98,6 @@
                                                             <a href="/setup/di">Dependency Injection</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/setup/best-practices">Best Practices</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
                                                             <a href="/setup/integrations">Integrations</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
@@ -147,9 +144,6 @@
                                                         </div>
                                                         <div class="sidebar-nav-child">
                                                             <a href="/push/firebase">Firebase Messaging</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/push/aws">AWS</a>
                                                         </div>
                                                         <div class="sidebar-nav-child active">
                                                             <a href="/push/onesignal">OneSignal</a>
@@ -368,14 +362,93 @@
                                                 </div>
                                 </div>
                                 <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4" style="overflow-y: auto">
-                                    <h1 id="coming-soon">COMING SOON</h1>
+                                    <div class="tab-wrap">
+<input type="radio" id="4c1659686015459caca85afd96a4e0fa-ac88990cfbab4e33993c95c9fe00b991" name="4c1659686015459caca85afd96a4e0fa" class="tab" checked><label for="4c1659686015459caca85afd96a4e0fa-ac88990cfbab4e33993c95c9fe00b991" >General</label>
+<input type="radio" id="4c1659686015459caca85afd96a4e0fa-ad8eb159c3184c558bacbba19a2c0feb" name="4c1659686015459caca85afd96a4e0fa" class="tab" ><label for="4c1659686015459caca85afd96a4e0fa-ad8eb159c3184c558bacbba19a2c0feb" >Startup</label>
+<input type="radio" id="4c1659686015459caca85afd96a4e0fa-f4c8d52940ee4bc6bba78bb1ec0b33c2" name="4c1659686015459caca85afd96a4e0fa" class="tab" ><label for="4c1659686015459caca85afd96a4e0fa-f4c8d52940ee4bc6bba78bb1ec0b33c2" >Android</label>
+<input type="radio" id="4c1659686015459caca85afd96a4e0fa-cc3b27192cab413999b2bd1e5dba3308" name="4c1659686015459caca85afd96a4e0fa" class="tab" ><label for="4c1659686015459caca85afd96a4e0fa-cc3b27192cab413999b2bd1e5dba3308" >iOS</label>
+<div class="tab__content">
+<p>|Area|Info|
+|---|---|
+|Description||
+|Service|Shiny.Push.IPushManager
+|NuGet|<a href="https://www.nuget.org/packages/Shiny.Push.OneSignal/" target="Shiny.Push.OneSignal"><img src="https://img.shields.io/nuget/v/Shiny.Push.OneSignal.svg?style=for-the-badge&label=Shiny.Push.OneSignal" /></a>|
+|Static Generated Class|</p>
+</div>
+<div class="tab__content">
+<pre><code class="language-csharp">using Microsoft.Extensions.DependencyInjection;
+using Shiny;
+
+namespace YourNamespace
+{
+    public class YourShinyStartup : ShinyStartup
+    {
+        public override void ConfigureServices(IServiceCollection services, IPlatform platform)
+        { 
+            
+&lt;p&gt;services.UseOneSignalPush&amp;lt;Shiny.Push.IPushDelegate&amp;gt;(YourOneSignalAppId);
+services.UseOneSignalPush 
+        }
+    }
+}
+</code></pre>
+</p>
+</div>
+<div class="tab__content">
+<h2>Minimum Version: 8.0</h2>
+</div>
+<div class="tab__content">
+<h2>Minimum Version: 10</h2>
+<h3>AppDelegate</h3>
+<pre><code class="language-csharp">using System;
+using Foundation;
+using Xamarin.Forms.Platform.iOS;
+using Shiny;
+<p>namespace YourIosApp
+{
+[Register(&quot;AppDelegate&quot;)]
+public partial class AppDelegate : FormsApplicationDelegate
+{
+public override bool FinishedLaunching(UIApplication app, NSDictionary options)
+{
+this.ShinyFinishedLaunching(new Samples.SampleStartup());
+global::Xamarin.Forms.Forms.Init();
+this.LoadApplication(new Samples.App());
+}
+public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken) =&gt; this.ShinyRegisteredForRemoteNotifications(deviceToken);
+public override void FailedToRegisterForRemoteNotifications(UIApplication application, NSError error) =&gt; this.ShinyFailedToRegisterForRemoteNotifications(error);
+public override void DidReceiveRemoteNotification(UIApplication application, NSDictionary userInfo, Action&lt;UIBackgroundFetchResult&gt; completionHandler) =&gt; this.ShinyDidReceiveRemoteNotification(userInfo, completionHandler);
+}
+}
+</code></pre></p>
+<h3>Info.plist</h3>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot; -//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+&lt;dict&gt;
+    &lt;key&gt;UIBackgroundModes&lt;/key&gt;
+    &lt;array&gt;
+     &lt;string&gt;remote-notification&lt;/string&gt;
+    &lt;/array&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
+</code></pre>
+<h3>Entitlements.plist</h3>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot; -//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+&lt;dict&gt;
+   &lt;key&gt;aps-environment&lt;/key&gt;
+   &lt;string&gt;development OR production&lt;/string&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
+</code></pre>
+</div>
+</div>
+<p>Follow the OneSignal <a href="https://documentation.onesignal.com/docs/xamarin-sdk-setup">setup guide</a> to get started only ignore the code sections.</p>
 
                                 </div>
                             <div class="col-lg-2 d-none d-lg-block bg-body pl-3 pt-3">
-                                        <div class="border-bottom mb-3">
-                                            <p class="small font-weight-bold">On This Page</p>
-                                                <p class="small"><a href="#coming-soon">COMING SOON</a></p>
-                                        </div>
                                     <p class="small font-weight-bold"><a href="https://github.com/shinyorg/shiny/edit/master/docs/input/push/onesignal.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
                             </div>
                         </div>

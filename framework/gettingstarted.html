@@ -98,9 +98,6 @@
                                                             <a href="/setup/di">Dependency Injection</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/setup/best-practices">Best Practices</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
                                                             <a href="/setup/integrations">Integrations</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
@@ -147,9 +144,6 @@
                                                         </div>
                                                         <div class="sidebar-nav-child">
                                                             <a href="/push/firebase">Firebase Messaging</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/push/aws">AWS</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
                                                             <a href="/push/onesignal">OneSignal</a>
@@ -368,7 +362,49 @@
                                                 </div>
                                 </div>
                                 <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4" style="overflow-y: auto">
-                                    <blockquote>
+                                    <div class="tab-wrap">
+<input type="radio" id="1074495c774d463388d8a27619969707-29fbcb0c453640b9be6a5085525e616c" name="1074495c774d463388d8a27619969707" class="tab" checked><label for="1074495c774d463388d8a27619969707-29fbcb0c453640b9be6a5085525e616c" >General</label>
+<input type="radio" id="1074495c774d463388d8a27619969707-c8d05214578446c8872346e9f426de66" name="1074495c774d463388d8a27619969707" class="tab" ><label for="1074495c774d463388d8a27619969707-c8d05214578446c8872346e9f426de66" >Startup</label>
+<input type="radio" id="1074495c774d463388d8a27619969707-7a6a4a95be6c4877b8f75096de563849" name="1074495c774d463388d8a27619969707" class="tab" ><label for="1074495c774d463388d8a27619969707-7a6a4a95be6c4877b8f75096de563849" >Android</label>
+<input type="radio" id="1074495c774d463388d8a27619969707-4829bf2c66ef43c291f98df0c9721a37" name="1074495c774d463388d8a27619969707" class="tab" ><label for="1074495c774d463388d8a27619969707-4829bf2c66ef43c291f98df0c9721a37" >iOS</label>
+<input type="radio" id="1074495c774d463388d8a27619969707-3b621617dfbb46adb5801e4e52056350" name="1074495c774d463388d8a27619969707" class="tab" ><label for="1074495c774d463388d8a27619969707-3b621617dfbb46adb5801e4e52056350" >Windows</label>
+<div class="tab__content">
+<p>|Area|Info|
+|---|---|
+|Description||
+|Service|Shiny.ILocalize
+|NuGet|<a href="https://www.nuget.org/packages/Shiny.Framework/" target="Shiny.Framework"><img src="https://img.shields.io/nuget/v/Shiny.Framework.svg?style=for-the-badge&label=Shiny.Framework" /></a>|
+|Static Generated Class|</p>
+</div>
+<div class="tab__content">
+<pre><code class="language-csharp">using Microsoft.Extensions.DependencyInjection;
+using Shiny;
+
+namespace YourNamespace
+{
+    public class YourShinyStartup : ShinyStartup
+    {
+        public override void ConfigureServices(IServiceCollection services, IPlatform platform)
+        { 
+            
+&lt;p&gt;services.UseResxLocalize 
+        }
+    }
+}
+</code></pre>
+</p>
+</div>
+<div class="tab__content">
+<h2>Minimum Version: 8.0</h2>
+</div>
+<div class="tab__content">
+<h2>Minimum Version: 10</h2>
+</div>
+<div class="tab__content">
+<p>No Special Configuration Required</p>
+</div>
+</div>
+<blockquote>
 <p>Shiny Framework brings together Prism, Reactive UI, and Shiny with a bunch of best practices</p>
 </blockquote>
 <ol>

@@ -98,9 +98,6 @@
                                                             <a href="/setup/di">Dependency Injection</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/setup/best-practices">Best Practices</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
                                                             <a href="/setup/integrations">Integrations</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
@@ -147,9 +144,6 @@
                                                         </div>
                                                         <div class="sidebar-nav-child">
                                                             <a href="/push/firebase">Firebase Messaging</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/push/aws">AWS</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
                                                             <a href="/push/onesignal">OneSignal</a>
@@ -375,11 +369,11 @@
 <img src="images/uwp_runtime_proj.png" width="550" />
 <ol start="2">
 <li>Add <div class="tab-wrap">
-<input type="radio" id="5233adc177944e79a6287d2484399a1b-a884c2d3e4664b7dba91969364159aa1" name="5233adc177944e79a6287d2484399a1b" class="tab" checked><label for="5233adc177944e79a6287d2484399a1b-a884c2d3e4664b7dba91969364159aa1" >General</label>
-<input type="radio" id="5233adc177944e79a6287d2484399a1b-6caf9c1ac3c94fa9991c76cadd19964b" name="5233adc177944e79a6287d2484399a1b" class="tab" ><label for="5233adc177944e79a6287d2484399a1b-6caf9c1ac3c94fa9991c76cadd19964b" >Startup</label>
-<input type="radio" id="5233adc177944e79a6287d2484399a1b-39f0f394665d4b4682e2246b555dac8b" name="5233adc177944e79a6287d2484399a1b" class="tab" ><label for="5233adc177944e79a6287d2484399a1b-39f0f394665d4b4682e2246b555dac8b" >Android</label>
-<input type="radio" id="5233adc177944e79a6287d2484399a1b-e8683f1f06374a0e85726e7766c6485a" name="5233adc177944e79a6287d2484399a1b" class="tab" ><label for="5233adc177944e79a6287d2484399a1b-e8683f1f06374a0e85726e7766c6485a" >iOS</label>
-<input type="radio" id="5233adc177944e79a6287d2484399a1b-542d49e7d0d4438892c9bfd34ee0fea9" name="5233adc177944e79a6287d2484399a1b" class="tab" ><label for="5233adc177944e79a6287d2484399a1b-542d49e7d0d4438892c9bfd34ee0fea9" >Windows</label></li>
+<input type="radio" id="c27881582dee48e2adf8e0925168a092-47262c7c07ae4bf5a4a23ff8fc837a51" name="c27881582dee48e2adf8e0925168a092" class="tab" checked><label for="c27881582dee48e2adf8e0925168a092-47262c7c07ae4bf5a4a23ff8fc837a51" >General</label>
+<input type="radio" id="c27881582dee48e2adf8e0925168a092-5fc0ffdccdc14e969805617fd2b113f7" name="c27881582dee48e2adf8e0925168a092" class="tab" ><label for="c27881582dee48e2adf8e0925168a092-5fc0ffdccdc14e969805617fd2b113f7" >Startup</label>
+<input type="radio" id="c27881582dee48e2adf8e0925168a092-c72a9e397e6541c9addafd9fcd7f959b" name="c27881582dee48e2adf8e0925168a092" class="tab" ><label for="c27881582dee48e2adf8e0925168a092-c72a9e397e6541c9addafd9fcd7f959b" >Android</label>
+<input type="radio" id="c27881582dee48e2adf8e0925168a092-cf20f0f3b0d04c11b16acb594d29d945" name="c27881582dee48e2adf8e0925168a092" class="tab" ><label for="c27881582dee48e2adf8e0925168a092-cf20f0f3b0d04c11b16acb594d29d945" >iOS</label>
+<input type="radio" id="c27881582dee48e2adf8e0925168a092-b4dd11965a1d43b7b12ee29b81fb9d0f" name="c27881582dee48e2adf8e0925168a092" class="tab" ><label for="c27881582dee48e2adf8e0925168a092-b4dd11965a1d43b7b12ee29b81fb9d0f" >Windows</label></li>
 </ol>
 <div class="tab__content">
 <p>|Area|Info|
@@ -387,7 +381,7 @@
 |Description||
 |Service|Shiny.Jobs.IJobManager
 |NuGet|<a href="https://www.nuget.org/packages/Shiny.Core/" target="Shiny.Core"><img src="https://img.shields.io/nuget/v/Shiny.Core.svg?style=for-the-badge&label=Shiny.Core" /></a>|
-|Static Generated Class|ShinyJobs</p>
+|Static Generated Class|</p>
 </div>
 <div class="tab__content">
 <pre><code class="language-csharp">using Microsoft.Extensions.DependencyInjection;
@@ -400,7 +394,7 @@ namespace YourNamespace
         public override void ConfigureServices(IServiceCollection services, IPlatform platform)
         { 
             
-&lt;p&gt;services.RegisterJob 
+&lt;p&gt;services. 
         }
     }
 }
@@ -424,47 +418,6 @@ namespace YourNamespace
 </div>
 <div class="tab__content">
 <h2>Minimum Version: 10</h2>
-<h3>AppDelegate</h3>
-<pre><code class="language-csharp">using System;
-using Foundation;
-using Xamarin.Forms.Platform.iOS;
-using Shiny;
-<p>namespace YourIosApp
-{
-[Register(&quot;AppDelegate&quot;)]
-public partial class AppDelegate : FormsApplicationDelegate
-{
-public override bool FinishedLaunching(UIApplication app, NSDictionary options)
-{
-this.ShinyFinishedLaunching(new Samples.SampleStartup());
-global::Xamarin.Forms.Forms.Init();
-this.LoadApplication(new Samples.App());
-}
-public override void PerformFetch(UIApplication application, Action&lt;UIBackgroundFetchResult&gt; completionHandler) =&gt; this.ShinyPerformFetch(completionHandler);
-}
-}
-</code></pre></p>
-<h3>Info.plist</h3>
-<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
-&lt;!DOCTYPE plist PUBLIC &quot; -//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
-&lt;plist version=&quot;1.0&quot;&gt;
-&lt;dict&gt;
-<pre><code>&amp;lt;key&amp;gt;BGTaskSchedulerPermittedIdentifiers&amp;lt;/key&amp;gt;
-&amp;lt;array&amp;gt;
-    &amp;lt;string&amp;gt;com.shiny.job&amp;lt;/string&amp;gt;
-    &amp;lt;string&amp;gt;com.shiny.jobpower&amp;lt;/string&amp;gt;
-    &amp;lt;string&amp;gt;com.shiny.jobnet&amp;lt;/string&amp;gt;
-    &amp;lt;string&amp;gt;com.shiny.jobpowernet&amp;lt;/string&amp;gt;
-&amp;lt;/array&amp;gt;
-&amp;lt;key&amp;gt;UIBackgroundModes&amp;lt;/key&amp;gt;
-&amp;lt;array&amp;gt;
-   &amp;lt;string&amp;gt;processing&amp;lt;/string&amp;gt;
-   &amp;lt;string&amp;gt;fetch&amp;lt;/string&amp;gt;
-&amp;lt;/array&amp;gt;
-</code></pre>
-<p>&lt;/dict&gt;
-&lt;/plist&gt;
-</code></pre></p>
 </div>
 <div class="tab__content">
 <p>No Special Configuration Required</p>
