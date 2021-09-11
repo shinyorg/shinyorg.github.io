@@ -363,24 +363,6 @@
                                 </div>
                                 <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4" style="overflow-y: auto">
                                     <p>This library deals specifically with iBeacons (Apple's beacon technology).  iBeacons are used to provide contextual location information to a device.  They are built upon BluetoothLE advertising.  They are basically radio'ing out a small piece of data every 700-1400ms that other devices can &quot;hear&quot; if they are listening properly.</p>
-<h2 id="setup">SETUP</h2>
-<p>First - install the NuGet package into your shared code project: <a href="https://www.nuget.org/packages/Shiny.Beacons/"><img src="https://img.shields.io/nuget/v/Shiny.Beacons.svg?maxAge=2592000" alt="NuGet" /></a></p>
-<pre><code class="language-cs">using Microsoft.Extensions.DependencyInjection;
-using Shiny;
-
-public class BeaconStartup : ShinyStartup
-{
-    public override void ConfigureServices(IServiceCollection services)
-    {
-        services.UseBeaconRanging();
-
-        services.UseBeaconMonitoring&lt;BeaconMonitorDelegate&gt;();
-
-        services.UseBeaconAdvertising();
-    }
-}
-
-</code></pre>
 <h2 id="terminology">Terminology</h2>
 <table>
 <thead>
@@ -396,15 +378,15 @@ public class BeaconStartup : ShinyStartup
 </tr>
 <tr>
 <td>Major</td>
-<td>Major is the second part of the addressing system</td>
+<td>Major is the second part of the addressing system to find specific beacons within your organization UUID</td>
 </tr>
 <tr>
 <td>Minor</td>
-<td></td>
+<td>Minor is the final piece of the addressing system to find specific beacons within your organization UUID</td>
 </tr>
 <tr>
 <td>Identifier</td>
-<td>This is a string of your own choosing.  You can use this to identify the scan set you are using</td>
+<td>This is a string of your own choosing.  You can use this to identify the scan set you are using.</td>
 </tr>
 <tr>
 <td><a href="ranging">Ranging</a></td>
@@ -415,7 +397,7 @@ public class BeaconStartup : ShinyStartup
 <td>Monitoring is a background operation.  Monitoring will not provide you with an identity of the beacon.  For instance, if you scan by UUID+major - it will not provide the minor (to lock down specific beacons) for you.  Think of this like knowing the person is in a building, but not which floor.</td>
 </tr>
 <tr>
-<td>Region vs Beacon</td>
+<td>Region (Monitoring) vs Beacon (Ranging)</td>
 <td>Region is a filter set of beacons where as the beacon itself is an individual/specific entity</td>
 </tr>
 </tbody>

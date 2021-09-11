@@ -363,10 +363,10 @@
                                     <p>Beacon monitoring is quite a bit different than ranging.  Monitoring does not provide distance and has many limitations, but it works in the background.  Monitoring uses beacon regions much like ranging, however, the region is all that is returned in the delegate to protect user privacy
 Monitoring is limited to a maximum of 20 regions on iOS.  On Android &amp; UWP, there currently isn't a limit HOWEVER the BLE scans do emit quite a number of scan packets.  If you have too many, your scan will slow down your app quite a bit.</p>
 <div class="tab-wrap">
-<input type="radio" id="8774a2e98b1247ceaf86cccef1f4123a-89197308a6304b588ecfe28a5a377496" name="8774a2e98b1247ceaf86cccef1f4123a" class="tab" checked=""><label for="8774a2e98b1247ceaf86cccef1f4123a-89197308a6304b588ecfe28a5a377496">General</label>
-<input type="radio" id="8774a2e98b1247ceaf86cccef1f4123a-71271cbcc6904df3b025fa14a46d0d98" name="8774a2e98b1247ceaf86cccef1f4123a" class="tab"><label for="8774a2e98b1247ceaf86cccef1f4123a-71271cbcc6904df3b025fa14a46d0d98">Startup</label>
-<input type="radio" id="8774a2e98b1247ceaf86cccef1f4123a-6c35353c234542cab529052b16d03004" name="8774a2e98b1247ceaf86cccef1f4123a" class="tab"><label for="8774a2e98b1247ceaf86cccef1f4123a-6c35353c234542cab529052b16d03004">Android</label>
-<input type="radio" id="8774a2e98b1247ceaf86cccef1f4123a-af92ec3bc74f4103aa3abd4de7382c48" name="8774a2e98b1247ceaf86cccef1f4123a" class="tab"><label for="8774a2e98b1247ceaf86cccef1f4123a-af92ec3bc74f4103aa3abd4de7382c48">iOS</label>
+<input type="radio" id="90ebdb470d4d4fa1b33463d96cceba09-b32132cea6ed4fbdbe62ac82b0d0d396" name="90ebdb470d4d4fa1b33463d96cceba09" class="tab" checked=""><label for="90ebdb470d4d4fa1b33463d96cceba09-b32132cea6ed4fbdbe62ac82b0d0d396">General</label>
+<input type="radio" id="90ebdb470d4d4fa1b33463d96cceba09-b6f6162989ee4b40b60b919df5d33f35" name="90ebdb470d4d4fa1b33463d96cceba09" class="tab"><label for="90ebdb470d4d4fa1b33463d96cceba09-b6f6162989ee4b40b60b919df5d33f35">Startup</label>
+<input type="radio" id="90ebdb470d4d4fa1b33463d96cceba09-0324323cbb7c4f1b89614ce5ba333a33" name="90ebdb470d4d4fa1b33463d96cceba09" class="tab"><label for="90ebdb470d4d4fa1b33463d96cceba09-0324323cbb7c4f1b89614ce5ba333a33">Android</label>
+<input type="radio" id="90ebdb470d4d4fa1b33463d96cceba09-6514c1b595394d549a1923578a2032ab" name="90ebdb470d4d4fa1b33463d96cceba09" class="tab"><label for="90ebdb470d4d4fa1b33463d96cceba09-6514c1b595394d549a1923578a2032ab">iOS</label>
 <div class="tab__content">
 <p>|Area|Info|
 |---|---|
@@ -420,6 +420,10 @@ services.UseBeaconMonitoring
     &lt;string&gt;Say something useful here that your users will understand&lt;/string&gt;
     &lt;key&gt;NSLocationWhenInUseUsageDescription&lt;/key&gt;
     &lt;string&gt;Say something useful here that your users will understand&lt;/string&gt;
+    &lt;key&gt;UIBackgroundModes&lt;/key&gt;
+    &lt;array&gt;
+        &lt;string&gt;location&lt;/string&gt;
+    &lt;/array&gt;
 &lt;/dict&gt;
 &lt;/plist&gt;
 </code></pre>
