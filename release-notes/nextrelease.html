@@ -357,7 +357,7 @@
                                                             <a href="/release-notes/v220">v2.2.0 (July 30, 2021)</a>
                                                         </div>
                                                         <div class="sidebar-nav-child active">
-                                                            <a href="/release-notes/v230">v2.3.0 (Preview)</a>
+                                                            <a href="/release-notes/nextrelease">v2.3.0 (Preview)</a>
                                                         </div>
                                                 </div>
                                 </div>
@@ -366,6 +366,7 @@
 <ul>
 <li>[BREAKING] Jobs has been moved from Shiny.Core to its own module Shiny.Jobs</li>
 <li>[BREAKING][iOS] Default store is now secure storage (KeyChain) to deal with potential auto-start issues before device has been unlocked</li>
+<li>[Enhancement] Object binding failures now log specifics on what failed</li>
 </ul>
 <h3 id="bluetoothle">BluetoothLE</h3>
 <ul>
@@ -386,6 +387,10 @@
 <li>[Enhancement] Foregrounding is now always available if you set your job as &quot;RunInForeground&quot;, there is no need to call UseForegroundJobs</li>
 <li>[Fix][iOS] BGTasks - Correct filters applied to all modes</li>
 </ul>
+<h3 id="notifications">Notifications</h3>
+<ul>
+<li>[Enhancement] Foreground service notifications will use channel that does not show application badge notification <a href="https://github.com/shinyorg/shiny/issues/734">GH-734</a></li>
+</ul>
 <h3 id="push">Push</h3>
 <ul>
 <li>[BREAKING] IPushDelegate.OnTokenChanged is now called IPushDelegate.OnTokenRefreshed</li>
@@ -393,10 +398,14 @@
 <li>[Fix][Android] OnEntry now functions under all modules</li>
 <li>[Fix][iOS][Native] IPushDelegate.OnTokenChanged is no longer called by RequestAccess and the proper token is returned</li>
 </ul>
+<h3 id="push-azure-notification-hubs">Push - Azure Notification Hubs</h3>
+<ul>
+<li>[Fix] ANH can often fail with &quot;Microsoft.Azure.NotificationHubs.Messaging.MessagingEntityNotFoundException: Installation not found.TrackingId:XXXX&quot; for rapid calls (ie. RequestAccess immediately followed by SetTags)</li>
+</ul>
 
                                 </div>
                             <div class="col-lg-2 d-none d-lg-block bg-body pl-3 pt-3">
-                                    <p class="small font-weight-bold"><a href="https://github.com/shinyorg/shiny/edit/master/docs/input/release-notes/v230.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
+                                    <p class="small font-weight-bold"><a href="https://github.com/shinyorg/shiny/edit/master/docs/Input/release-notes/nextrelease.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
                             </div>
                         </div>
                     </div>

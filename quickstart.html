@@ -355,7 +355,7 @@
                                                             <a href="/release-notes/v220">v2.2.0 (July 30, 2021)</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/release-notes/v230">v2.3.0 (Preview)</a>
+                                                            <a href="/release-notes/nextrelease">v2.3.0 (Preview)</a>
                                                         </div>
                                                 </div>
                                 </div>
@@ -364,20 +364,32 @@
 <h3 id="warning-this-method-does-require-a-later-build-of-msbuild-16.8-which-is-not-yet-available-in-most-ci-systems.you-can">WARNING: This method does require a later build of MSBuild - 16.8+ which is not yet available in most CI systems.  You can</h3>
 <p>use a utility like boots to install the latest beta of Mono, Xamarin Android, &amp; Xamarin iOS on macOS to build your app.</p>
 <ol>
-<li><p>The first thing is to install <a href="https://www.nuget.org/packages/Shiny/" target="Shiny"><img src="https://img.shields.io/nuget/v/Shiny.svg?style=for-the-badge"></a> to your application head project (ie. MyProject.iOS and MyProject.Android).  This library contains the Shiny.Core and source generators designed to plugin
+<li><p>The first thing is to install <a href="https://www.nuget.org/packages/Shiny/" target="Shiny"><img src="https://img.shields.io/nuget/v/Shiny.svg?style=for-the-badge"></a> to your application head project (i.e. MyProject.iOS and MyProject.Android).  This library contains the Shiny.Core and source generators designed to plugin
 all of the boilerplate code you'll need.</p>
 </li>
-<li><p>Add the following anywhere in each head project</p>
-</li>
-</ol>
+<li><p>Add the following in some .cs file in each head project:</p>
 <pre><code class="language-csharp">// NOTE THE USE OF THE FULL TYPE NAME INCLUDING NAMESPACE
 [assembly: Shiny.ShinyApplication(
-    ShinyStartupTypeName = "YourNamespace.YourApp",
-    XamarinFormsAppTypeName = "YourNamespace.YourXamarinFormsApp"
+    ShinyStartupTypeName = "MyProject.ShinyStartupClass",
+    XamarinFormsAppTypeName = "MyProject.XamarinFormsAppClass"
 )]
 </code></pre>
-<ol start="3">
-<li>In your shared code project.  Create a Shiny startup file:</li>
+<p>where</p>
+<ul>
+<li><em>MyProject</em> is your project's root namespace</li>
+<li><em>ShinyStartupClass</em> is the name of your Shiny startup class (see next step)</li>
+<li><em>XamarinFormsAppClass</em> is the name of your shared project App class (usually <code>App</code>)</li>
+</ul>
+<p>For example, if you create a new Visual Studio project named <em>MyApp</em>, and in step 3 below you name your Shiny
+startup class <code>YourShinyStartup</code>, you would add the following to each head project:</p>
+<pre><code class="language-csharp">[assembly: Shiny.ShinyApplication(
+    ShinyStartupTypeName = "MyApp.YourShinyStartup",
+    XamarinFormsAppTypeName = "MyApp.App"
+)]
+</code></pre>
+</li>
+<li><p>In your shared code project, install <a href="https://www.nuget.org/packages/Shiny/" target="Shiny"><img src="https://img.shields.io/nuget/v/Shiny.svg?style=for-the-badge"></a>.  Create a Shiny startup class as follows:</p>
+</li>
 </ol>
 <pre><code class="language-csharp">using Microsoft.Extensions.DependencyInjection;
 using Shiny;
@@ -401,7 +413,11 @@ namespace YourNamespace
 a build warning to manually hook the method.</p>
 </li>
 <li><p>For Android, Shiny will automatically create the necessary Android application class.  For your main activity (or multiple activities),
-ensure each one is marked as partial.  Shiny will again, auto hook the necessary methods.</p>
+ensure each one is marked as <strong>partial</strong>.  Shiny will again, auto hook the necessary methods.</p>
+</li>
+<li><p>For Android, add a reference to the <code>Mono.Android.Export</code> assembly to your Android project.
+See <a href="https://stackoverflow.com/questions/31085554/you-need-to-add-a-reference-to-mono-android-export-dll-when-you-use-exportattrib">this StackOverflow post</a>
+for the procedure.</p>
 </li>
 <li><p>Install any of the service modules Shiny has to offer and register them with your startup.  Be sure to follow any special
 OS setup instructions in each module.</p>
@@ -423,7 +439,7 @@ hook Shiny into these methods.  Take a look at <a href="/setup/ios">iOS Setup</a
 
                                 </div>
                             <div class="col-lg-2 d-none d-lg-block bg-body pl-3 pt-3">
-                                    <p class="small font-weight-bold"><a href="https://github.com/shinyorg/shiny/edit/master/docs/input/quickstart.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
+                                    <p class="small font-weight-bold"><a href="https://github.com/shinyorg/shiny/edit/master/docs/Input/quickstart.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
                             </div>
                         </div>
                     </div>
