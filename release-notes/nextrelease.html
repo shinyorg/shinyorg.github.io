@@ -367,12 +367,14 @@
 <li>[BREAKING] Jobs has been moved from Shiny.Core to its own module Shiny.Jobs</li>
 <li>[BREAKING][iOS] Default store is now secure storage (KeyChain) to deal with potential auto-start issues before device has been unlocked</li>
 <li>[Enhancement] Object binding failures now log specifics on what failed</li>
+<li>[Fix] Startup registration was failing on optional delegates</li>
+<li>[Fix] Update job registration to Shiny.Jobs</li>
 </ul>
 <h3 id="bluetoothle">BluetoothLE</h3>
 <ul>
 <li>[Fix] Managed Scan Result now returns as IAdvertisementData for consistency</li>
 <li>[Fix] ManagedScan.Start is now async to expose permission issues before starting the scan <a href="https://github.com/shinyorg/shiny/issues/698">GH-698</a></li>
-<li>[Fix] ManagedScan.Toggle has been moved to an extension method.,</li>
+<li>[Fix] ManagedScan.Toggle has been moved to an extension method</li>
 </ul>
 <h3 id="beacons">Beacons</h3>
 <ul>
@@ -395,6 +397,7 @@
 <h3 id="notifications">Notifications</h3>
 <ul>
 <li>[Enhancement] Foreground service notifications will use channel that does not show application badge notification <a href="https://github.com/shinyorg/shiny/issues/734">GH-734</a></li>
+<li>[Enhancement] Custom sounds work for critical notifications <a href="https://github.com/shinyorg/shiny/pull/757">GH-757</a></li>
 </ul>
 <h3 id="push">Push</h3>
 <ul>
