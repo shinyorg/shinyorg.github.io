@@ -148,50 +148,6 @@
                                                         </div>
                                                 </div>
                                             <div class="sidebar-nav-item has-children">
-<a href="/locations">Locations</a>                                            </div>
-                                                <div class="sidebar-nav-children">
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/locations/getting-started">Getting Started</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/locations/geofences">Geofencing</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/locations/gps">GPS</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/locations/motionactivity">Motion Activity</a>
-                                                        </div>
-                                                </div>
-                                            <div class="sidebar-nav-item has-children">
-<a href="/other">Other</a>                                            </div>
-                                                <div class="sidebar-nav-children">
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/other/connectivity">Connectivity</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/other/keyvalue">Key/Value Stores</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/other/messagebus">Message Bus</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/other/nfc">NFC</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/other/platform">Platform</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/other/power">Power Management</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/other/speech-recognition">Speech Recognition</a>
-                                                        </div>
-                                                        <div class="sidebar-nav-child">
-                                                            <a href="/other/sqlite">SQLite Integrations</a>
-                                                        </div>
-                                                </div>
-                                            <div class="sidebar-nav-item has-children">
 <a href="/beacons">Beacons</a>                                            </div>
                                                 <div class="sidebar-nav-children active">
                                                         <div class="sidebar-nav-child">
@@ -278,6 +234,50 @@
                                                         </div>
                                                 </div>
                                             <div class="sidebar-nav-item has-children">
+<a href="/locations">Locations</a>                                            </div>
+                                                <div class="sidebar-nav-children">
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/locations/getting-started">Getting Started</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/locations/geofences">Geofencing</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/locations/gps">GPS</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/locations/motionactivity">Motion Activity</a>
+                                                        </div>
+                                                </div>
+                                            <div class="sidebar-nav-item has-children">
+<a href="/other">Other</a>                                            </div>
+                                                <div class="sidebar-nav-children">
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/other/connectivity">Connectivity</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/other/keyvalue">Key/Value Stores</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/other/messagebus">Message Bus</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/other/nfc">NFC</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/other/platform">Platform</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/other/power">Power Management</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/other/speech-recognition">Speech Recognition</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/other/sqlite">SQLite Integrations</a>
+                                                        </div>
+                                                </div>
+                                            <div class="sidebar-nav-item has-children">
 <a href="/sensors">Sensors</a>                                            </div>
                                                 <div class="sidebar-nav-children">
                                                         <div class="sidebar-nav-child">
@@ -355,7 +355,13 @@
                                                             <a href="/release-notes/v220">v2.2.0 (July 30, 2021)</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/release-notes/nextrelease">v2.3.0</a>
+                                                            <a href="/release-notes/v230">v2.3.0</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/release-notes/231">v2.3.1</a>
+                                                        </div>
+                                                        <div class="sidebar-nav-child">
+                                                            <a href="/release-notes/nextrelease">v2.4.0</a>
                                                         </div>
                                                 </div>
                                 </div>
@@ -363,10 +369,10 @@
                                     <p>Beacon monitoring is quite a bit different than ranging.  Monitoring does not provide distance and has many limitations, but it works in the background.  Monitoring uses beacon regions much like ranging, however, the region is all that is returned in the delegate to protect user privacy
 Monitoring is limited to a maximum of 20 regions on iOS.  On Android &amp; UWP, there currently isn't a limit HOWEVER the BLE scans do emit quite a number of scan packets.  If you have too many, your scan will slow down your app quite a bit.</p>
 <div class="tab-wrap">
-<input type="radio" id="89bd39a8526346fe902a15a8594a34b9-b2b5ae3fbd3e47728a04452fa1502822" name="89bd39a8526346fe902a15a8594a34b9" class="tab" checked=""><label for="89bd39a8526346fe902a15a8594a34b9-b2b5ae3fbd3e47728a04452fa1502822">General</label>
-<input type="radio" id="89bd39a8526346fe902a15a8594a34b9-a0590c0411da41668cebce5e3968fd18" name="89bd39a8526346fe902a15a8594a34b9" class="tab"><label for="89bd39a8526346fe902a15a8594a34b9-a0590c0411da41668cebce5e3968fd18">Startup</label>
-<input type="radio" id="89bd39a8526346fe902a15a8594a34b9-1638b12c394645bc93927976436824c4" name="89bd39a8526346fe902a15a8594a34b9" class="tab"><label for="89bd39a8526346fe902a15a8594a34b9-1638b12c394645bc93927976436824c4">Android</label>
-<input type="radio" id="89bd39a8526346fe902a15a8594a34b9-cb649cca6cb447b9814242c95c314218" name="89bd39a8526346fe902a15a8594a34b9" class="tab"><label for="89bd39a8526346fe902a15a8594a34b9-cb649cca6cb447b9814242c95c314218">iOS</label>
+<input type="radio" id="eb9d23219cf34a9ca065b14299daa1e3-3e8a43b3d4a040c99cbc1f5b799c12d5" name="eb9d23219cf34a9ca065b14299daa1e3" class="tab" checked=""><label for="eb9d23219cf34a9ca065b14299daa1e3-3e8a43b3d4a040c99cbc1f5b799c12d5">General</label>
+<input type="radio" id="eb9d23219cf34a9ca065b14299daa1e3-983b770c58b24ff189d6e4f77309ccf9" name="eb9d23219cf34a9ca065b14299daa1e3" class="tab"><label for="eb9d23219cf34a9ca065b14299daa1e3-983b770c58b24ff189d6e4f77309ccf9">Startup</label>
+<input type="radio" id="eb9d23219cf34a9ca065b14299daa1e3-bdf42cd39c5f4390a5bdad7de2c59890" name="eb9d23219cf34a9ca065b14299daa1e3" class="tab"><label for="eb9d23219cf34a9ca065b14299daa1e3-bdf42cd39c5f4390a5bdad7de2c59890">Android</label>
+<input type="radio" id="eb9d23219cf34a9ca065b14299daa1e3-3fad81c6ecad4165910d27206509e479" name="eb9d23219cf34a9ca065b14299daa1e3" class="tab"><label for="eb9d23219cf34a9ca065b14299daa1e3-3fad81c6ecad4165910d27206509e479">iOS</label>
 <div class="tab__content">
 <p>|Area|Info|
 |---|---|
