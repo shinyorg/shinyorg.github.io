@@ -372,6 +372,7 @@
 <ul>
 <li>[Fix] Message bus named events were not being published properly <a href="https://github.com/shinyorg/shiny/issues/772">GH-772</a></li>
 <li>[Fix] Android 11+ opens a complete app when requesting permissions for location, thus permission requests could fail on Shiny in race scenarios.  Shiny no longer checks if the request is made on the foreground</li>
+<li>[Fix] Message bus named broadcast was not publishing <a href="https://github.com/shinyorg/shiny/issues/772">GH-772</a></li>
 </ul>
 <h2 id="locations">Locations</h2>
 <ul>
@@ -381,6 +382,11 @@
 <h2 id="notifications">Notifications</h2>
 <ul>
 <li>[Fix][Android] Channels were not being set <a href="https://github.com/shinyorg/shiny/pull/774">GH-774</a></li>
+</ul>
+<h3 id="http-transfers">HTTP Transfers</h3>
+<ul>
+<li>[Fix][Android] Add postdata to uploads multipart content <a href="https://github.com/shinyorg/shiny/discussions/761">GH-761</a></li>
+<li>[Fix][Android] Ensure final response from upload is successful <a href="https://github.com/shinyorg/shiny/pull/771">GH-771</a></li>
 </ul>
 
                                 </div>
