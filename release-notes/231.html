@@ -378,6 +378,9 @@
 <ul>
 <li>[Fix][Android] Location permissions for background must be done separate from other permissions now as per Android 11+</li>
 <li>[Fix][Android] Locations permission on Android 12 requires coarse &amp; fine permissions, even if you only need fine</li>
+<li>[Fix][iOS] Background was not respecting deferrals <a href="https://github.com/shinyorg/shiny/issues/783">GH-783</a></li>
+<li>[Enhancement][Android] GpsRequest now has GpsBackgroundMode (None, Standard, RealTime).  Realtime creates the foreground service &amp; background is a periodic ping with GPS coordinates</li>
+<li>[Enhancement][iOS][Android] GpsRequest now has Precise (Android: Fine) that (on Android requests) ensures fine requirements are met or at least return AccessState.Restricted when they are not</li>
 </ul>
 <h2 id="notifications">Notifications</h2>
 <ul>
@@ -387,6 +390,8 @@
 <ul>
 <li>[Fix][Android] Add postdata to uploads multipart content <a href="https://github.com/shinyorg/shiny/discussions/761">GH-761</a></li>
 <li>[Fix][Android] Ensure final response from upload is successful <a href="https://github.com/shinyorg/shiny/pull/771">GH-771</a></li>
+<li>[Fix][iOS] Fix invalid uploads not working <a href="https://github.com/shinyorg/shiny/issues/782">GH-782</a></li>
+<li>[Fix][iOS] Ensure delegate OnCompleted is called when upload is completed <a href="https://github.com/shinyorg/shiny/issues/782">GH-782</a></li>
 </ul>
 
                                 </div>
