@@ -363,7 +363,7 @@
                                                             <a href="/release-notes/v240">v2.4.0</a>
                                                         </div>
                                                         <div class="sidebar-nav-child">
-                                                            <a href="/release-notes/nextrelease">v2.4.0</a>
+                                                            <a href="/release-notes/nextrelease">v2.5.0</a>
                                                         </div>
                                                 </div>
                                 </div>
@@ -373,6 +373,7 @@
 <li>[Fix] Message bus named events were not being published properly <a href="https://github.com/shinyorg/shiny/issues/772">GH-772</a></li>
 <li>[Fix] Android 11+ opens a complete app when requesting permissions for location, thus permission requests could fail on Shiny in race scenarios.  Shiny no longer checks if the request is made on the foreground</li>
 <li>[Fix] Message bus named broadcast was not publishing <a href="https://github.com/shinyorg/shiny/issues/772">GH-772</a></li>
+<li>[Enhancement] Now using latest versions of Microsoft Extensions</li>
 </ul>
 <h2 id="bluetoothle">BluetoothLE</h2>
 <ul>
@@ -398,6 +399,8 @@
 <li>[Fix][Android] Ensure final response from upload is successful <a href="https://github.com/shinyorg/shiny/pull/771">GH-771</a></li>
 <li>[Fix][iOS] Fix invalid uploads not working <a href="https://github.com/shinyorg/shiny/issues/782">GH-782</a></li>
 <li>[Fix][iOS] Ensure delegate OnCompleted is called when upload is completed <a href="https://github.com/shinyorg/shiny/issues/782">GH-782</a></li>
+<li>[Enhancement][iOS] Now uploads files using form-data to ensure a consistent experience across platforms <a href="https://github.com/shinyorg/shiny/pull/794">GH-794</a></li>
+<li>[BREAKING][UWP] Uwp has been removed, however, you can use the netstandard httpclient drivers</li>
 </ul>
 
                                 </div>
