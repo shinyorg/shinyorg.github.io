@@ -369,18 +369,18 @@
                                 </div>
                                 <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4" style="overflow-y: auto">
                                     <div class="tab-wrap">
-<input type="radio" id="cb5bbc3843bf4afa9c7a0083699852f2-968cd28e6d2246c3809a7ea9f8fb8886" name="cb5bbc3843bf4afa9c7a0083699852f2" class="tab" checked><label for="cb5bbc3843bf4afa9c7a0083699852f2-968cd28e6d2246c3809a7ea9f8fb8886" >General</label>
-<input type="radio" id="cb5bbc3843bf4afa9c7a0083699852f2-2ce614bc45f548cd8ca7cc5f6fdc5f92" name="cb5bbc3843bf4afa9c7a0083699852f2" class="tab" ><label for="cb5bbc3843bf4afa9c7a0083699852f2-2ce614bc45f548cd8ca7cc5f6fdc5f92" >Startup</label>
-<input type="radio" id="cb5bbc3843bf4afa9c7a0083699852f2-b8ab9a260cf44f169cbd3ae18bab51be" name="cb5bbc3843bf4afa9c7a0083699852f2" class="tab" ><label for="cb5bbc3843bf4afa9c7a0083699852f2-b8ab9a260cf44f169cbd3ae18bab51be" >Android</label>
-<input type="radio" id="cb5bbc3843bf4afa9c7a0083699852f2-c3f31e494d6d4e8a83831f72ae1002c7" name="cb5bbc3843bf4afa9c7a0083699852f2" class="tab" ><label for="cb5bbc3843bf4afa9c7a0083699852f2-c3f31e494d6d4e8a83831f72ae1002c7" >iOS</label>
-<input type="radio" id="cb5bbc3843bf4afa9c7a0083699852f2-f4b66f856969424aad1b4d3bf6483ffc" name="cb5bbc3843bf4afa9c7a0083699852f2" class="tab" ><label for="cb5bbc3843bf4afa9c7a0083699852f2-f4b66f856969424aad1b4d3bf6483ffc" >Windows</label>
+<input type="radio" id="c521fe99af194920b2567f456c862985-5ff8dee4a45f46cea9a9d232d0f5f705" name="c521fe99af194920b2567f456c862985" class="tab" checked><label for="c521fe99af194920b2567f456c862985-5ff8dee4a45f46cea9a9d232d0f5f705" >General</label>
+<input type="radio" id="c521fe99af194920b2567f456c862985-e4d7b80ae52c463b9ed541d241cb4b50" name="c521fe99af194920b2567f456c862985" class="tab" ><label for="c521fe99af194920b2567f456c862985-e4d7b80ae52c463b9ed541d241cb4b50" >Startup</label>
+<input type="radio" id="c521fe99af194920b2567f456c862985-34c5b037603f4177902ebd220723e82c" name="c521fe99af194920b2567f456c862985" class="tab" ><label for="c521fe99af194920b2567f456c862985-34c5b037603f4177902ebd220723e82c" >Android</label>
+<input type="radio" id="c521fe99af194920b2567f456c862985-157d06dda3634540a064658890441eba" name="c521fe99af194920b2567f456c862985" class="tab" ><label for="c521fe99af194920b2567f456c862985-157d06dda3634540a064658890441eba" >iOS</label>
+<input type="radio" id="c521fe99af194920b2567f456c862985-99aec4e2956b45c39444ead30b32653c" name="c521fe99af194920b2567f456c862985" class="tab" ><label for="c521fe99af194920b2567f456c862985-99aec4e2956b45c39444ead30b32653c" >Windows</label>
 <div class="tab__content">
 <p>|Area|Info|
 |---|---|
 |Description||
-|Service|Shiny.Jobs.IJobManager
+|Service|Shiny.Jobs.IJobManager|
 |NuGet|<a href="https://www.nuget.org/packages/Shiny.Jobs/" target="Shiny.Jobs"><img src="https://img.shields.io/nuget/v/Shiny.Jobs.svg?style=for-the-badge&label=Shiny.Jobs" /></a>|
-|Static Generated Class|ShinyJobs</p>
+|Static Generated Class|ShinyJobs|</p>
 </div>
 <div class="tab__content">
 <pre><code class="language-csharp">using Microsoft.Extensions.DependencyInjection;
@@ -402,6 +402,18 @@ namespace YourNamespace
 </div>
 <div class="tab__content">
 <h2>Minimum Version: 8.0</h2>
+<h3>AndroidManifest.xml</h3>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; android:versionCode=&quot;1&quot; android:versionName=&quot;1.0&quot; package=&quot;com.org.yourapp&quot; android:installLocation=&quot;preferExternal&quot;&gt;
+    &lt;uses-permission android:name=&quot;android.permission.ACCESS_NETWORK_STATE&quot; /&gt;
+    &lt;uses-permission android:name=&quot;android.permission.ACCESS_WIFI_STATE&quot; /&gt;
+    &lt;uses-permission android:name=&quot;android.permission.BATTERY_STATS&quot; /&gt;
+    &lt;uses-permission android:name=&quot;android.permission.RECEIVE_BOOT_COMPLETED&quot; /&gt;
+    &lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot; /&gt;
+    &lt;uses-permission android:name=&quot;android.permission.READ_EXTERNAL_STORAGE&quot; /&gt;
+    &lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
+&lt;/manifest&gt;
+</code></pre>
 </div>
 <div class="tab__content">
 <h2>Minimum Version: 10</h2>

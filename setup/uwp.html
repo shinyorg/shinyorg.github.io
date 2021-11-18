@@ -375,19 +375,19 @@
 <img src="images/uwp_runtime_proj.png" width="550" />
 <ol start="2">
 <li>Add <div class="tab-wrap">
-<input type="radio" id="f56bdf17abf643eda3c98564c5db5fdf-d31e6489cd73421399709444cc15ca84" name="f56bdf17abf643eda3c98564c5db5fdf" class="tab" checked><label for="f56bdf17abf643eda3c98564c5db5fdf-d31e6489cd73421399709444cc15ca84" >General</label>
-<input type="radio" id="f56bdf17abf643eda3c98564c5db5fdf-5ad8b4684bfd44ba9a51ad3301905987" name="f56bdf17abf643eda3c98564c5db5fdf" class="tab" ><label for="f56bdf17abf643eda3c98564c5db5fdf-5ad8b4684bfd44ba9a51ad3301905987" >Startup</label>
-<input type="radio" id="f56bdf17abf643eda3c98564c5db5fdf-53b3d47e5e704662b40e1895cd5d669e" name="f56bdf17abf643eda3c98564c5db5fdf" class="tab" ><label for="f56bdf17abf643eda3c98564c5db5fdf-53b3d47e5e704662b40e1895cd5d669e" >Android</label>
-<input type="radio" id="f56bdf17abf643eda3c98564c5db5fdf-2264842af70b4558b56f894a069b6ed4" name="f56bdf17abf643eda3c98564c5db5fdf" class="tab" ><label for="f56bdf17abf643eda3c98564c5db5fdf-2264842af70b4558b56f894a069b6ed4" >iOS</label>
-<input type="radio" id="f56bdf17abf643eda3c98564c5db5fdf-9f5361b61a534a6598eb0d69cff649ed" name="f56bdf17abf643eda3c98564c5db5fdf" class="tab" ><label for="f56bdf17abf643eda3c98564c5db5fdf-9f5361b61a534a6598eb0d69cff649ed" >Windows</label></li>
+<input type="radio" id="2aaa3f4420474657b8375977d5262713-874da91d08074fe48afc355dca2b289b" name="2aaa3f4420474657b8375977d5262713" class="tab" checked><label for="2aaa3f4420474657b8375977d5262713-874da91d08074fe48afc355dca2b289b" >General</label>
+<input type="radio" id="2aaa3f4420474657b8375977d5262713-89af6b5f08bb4a81a405a2eb0eae44c4" name="2aaa3f4420474657b8375977d5262713" class="tab" ><label for="2aaa3f4420474657b8375977d5262713-89af6b5f08bb4a81a405a2eb0eae44c4" >Startup</label>
+<input type="radio" id="2aaa3f4420474657b8375977d5262713-65587117f7de4ce2bab56f3967eb8ef6" name="2aaa3f4420474657b8375977d5262713" class="tab" ><label for="2aaa3f4420474657b8375977d5262713-65587117f7de4ce2bab56f3967eb8ef6" >Android</label>
+<input type="radio" id="2aaa3f4420474657b8375977d5262713-02bf08b4b315405bbdf3746fae443967" name="2aaa3f4420474657b8375977d5262713" class="tab" ><label for="2aaa3f4420474657b8375977d5262713-02bf08b4b315405bbdf3746fae443967" >iOS</label>
+<input type="radio" id="2aaa3f4420474657b8375977d5262713-f93521d47db041579c421e081b8ff611" name="2aaa3f4420474657b8375977d5262713" class="tab" ><label for="2aaa3f4420474657b8375977d5262713-f93521d47db041579c421e081b8ff611" >Windows</label></li>
 </ol>
 <div class="tab__content">
 <p>|Area|Info|
 |---|---|
 |Description||
-|Service|Shiny.Jobs.IJobManager
+|Service|Shiny.IPlatform|
 |NuGet|<a href="https://www.nuget.org/packages/Shiny.Core/" target="Shiny.Core"><img src="https://img.shields.io/nuget/v/Shiny.Core.svg?style=for-the-badge&label=Shiny.Core" /></a>|
-|Static Generated Class|</p>
+|Static Generated Class||</p>
 </div>
 <div class="tab__content">
 <pre><code class="language-csharp">using Microsoft.Extensions.DependencyInjection;
@@ -409,18 +409,6 @@ namespace YourNamespace
 </div>
 <div class="tab__content">
 <h2>Minimum Version: 8.0</h2>
-<h3>AndroidManifest.xml</h3>
-<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
-&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; android:versionCode=&quot;1&quot; android:versionName=&quot;1.0&quot; package=&quot;com.org.yourapp&quot; android:installLocation=&quot;preferExternal&quot;&gt;
-    &lt;uses-permission android:name=&quot;android.permission.ACCESS_NETWORK_STATE&quot; /&gt;
-    &lt;uses-permission android:name=&quot;android.permission.ACCESS_WIFI_STATE&quot; /&gt;
-    &lt;uses-permission android:name=&quot;android.permission.BATTERY_STATS&quot; /&gt;
-    &lt;uses-permission android:name=&quot;android.permission.RECEIVE_BOOT_COMPLETED&quot; /&gt;
-    &lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot; /&gt;
-    &lt;uses-permission android:name=&quot;android.permission.READ_EXTERNAL_STORAGE&quot; /&gt;
-    &lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
-&lt;/manifest&gt;
-</code></pre>
 </div>
 <div class="tab__content">
 <h2>Minimum Version: 10</h2>
