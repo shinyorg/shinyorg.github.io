@@ -372,6 +372,10 @@
 </ul>
 <h2 id="notifications">Notifications</h2>
 <ul>
+<li>[BREAKING] Badge is no longer a property - Use SetBadge (async) and GetBadge (async) instead (thank iOS for this change)</li>
+<li>[BREAKING] Clear is now Cancel</li>
+<li>[BREAKING] GetPending is now GetPendingNotifications</li>
+<li>[Enhancement] Cancel allows for you to pass a scope of what to clear.  DisplayedOnly - clears only notifications that are on the home screen.  Pending - anything that has a trigger (geofence, schedule, interval).  All - the default and does everything</li>
 <li>[Enhancement][Android] Android now uses exact timers as opposed to jobs</li>
 <li>[Enhancement][iOS] Channel importance now maps to iOS interruption level</li>
 <li>[Enhancement] Cross platform (repeatable) geofence based notifications</li>
