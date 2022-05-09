@@ -1,0 +1,266 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Push Notification Management </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Push Notification Management ">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc">
+    <meta property="docfx:tocrel" content="../toc">
+    
+    
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+                
+                <ul class="nav level1 navbar-nav">
+                      <li>
+                          <a href="../../mobile/index.html" title="Mobile">Mobile</a>
+                      </li>
+                      <li>
+                          <a href="../../extensions/push/index.html" title="Extensions">Extensions</a>
+                      </li>
+                      <li>
+                          <a href="../../release-notes/mobile/v250.html" title="Releases">Releases</a>
+                      </li>
+                      <li>
+                          <a href="https://github.com/shinyorg" title="GitHub">GitHub</a>
+                      </li>
+                      <li>
+                          <a href="https://allanritchie.com" title="Blog">Blog</a>
+                      </li>
+                      <li>
+                          <a href="https://github.com/sponsors/aritchie" title="Sponsor">Sponsor</a>
+                      </li>
+                </ul>    </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div>
+              <div class="sidefilter">
+                <form class="toc-filter">
+                  <span class="glyphicon glyphicon-filter filter-icon"></span>
+                  <input type="text" id="toc_filter_input" placeholder="Enter here to filter..." onkeypress="if(event.keyCode==13) {return false;}">
+                </form>
+              </div>
+              <div class="sidetoc">
+                <div class="toc" id="toc">
+                  
+                  <ul class="nav level1">
+                    <li class="active">
+                      <span class="expand-stub"></span>
+                      <a href="../push/index.html" title="Push Notification Management" class="active">Push Notification Management</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="../push/managing.html" title="Managing Registrations" class="">Managing Registrations</a>
+                          </li>
+                          <li class="">
+                            <a href="../push/notificationreporters.html" title="Notification Reporters" class="">Notification Reporters</a>
+                          </li>
+                          <li class="">
+                            <a href="../push/decorators.html" title="Decorators" class="">Decorators</a>
+                          </li>
+                          <li class="">
+                            <a href="../push/datastore.html" title="Custom Data Store" class="">Custom Data Store</a>
+                          </li>
+                          <li class="">
+                            <a href="../push/configproviders.html" title="Configuration Providers" class="">Configuration Providers</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <a href="../email.html" title="Mail Engine" class="">Mail Engine</a>
+                    </li>
+                    <li class="">
+                      <a href="../localization.html" title="Localization" class="">Localization</a>
+                    </li>
+                    <li class="">
+                      <a href="../webhooks.html" title="Web Hooks" class="">Web Hooks</a>
+                    </li>
+                  </ul>        </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="push-notification-management">Push Notification Management</h1>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Nuget</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Push</td>
+<td>[!NugetShield(Shiny.Extensions.Push)]</td>
+</tr>
+<tr>
+<td>EF Repository</td>
+<td>[!NugetShield(Shiny.Extensions.Push.Ef)]</td>
+</tr>
+</tbody>
+</table>
+<p>There are tons of push management systems out there - Azure Notification Hubs, Amazon SQS, OneSignal, Firebase, etc, but what if you want to run this stuff local?  That also exists - PushSharp and others exist in the .NET ecosystem.</p>
+<p>Currently, this library supports Apple Notifications and Google Firebase Messaging.  It is important you understand the native API's before using this library
+* <a href="https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages">Firebase Cloud Messaging Documentation</a>
+* <a href="https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/generating_a_remote_notification">Apple Notification Documentation</a></p>
+<p>However, there is a bunch of things that they don't offer</p>
+<ol>
+<li>General purpose push notification abilities</li>
+<li>Management of the registration base (tokens, which user owns the token, etc)</li>
+<li>From the sender base, they lack a lot of deep customization</li>
+<li>What if I just want to hit the base OS providers without the middle man?</li>
+</ol>
+<p>Shiny.Extensions.Push looks to solve all of these issues.</p>
+<pre><code class="lang-csharp">services.AddPushManagement(x =&gt; x
+    .AddApplePush(new AppleConfiguration {
+        IsProduction = true, // prod or sandbox
+        TeamId = &quot;Your Team ID&quot;,
+        AppBundleIdentifier = &quot;com.yourcompany.yourapp&quot;,
+        Key = &quot;Your Key With NO new lines from Apple Dev Portal&quot;,
+        KeyId = &quot;The KeyID for your cert&quot;
+    })
+    .AddGooglePush(new GoogleConfiguration {
+        SenderId = &quot;Your Firebase Sender ID&quot;,
+        ServerKey = &quot;Your Firebase Server Key&quot;,
+        DefaultChannelId = &quot;The Default Channel to use on Android&quot;,
+        UseShinyAndroidPushIntent = true // this is for Shiny.Push.X v2.5+ if you use it on Xamarin Mobile apps
+    })
+    .UseEfRepository&lt;SampleDbContext&gt;()
+);
+</code></pre>
+<h2 id="register-a-deviceuser">Register a Device/User</h2>
+<p>Now that we've registered our push management components, we can assume they we will be injecting Shiny.Extensions.Push.IPushManager wherever we need it.</p>
+<pre><code class="lang-csharp">using Shiny.Extensions.Push;
+
+
+public class ExampleController : ControllerBase {
+    readonly IPushManager pushManager;
+
+    
+    public ExampleController(IPushManager pushManager) {
+        this.pushManager = pushManager;
+    }
+
+
+    public async Task Register(bool isApple, string token) {
+        var userId = this.User.GetUserId(); // you can tag the device registration with the user id
+        await this.pushManager.Send(new PushRegistration {
+            Platform = PushPlatform.Apple,
+            DeviceToken = token,
+            UserId = userId.ToString(),
+            Tags = new [] { &quot;tag1&quot;, &quot;tag2&quot; }
+        });
+    }
+}
+</code></pre>
+<h2 id="sending-a-push">Sending a Push</h2>
+<p>Sending a push cross platform, couldn't be easier (or more powerful)</p>
+<pre><code class="lang-csharp">await this.pushManager.Send(
+    new Shiny.Extensions.Push.Notification
+    {
+        Title = &quot;Hello&quot;,
+        Message = &quot;This is not spam really!&quot;,
+        Data = new Dictionary&lt;string, string&gt; {
+            { &quot;custom&quot;, &quot;data&quot; }
+        }
+    },
+    // what group of users you want to target
+    new PushFilter
+    {
+        //DeviceToken = reg.DeviceToken,
+        //UserId = reg.UserId,
+        //Tags = reg.Tags,
+        Platform = PushPlatforms.All
+    }    
+);
+</code></pre>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/shinyorg/docs/blob/master/docs/extensions/push/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

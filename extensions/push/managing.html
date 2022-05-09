@@ -1,0 +1,229 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Managing Users </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Managing Users ">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc">
+    <meta property="docfx:tocrel" content="../toc">
+    
+    
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+                
+                <ul class="nav level1 navbar-nav">
+                      <li>
+                          <a href="../../mobile/index.html" title="Mobile">Mobile</a>
+                      </li>
+                      <li>
+                          <a href="../../extensions/push/index.html" title="Extensions">Extensions</a>
+                      </li>
+                      <li>
+                          <a href="../../release-notes/mobile/v250.html" title="Releases">Releases</a>
+                      </li>
+                      <li>
+                          <a href="https://github.com/shinyorg" title="GitHub">GitHub</a>
+                      </li>
+                      <li>
+                          <a href="https://allanritchie.com" title="Blog">Blog</a>
+                      </li>
+                      <li>
+                          <a href="https://github.com/sponsors/aritchie" title="Sponsor">Sponsor</a>
+                      </li>
+                </ul>    </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div>
+              <div class="sidefilter">
+                <form class="toc-filter">
+                  <span class="glyphicon glyphicon-filter filter-icon"></span>
+                  <input type="text" id="toc_filter_input" placeholder="Enter here to filter..." onkeypress="if(event.keyCode==13) {return false;}">
+                </form>
+              </div>
+              <div class="sidetoc">
+                <div class="toc" id="toc">
+                  
+                  <ul class="nav level1">
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="../push/index.html" title="Push Notification Management" class="">Push Notification Management</a>
+                        
+                        <ul class="nav level2">
+                          <li class="active">
+                            <a href="../push/managing.html" title="Managing Registrations" class="active">Managing Registrations</a>
+                          </li>
+                          <li class="">
+                            <a href="../push/notificationreporters.html" title="Notification Reporters" class="">Notification Reporters</a>
+                          </li>
+                          <li class="">
+                            <a href="../push/decorators.html" title="Decorators" class="">Decorators</a>
+                          </li>
+                          <li class="">
+                            <a href="../push/datastore.html" title="Custom Data Store" class="">Custom Data Store</a>
+                          </li>
+                          <li class="">
+                            <a href="../push/configproviders.html" title="Configuration Providers" class="">Configuration Providers</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <a href="../email.html" title="Mail Engine" class="">Mail Engine</a>
+                    </li>
+                    <li class="">
+                      <a href="../localization.html" title="Localization" class="">Localization</a>
+                    </li>
+                    <li class="">
+                      <a href="../webhooks.html" title="Web Hooks" class="">Web Hooks</a>
+                    </li>
+                  </ul>        </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="managing-users">Managing Users</h1>
+
+<p>The push notification abstractions at their core are a minor part of this library.  The main &quot;features&quot; are the ones that manage not only the push tokens, but also the user tagging and general tags that don't come out of the box for all push providers like Apple.</p>
+<h2 id="register-users">Register Users</h2>
+<pre><code class="lang-csharp">IPushManager pushManager; // inject this
+await this.pushManager.Send(new PushRegistration {
+    Platform = PushPlatform.Apple, // or Google
+    DeviceToken = token, // the device token from the push provider on the mobile side
+    UserId = &quot;Your User's ID (optional)&quot;,
+    Tags = new [] { &quot;tag1&quot;, &quot;tag2&quot; } // tags (optional)
+});
+
+</code></pre>
+<h2 id="unregister-all-users">Unregister All Users</h2>
+<pre><code class="lang-csharp">IPushManager pushManager; // inject this
+
+await this.pushManager.UnRegister(PushPlatform.Apple, &quot;DeviceToken&quot;);
+
+// OR
+
+await this.pushManager.UnRegisterByUser(&quot;UserId&quot;); // unregistered a userId from all platforms &amp; devices
+</code></pre>
+<h2 id="sending-a-push">Sending a Push</h2>
+<p>Sending allows you to not only provide a fully set notification, but also provide a rich set of criteria for who to send to</p>
+<pre><code class="lang-csharp">IPushManager pushManager; // inject this
+
+await this.pushManager.Send(
+    new Shiny.Extensions.Push.Notification
+    {
+        Title = &quot;Your Notification Title&quot;,
+        Message = &quot;Your Message&quot;,
+        Data = new Dictionary&lt;string, string&gt; {
+            { &quot;custom&quot;, &quot;data&quot; }
+        }
+    },
+
+    // all arguments are optional here
+    new PushFilter
+    {
+        DeviceToken = &quot;DeviceToken&quot;, // if set, will only send to a specific device
+        UserId = &quot;Your UserId&quot;, // if set, will only send to a specific user
+        Tags = new [] { &quot;tag1&quot; }, // if set, will only send to users with these tags
+        Platform = PushPlatforms.Apple // if set, will only send to users on this platform
+    }
+);
+</code></pre>
+<h2 id="querying">Querying</h2>
+<p>This is the exact same criteria as used by send, but obviously, without the sending :)</p>
+<pre><code class="lang-csharp">IPushManager pushManager; // inject this
+
+var registrations = await this.pushManager.GetRegistrations(    new PushFilter
+{
+    DeviceToken = &quot;DeviceToken&quot;, // if set, will only retrieve to a specific device
+    UserId = &quot;Your UserId&quot;, // if set, will only retrieve to a specific user
+    Tags = new [] { &quot;tag1&quot; }, // if set, will only retrieve to users with these tags
+    Platform = PushPlatforms.Apple // if set, will only retrieve users on this platform
+});
+</code></pre>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/shinyorg/docs/blob/master/docs/extensions/push/managing.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

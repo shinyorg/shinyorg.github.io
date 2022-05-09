@@ -1,0 +1,440 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Services, Characteristics, &amp; Descriptors </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Services, Characteristics, &amp; Descriptors ">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc">
+    <meta property="docfx:tocrel" content="../toc">
+    
+    
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+                
+                <ul class="nav level1 navbar-nav">
+                      <li>
+                          <a href="../../mobile/index.html" title="Mobile">Mobile</a>
+                      </li>
+                      <li>
+                          <a href="../../extensions/push/index.html" title="Extensions">Extensions</a>
+                      </li>
+                      <li>
+                          <a href="../../release-notes/mobile/v250.html" title="Releases">Releases</a>
+                      </li>
+                      <li>
+                          <a href="https://github.com/shinyorg" title="GitHub">GitHub</a>
+                      </li>
+                      <li>
+                          <a href="https://allanritchie.com" title="Blog">Blog</a>
+                      </li>
+                      <li>
+                          <a href="https://github.com/sponsors/aritchie" title="Sponsor">Sponsor</a>
+                      </li>
+                </ul>    </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div>
+              <div class="sidefilter">
+                <form class="toc-filter">
+                  <span class="glyphicon glyphicon-filter filter-icon"></span>
+                  <input type="text" id="toc_filter_input" placeholder="Enter here to filter..." onkeypress="if(event.keyCode==13) {return false;}">
+                </form>
+              </div>
+              <div class="sidetoc">
+                <div class="toc" id="toc">
+                  
+                  <ul class="nav level1">
+                    <li class="">
+                      <a href="../index.html" title="Home" class="">Home</a>
+                    </li>
+                    <li class="">
+                      <a href="../quickstart.html" title="Quick Start" class="">Quick Start</a>
+                    </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a class="">Setup</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="../setup/di.html" title="Dependency Injection" class="">Dependency Injection</a>
+                          </li>
+                          <li class="">
+                            <a href="../setup/startup.html" title="Startup" class="">Startup</a>
+                          </li>
+                          <li class="">
+                            <a href="../setup/statics.html" title="Static Instances" class="">Static Instances</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <a href="../configuration.html" title="Configuration Extensions" class="">Configuration Extensions</a>
+                    </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="../jobs/index.html" title="Jobs" class="">Jobs</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="../jobs/getting-started.html" title="Getting Started" class="">Getting Started</a>
+                          </li>
+                          <li class="">
+                            <a href="../jobs/faq.html" title="Frequently Asked Questions" class="">Frequently Asked Questions</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="../ble/index.html" title="Bluetooth LE Client" class="">Bluetooth LE Client</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="../ble/scanning.html" title="Scanning" class="">Scanning</a>
+                          </li>
+                          <li class="">
+                            <a href="../ble/peripheral.html" title="Peripheral" class="">Peripheral</a>
+                          </li>
+                          <li class="">
+                            <a href="../ble/best-practices.html" title="Best Practices" class="">Best Practices</a>
+                          </li>
+                          <li class="">
+                            <a href="../ble/managed-scan.html" title="Manged Scanning" class="">Manged Scanning</a>
+                          </li>
+                          <li class="">
+                            <a href="../ble/managed-peripheral.html" title="Managed Peripheral" class="">Managed Peripheral</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a class="">Bluetooth LE Hosting</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="../blehosting/getting-started.html" title="Getting Started" class="">Getting Started</a>
+                          </li>
+                          <li class="">
+                            <a href="../blehosting/hosting.html" title="GATT" class="">GATT</a>
+                          </li>
+                          <li class="">
+                            <a href="../blehosting/advertising.html" title="Advertising" class="">Advertising</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a class="">Locations</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="../locations/geofencing.html" title="Geofencing" class="">Geofencing</a>
+                          </li>
+                          <li class="">
+                            <a href="../locations/gps.html" title="GPS" class="">GPS</a>
+                          </li>
+                          <li class="">
+                            <a href="../locations/motionactivity.html" title="Motion Activity" class="">Motion Activity</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="../notifications/index.html" title="Local Notifications" class="">Local Notifications</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="../notifications/getting-started.html" title="Getting Started" class="">Getting Started</a>
+                          </li>
+                          <li class="">
+                            <a href="../notifications/channels.html" title="Channels" class="">Channels</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="../push/index.html" title="Push Notifications" class="">Push Notifications</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="../push/getting-started.html" title="Getting Started" class="">Getting Started</a>
+                          </li>
+                          <li class="">
+                            <a href="../push/native.html" title="Native" class="">Native</a>
+                          </li>
+                          <li class="">
+                            <a href="../push/azure.html" title="Azure Notification Hubs" class="">Azure Notification Hubs</a>
+                          </li>
+                          <li class="">
+                            <a href="../push/firebase.html" title="Firebase Messaging" class="">Firebase Messaging</a>
+                          </li>
+                          <li class="">
+                            <a href="../push/onesignal.html" title="One Signal" class="">One Signal</a>
+                          </li>
+                          <li class="">
+                            <a href="../push/faq.html" title="Frequently Asked Questions" class="">Frequently Asked Questions</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="../httptransfers/index.html" title="HTTP Transfers" class="">HTTP Transfers</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="../httptransfers/getting-started.html" title="Getting Started" class="">Getting Started</a>
+                          </li>
+                          <li class="">
+                            <a href="../httptransfers/advanced.html" title="Advanced" class="">Advanced</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a class="">Sensors</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="../sensors/getting-started.html" title="Getting Started" class="">Getting Started</a>
+                          </li>
+                          <li class="">
+                            <a href="../sensors/accelerometer.html" title="Accelerometer" class="">Accelerometer</a>
+                          </li>
+                          <li class="">
+                            <a href="../sensors/ambientlight.html" title="Ambient Light" class="">Ambient Light</a>
+                          </li>
+                          <li class="">
+                            <a href="../sensors/barometer.html" title="Barometer" class="">Barometer</a>
+                          </li>
+                          <li class="">
+                            <a href="../sensors/compass.html" title="Compass" class="">Compass</a>
+                          </li>
+                          <li class="">
+                            <a href="../sensors/gyroscope.html" title="Gyroscope" class="">Gyroscope</a>
+                          </li>
+                          <li class="">
+                            <a href="../sensors/humidity.html" title="Humidity" class="">Humidity</a>
+                          </li>
+                          <li class="">
+                            <a href="../sensors/magnetometer.html" title="Magnetometer" class="">Magnetometer</a>
+                          </li>
+                          <li class="">
+                            <a href="../sensors/pedometer.html" title="Pedometer" class="">Pedometer</a>
+                          </li>
+                          <li class="">
+                            <a href="../sensors/proximity.html" title="Proximity" class="">Proximity</a>
+                          </li>
+                          <li class="">
+                            <a href="../sensors/temperature.html" title="Temperature" class="">Temperature</a>
+                          </li>
+                        </ul>  </li>
+                  </ul>        </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="services-characteristics--descriptors">Services, Characteristics, &amp; Descriptors</h1>
+
+<ul>
+<li><a href="#services">Services</a></li>
+<li><a href="#characteristics">Characteristics</a></li>
+<li><a href="#descriptors">Descriptors</a></li>
+</ul>
+<h2 id="services">Services</h2>
+<p>Once connected to a device, you can initiate service discovery (it is pretty much all you can do against services).  It is important
+not to hold a reference to a service in your code as it will be invalidated with new connections.  You can called for WhenServicesDiscovered()
+with or without a connection.  When the device becomes connected, it will initiate the discovery process.  Note that you can call WhenServicesDiscovered() repeatedly
+and it will simply replay what has been discovered since the connection occurred.</p>
+<p><strong>Discover services on a device</strong></p>
+<pre><code class="lang-csharp">Device.GetServices().Subscribe(services =&gt; 
+{
+});
+</code></pre>
+<p><strong>Skip the Services</strong></p>
+<p>In a lot of cases, you won't care about the service discovery portion.  You can use the extension
+device.WhenAnyCharacteristicDiscovered() to bypass and just discover all characteristics across all services.</p>
+<p>Characteristics are the heart and soul of the BLE GATT connections.  You can read, write, and monitor the values (depending on permissions) with this plugin.</p>
+<p><em>It important thing with characteristics is NOT to store a reference to an object.  This reference becomes invalidated between connections to a device!</em></p>
+<h2 id="general-usage">General Usage</h2>
+<p><strong>Discover characteristics on service</strong></p>
+<pre><code class="lang-csharp">Service.DiscoverCharacteristics().Subscribe(characteristics =&gt; {});
+</code></pre>
+<p><strong>Read and Write to a characteristic</strong></p>
+<pre><code class="lang-csharp">// once you have your characteristic instance from the service discovery
+Characteristic.Read().Subscribe(
+    result =&gt; {
+        result.Data (byte[])
+    },
+    exception =&gt; {
+        // reads can error!
+    }
+);
+
+Characteristic.Write(bytes).Subscribe(
+    result =&gt; {
+        // you don't really need to do anything with the result
+    },
+    exception =&gt; {
+        // writes can error!
+    }
+);
+</code></pre>
+<p><strong>Write Without Response</strong></p>
+<pre><code class="lang-csharp">Characteristic.WriteWithoutResponse(bytes).Subscribe();
+</code></pre>
+<p><strong>Notifications</strong></p>
+<pre><code class="lang-csharp"> // pass true to use indications (if available on android or UWP)
+Characteristic.EnableNotifications(true);
+var sub = characteristic
+    .WhenNotificationReceived()
+    .Subscribe(
+        result =&gt; { result.Data... }
+    );
+
+// don't forget to turn them off when you're done
+characteristic.DisableNotifications().Subscribe(); // pass true to enable indications if supported
+
+// there are also some nice extensions to help speed this up
+Characteristic.RegisterAndNotify().Subscribe(result =&gt; {
+    // if you don't care when the notifications have been enabled
+});
+
+// From the device, this will attempt to discover a known service /w a known characteristic and hook that characteristic
+// for notifications - 1 stop shop all the way
+Device.HookCharacteristic(serviceUuid, characteristicUuid).Subscribe(result =&gt; {
+});
+</code></pre>
+<p><strong>Discover descriptors on a characteristic</strong></p>
+<pre><code class="lang-csharp">// once you have your characteristic instance from the service discovery.
+
+var sub = characteristic.WhenDescriptorsDiscovered().Subscribe(bytes =&gt; {});
+
+characteristic.WhenDescriptorsDiscovered().Subscribe(descriptor =&gt; {});
+</code></pre>
+<p><strong>BLOB Writes</strong></p>
+<p>Used for sending larger arrays or streams of data without working with the MTU byte gap</p>
+<pre><code class="lang-csharp">characteristic.BlobWrite(stream).Subscribe(x =&gt; 
+{
+	// subscription will give you current position and pulse every time a buffer is written
+	// if write no response is used, a 100ms gap is placed after each write.  Note that this event will fire quicker as well
+});
+
+
+// same as above but with a byte array
+characteristic.BlobWrite(bytes).Subscribe(x =&gt; {}); 
+</code></pre>
+<p><strong>Reliable Write Transactions</strong></p>
+<pre><code class="lang-csharp">// TODO
+</code></pre>
+<pre><code class="lang-csharp">
+// register and subscribe to notifications
+characteristic.RegisterAndNotify().Subscribe(result =&gt; {});
+
+// read a characteristic on a given interval.  This is a substitute for SubscribeToNotifications()
+characteristic.ReadInterval(TimeSpan).Subscribe(result =&gt; { result.Data... });
+
+// discover all characteristics without finding services first
+// you should not use this in production - it is more for easy discovery
+// you should use GetKnownService/GetKnownCharacteristic
+device.WhenAnyCharacteristicDiscovered().Subscribe(characteristic =&gt; {});
+
+// will continue to read in a loop until ending bytes (argument) is detected
+device.ReadUntil(new byte[] { 0x0 }).Subscribe(result =&gt; { result.Data... });
+</code></pre>
+<h2 id="descriptors">Descriptors</h2>
+<p>Descriptors have minimal functionality.  You can read &amp; write their values.</p>
+<p><em>It is important (like services and characteristics) that you do not maintain an instance to descriptors across connections</em></p>
+<p><strong>Read/Write to a Descriptor</strong></p>
+<pre><code class="lang-csharp">// once you have your characteristic instance from the characteristic
+await descriptor.Write(bytes);
+
+await descriptor.Read();
+</code></pre>
+<p><strong>Monitor Descriptor Read/Writes</strong></p>
+<pre><code class="lang-csharp">
+descriptor.WhenRead().Subscribe(x =&gt; {});
+
+
+descriptor.WhenWritten().Subscribe(x =&gt; {});
+
+</code></pre>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/shinyorg/docs/blob/master/docs/mobile/ble/gatt.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

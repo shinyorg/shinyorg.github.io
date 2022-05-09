@@ -1,0 +1,241 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Notification Reporters </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Notification Reporters ">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc">
+    <meta property="docfx:tocrel" content="../toc">
+    
+    
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+                
+                <ul class="nav level1 navbar-nav">
+                      <li>
+                          <a href="../../mobile/index.html" title="Mobile">Mobile</a>
+                      </li>
+                      <li>
+                          <a href="../../extensions/push/index.html" title="Extensions">Extensions</a>
+                      </li>
+                      <li>
+                          <a href="../../release-notes/mobile/v250.html" title="Releases">Releases</a>
+                      </li>
+                      <li>
+                          <a href="https://github.com/shinyorg" title="GitHub">GitHub</a>
+                      </li>
+                      <li>
+                          <a href="https://allanritchie.com" title="Blog">Blog</a>
+                      </li>
+                      <li>
+                          <a href="https://github.com/sponsors/aritchie" title="Sponsor">Sponsor</a>
+                      </li>
+                </ul>    </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div>
+              <div class="sidefilter">
+                <form class="toc-filter">
+                  <span class="glyphicon glyphicon-filter filter-icon"></span>
+                  <input type="text" id="toc_filter_input" placeholder="Enter here to filter..." onkeypress="if(event.keyCode==13) {return false;}">
+                </form>
+              </div>
+              <div class="sidetoc">
+                <div class="toc" id="toc">
+                  
+                  <ul class="nav level1">
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="../push/index.html" title="Push Notification Management" class="">Push Notification Management</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="../push/managing.html" title="Managing Registrations" class="">Managing Registrations</a>
+                          </li>
+                          <li class="active">
+                            <a href="../push/notificationreporters.html" title="Notification Reporters" class="active">Notification Reporters</a>
+                          </li>
+                          <li class="">
+                            <a href="../push/decorators.html" title="Decorators" class="">Decorators</a>
+                          </li>
+                          <li class="">
+                            <a href="../push/datastore.html" title="Custom Data Store" class="">Custom Data Store</a>
+                          </li>
+                          <li class="">
+                            <a href="../push/configproviders.html" title="Configuration Providers" class="">Configuration Providers</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <a href="../email.html" title="Mail Engine" class="">Mail Engine</a>
+                    </li>
+                    <li class="">
+                      <a href="../localization.html" title="Localization" class="">Localization</a>
+                    </li>
+                    <li class="">
+                      <a href="../webhooks.html" title="Web Hooks" class="">Web Hooks</a>
+                    </li>
+                  </ul>        </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="notification-reporters">Notification Reporters</h1>
+
+<p>Notifications are often sent in &quot;batches&quot; depending on how wide your notification search parameters are.</p>
+<p>Reporters offer you a way of:</p>
+<ul>
+<li>Tracking Errors on a specific notification to a device</li>
+<li>Tracking when the batch begins and how many devices are going to be sent for processing</li>
+</ul>
+<h2 id="creating-a-reporter">Creating a Reporter</h2>
+<p>First thing to do, is implement the Shiny Notification Reporter interface like so:</p>
+<pre><code class="lang-csharp">public class MyCustomReporter : Shiny.Extensions.Push.INotificationReporter
+{
+    public Task OnBatchCompleted(Guid batchId, IReadOnlyCollection&lt;PushRegistration&gt; success, IReadOnlyCollection&lt;(PushRegistration Registration, Exception Exception)&gt; failures, Notification notification, CancellationToken cancelToken)
+    {
+        ...
+    }
+
+    public Task OnBatchStart(Guid batchId, IReadOnlyCollection&lt;PushRegistration&gt; registrations, Notification notification, CancellationToken cancelToken)
+    {
+        ...
+    }
+
+    public Task OnNotificationError(Guid batchId, PushRegistration registration, Notification notification, Exception exception, CancellationToken cancelToken)
+    {
+        ...
+    }
+
+    public Task OnNotificationSuccess(Guid batchId, PushRegistration registration, Notification notification, CancellationToken cancelToken)
+    {
+        ...
+    }
+}
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>You can also use the <code>Shiny.Extensions.Push.NotificationReporter</code> class and use override instead of implementing the entire interface.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>You can have multiple reporters</p>
+</div>
+<p>Next thing to do is register this with the extension during startup</p>
+<pre><code class="lang-csharp">builder.Services.AddPushManagement(x =&gt; x
+    .AddApplePush(...)
+    .AddGooglePush(...)
+    .AddReporter&lt;MyCustomReporter&gt;()
+);
+</code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>The reporter is registered as a singleton</p>
+</div>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>It isn't good to do a lot of logic inside notification error or notification success as they run per notifcation in a batch.  It is better to use OnBatchStart and OnBatchCompleted to process.  This will allow your notification batches to finish quicker.</p>
+</div>
+<h2 id="out-of-the-box-reporters">Out of the Box Reporters</h2>
+<ul>
+<li><p><strong>BatchTimeNotificationReporter</strong> - this will log how long a batch takes to process.  You can use this to tune your queries or even determine that you may need to move your push functions to a more resilient platform like Azure Functions instead of directly in your Web API.</p>
+</li>
+<li><p><strong>AutoCleanupNotificationReporter</strong> - This reporter will remove any notification errors that occur because no notification was sent.  This usually means the user uninstalled your app (therefore never unregistered using your app) or has unregistered from notifications but it never hit your server.  It happens.  This will catch the exceptions and unregister the device for you.  To Setup, use the following during the extension registration</p>
+</li>
+</ul>
+<pre><code class="lang-csharp">builder.Services.AddPushManagement(x =&gt; x
+    .AddApplePush(...)
+    .AddGooglePush(...)
+    .AddPerformanceLogger()
+    .AddAutoRemoveNoReceive()
+);
+</code></pre>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/shinyorg/docs/blob/master/docs/extensions/push/notificationreporters.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

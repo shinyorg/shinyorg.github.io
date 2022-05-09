@@ -1,0 +1,267 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Data Storage </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Data Storage ">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc">
+    <meta property="docfx:tocrel" content="../toc">
+    
+    
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+                
+                <ul class="nav level1 navbar-nav">
+                      <li>
+                          <a href="../../mobile/index.html" title="Mobile">Mobile</a>
+                      </li>
+                      <li>
+                          <a href="../../extensions/push/index.html" title="Extensions">Extensions</a>
+                      </li>
+                      <li>
+                          <a href="../../release-notes/mobile/v250.html" title="Releases">Releases</a>
+                      </li>
+                      <li>
+                          <a href="https://github.com/shinyorg" title="GitHub">GitHub</a>
+                      </li>
+                      <li>
+                          <a href="https://allanritchie.com" title="Blog">Blog</a>
+                      </li>
+                      <li>
+                          <a href="https://github.com/sponsors/aritchie" title="Sponsor">Sponsor</a>
+                      </li>
+                </ul>    </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div>
+              <div class="sidefilter">
+                <form class="toc-filter">
+                  <span class="glyphicon glyphicon-filter filter-icon"></span>
+                  <input type="text" id="toc_filter_input" placeholder="Enter here to filter..." onkeypress="if(event.keyCode==13) {return false;}">
+                </form>
+              </div>
+              <div class="sidetoc">
+                <div class="toc" id="toc">
+                  
+                  <ul class="nav level1">
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="../push/index.html" title="Push Notification Management" class="">Push Notification Management</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="../push/managing.html" title="Managing Registrations" class="">Managing Registrations</a>
+                          </li>
+                          <li class="">
+                            <a href="../push/notificationreporters.html" title="Notification Reporters" class="">Notification Reporters</a>
+                          </li>
+                          <li class="">
+                            <a href="../push/decorators.html" title="Decorators" class="">Decorators</a>
+                          </li>
+                          <li class="active">
+                            <a href="../push/datastore.html" title="Custom Data Store" class="active">Custom Data Store</a>
+                          </li>
+                          <li class="">
+                            <a href="../push/configproviders.html" title="Configuration Providers" class="">Configuration Providers</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <a href="../email.html" title="Mail Engine" class="">Mail Engine</a>
+                    </li>
+                    <li class="">
+                      <a href="../localization.html" title="Localization" class="">Localization</a>
+                    </li>
+                    <li class="">
+                      <a href="../webhooks.html" title="Web Hooks" class="">Web Hooks</a>
+                    </li>
+                  </ul>        </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="data-storage">Data Storage</h1>
+
+<p>You will rarely ever work directly with the repository object, but Shiny uses it quite a bit under the hood to manage registration, query who should receive notifications, etc.</p>
+<h2 id="entity-framework">Entity Framework</h2>
+<p>Out of the box, Shiny offers only one data store mechanism based on Microsoft's Entity Framework.  Just install the following package [!NugetShield(Shiny.Extensions.Push.Ef)]</p>
+<p>To setup the Entity Framework storage you must do the following, first - add the following to your EF Data Context.</p>
+<pre><code class="lang-csharp">using System;
+using Microsoft.EntityFrameworkCore;
+using Shiny.Extensions.Push.Ef;
+using Shiny.Extensions.Push.Ef.Infrastructure;
+
+namespace YourNamespace
+{
+    public class YouDbContext : DbContext, IPushDbContext
+    {
+        // NOTE: this is also required because Shiny's repository uses DB Factories under the hood
+        public YouDbContext(DbContextOptions&lt;SampleDbContext&gt; options) : base(options) { }
+
+        // observe these classes to see how they will map
+        public DbSet&lt;DbPushRegistration&gt; Registrations =&gt; this.Set&lt;DbPushRegistration&gt;();
+        public DbSet&lt;DbPushTag&gt; Tags =&gt; this.Set&lt;DbPushTag&gt;();
+    }
+}
+</code></pre>
+<p>Second, we need to register your DB context as a factory.  In your .NET6 Program.cs, add the followin</p>
+<pre><code class="lang-csharp">builder.Services.AddDbContextFactory&lt;YouDbContext&gt;(x =&gt;
+{
+    var connString = builder.Configuration.GetConnectionString(&quot;Main&quot;);
+    x.UseSqlServer(connString);
+});
+</code></pre>
+<p>Lastly, we need to register the EF repository with Shiny Push Extensions like so</p>
+<pre><code class="lang-csharp">builder.Services.AddPushManagement(x =&gt; x
+    .AddApplePush(...) // left for example
+    .UseEfRepository&lt;YourDbContext&gt;()
+);
+</code></pre>
+<p>That's it.  You may need to customize the EF table objects that Shiny enforces to your liking.  In any case, here is the default SQL script to create tables</p>
+<pre><code class="lang-sql">SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PushRegistrations](
+	[PushRegistrationId] [uniqueidentifier] NOT NULL,
+	[Platform] [int] NOT NULL,
+	[DeviceToken] [varchar](512) NOT NULL,
+	[UserId] [varchar](50) NULL,
+	[DateUpdated] [datetimeoffset](7) NOT NULL,
+	[DateCreated] [datetimeoffset](7) NOT NULL,
+ CONSTRAINT [PK_PushRegistrations] PRIMARY KEY CLUSTERED
+(
+	[PushRegistrationId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+ CONSTRAINT [UK_PushRegistrations] UNIQUE NONCLUSTERED
+(
+	[DeviceToken] ASC,
+	[Platform] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[PushTags]    Script Date: 12/16/2021 3:27:13 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PushTags](
+	[PushTagId] [uniqueidentifier] NOT NULL,
+	[PushRegistrationId] [uniqueidentifier] NOT NULL,
+	[Value] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK_PushTags] PRIMARY KEY CLUSTERED
+(
+	[PushTagId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+ CONSTRAINT [UK_PushTags] UNIQUE NONCLUSTERED
+(
+	[PushRegistrationId] ASC,
+	[Value] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[PushTags]  WITH CHECK ADD  CONSTRAINT [FK_PushTags_PushRegistrations] FOREIGN KEY([PushRegistrationId])
+REFERENCES [dbo].[PushRegistrations] ([PushRegistrationId])
+GO
+ALTER TABLE [dbo].[PushTags] CHECK CONSTRAINT [FK_PushTags_PushRegistrations]
+GO
+</code></pre>
+<h2 id="custom-data-store">Custom Data Store</h2>
+<p>There will be times you need some form of advanced data retrieval for any number of reasons.  Shiny does have a Shiny.Extensions.Push.Infrastructure.IRepository located in the Shiny.Extensions.Push.Abstractions nuget package</p>
+<pre><code class="lang-csharp">
+builder.Services.AddPushManagement(x =&gt; x
+    .AddApplePush(...)
+    .AddGooglePush(...)
+    .UseRepository&lt;YourCustomRepository&gt;() // NOTE: this will be registered as a singleton using this method
+);
+
+</code></pre>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/shinyorg/docs/blob/master/docs/extensions/push/datastore.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

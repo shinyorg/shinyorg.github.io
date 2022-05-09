@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title> </title>
+    <title>WebHooks </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content=" ">
+    <meta name="title" content="WebHooks ">
     <meta name="generator" content="docfx 2.56.7.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
@@ -93,61 +93,34 @@
                   <ul class="nav level1">
                     <li class="">
                       <span class="expand-stub"></span>
-                      <a class="">Mobile</a>
+                      <a href="push/index.html" title="Push Notification Management" class="">Push Notification Management</a>
                         
                         <ul class="nav level2">
                           <li class="">
-                            <a href="mobile/v250.html" title="v2.5.0" class="">v2.5.0</a>
+                            <a href="push/managing.html" title="Managing Registrations" class="">Managing Registrations</a>
                           </li>
                           <li class="">
-                            <a href="mobile/v243.html" title="v2.4.3" class="">v2.4.3</a>
+                            <a href="push/notificationreporters.html" title="Notification Reporters" class="">Notification Reporters</a>
                           </li>
                           <li class="">
-                            <a href="mobile/v242.html" title="v2.4.2" class="">v2.4.2</a>
+                            <a href="push/decorators.html" title="Decorators" class="">Decorators</a>
                           </li>
                           <li class="">
-                            <a href="mobile/v241.html" title="v2.4.1" class="">v2.4.1</a>
+                            <a href="push/datastore.html" title="Custom Data Store" class="">Custom Data Store</a>
                           </li>
                           <li class="">
-                            <a href="mobile/v240.html" title="v2.4.0" class="">v2.4.0</a>
-                          </li>
-                          <li class="">
-                            <a href="mobile/v230.html" title="v2.3.0" class="">v2.3.0</a>
-                          </li>
-                          <li class="">
-                            <a href="mobile/v220.html" title="v2.2.0" class="">v2.2.0</a>
-                          </li>
-                          <li class="">
-                            <a href="mobile/v210.html" title="v2.1.0" class="">v2.1.0</a>
-                          </li>
-                          <li class="">
-                            <a href="mobile/v211.html" title="v2.1.1" class="">v2.1.1</a>
-                          </li>
-                          <li class="">
-                            <a href="mobile/v20.html" title="v2.0" class="">v2.0</a>
-                          </li>
-                          <li class="">
-                            <a href="mobile/v121.html" title="v1.2.1" class="">v1.2.1</a>
-                          </li>
-                          <li class="">
-                            <a href="mobile/v12.html" title="v1.2" class="">v1.2</a>
-                          </li>
-                          <li class="">
-                            <a href="mobile/v11.html" title="v1.1" class="">v1.1</a>
-                          </li>
-                          <li class="">
-                            <a href="mobile/v10.html" title="v1.0" class="">v1.0</a>
+                            <a href="push/configproviders.html" title="Configuration Providers" class="">Configuration Providers</a>
                           </li>
                         </ul>  </li>
                     <li class="">
-                      <span class="expand-stub"></span>
-                      <a class="">Extensions</a>
-                        
-                        <ul class="nav level2">
-                          <li class="">
-                            <a href="extensions/v130.html" title="v1.3.0" class="">v1.3.0</a>
-                          </li>
-                        </ul>  </li>
+                      <a href="email.html" title="Mail Engine" class="">Mail Engine</a>
+                    </li>
+                    <li class="">
+                      <a href="localization.html" title="Localization" class="">Localization</a>
+                    </li>
+                    <li class="active">
+                      <a href="webhooks.html" title="Web Hooks" class="active">Web Hooks</a>
+                    </li>
                   </ul>        </div>
               </div>
             </div>
@@ -156,8 +129,30 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
+<h1 id="webhooks">WebHooks</h1>
 
-<p>Releases</p>
+<p>This component is to help manage webhooks from the provider side.  Well the concept of webhooks isn't super difficult, there are some things to consider:</p>
+<ol>
+<li>How is the registering client able to verify the request is truly coming from you?</li>
+<li>How do you setup a consistent mechanism for calling the webhook registrations?</li>
+<li>What about responses from those webhooks</li>
+<li>Timeouts?  Maybe one client is given a bit more processing for any number of reasons?</li>
+</ol>
+<p>This library covers all of that! Each registration gets to configuration for</p>
+<ul>
+<li>Allowed timeslice to return response</li>
+<li>A configured hash that we can sign for the client in order for them to verify our request</li>
+<li>The event they are interested in</li>
+</ul>
+<h2 id="setup">Setup</h2>
+<pre><code class="lang-csharp"></code></pre>
+<h2 id="registering-a-webhook">Registering a webhook</h2>
+<p>The first thing is registering a webhook</p>
+<pre><code class="lang-csharp"></code></pre>
+<h2 id="calling-one-way-webhooks">Calling One-way Webhooks</h2>
+<pre><code class="lang-csharp"></code></pre>
+<h2 id="calling-requestresponse-based-webhooks">Calling Request/Response Based Webhooks</h2>
+<pre><code class="lang-csharp"></code></pre>
 </article>
           </div>
           
@@ -166,7 +161,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/shinyorg/docs/blob/master/docs/release-notes/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/shinyorg/docs/blob/master/docs/extensions/webhooks.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

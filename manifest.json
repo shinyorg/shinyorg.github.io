@@ -1,0 +1,1082 @@
+{
+  "homepages": [],
+  "source_base_path": "/github/workspace/docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Conceptual",
+      "source_relative_path": "extensions/email.md",
+      "output": {
+        ".html": {
+          "relative_path": "extensions/email.html",
+          "hash": "YRyJiwqnVCMMHdMutig2IA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "extensions/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "extensions/index.html",
+          "hash": "g2S7xJAMQygN+N8OQGtLXA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "extensions/localization.md",
+      "output": {
+        ".html": {
+          "relative_path": "extensions/localization.html",
+          "hash": "kEzGQdT/cnEaPI3mmTNFjA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "extensions/push/configproviders.md",
+      "output": {
+        ".html": {
+          "relative_path": "extensions/push/configproviders.html",
+          "hash": "q2ojkbhG2T4p5h4WNqTllw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "extensions/push/datastore.md",
+      "output": {
+        ".html": {
+          "relative_path": "extensions/push/datastore.html",
+          "hash": "GtTgdI+pBgTiBqwPZljuQQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "extensions/push/decorators.md",
+      "output": {
+        ".html": {
+          "relative_path": "extensions/push/decorators.html",
+          "hash": "lQtLQXWBIRZi1q8T9rgUgg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "extensions/push/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "extensions/push/index.html",
+          "hash": "bEj9Xw6oZiicOEDBVpZAGQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "extensions/push/managing.md",
+      "output": {
+        ".html": {
+          "relative_path": "extensions/push/managing.html",
+          "hash": "l7UJpiLluXq1bff+CfL/BA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "extensions/push/notificationreporters.md",
+      "output": {
+        ".html": {
+          "relative_path": "extensions/push/notificationreporters.html",
+          "hash": "fzamdFy1sSKGBah8g7EuLA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "extensions/webhooks.md",
+      "output": {
+        ".html": {
+          "relative_path": "extensions/webhooks.html",
+          "hash": "jPAaDF86OOSXArIq+1H31Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "n7ahxu568gQeeM0brvrdvw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "logo.svg",
+      "output": {
+        "resource": {
+          "relative_path": "logo.svg"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/ble/best-practices.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/ble/best-practices.html",
+          "hash": "ZCxAYkyxvvJjvsIqNXBzfw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/ble/gatt.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/ble/gatt.html",
+          "hash": "GV3oRoqqEwfH28Xd3eXZGA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/ble/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/ble/index.html",
+          "hash": "k/kYFdULuagTFFbxJCFTZw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/ble/managed-peripheral.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/ble/managed-peripheral.html",
+          "hash": "H/MJHFRDXqtqm4/TQxgScQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/ble/managed-scan.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/ble/managed-scan.html",
+          "hash": "rjdLPmEi3jBT37zSEu1Rsw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/ble/peripheral.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/ble/peripheral.html",
+          "hash": "Gn+qaKbawNd4Y9qLABKoyA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/ble/scanning.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/ble/scanning.html",
+          "hash": "M5RQbEEXrXtr3I1Yc9YM7A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/blehosting/advertising.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/blehosting/advertising.html",
+          "hash": "sT3+SUCE8396uM4Z8Y1j8w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/blehosting/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/blehosting/getting-started.html",
+          "hash": "HIZ0Z+tAZjh37TZePKKVHA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/blehosting/hosting.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/blehosting/hosting.html",
+          "hash": "24s2jvMkTSaiMUDnnVWxeQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/configuration.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/configuration.html",
+          "hash": "lu65kVySyDPwkA7AZzVzsg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/httptransfers/advanced.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/httptransfers/advanced.html",
+          "hash": "tBX51RR5zq4O9aav/zBe+A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "UidNotFound"
+      ],
+      "type": "Conceptual",
+      "source_relative_path": "mobile/httptransfers/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/httptransfers/getting-started.html",
+          "hash": "cGEofIS28kvAE+ZiIdLgSg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/httptransfers/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/httptransfers/index.html",
+          "hash": "D2ypDHd7BvUhbucqIftV2Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/index.html",
+          "hash": "kk/Mf0c814BvnTfqNsHpPg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
+      "type": "Conceptual",
+      "source_relative_path": "mobile/jobs/faq.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/jobs/faq.html",
+          "hash": "Dk3xiDdNMKc8oD8KqrX5kg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/jobs/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/jobs/getting-started.html",
+          "hash": "D3L88MjjlVvFW/39sXr9Uw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/jobs/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/jobs/index.html",
+          "hash": "qmyQ5yZfjBlk8Z6Jwh0CUw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/locations/geofencing.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/locations/geofencing.html",
+          "hash": "jcz6VcjbrQkNijG4w2Ytcg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/locations/gps.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/locations/gps.html",
+          "hash": "EWS+SDlbstSyXsUl4LZecA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/locations/motionactivity.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/locations/motionactivity.html",
+          "hash": "zPWB/YZM07Y42LGKieX0iw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/notifications/androidspecific.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/notifications/androidspecific.html",
+          "hash": "3aKpdxZCzoq9zyRjhaMVAQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/notifications/channels.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/notifications/channels.html",
+          "hash": "Csjdyqm26MgwcJqwTkjh6A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/notifications/delegate.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/notifications/delegate.html",
+          "hash": "vWTisEtIpdfpB45vpBeuWA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "UidNotFound"
+      ],
+      "type": "Conceptual",
+      "source_relative_path": "mobile/notifications/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/notifications/getting-started.html",
+          "hash": "o1quxL4y58Z5AtL8oZ2myg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/notifications/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/notifications/index.html",
+          "hash": "X1CX0gMraWXR7xs6T+FzUg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/other/connectivity.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/other/connectivity.html",
+          "hash": "Cks6ED5ox40+STUfkeF0Fg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/other/keyvalue.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/other/keyvalue.html",
+          "hash": "Ev3VfsrDrRjc1D6N4g5FSg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/other/messagebus.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/other/messagebus.html",
+          "hash": "3vS+tT5Ee0X5cNhI3FesDA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/other/nfc.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/other/nfc.html",
+          "hash": "6ct42PK65YQxevUP5X8dgw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/other/platform.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/other/platform.html",
+          "hash": "PDJol4/sYQ5tJZW6tERbCQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/other/power.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/other/power.html",
+          "hash": "QZpGYGO99dqF6t4lS5GVlw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/other/speech-recognition.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/other/speech-recognition.html",
+          "hash": "g6mZKM7rl/BcX6EB3bfUfg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/push/azure.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/push/azure.html",
+          "hash": "gZre5kHV3q5WHaxCt1S47w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/push/faq.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/push/faq.html",
+          "hash": "v4nplKgk/IEy3qmppjDVDQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "UidNotFound"
+      ],
+      "type": "Conceptual",
+      "source_relative_path": "mobile/push/firebase.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/push/firebase.html",
+          "hash": "TIzgy0vqRl5bj3iqW0skYA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/push/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/push/getting-started.html",
+          "hash": "DJFSgJb7pwrRNvg7DlFzTA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/push/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/push/index.html",
+          "hash": "6X0Go8QyIG8m5aeLMuCEzw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/push/native.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/push/native.html",
+          "hash": "641GAKfBOjgXlurh4II0Ng=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/push/onesignal.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/push/onesignal.html",
+          "hash": "8ZS3c3vBsWlwDLJjQwHbvw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "UidNotFound"
+      ],
+      "type": "Conceptual",
+      "source_relative_path": "mobile/quickstart.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/quickstart.html",
+          "hash": "yoaARSYpEhl7o/5Gk21UEw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/sensors/accelerometer.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/sensors/accelerometer.html",
+          "hash": "JuobI7UtRRlAcYDT9oQRlA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/sensors/ambientlight.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/sensors/ambientlight.html",
+          "hash": "la3W4MCRyI4ffROmg4NL1w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/sensors/barometer.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/sensors/barometer.html",
+          "hash": "sLJCbfurOWp9wagsLgafTQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/sensors/compass.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/sensors/compass.html",
+          "hash": "1JtogDbTPV6nYs5ZpyOEZw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/sensors/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/sensors/getting-started.html",
+          "hash": "qIVjnt/RXjzIRGklcqImxw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/sensors/gyroscope.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/sensors/gyroscope.html",
+          "hash": "3xIIFbFL+tYujcR489gW0w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/sensors/humidity.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/sensors/humidity.html",
+          "hash": "KePgVe+QV3CFwb80DDNiLg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/sensors/magnetometer.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/sensors/magnetometer.html",
+          "hash": "1ReGO23vPXsY7uLH5P01hQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/sensors/pedometer.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/sensors/pedometer.html",
+          "hash": "6vDAeY1/kHGZNMs1axkEAw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/sensors/proximity.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/sensors/proximity.html",
+          "hash": "NJ6SUi3PCZAbPiBXleG9dg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/sensors/temperature.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/sensors/temperature.html",
+          "hash": "2y+9xi0g0HyTFHkdPsGr0A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/setup/android.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/setup/android.html",
+          "hash": "tdMbZqv/ZbVmTxF8JOTSWw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/setup/di.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/setup/di.html",
+          "hash": "V8ITF5n9fHjpEnIqMMT2Eg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/setup/startup.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/setup/startup.html",
+          "hash": "VUWYDgMdpSFMPvYURXQZeQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/setup/statics.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/setup/statics.html",
+          "hash": "kXZ2W+A6HTOe8f+9oQe85g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "release-notes/extensions/v130.md",
+      "output": {
+        ".html": {
+          "relative_path": "release-notes/extensions/v130.html",
+          "hash": "tz7OmdyRQZx8nszNFfQO7g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "release-notes/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "release-notes/index.html",
+          "hash": "zAR7CeBPhOpRSpfDBIN4Qw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "release-notes/mobile/v10.md",
+      "output": {
+        ".html": {
+          "relative_path": "release-notes/mobile/v10.html",
+          "hash": "nVa5Nwv0JejZtrYB1hdb4w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "release-notes/mobile/v11.md",
+      "output": {
+        ".html": {
+          "relative_path": "release-notes/mobile/v11.html",
+          "hash": "4e0MLGO5UaF2kwpjCzJsOQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "release-notes/mobile/v12.md",
+      "output": {
+        ".html": {
+          "relative_path": "release-notes/mobile/v12.html",
+          "hash": "F9f8lekIReBiIM9FgjOmCw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "release-notes/mobile/v121.md",
+      "output": {
+        ".html": {
+          "relative_path": "release-notes/mobile/v121.html",
+          "hash": "+75zdlv2b0l76DUxxJZBrw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "release-notes/mobile/v20.md",
+      "output": {
+        ".html": {
+          "relative_path": "release-notes/mobile/v20.html",
+          "hash": "zUYXeX0yFmZIo1BTAQ73PQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "release-notes/mobile/v210.md",
+      "output": {
+        ".html": {
+          "relative_path": "release-notes/mobile/v210.html",
+          "hash": "OWG1NIGCA8FcL0q4bdXImQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "release-notes/mobile/v211.md",
+      "output": {
+        ".html": {
+          "relative_path": "release-notes/mobile/v211.html",
+          "hash": "Bkiyw7RScx76Os3UvV0aJw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "release-notes/mobile/v220.md",
+      "output": {
+        ".html": {
+          "relative_path": "release-notes/mobile/v220.html",
+          "hash": "ZI/ZkBsVT6Qa44bqxvZkQQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "release-notes/mobile/v230.md",
+      "output": {
+        ".html": {
+          "relative_path": "release-notes/mobile/v230.html",
+          "hash": "SNzGUT9xbLpXNu8QmXcmew=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "release-notes/mobile/v240.md",
+      "output": {
+        ".html": {
+          "relative_path": "release-notes/mobile/v240.html",
+          "hash": "hNCJr+VvsUKY7Gi6fe66Bg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "release-notes/mobile/v241.md",
+      "output": {
+        ".html": {
+          "relative_path": "release-notes/mobile/v241.html",
+          "hash": "3OoKlfr4v8OJI4aEIgKuMw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "release-notes/mobile/v242.md",
+      "output": {
+        ".html": {
+          "relative_path": "release-notes/mobile/v242.html",
+          "hash": "Imw2RWdr1VeqjBc4vrQhjA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "release-notes/mobile/v243.md",
+      "output": {
+        ".html": {
+          "relative_path": "release-notes/mobile/v243.html",
+          "hash": "7G3Tng/EmBKurW2sTnwFUA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "release-notes/mobile/v250.md",
+      "output": {
+        ".html": {
+          "relative_path": "release-notes/mobile/v250.html",
+          "hash": "7pbAOnM2WeI4Su64wcS0Dg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0,
+        "full_build_reason_code": "NoAvailableBuildCache"
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 83,
+          "skipped_file_count": 0
+        },
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: last post processor info is null.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
