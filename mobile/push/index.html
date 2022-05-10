@@ -322,9 +322,12 @@ namespace YourNamespace
 <li role="presentation">
 <a href="#tabpanel_OPVFxjtfeD_ios" role="tab" aria-controls="tabpanel_OPVFxjtfeD_ios" data-tab="ios" tabindex="0" aria-selected="true">iOS</a>
 </li>
+<li role="presentation">
+<a href="#tabpanel_OPVFxjtfeD_android" role="tab" aria-controls="tabpanel_OPVFxjtfeD_android" data-tab="android" tabindex="-1">Android</a>
+</li>
 </ul>
 <section id="tabpanel_OPVFxjtfeD_ios" role="tabpanel" data-tab="ios">
-<p>Minimum Version: </p>
+<p>Minimum Version: 10</p>
 <h2 id="appdelegate">AppDelegate</h2>
 <pre><code class="lang-csharp">using System;
 using Foundation;
@@ -338,12 +341,20 @@ namespace YourIosApp
     {
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-            this.ShinyFinishedLaunching(new Samples.SampleStartup());
+            this.ShinyFinishedLaunching(new Samples.SampleStartup(), options);
             global::Xamarin.Forms.Forms.Init();
             this.LoadApplication(new Samples.App());
         }
     }
 
+    public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
+        =&gt; this.ShinyRegisteredForRemoteNotifications(deviceToken);
+
+    public override void FailedToRegisterForRemoteNotifications(UIApplication application, NSError error)
+        =&gt; this.ShinyFailedToRegisterForRemoteNotifications(error);
+
+    public override void DidReceiveRemoteNotification(UIApplication application, NSDictionary userInfo, Action&lt;UIBackgroundFetchResult&gt; completionHandler)
+        =&gt; this.ShinyDidReceiveRemoteNotification(userInfo, completionHandler);
 }
 </code></pre><h2 id="infoplist">Info.plist</h2>
 <pre><code class="lang-xml">&lt;!DOCTYPE plist PUBLIC &quot; -//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
@@ -351,6 +362,7 @@ namespace YourIosApp
     &lt;dict&gt;
         &lt;key&gt;UIBackgroundModes&lt;/key&gt;
         &lt;array&gt;
+            &lt;string&gt;remote-notification&lt;/string&gt;
         &lt;/array&gt;
     &lt;/dict&gt;
 &lt;/plist&gt;
@@ -358,15 +370,20 @@ namespace YourIosApp
 <pre><code class="lang-xml">&lt;!DOCTYPE plist PUBLIC &quot; -//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
 &lt;plist version=\&quot;1.0\&quot;&gt;
     &lt;dict&gt;
+        &lt;key&gt;aps-environment&lt;/key&gt;
+        &lt;string&gt;development OR production&lt;/string&gt;
     &lt;/dict&gt;
 &lt;/plist&gt;
-</code></pre><p>Liquid syntax error: Object &#39;Shiny.AndroidConfig&#39; is invalid because it is neither a built-in type nor implements ILiquidizable</p>
+</code></pre></section>
+<section id="tabpanel_OPVFxjtfeD_android" role="tabpanel" data-tab="android" aria-hidden="true" hidden="hidden">
+<h3 id="minimum-version-80">Minimum Version: 8.0</h3>
+<h3 id="target-version-12">Target Version: 12</h3>
+</section>
+</div>
 <h2 id="samples">Samples</h2>
 <ul>
 <li><a href="https://github.com/shinyorg/samples/tree/main/Push-Native">https://github.com/shinyorg/samples/tree/main/Push-Native</a></li>
 </ul>
-</section>
-</div>
 </article>
           </div>
           

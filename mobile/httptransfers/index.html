@@ -326,51 +326,22 @@ namespace YourNamespace
 <li role="presentation">
 <a href="#tabpanel_2syJHRLj7i_ios" role="tab" aria-controls="tabpanel_2syJHRLj7i_ios" data-tab="ios" tabindex="0" aria-selected="true">iOS</a>
 </li>
+<li role="presentation">
+<a href="#tabpanel_2syJHRLj7i_android" role="tab" aria-controls="tabpanel_2syJHRLj7i_android" data-tab="android" tabindex="-1">Android</a>
+</li>
 </ul>
 <section id="tabpanel_2syJHRLj7i_ios" role="tabpanel" data-tab="ios">
-<p>Minimum Version: </p>
-<h2 id="appdelegate">AppDelegate</h2>
-<pre><code class="lang-csharp">using System;
-using Foundation;
-using Xamarin.Forms.Platform.iOS;
-using Shiny;
-
-namespace YourIosApp
-{
-    [Register(&quot;AppDelegate&quot;)]
-    public partial class AppDelegate : FormsApplicationDelegate
-    {
-        public override bool FinishedLaunching(UIApplication app, NSDictionary options)
-        {
-            this.ShinyFinishedLaunching(new Samples.SampleStartup());
-            global::Xamarin.Forms.Forms.Init();
-            this.LoadApplication(new Samples.App());
-        }
-    }
-
-}
-</code></pre><h2 id="infoplist">Info.plist</h2>
-<pre><code class="lang-xml">&lt;!DOCTYPE plist PUBLIC &quot; -//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
-&lt;plist version=\&quot;1.0\&quot;&gt;
-    &lt;dict&gt;
-        &lt;key&gt;UIBackgroundModes&lt;/key&gt;
-        &lt;array&gt;
-        &lt;/array&gt;
-    &lt;/dict&gt;
-&lt;/plist&gt;
-</code></pre><h2 id="entitlementsplist">Entitlements.plist</h2>
-<pre><code class="lang-xml">&lt;!DOCTYPE plist PUBLIC &quot; -//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
-&lt;plist version=\&quot;1.0\&quot;&gt;
-    &lt;dict&gt;
-    &lt;/dict&gt;
-&lt;/plist&gt;
-</code></pre><p>Liquid syntax error: Object &#39;Shiny.AndroidConfig&#39; is invalid because it is neither a built-in type nor implements ILiquidizable</p>
+<p>Minimum Version: 10</p>
+</section>
+<section id="tabpanel_2syJHRLj7i_android" role="tabpanel" data-tab="android" aria-hidden="true" hidden="hidden">
+<h3 id="minimum-version-80">Minimum Version: 8.0</h3>
+<h3 id="target-version-12">Target Version: 12</h3>
+</section>
+</div>
 <h2 id="samples">Samples</h2>
 <ul>
 <li><a href="https://github.com/shinyorg/samples/tree/main/HttpTransfers">https://github.com/shinyorg/samples/tree/main/HttpTransfers</a></li>
 </ul>
-</section>
-</div>
 </article>
           </div>
           
