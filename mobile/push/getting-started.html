@@ -192,7 +192,7 @@
                         </ul>  </li>
                     <li class="">
                       <span class="expand-stub"></span>
-                      <a href="../push/index.html" title="Push Notifications" class="">Push Notifications</a>
+                      <a class="">Push Notifications</a>
                         
                         <ul class="nav level2">
                           <li class="active">
@@ -205,13 +205,22 @@
                             <a href="../push/azure.html" title="Azure Notification Hubs" class="">Azure Notification Hubs</a>
                           </li>
                           <li class="">
-                            <a href="../push/firebase.html" title="Firebase Messaging" class="">Firebase Messaging</a>
+                            <a href="../push/firebase.md" title="Firebase Messaging" class="">Firebase Messaging</a>
                           </li>
                           <li class="">
-                            <a href="../push/onesignal.html" title="One Signal" class="">One Signal</a>
+                            <a href="../push/onesignal.md" title="One Signal" class="">One Signal</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a class="">Beacons</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="../beacons/ranging.html" title="Ranging" class="">Ranging</a>
                           </li>
                           <li class="">
-                            <a href="../push/faq.html" title="Frequently Asked Questions" class="">Frequently Asked Questions</a>
+                            <a href="../beacons/monitoring.html" title="Monitoring (Background)" class="">Monitoring (Background)</a>
                           </li>
                         </ul>  </li>
                     <li class="">
@@ -277,6 +286,9 @@
 
 <p>Push notifications come in so many flavours these days.  The community needed one way of doing things, but the ability to swap providers in and out at will.  The reason, push providers, aside from native have been dropping
 like flies the last several years.  The latest to go was AppCenter which it turns out the Xamarin community was heavily invested in. </p>
+<p>Native push is the root of all other push providers.  It works at the native OS level and is usually feeding other providers like Azure Notification Hubs and Firebase.  As such, the setup instructions found
+within this document generally apply to all.</p>
+<p>Follow the OneSignal <a href="https://documentation.onesignal.com/docs/xamarin-sdk-setup">setup guide</a> to get started only ignore the code sections.</p>
 <h2 id="setup">Setup</h2>
 <p>General OS setup is mostly the same on all platforms, but please review the specific provider you intend to use from the menu for more information</p>
 <h2 id="registration">Registration</h2>
@@ -376,7 +388,34 @@ public class Extensions
         var permissionResult = await push.TryRequestAccessWithTags(&quot;tag1&quot;, &quot;tag2&quot;);
     }
 }
-</code></pre></article>
+</code></pre><h2 id="android">Android</h2>
+<p>Follow the exact same setup process as the <a href="xref:pushnative">native push provider</a></p>
+<p>Please read the following <a href="https://docs.microsoft.com/en-us/xamarin/android/data-cloud/google-messaging/firebase-cloud-messaging">Microsoft Document</a> on
+how to setup firebase within your Android application.</p>
+<p>The process of setting up Android is a bit of process</p>
+<pre><code class="lang-csharp">&lt;ItemGroup&gt;
+    &lt;GoogleServicesJson Include=&quot;google-services.json&quot;&gt;
+        &lt;CopyToOutputDirectory&gt;PreserveNewest&lt;/CopyToOutputDirectory&gt;
+    &lt;/GoogleServicesJson&gt;
+    &lt;PackageReference Include=&quot;Xamarin.GooglePlayServices.Basement&quot; Version=&quot;The same version Shiny.Push is using&quot; /&gt;
+    &lt;PackageReference Include=&quot;Xamarin.GooglePlayServices.Tasks&quot; Version=&quot;The same version Shiny.Push is using&quot; /&gt;
+&lt;/ItemGroup&gt;
+</code></pre><h2 id="ios">iOS</h2>
+<p>Follow the exact same setup process as the <a href="xref:pushnative">native push provider</a> with one addition</p>
+<p>After setting up your iOS app within the firebase admin portal, add GoogleService-Info.plist to your iOS head project
+and mark it as a &quot;BundleResource&quot;</p>
+<h1 id="frequently-asked-questions">Frequently Asked Questions</h1>
+<blockquote><p>Q: The delegate method &#39;OnReceived&#39; is not firing on Android</p>
+<blockquote><p>A: You must include data payload in your push notification</p>
+</blockquote>
+<p>Q: The delegate method &#39;OnReceived&#39; is not firing on iOS</p>
+<blockquote><p>A: You must set content-available: 1 in your push notification</p>
+</blockquote>
+<p>Q: I&#39;ve been sending a push every few minutes and iOS stops firing the OnReceived delegate method</p>
+<blockquote><p>A: In most production settings, iOS gives you about 3-5 silent push notifications per hour before Apple starts throttling/ignorning them. </p>
+</blockquote>
+</blockquote>
+</article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">

@@ -192,7 +192,7 @@
                         </ul>  </li>
                     <li class="">
                       <span class="expand-stub"></span>
-                      <a href="../push/index.html" title="Push Notifications" class="">Push Notifications</a>
+                      <a class="">Push Notifications</a>
                         
                         <ul class="nav level2">
                           <li class="">
@@ -205,13 +205,22 @@
                             <a href="../push/azure.html" title="Azure Notification Hubs" class="">Azure Notification Hubs</a>
                           </li>
                           <li class="">
-                            <a href="../push/firebase.html" title="Firebase Messaging" class="">Firebase Messaging</a>
+                            <a href="../push/firebase.md" title="Firebase Messaging" class="">Firebase Messaging</a>
                           </li>
                           <li class="">
-                            <a href="../push/onesignal.html" title="One Signal" class="">One Signal</a>
+                            <a href="../push/onesignal.md" title="One Signal" class="">One Signal</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a class="">Beacons</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="../beacons/ranging.html" title="Ranging" class="">Ranging</a>
                           </li>
                           <li class="">
-                            <a href="../push/faq.html" title="Frequently Asked Questions" class="">Frequently Asked Questions</a>
+                            <a href="../beacons/monitoring.html" title="Monitoring (Background)" class="">Monitoring (Background)</a>
                           </li>
                         </ul>  </li>
                     <li class="">
@@ -277,7 +286,7 @@
 
 <p>Using Shiny without dependency injection is not only possible, it is quite easy to do.  Do also you like the old plugin style of CrossPlugin.Current?  Then you&#39;ve come to the right document.  You may be thinking, why not just include these as part of the package?  Several reasons actually, first being - statics don&#39;t make as easily testable and the second, statics don&#39;t adhere to interfaces and Shiny is always evolving.  I got tired of trying to keep things in sync.  By adding a generation option, it makes things good for all of us.  </p>
 <p>Under the hood, you are still using dependency injection and you still need a startup file, BUT, you can have all of the static versions of each service generated in a project of your choice by simply adding the following to your assembly attributes:</p>
-<pre><code class="lang-csharp">[assembly: Shiny.GenerateStaticClasses]
+<pre><code class="lang-csharp">[assembly: Shiny.GenerateStaticClasses(&quot;YourNamespace&quot;)]
 </code></pre><p>After adding this attribute, perform a build.  The Shiny source generator will now scan for all Shiny nuget packages that are referenced in this project and generate corresponding static classes for the main services.  </p>
 <pre><code class="lang-csharp">// BEFORE
 Shiny.ShinyHost.Resolve&lt;IJobManager&gt;().Run(...);

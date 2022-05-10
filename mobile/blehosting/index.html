@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Frequently Asked Questions </title>
+    <title> </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Frequently Asked Questions ">
+    <meta name="title" content=" ">
     <meta name="generator" content="docfx 2.56.7.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -192,7 +192,7 @@
                         </ul>  </li>
                     <li class="">
                       <span class="expand-stub"></span>
-                      <a href="../push/index.html" title="Push Notifications" class="">Push Notifications</a>
+                      <a class="">Push Notifications</a>
                         
                         <ul class="nav level2">
                           <li class="">
@@ -205,13 +205,22 @@
                             <a href="../push/azure.html" title="Azure Notification Hubs" class="">Azure Notification Hubs</a>
                           </li>
                           <li class="">
-                            <a href="../push/firebase.html" title="Firebase Messaging" class="">Firebase Messaging</a>
+                            <a href="../push/firebase.md" title="Firebase Messaging" class="">Firebase Messaging</a>
                           </li>
                           <li class="">
-                            <a href="../push/onesignal.html" title="One Signal" class="">One Signal</a>
+                            <a href="../push/onesignal.md" title="One Signal" class="">One Signal</a>
                           </li>
-                          <li class="active">
-                            <a href="../push/faq.html" title="Frequently Asked Questions" class="active">Frequently Asked Questions</a>
+                        </ul>  </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a class="">Beacons</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="../beacons/ranging.html" title="Ranging" class="">Ranging</a>
+                          </li>
+                          <li class="">
+                            <a href="../beacons/monitoring.html" title="Monitoring (Background)" class="">Monitoring (Background)</a>
                           </li>
                         </ul>  </li>
                     <li class="">
@@ -273,18 +282,68 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="frequently-asked-questions">Frequently Asked Questions</h1>
+<h1 id="-"></h1>
 
-<blockquote><p>Q: The delegate method &#39;OnReceived&#39; is not firing on Android</p>
-<blockquote><p>A: You must include data payload in your push notification</p>
-</blockquote>
-<p>Q: The delegate method &#39;OnReceived&#39; is not firing on iOS</p>
-<blockquote><p>A: You must set content-available: 1 in your push notification</p>
-</blockquote>
-<p>Q: I&#39;ve been sending a push every few minutes and iOS stops firing the OnReceived delegate method</p>
-<blockquote><p>A: In most production settings, iOS gives you about 3-5 silent push notifications per hour before Apple starts throttling/ignorning them.  </p>
-</blockquote>
-</blockquote>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="startup-file">Startup File</h2>
+<pre><code class="lang-csharp">using Microsoft.Extensions.DependencyInjection;
+using Shiny;
+
+namespace YourNamespace
+{
+    public class YourShinyStartup : ShinyStartup
+    {
+        public override void ConfigureServices(IServiceCollection services, IPlatform platform)
+        {
+            services.UseBleHosting();
+        }
+    }
+}
+</code></pre><h2 id="platform-setup">Platform Setup</h2>
+<div class="tabGroup" id="tabgroup_hJcVVJzAMh">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_hJcVVJzAMh_ios" role="tab" aria-controls="tabpanel_hJcVVJzAMh_ios" data-tab="ios" tabindex="0" aria-selected="true">iOS</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_hJcVVJzAMh_android" role="tab" aria-controls="tabpanel_hJcVVJzAMh_android" data-tab="android" tabindex="-1">Android</a>
+</li>
+</ul>
+<section id="tabpanel_hJcVVJzAMh_ios" role="tabpanel" data-tab="ios">
+<p>Minimum Version: 10</p>
+<h2 id="infoplist">Info.plist</h2>
+<pre><code class="lang-xml">&lt;!DOCTYPE plist PUBLIC &quot; -//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=\&quot;1.0\&quot;&gt;
+    &lt;dict&gt;
+        &lt;key&gt;UIBackgroundModes&lt;/key&gt;
+        &lt;array&gt;
+            &lt;string&gt;bluetooth-peripheral&lt;/string&gt;
+        &lt;/array&gt;
+    &lt;/dict&gt;
+&lt;/plist&gt;
+</code></pre></section>
+<section id="tabpanel_hJcVVJzAMh_android" role="tabpanel" data-tab="android" aria-hidden="true" hidden="hidden">
+<h3 id="minimum-version-80">Minimum Version: 8.0</h3>
+<h3 id="target-version-12">Target Version: 12</h3>
+</section>
+</div>
+<h2 id="samples">Samples</h2>
+<ul>
+<li><a href="https://github.com/shinyorg/samples/tree/main/BluetoothLE-Hosting">https://github.com/shinyorg/samples/tree/main/BluetoothLE-Hosting</a></li>
+</ul>
 </article>
           </div>
           
@@ -293,7 +352,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/shinyorg/docs/blob/master/docs/mobile/push/faq.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/shinyorg/docs/blob/master/docs/mobile/blehosting/index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

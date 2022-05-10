@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Xref: android </title>
+    <title>Android </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Xref: android ">
+    <meta name="title" content="Android ">
     <meta name="generator" content="docfx 2.56.7.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -192,7 +192,7 @@
                         </ul>  </li>
                     <li class="">
                       <span class="expand-stub"></span>
-                      <a href="../push/index.html" title="Push Notifications" class="">Push Notifications</a>
+                      <a class="">Push Notifications</a>
                         
                         <ul class="nav level2">
                           <li class="">
@@ -205,13 +205,22 @@
                             <a href="../push/azure.html" title="Azure Notification Hubs" class="">Azure Notification Hubs</a>
                           </li>
                           <li class="">
-                            <a href="../push/firebase.html" title="Firebase Messaging" class="">Firebase Messaging</a>
+                            <a href="../push/firebase.md" title="Firebase Messaging" class="">Firebase Messaging</a>
                           </li>
                           <li class="">
-                            <a href="../push/onesignal.html" title="One Signal" class="">One Signal</a>
+                            <a href="../push/onesignal.md" title="One Signal" class="">One Signal</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a class="">Beacons</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="../beacons/ranging.html" title="Ranging" class="">Ranging</a>
                           </li>
                           <li class="">
-                            <a href="../push/faq.html" title="Frequently Asked Questions" class="">Frequently Asked Questions</a>
+                            <a href="../beacons/monitoring.html" title="Monitoring (Background)" class="">Monitoring (Background)</a>
                           </li>
                         </ul>  </li>
                     <li class="">
@@ -272,11 +281,8 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="android">
 
-<p>Title: Platform - Android
-Order: 3</p>
-<h2 id="xref-android">Xref: android</h2>
 <p>Shiny integrates well with Android, but requires several hook points.  Unlike Xamarin Forms applications where you only need to hook into an activity, Shiny
 requires an Android application.  From an architectural standpoint, this is to ensure all of the Shiny services can be spun up before an Android broadcast receiver 
 can run. </p>
@@ -326,6 +332,12 @@ namespace Samples.Droid
             ToolbarResource = Resource.Layout.Toolbar;
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             this.LoadApplication(new Samples.App());
+        }
+
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            base.OnActivityResult(requestCode, resultCode, data);
+            this.ShinyOnActivityResult(requestCode, resultCode, data);
         }
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)

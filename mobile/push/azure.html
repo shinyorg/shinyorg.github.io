@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Azure Notification Hubs </title>
+    <title>Push </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Azure Notification Hubs ">
+    <meta name="title" content="Push ">
     <meta name="generator" content="docfx 2.56.7.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -192,7 +192,7 @@
                         </ul>  </li>
                     <li class="">
                       <span class="expand-stub"></span>
-                      <a href="../push/index.html" title="Push Notifications" class="">Push Notifications</a>
+                      <a class="">Push Notifications</a>
                         
                         <ul class="nav level2">
                           <li class="">
@@ -205,13 +205,22 @@
                             <a href="../push/azure.html" title="Azure Notification Hubs" class="active">Azure Notification Hubs</a>
                           </li>
                           <li class="">
-                            <a href="../push/firebase.html" title="Firebase Messaging" class="">Firebase Messaging</a>
+                            <a href="../push/firebase.md" title="Firebase Messaging" class="">Firebase Messaging</a>
                           </li>
                           <li class="">
-                            <a href="../push/onesignal.html" title="One Signal" class="">One Signal</a>
+                            <a href="../push/onesignal.md" title="One Signal" class="">One Signal</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a class="">Beacons</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="../beacons/ranging.html" title="Ranging" class="">Ranging</a>
                           </li>
                           <li class="">
-                            <a href="../push/faq.html" title="Frequently Asked Questions" class="">Frequently Asked Questions</a>
+                            <a href="../beacons/monitoring.html" title="Monitoring (Background)" class="">Monitoring (Background)</a>
                           </li>
                         </ul>  </li>
                     <li class="">
@@ -273,9 +282,121 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="azure-notification-hubs">Azure Notification Hubs</h1>
+<h1 id="push">Push</h1>
 
-<p>&lt;?! PackageInfo &quot;Shiny.Push.AzureNotificationHubs&quot; /?&gt;</p>
+<p>Native OS Push Providers</p>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NuGet</td>
+<td><a href="https://www.nuget.org/packages/Shiny.Push.AzureNotificationHubs/"><img src="https://img.shields.io/nuget/v/Shiny.Push.AzureNotificationHubs.svg?style=for-the-badge" alt="Shiny.Push.AzureNotificationHubs"></a></td>
+</tr>
+<tr>
+<td>Service</td>
+<td>Shiny.Push.IPushManager</td>
+</tr>
+<tr>
+<td>Auto-Register</td>
+<td>NO</td>
+</tr>
+<tr>
+<td>Delegate</td>
+<td>Shiny.Push.IPushDelegate</td>
+</tr>
+<tr>
+<td>Static Class</td>
+<td>ShinyPush</td>
+</tr>
+</tbody>
+</table>
+<h2 id="startup-file">Startup File</h2>
+<pre><code class="lang-csharp">using Microsoft.Extensions.DependencyInjection;
+using Shiny;
+
+namespace YourNamespace
+{
+    public class YourShinyStartup : ShinyStartup
+    {
+        public override void ConfigureServices(IServiceCollection services, IPlatform platform)
+        {
+            services.UsePushAzureNotificationHubs&lt;MyPushDelegate&gt;(&quot;Your Listener Connectionstring&quot;, &quot;Your Hub Name&quot;);
+        }
+    }
+}
+</code></pre><h2 id="platform-setup">Platform Setup</h2>
+<div class="tabGroup" id="tabgroup_yxLZSM9Dv1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_yxLZSM9Dv1_ios" role="tab" aria-controls="tabpanel_yxLZSM9Dv1_ios" data-tab="ios" tabindex="0" aria-selected="true">iOS</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_yxLZSM9Dv1_android" role="tab" aria-controls="tabpanel_yxLZSM9Dv1_android" data-tab="android" tabindex="-1">Android</a>
+</li>
+</ul>
+<section id="tabpanel_yxLZSM9Dv1_ios" role="tabpanel" data-tab="ios">
+<p>Minimum Version: 10</p>
+<h2 id="appdelegate">AppDelegate</h2>
+<pre><code class="lang-csharp">using System;
+using Foundation;
+using Xamarin.Forms.Platform.iOS;
+using Shiny;
+
+namespace YourIosApp
+{
+    [Register(&quot;AppDelegate&quot;)]
+    public partial class AppDelegate : FormsApplicationDelegate
+    {
+        public override bool FinishedLaunching(UIApplication app, NSDictionary options)
+        {
+            this.ShinyFinishedLaunching(new Samples.SampleStartup(), options);
+            global::Xamarin.Forms.Forms.Init();
+            this.LoadApplication(new Samples.App());
+        }
+    }
+
+    public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
+        =&gt; this.ShinyRegisteredForRemoteNotifications(deviceToken);
+
+    public override void FailedToRegisterForRemoteNotifications(UIApplication application, NSError error)
+        =&gt; this.ShinyFailedToRegisterForRemoteNotifications(error);
+
+    public override void DidReceiveRemoteNotification(UIApplication application, NSDictionary userInfo, Action&lt;UIBackgroundFetchResult&gt; completionHandler)
+        =&gt; this.ShinyDidReceiveRemoteNotification(userInfo, completionHandler);
+}
+</code></pre><h2 id="infoplist">Info.plist</h2>
+<pre><code class="lang-xml">&lt;!DOCTYPE plist PUBLIC &quot; -//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=\&quot;1.0\&quot;&gt;
+    &lt;dict&gt;
+        &lt;key&gt;UIBackgroundModes&lt;/key&gt;
+        &lt;array&gt;
+            &lt;string&gt;remote-notification&lt;/string&gt;
+        &lt;/array&gt;
+    &lt;/dict&gt;
+&lt;/plist&gt;
+</code></pre><h2 id="entitlementsplist">Entitlements.plist</h2>
+<pre><code class="lang-xml">&lt;!DOCTYPE plist PUBLIC &quot; -//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=\&quot;1.0\&quot;&gt;
+    &lt;dict&gt;
+        &lt;key&gt;aps-environment&lt;/key&gt;
+        &lt;string&gt;development OR production&lt;/string&gt;
+    &lt;/dict&gt;
+&lt;/plist&gt;
+</code></pre></section>
+<section id="tabpanel_yxLZSM9Dv1_android" role="tabpanel" data-tab="android" aria-hidden="true" hidden="hidden">
+<h3 id="minimum-version-80">Minimum Version: 8.0</h3>
+<h3 id="target-version-12">Target Version: 12</h3>
+</section>
+</div>
+<h2 id="samples">Samples</h2>
+<ul>
+<li><a href="https://github.com/shinyorg/samples/tree/main/Push">https://github.com/shinyorg/samples/tree/main/Push</a></li>
+</ul>
 </article>
           </div>
           
