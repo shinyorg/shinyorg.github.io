@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Title: Humidity </title>
+    <title>Push </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Title: Humidity ">
+    <meta name="title" content="Push ">
     <meta name="generator" content="docfx 2.56.7.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -207,8 +207,8 @@
                           <li class="">
                             <a href="../push/firebase.html" title="Firebase Messaging" class="">Firebase Messaging</a>
                           </li>
-                          <li class="">
-                            <a href="../push/onesignal.html" title="One Signal" class="">One Signal</a>
+                          <li class="active">
+                            <a href="../push/onesignal.html" title="One Signal" class="active">One Signal</a>
                           </li>
                         </ul>  </li>
                     <li class="">
@@ -258,8 +258,8 @@
                           <li class="">
                             <a href="../sensors/gyroscope.html" title="Gyroscope" class="">Gyroscope</a>
                           </li>
-                          <li class="active">
-                            <a href="../sensors/humidity.html" title="Humidity" class="active">Humidity</a>
+                          <li class="">
+                            <a href="../sensors/humidity.html" title="Humidity" class="">Humidity</a>
                           </li>
                           <li class="">
                             <a href="../sensors/magnetometer.html" title="Magnetometer" class="">Magnetometer</a>
@@ -282,9 +282,121 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h2 id="title-humidity">Title: Humidity</h2>
+<h1 id="push">Push</h1>
 
-<p>&lt;?! PackageInfo &quot;Shiny.Sensors&quot; &quot;Shiny.Sensors.IHumidity&quot; /?&gt;</p>
+<p>OneSignal Push Provider for iOS &amp; Android</p>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NuGet</td>
+<td><a href="https://www.nuget.org/packages/Shiny.Push.OneSignal/"><img src="https://img.shields.io/nuget/v/Shiny.Push.OneSignal.svg?style=for-the-badge" alt="Shiny.Push.OneSignal"></a></td>
+</tr>
+<tr>
+<td>Service</td>
+<td>Shiny.Push.IPushManager</td>
+</tr>
+<tr>
+<td>Auto-Register</td>
+<td>NO</td>
+</tr>
+<tr>
+<td>Delegate</td>
+<td>Shiny.Push.IPushDelegate</td>
+</tr>
+<tr>
+<td>Static Class</td>
+<td>ShinyPush</td>
+</tr>
+</tbody>
+</table>
+<h2 id="startup-file">Startup File</h2>
+<pre><code class="lang-csharp">using Microsoft.Extensions.DependencyInjection;
+using Shiny;
+
+namespace YourNamespace
+{
+    public class YourShinyStartup : ShinyStartup
+    {
+        public override void ConfigureServices(IServiceCollection services, IPlatform platform)
+        {
+            services.UseOneSignal&lt;MyPushDelegate&gt;();
+        }
+    }
+}
+</code></pre><h2 id="platform-setup">Platform Setup</h2>
+<div class="tabGroup" id="tabgroup_X7e7nliqCj">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_X7e7nliqCj_ios" role="tab" aria-controls="tabpanel_X7e7nliqCj_ios" data-tab="ios" tabindex="0" aria-selected="true">iOS</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_X7e7nliqCj_android" role="tab" aria-controls="tabpanel_X7e7nliqCj_android" data-tab="android" tabindex="-1">Android</a>
+</li>
+</ul>
+<section id="tabpanel_X7e7nliqCj_ios" role="tabpanel" data-tab="ios">
+<p>Minimum Version: 10</p>
+<h2 id="appdelegate">AppDelegate</h2>
+<pre><code class="lang-csharp">using System;
+using Foundation;
+using Xamarin.Forms.Platform.iOS;
+using Shiny;
+
+namespace YourIosApp
+{
+    [Register(&quot;AppDelegate&quot;)]
+    public partial class AppDelegate : FormsApplicationDelegate
+    {
+        public override bool FinishedLaunching(UIApplication app, NSDictionary options)
+        {
+            this.ShinyFinishedLaunching(new Samples.SampleStartup(), options);
+            global::Xamarin.Forms.Forms.Init();
+            this.LoadApplication(new Samples.App());
+        }
+    }
+
+    public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
+        =&gt; this.ShinyRegisteredForRemoteNotifications(deviceToken);
+
+    public override void FailedToRegisterForRemoteNotifications(UIApplication application, NSError error)
+        =&gt; this.ShinyFailedToRegisterForRemoteNotifications(error);
+
+    public override void DidReceiveRemoteNotification(UIApplication application, NSDictionary userInfo, Action&lt;UIBackgroundFetchResult&gt; completionHandler)
+        =&gt; this.ShinyDidReceiveRemoteNotification(userInfo, completionHandler);
+}
+</code></pre><h2 id="infoplist">Info.plist</h2>
+<pre><code class="lang-xml">&lt;!DOCTYPE plist PUBLIC &quot; -//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=\&quot;1.0\&quot;&gt;
+    &lt;dict&gt;
+        &lt;key&gt;UIBackgroundModes&lt;/key&gt;
+        &lt;array&gt;
+            &lt;string&gt;remote-notification&lt;/string&gt;
+        &lt;/array&gt;
+    &lt;/dict&gt;
+&lt;/plist&gt;
+</code></pre><h2 id="entitlementsplist">Entitlements.plist</h2>
+<pre><code class="lang-xml">&lt;!DOCTYPE plist PUBLIC &quot; -//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=\&quot;1.0\&quot;&gt;
+    &lt;dict&gt;
+        &lt;key&gt;aps-environment&lt;/key&gt;
+        &lt;string&gt;development OR production&lt;/string&gt;
+    &lt;/dict&gt;
+&lt;/plist&gt;
+</code></pre></section>
+<section id="tabpanel_X7e7nliqCj_android" role="tabpanel" data-tab="android" aria-hidden="true" hidden="hidden">
+<h3 id="minimum-version-80">Minimum Version: 8.0</h3>
+<h3 id="target-version-12">Target Version: 12</h3>
+</section>
+</div>
+<h2 id="samples">Samples</h2>
+<ul>
+<li><a href="https://github.com/shinyorg/samples/tree/main/Push">https://github.com/shinyorg/samples/tree/main/Push</a></li>
+</ul>
 </article>
           </div>
           
@@ -293,7 +405,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/shinyorg/docs/blob/master/docs/mobile/sensors/humidity.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/shinyorg/docs/blob/master/docs/mobile/push/onesignal.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
