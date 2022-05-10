@@ -53,7 +53,7 @@
                           <a href="../../extensions/push/index.html" title="Extensions">Extensions</a>
                       </li>
                       <li>
-                          <a href="../../release-notes/mobile/v250.html" title="Releases">Releases</a>
+                          <a href="../../release-notes/mobile/v300.html" title="Releases">Releases</a>
                       </li>
                       <li>
                           <a href="https://github.com/shinyorg" title="GitHub">GitHub</a>
@@ -277,10 +277,10 @@
 
 <p>Managed scans is probably one of the most helpful things in BLE if you are running any sort of peripheral scan.  It deals with things like:</p>
 <ul>
-<li>Maintains an observable collection that it makes thread safe and throttled changes to. Most users new to BLE won't do these things out of the box, so let us manage it for you.</li>
-<li>Marshalls changes to the collection to the main thread (or another RX scheduler if necessary) allowing UI's like Xamarin Forms a chance to rerender the contents</li>
-<li>Scan results don't create fresh instances of a scanresult, they update any existing scanresult's for previous found peripherals.  They simply update the new info like RSSI and other advertisement data that can change between results.</li>
-<li>Devices moving out of range - if device isn't heard in X seconds, a remove is triggered</li>
+<li>Maintains an observable collection that it makes thread safe and throttled changes to. Most users new to BLE won&#39;t do these things out of the box, so let us manage it for you.</li>
+<li>Marshalls changes to the collection to the main thread (or another RX scheduler if necessary) allowing UI&#39;s like Xamarin Forms a chance to rerender the contents</li>
+<li>Scan results don&#39;t create fresh instances of a scanresult, they update any existing scanresult&#39;s for previous found peripherals.  They simply update the new info like RSSI and other advertisement data that can change between results.</li>
+<li>Devices moving out of range - if device isn&#39;t heard in X seconds, a remove is triggered</li>
 </ul>
 <h2 id="creating-a-managed-scanner">Creating a Managed scanner</h2>
 <pre><code class="lang-csharp">var bleManager = ShinyHost.Resolve&lt;IBleManager&gt;();
@@ -298,8 +298,7 @@ scanner.Peripherals &lt;= this is an observable collection, you can bind it dire
 
 // to stop the scan
 scanner.Stop();
-</code></pre>
-</article>
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">

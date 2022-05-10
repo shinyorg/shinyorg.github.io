@@ -53,7 +53,7 @@
                           <a href="../extensions/push/index.html" title="Extensions">Extensions</a>
                       </li>
                       <li>
-                          <a href="../release-notes/mobile/v250.html" title="Releases">Releases</a>
+                          <a href="../release-notes/mobile/v300.html" title="Releases">Releases</a>
                       </li>
                       <li>
                           <a href="https://github.com/shinyorg" title="GitHub">GitHub</a>
@@ -299,10 +299,8 @@
 <li>All the power of IConfiguration</li>
 <li>Load JSON from packaged sources (whitelabellers can unpack, edit, &amp; repack the config)</li>
 <li>Preferences based configuration source with writebacks</li>
-<li>Support For
-<ul>
-<li>Xamarin
-<ul>
+<li>Support For<ul>
+<li>Xamarin <ul>
 <li>iOS</li>
 <li>Android</li>
 <li>Including Xamarin Forms :P</li>
@@ -313,11 +311,11 @@
 </li>
 </ul>
 <h2 id="the-problem">The Problem</h2>
-<p>Microsoft really did create a great set of abstractions for configuration.  You can store a set of key/values, cause a reload when a configuration source changes, &amp; bind to strongly typed objects using Microsoft.Extensions.Configuration.Binder. On Mobile though, NONE of the current providers aren't really well.</p>
+<p>Microsoft really did create a great set of abstractions for configuration.  You can store a set of key/values, cause a reload when a configuration source changes, &amp; bind to strongly typed objects using Microsoft.Extensions.Configuration.Binder. On Mobile though, NONE of the current providers aren&#39;t really well.</p>
 <p>Why?</p>
 <ul>
-<li>A big feature for IConfiguration, is the ability to trigger a reload of it's source without restarting the application.  Changing an appsettings.json file during runtime causes the IConfiguration to trigger a reload notification.</li>
-<li>Mobile doesn't really have an appsettings.json.  Sure you could put this in an embedded resource, but than it is readonly at all times other than the build process... after that - it is locked in place</li>
+<li>A big feature for IConfiguration, is the ability to trigger a reload of it&#39;s source without restarting the application.  Changing an appsettings.json file during runtime causes the IConfiguration to trigger a reload notification. </li>
+<li>Mobile doesn&#39;t really have an appsettings.json.  Sure you could put this in an embedded resource, but than it is readonly at all times other than the build process... after that - it is locked in place</li>
 <li>Essentially, IConfiguration becomes a string based dictionary for all intents and purposes - pretty useless considering</li>
 </ul>
 <h2 id="the-solution">The Solution</h2>
@@ -329,11 +327,10 @@
 <h2 id="setup">Setup</h2>
 <h4 id="appsettings-json">AppSettings JSON</h4>
 <ol>
-<li>Install the NuGet package 'Shiny.Extensions.Configuration'</li>
-<li>Create an appsettings.json file like you would in ASP.NET Core application in your HEAD project.
-<ul>
-<li><strong>ANDROID:</strong> <em>place the file in: Assets.  Ensure the build action on the file is set to 'AndroidAsset'</em></li>
-<li><strong>iOS:</strong> <em>place the file in the ROOT of your project.  Ensure the build action on the file is set to 'BundleResource'</em></li>
+<li>Install the NuGet package &#39;Shiny.Extensions.Configuration&#39;</li>
+<li>Create an appsettings.json file like you would in ASP.NET Core application in your HEAD project.<ul>
+<li><strong>ANDROID:</strong> <em>place the file in: Assets.  Ensure the build action on the file is set to &#39;AndroidAsset&#39;</em></li>
+<li><strong>iOS:</strong> <em>place the file in the ROOT of your project.  Ensure the build action on the file is set to &#39;BundleResource&#39;</em></li>
 </ul>
 </li>
 <li>Configure your IConfiguration using the following code in your application startup code (ie. Xamarin.Forms App).</li>
@@ -342,24 +339,20 @@
 var config = new ConfigurationBuilder()
     .AddJsonPlatformBundle() // NOTE: you can change the name of appsettings.json to something else and pass as an argument here
     .Build();
-</code></pre>
-<h4 id="preferences-provider">Preferences Provider</h4>
+</code></pre><h4 id="preferences-provider">Preferences Provider</h4>
 <p>This provider allows writes and persists across application restarts.  It is a wrapper around the Android/iOS shared preferences.</p>
 <ol>
-<li>Install the NuGet package 'Shiny.Extensions.Configuration'</li>
+<li>Install the NuGet package &#39;Shiny.Extensions.Configuration&#39;</li>
 <li>For this configuration source, nothing special is required, simply add the following to the configuration builder:</li>
 </ol>
 <pre><code class="lang-csharp">var configuration = new ConfigurationBuilder()
     .AddPlatformPreferences()
     .Build();
-</code></pre>
-<blockquote>
-<p>NOTE: with the platform preferences provider, changes are supported.</p>
+</code></pre><blockquote><p>NOTE: with the platform preferences provider, changes are supported.</p>
 </blockquote>
 <pre><code class="lang-csharp">IConfiguration config = ...; // build
 config[&quot;key&quot;] = &quot;value&quot;; // write - this will cause a persist to the platform prefs and also trigger Option reloated events
-</code></pre>
-<h2 id="links">Links</h2>
+</code></pre><h2 id="links">Links</h2>
 <ul>
 <li><a href="https://github.com/shinyorg/samples/tree/main/ConfigurationExtensions">Samples</a></li>
 <li><a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-6.0">Microsoft Configuration Documentation</a></li>

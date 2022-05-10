@@ -53,7 +53,7 @@
                           <a href="../../extensions/push/index.html" title="Extensions">Extensions</a>
                       </li>
                       <li>
-                          <a href="../../release-notes/mobile/v250.html" title="Releases">Releases</a>
+                          <a href="../../release-notes/mobile/v300.html" title="Releases">Releases</a>
                       </li>
                       <li>
                           <a href="https://github.com/shinyorg" title="GitHub">GitHub</a>
@@ -275,40 +275,23 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="frequently-asked-questions">Frequently Asked Questions</h1>
 
-<blockquote>
-<p>Q. How often will my jobs run?</p>
-<blockquote>
-<p>A. On iOS, it depends.  iOS schedules jobs to run when the user generally is about to use your app.  It is a pre-emptive task.  On Android, roughly every 15mins unless Doze is enabled.  Doze will look at things like battery and time of day similar to how iOS does things.</p>
+<blockquote><p>Q. How often will my jobs run?</p>
+<blockquote><p>A. On iOS, it depends.  iOS schedules jobs to run when the user generally is about to use your app.  It is a pre-emptive task.  On Android, roughly every 15mins unless Doze is enabled.  Doze will look at things like battery and time of day similar to how iOS does things.</p>
 </blockquote>
+<p>Q. My iOS job isn&#39;t repeating</p>
+<blockquote><p>A. If it ran once and you&#39;ve set repeat to true on the JobInfo, it will run, but again - iOS needs a few days to learn how the user uses your app.  If you need more control on when things run, jobs is not the answer.  You should consider looking at <a href="../push/">push notifications</a></p>
 </blockquote>
-<blockquote>
-<p>Q. My iOS job isn't repeating</p>
-<blockquote>
-<p>A. If it ran once and you've set repeat to true on the JobInfo, it will run, but again - iOS needs a few days to learn how the user uses your app.  If you need more control on when things run, jobs is not the answer.  You should consider looking at <a href="../push/">push notifications</a></p>
-</blockquote>
-</blockquote>
-<blockquote>
 <p>Q. How long does the background sync let me have on iOS</p>
-<blockquote>
-<p>30 seconds and not a penny more</p>
+<blockquote><p>30 seconds and not a penny more</p>
 </blockquote>
-</blockquote>
-<blockquote>
 <p>Q. How do I schedule periodic jobs?</p>
-<blockquote>
-<p>All jobs are considered periodic with or without criteria</p>
+<blockquote><p>All jobs are considered periodic with or without criteria</p>
 </blockquote>
-</blockquote>
-<blockquote>
 <p>Q. How many jobs can I run?</p>
-<blockquote>
-<p>A. Technically as many as you want... BUT this was built with mobile timeslicing in mind (ie. iOS).  Your job set needs to complete within that timeslice as we don't set job ordering currently</p>
+<blockquote><p>A. Technically as many as you want... BUT this was built with mobile timeslicing in mind (ie. iOS).  Your job set needs to complete within that timeslice as we don&#39;t set job ordering currently</p>
 </blockquote>
-</blockquote>
-<blockquote>
-<p>Q. Why can't I set the next runtime</p>
-<blockquote>
-<p>A. From a true runtime perspective you can't, however, inside you job you can set add/update the job parameters or check the last runtime on the job info to see if you want to run.  Example below:</p>
+<p>Q. Why can&#39;t I set the next runtime</p>
+<blockquote><p>A. From a true runtime perspective you can&#39;t, however, inside you job you can set add/update the job parameters or check the last runtime on the job info to see if you want to run.  Example below:</p>
 </blockquote>
 </blockquote>
 <pre><code class="lang-csharp">public class SampleJob : IJob
@@ -328,8 +311,7 @@
         }
     }
 }
-</code></pre>
-</article>
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">

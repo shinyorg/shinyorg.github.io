@@ -5,11 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Title: BLE Manager
-Order: 2 </title>
+    <title>Order: 2 </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Title: BLE Manager
-Order: 2 ">
+    <meta name="title" content="Order: 2 ">
     <meta name="generator" content="docfx 2.56.7.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -55,7 +53,7 @@ Order: 2 ">
                           <a href="../../extensions/push/index.html" title="Extensions">Extensions</a>
                       </li>
                       <li>
-                          <a href="../../release-notes/mobile/v250.html" title="Releases">Releases</a>
+                          <a href="../../release-notes/mobile/v300.html" title="Releases">Releases</a>
                       </li>
                       <li>
                           <a href="https://github.com/shinyorg" title="GitHub">GitHub</a>
@@ -275,9 +273,9 @@ Order: 2 ">
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h2 id="title-ble-managerorder-2">Title: BLE Manager
-Order: 2</h2>
 
+<p>Title: BLE Manager</p>
+<h2 id="order-2">Order: 2</h2>
 <h1 id="blemanager">BleManager</h1>
 <p>The adapter is where everything begins and ends.  Unlike the platform implementations of the adapter scan, the BLE plugin Scan()
 method will scan continuously (or restart the scan when the cycle completes) until you dispose of the Scan() token.</p>
@@ -288,18 +286,16 @@ BleManager.Status
 
 // monitor status changes
 BleManager.WhenStatusChanged().Subscribe(status =&gt; {});
-</code></pre>
-<p><strong>Scan for Devices</strong></p>
+</code></pre><p><strong>Scan for Devices</strong></p>
 <pre><code class="lang-csharp">var scanner = CrossBleAdapter.Current.Scan().Subscribe(scanResult =&gt; 
 {
     // do something with it
     // the scanresult contains the device, RSSI, and advertisement packet
-        
+
 });
 
 scanner.Dispose(); // to stop scanning
-</code></pre>
-<p><strong>Scan for Devices - Advanced</strong></p>
+</code></pre><p><strong>Scan for Devices - Advanced</strong></p>
 <pre><code class="lang-csharp">CrossBleAdapter.Current.Scan(
     new ScanConfig 
     {
@@ -309,43 +305,34 @@ scanner.Dispose(); // to stop scanning
 .Subscribe(scanResult =&gt; 
 {
 })
-</code></pre>
-<h2 id="general-scan">General Scan</h2>
+</code></pre><h2 id="general-scan">General Scan</h2>
 <pre><code class="lang-csharp">var scan = CentralManager.Scan().Subscribe(scanResult =&gt; {});
 
 // to stop scan 
 scan.Dispose();
-
-</code></pre>
-<h2 id="specific-scans">Specific Scans</h2>
+</code></pre><h2 id="specific-scans">Specific Scans</h2>
 <p><em>Find a named peripheral</em></p>
 <pre><code class="lang-csharp">// this will return a single result and complete - you can await it if you want
 var peripheral = CentralManager.ScanForPeripheral(&quot;YourDevice&quot;);
 
 var peripheral = CentralManager.ScanForPeripheral(YourDevice);
-</code></pre>
-<p><strong>Change Adapter State (Power on/off)</strong></p>
+</code></pre><p><strong>Change Adapter State (Power on/off)</strong></p>
 <p><em>Supported by Android only</em></p>
 <pre><code class="lang-csharp">if (CrossBleAdapter.Current.CanChangeAdapterState)
     CrossBleAdapter.Current.SetAdapterState(true); // or false to disable
-</code></pre>
-<p><strong>Get Connected Devices</strong></p>
+</code></pre><p><strong>Get Connected Devices</strong></p>
 <pre><code class="lang-csharp">var devices = CrossBleAdapter.Current.GetConnectedDevices();
 foreach (var device in devices)
 {
     // do something
 }
-</code></pre>
-<h2 id="extensions">Extensions</h2>
+</code></pre><h2 id="extensions">Extensions</h2>
 <pre><code class="lang-csharp">// this essentially recreates the scan cycles like on Android
 CrossBleAdapter.Current.ScanInterval(TimeSpan).Subscribe(scanResult =&gt; {});
-
-</code></pre>
-<h2 id="toggle-state-of-adapter">Toggle State of Adapter</h2>
+</code></pre><h2 id="toggle-state-of-adapter">Toggle State of Adapter</h2>
 <pre><code class="lang-csharp">// returns true if successful
 CrossBleAdapter.Current.ToggleAdapterState();
-</code></pre>
-</article>
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">

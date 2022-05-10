@@ -53,7 +53,7 @@
                           <a href="../extensions/push/index.html" title="Extensions">Extensions</a>
                       </li>
                       <li>
-                          <a href="../release-notes/mobile/v250.html" title="Releases">Releases</a>
+                          <a href="../release-notes/mobile/v300.html" title="Releases">Releases</a>
                       </li>
                       <li>
                           <a href="https://github.com/shinyorg" title="GitHub">GitHub</a>
@@ -141,25 +141,25 @@
 <tbody>
 <tr>
 <td>Main Library</td>
-<td>[!NugetShield(Shiny.Extensions.Localization)]</td>
+<td><a href="https://www.nuget.org/packages/Shiny.Extensions.Localization/" target="Shiny.Extensions.Localization"><img src="https://img.shields.io/nuget/v/Shiny.Extensions.Localization.svg?style=for-the-badge"></a></td>
 </tr>
 <tr>
 <td>ADO.NET Database Plugin</td>
-<td>[!NugetShield(Shiny.Extensions.Localization.AdoNet)]</td>
+<td><a href="https://www.nuget.org/packages/Shiny.Extensions.Localization.AdoNet/" target="Shiny.Extensions.Localization.AdoNet"><img src="https://img.shields.io/nuget/v/Shiny.Extensions.Localization.AdoNet.svg?style=for-the-badge"></a></td>
 </tr>
 </tbody>
 </table>
-<p>Everyone has to do localization at some point in there career.  It can be tedious and time consuming.  Most of us .NET folk are accumstumed to using RESX resource files.  They're fast, efficient, and work well for general purpose localization efforts</p>
-<p>UNTIL THEY DON'T..</p>
+<p>Everyone has to do localization at some point in there career.  It can be tedious and time consuming.  Most of us .NET folk are accumstumed to using RESX resource files.  They&#39;re fast, efficient, and work well for general purpose localization efforts </p>
+<p>UNTIL THEY DON&#39;T.. </p>
 <h3 id="scenario-1">Scenario 1:</h3>
-<p>Along comes that one customer who doesn't like the terminology your app uses, they think they own your app, and demand changes.  You also end up with that one product manager who is all to happy to answer the request.  This is where resource files are all of a sudden
-in the way.</p>
+<p>Along comes that one customer who doesn&#39;t like the terminology your app uses, they think they own your app, and demand changes.  You also end up with that one product manager who is all to happy to answer the request.  This is where resource files are all of a sudden
+in the way.  </p>
 <h3 id="scenario-2">Scenario 2:</h3>
-<p>You want to add a new language, but no one in your organization knows the language.  Product reaches out to have translators come in.  The translators ask for a list of all keys.  They don't like XML or Visual Studio.</p>
+<p>You want to add a new language, but no one in your organization knows the language.  Product reaches out to have translators come in.  The translators ask for a list of all keys.  They don&#39;t like XML or Visual Studio.</p>
 <h3 id="scenario-3">Scenario 3:</h3>
 <p>You are a multi-tenanted app, you have a new multi-million $$$ customer that will come onboard if you can add their language.  Delivering builds is still painful because you know your devops pipeline will cause some sort of issue.  Why deliver a build just for a language?</p>
 <h2 id="how-do-we-solve-this">HOW DO WE SOLVE THIS?</h2>
-<p>Along comes Shiny.Extensions.Localization.  With the best abstraction around for localization.  You</p>
+<p>Along comes Shiny.Extensions.Localization.  With the best abstraction around for localization.  You </p>
 <pre><code class="lang-csharp">using Shiny.Extensions.Localization;
 
 var manager = new LocalizationBuilder()
@@ -169,12 +169,11 @@ var manager = new LocalizationBuilder()
     .AddResource(&quot;YourNamespace.YourResourceFile&quot;, this.GetType().Assembly) // useful for adding a specific resource file
     .Add(new YourOwnCustomLocalizationProvider())
     .Build();
-</code></pre>
-<p>Just like Microsoft.Extensions.Configuration, you can bring in resources from many different places and clump them all into one beautiful source.</p>
+</code></pre><p>Just like Microsoft.Extensions.Configuration, you can bring in resources from many different places and clump them all into one beautiful source.</p>
 <h2 id="use-cases">USE CASES</h2>
 <h3 id="scenario-1-strongly-typed-resources">Scenario 1: Strongly Typed Resources</h3>
 <p>Question: We use strongly typed resources everywhere?  It will hurt to remove them from every page.
-Answer: Yes it will, so don't do it.  Our localization manager has a Bind option that will automatically (shown below).  Simply change all of your strongly typed file to be &quot;public string YourKey { set; set; }&quot;</p>
+Answer: Yes it will, so don&#39;t do it.  Our localization manager has a Bind option that will automatically (shown below).  Simply change all of your strongly typed file to be &quot;public string YourKey { set; set; }&quot;</p>
 <pre><code class="lang-csharp">var manager = new LocalizationBuilder()
     .AddAssemblyResources(this.GetType().Assembly)
     .AddSqlServer(&quot;Your Connection String&quot;)
@@ -184,9 +183,7 @@ var obj = new YourStronglyTypedClass();
 manager.Bind(obj);
 
 var nowSet = obj.YourKey;
-
-</code></pre>
-<h3 id="scenario-2-json-localization">Scenario 2: JSON Localization</h3>
+</code></pre><h3 id="scenario-2-json-localization">Scenario 2: JSON Localization</h3>
 <p>Question: I have a React/Angular/New Popular JS library - I want to have all of my resources be serialized from the server
 Answer: No problems!  Take a look:</p>
 <pre><code class="lang-csharp">var manager = new LocalizationBuilder()
@@ -196,10 +193,9 @@ Answer: No problems!  Take a look:</p>
 
 var allTranslations = manager.GetAllSectionsWithKeys(CultureInfo.CurrentCulture); // of whatever culture you support
 var stringContent = JsonConvert.SerializeObject(allTranslations); // return it from your web api
-</code></pre>
-<h3 id="scenario-3-xaml">Scenario 3: XAML</h3>
+</code></pre><h3 id="scenario-3-xaml">Scenario 3: XAML</h3>
 <p>Question: Can I use it in XAML?
-Answer: Shiny started with Xamarin.  Most examples our there show how to use custom XAML binding.  Don't do this!  Do this instead via your viewmodel:</p>
+Answer: Shiny started with Xamarin.  Most examples our there show how to use custom XAML binding.  Don&#39;t do this!  Do this instead via your viewmodel:</p>
 <pre><code class="lang-csharp">// ideally, you will inject the Shiny.Extensions.Localization.ILocalizationManager with something like Prism
 readonly ILocalizationManager manager;
 
@@ -209,35 +205,32 @@ this.manager = new LocalizationBuilder()
 
 // you can also hone down to a specific resource using manager.GetSection
 public string this[string key] =&gt; this.manager.GetString(key);
-</code></pre>
-<p>Now, in your XAML</p>
+</code></pre><p>Now, in your XAML</p>
 <pre><code class="lang-xml">&lt;Label Text=&quot;{Binding [MySection:YourKey]}&quot; /&gt; 
-</code></pre>
-<h2 id="sql-server-plugin">SQL Server Plugin</h2>
+</code></pre><h2 id="sql-server-plugin">SQL Server Plugin</h2>
 <p>SQL Tables for mail templates</p>
 <pre><code class="lang-sql">SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[Localizations](
-	[LocalizationId] [uniqueidentifier] NOT NULL,
-	[Section] [varchar](50) NOT NULL,
-	[ResourceKey] [varchar](50) NOT NULL,
-	[CultureCode] [varchar](5) NULL,
-	[Value] [nvarchar](4000) NOT NULL,
+    [LocalizationId] [uniqueidentifier] NOT NULL,
+    [Section] [varchar](50) NOT NULL,
+    [ResourceKey] [varchar](50) NOT NULL,
+    [CultureCode] [varchar](5) NULL,
+    [Value] [nvarchar](4000) NOT NULL,
  CONSTRAINT [PK_Localizations] PRIMARY KEY CLUSTERED 
 (
-	[LocalizationId] ASC
+    [LocalizationId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
  CONSTRAINT [UK_Localizations] UNIQUE NONCLUSTERED 
 (
-	[Section] ASC,
-	[ResourceKey] ASC,
-	[CultureCode] ASC
+    [Section] ASC,
+    [ResourceKey] ASC,
+    [CultureCode] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-</code></pre>
-</article>
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">

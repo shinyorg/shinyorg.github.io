@@ -53,7 +53,7 @@
                           <a href="../../extensions/push/index.html" title="Extensions">Extensions</a>
                       </li>
                       <li>
-                          <a href="../../release-notes/mobile/v250.html" title="Releases">Releases</a>
+                          <a href="../../release-notes/mobile/v300.html" title="Releases">Releases</a>
                       </li>
                       <li>
                           <a href="https://github.com/shinyorg" title="GitHub">GitHub</a>
@@ -131,11 +131,9 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="decorators">Decorators</h1>
 
-<p>While our general push &quot;Notification&quot; object handles a fair bit in a nice cross platform manner, there are definitely going to be times that you need to do more with the native push objects.</p>
+<p>While our general push &quot;Notification&quot; object handles a fair bit in a nice cross platform manner, there are definitely going to be times that you need to do more with the native push objects.  </p>
 <p>Enter &quot;Decorators&quot;.  Decorators offer you a way to see the &quot;ready to send&quot; native message alongside the push registration info (user, tags, platform, etc) as well as the notification object you used to establish any additional context that you want to add to the native notification.</p>
-<div class="WARNING">
-<h5>Warning</h5>
-<p>The more logic in your decorators, the slower batches will run.  A decorator will be run per notification in a batch.</p>
+<div class="WARNING"><h5>Warning</h5><p>The more logic in your decorators, the slower batches will run.  A decorator will be run per notification in a batch.</p>
 </div>
 <h2 id="creating-a-decorator">Creating a Decorator</h2>
 <p>Below is an example of an Apple and a Google notification decorator.  Note that you can alter the native notification however you deem fit here.</p>
@@ -157,9 +155,8 @@ public class MyAppleDecorator : Shiny.Extensions.Push.IGoogleNotificationDecorat
         nativeNotification.Android.Notification.Body += &quot;Hello &quot; + registration.UserId;
     }
 }
-</code></pre>
-<h2 id="registering-a-decorator">Registering a Decorator</h2>
-<p>You must now register the decorator with Shiny's push extension.  IMPORTANT: all decorators, much like the rest of Shiny push is singleton!</p>
+</code></pre><h2 id="registering-a-decorator">Registering a Decorator</h2>
+<p>You must now register the decorator with Shiny&#39;s push extension.  IMPORTANT: all decorators, much like the rest of Shiny push is singleton!</p>
 <pre><code class="lang-csharp">build.Services.AddPushManagement(x =&gt; x
     .AddApplePush(...)
     .AddGooglePush(...)
@@ -167,10 +164,7 @@ public class MyAppleDecorator : Shiny.Extensions.Push.IGoogleNotificationDecorat
     .AddGoogleDecorator&lt;MyGoogleDecorator&gt;()
     .UseEfRepository&lt;SampleDbContext&gt;()
 );
-</code></pre>
-<div class="NOTE">
-<h5>Note</h5>
-<p>You can have multiple decorators per notification platform</p>
+</code></pre><div class="NOTE"><h5>Note</h5><p>You can have multiple decorators per notification platform</p>
 </div>
 </article>
           </div>

@@ -53,7 +53,7 @@
                           <a href="../../extensions/push/index.html" title="Extensions">Extensions</a>
                       </li>
                       <li>
-                          <a href="../../release-notes/mobile/v250.html" title="Releases">Releases</a>
+                          <a href="../../release-notes/mobile/v300.html" title="Releases">Releases</a>
                       </li>
                       <li>
                           <a href="https://github.com/shinyorg" title="GitHub">GitHub</a>
@@ -276,28 +276,25 @@
 <h1 id="best-practices">Best Practices</h1>
 
 <h1 id="android">Android</h1>
-<p>Android Bluetooth is painful and that's being nice.  This library attempts to deal with the necessary thread handling all internally.</p>
+<p>Android Bluetooth is painful and that&#39;s being nice.  This library attempts to deal with the necessary thread handling all internally.</p>
 <p>All of the classes and members listed in this page can only be called from your Android project, not your PCL/Core library.  You should call and set
 these values at your main launcher activity or even at an application level.</p>
 <h2 id="general-rules">General Rules</h2>
 <p>While this library tries to deal with all of the known Android issues to the best of its ability.
-You likely will encounter issues if you don't follow the below:</p>
-<ol>
-<li>Don't scan or do anything with the adapter while connected to the GATT</li>
-<li>Don't overwhelm the radio. The library now has an internal queue to force operations to finish.</li>
-<li>GATT 133 will happen on Connect on occasion.  Catch exceptions in the observable subscriptions.</li>
-</ol>
+You likely will encounter issues if you don&#39;t follow the below:</p>
+<p>1) Don&#39;t scan or do anything with the adapter while connected to the GATT
+2) Don&#39;t overwhelm the radio. The library now has an internal queue to force operations to finish.
+3) GATT 133 will happen on Connect on occasion.  Catch exceptions in the observable subscriptions.</p>
 <h2 id="connection-options">Connection Options</h2>
-<p>Using androidAutoConnect is suggested in scenarios where you don't know if the device is in-range
+<p>Using androidAutoConnect is suggested in scenarios where you don&#39;t know if the device is in-range
 This will cause Android to connect when it sees the device.  WARNING: initial connections take much
 longer with this option enabled</p>
 <pre><code class="lang-csharp">
 var device = CrossBleAdapter.Current.GetKnownDevice(guid);
 device.Connect(new GattConnectionConfig {
-	AndroidAutoConnect = true
+    AndroidAutoConnect = true
 });
-</code></pre>
-<h2 id="advanced-settings">Advanced Settings</h2>
+</code></pre><h2 id="advanced-settings">Advanced Settings</h2>
 <pre><code class="lang-csharp">The following values are only available to be set from your android project
 
 // returns a suggestion on what thread to execute on.  This is not used internally
@@ -312,19 +309,17 @@ CrossBleAdapter.MaxAutoReconnectAttempts { get; set; } = 5;
 
 /// &lt;summary&gt;
 /// Number of milliseconds to pause before service discovery (helps in combating GATT133 error) when service discovery is performed immediately after connection
-/// DO NOT CHANGE this if you don't know what this is!
+/// DO NOT CHANGE this if you don&#39;t know what this is!
 /// &lt;/summary&gt;
 CrossBleAdapter.PauseBeforeServiceDiscovery { get; set; } = TimeSpan.FromMilliseconds(750);
 
 
         /// &lt;summary&gt;
         /// Specifies the wait time before attempting an auto-reconnect
-        /// DO NOT CHANGE if you don't know what this is!
+        /// DO NOT CHANGE if you don&#39;t know what this is!
         /// &lt;/summary&gt;
 CrossBleAdapter.PauseBetweenAutoReconnectAttempts { get; set; } = TimeSpan.FromSeconds(1);
-
-</code></pre>
-</article>
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">

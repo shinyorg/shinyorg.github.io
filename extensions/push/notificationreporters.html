@@ -53,7 +53,7 @@
                           <a href="../../extensions/push/index.html" title="Extensions">Extensions</a>
                       </li>
                       <li>
-                          <a href="../../release-notes/mobile/v250.html" title="Releases">Releases</a>
+                          <a href="../../release-notes/mobile/v300.html" title="Releases">Releases</a>
                       </li>
                       <li>
                           <a href="https://github.com/shinyorg" title="GitHub">GitHub</a>
@@ -131,7 +131,7 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="notification-reporters">Notification Reporters</h1>
 
-<p>Notifications are often sent in &quot;batches&quot; depending on how wide your notification search parameters are.</p>
+<p>Notifications are often sent in &quot;batches&quot; depending on how wide your notification search parameters are.  </p>
 <p>Reporters offer you a way of:</p>
 <ul>
 <li>Tracking Errors on a specific notification to a device</li>
@@ -161,14 +161,9 @@
         ...
     }
 }
-</code></pre>
-<div class="NOTE">
-<h5>Note</h5>
-<p>You can also use the <code>Shiny.Extensions.Push.NotificationReporter</code> class and use override instead of implementing the entire interface.</p>
+</code></pre><div class="NOTE"><h5>Note</h5><p>You can also use the <code>Shiny.Extensions.Push.NotificationReporter</code> class and use override instead of implementing the entire interface.</p>
 </div>
-<div class="NOTE">
-<h5>Note</h5>
-<p>You can have multiple reporters</p>
+<div class="NOTE"><h5>Note</h5><p>You can have multiple reporters</p>
 </div>
 <p>Next thing to do is register this with the extension during startup</p>
 <pre><code class="lang-csharp">builder.Services.AddPushManagement(x =&gt; x
@@ -176,14 +171,9 @@
     .AddGooglePush(...)
     .AddReporter&lt;MyCustomReporter&gt;()
 );
-</code></pre>
-<div class="WARNING">
-<h5>Warning</h5>
-<p>The reporter is registered as a singleton</p>
+</code></pre><div class="WARNING"><h5>Warning</h5><p>The reporter is registered as a singleton</p>
 </div>
-<div class="WARNING">
-<h5>Warning</h5>
-<p>It isn't good to do a lot of logic inside notification error or notification success as they run per notifcation in a batch.  It is better to use OnBatchStart and OnBatchCompleted to process.  This will allow your notification batches to finish quicker.</p>
+<div class="WARNING"><h5>Warning</h5><p>It isn&#39;t good to do a lot of logic inside notification error or notification success as they run per notifcation in a batch.  It is better to use OnBatchStart and OnBatchCompleted to process.  This will allow your notification batches to finish quicker.</p>
 </div>
 <h2 id="out-of-the-box-reporters">Out of the Box Reporters</h2>
 <ul>
@@ -198,8 +188,7 @@
     .AddPerformanceLogger()
     .AddAutoRemoveNoReceive()
 );
-</code></pre>
-</article>
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">

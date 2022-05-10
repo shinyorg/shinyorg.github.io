@@ -53,7 +53,7 @@
                           <a href="../../extensions/push/index.html" title="Extensions">Extensions</a>
                       </li>
                       <li>
-                          <a href="../../release-notes/mobile/v250.html" title="Releases">Releases</a>
+                          <a href="../../release-notes/mobile/v300.html" title="Releases">Releases</a>
                       </li>
                       <li>
                           <a href="https://github.com/shinyorg" title="GitHub">GitHub</a>
@@ -131,18 +131,16 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="managing-users">Managing Users</h1>
 
-<p>The push notification abstractions at their core are a minor part of this library.  The main &quot;features&quot; are the ones that manage not only the push tokens, but also the user tagging and general tags that don't come out of the box for all push providers like Apple.</p>
+<p>The push notification abstractions at their core are a minor part of this library.  The main &quot;features&quot; are the ones that manage not only the push tokens, but also the user tagging and general tags that don&#39;t come out of the box for all push providers like Apple.</p>
 <h2 id="register-users">Register Users</h2>
 <pre><code class="lang-csharp">IPushManager pushManager; // inject this
 await this.pushManager.Send(new PushRegistration {
     Platform = PushPlatform.Apple, // or Google
     DeviceToken = token, // the device token from the push provider on the mobile side
-    UserId = &quot;Your User's ID (optional)&quot;,
+    UserId = &quot;Your User&#39;s ID (optional)&quot;,
     Tags = new [] { &quot;tag1&quot;, &quot;tag2&quot; } // tags (optional)
 });
-
-</code></pre>
-<h2 id="unregister-all-users">Unregister All Users</h2>
+</code></pre><h2 id="unregister-all-users">Unregister All Users</h2>
 <pre><code class="lang-csharp">IPushManager pushManager; // inject this
 
 await this.pushManager.UnRegister(PushPlatform.Apple, &quot;DeviceToken&quot;);
@@ -150,8 +148,7 @@ await this.pushManager.UnRegister(PushPlatform.Apple, &quot;DeviceToken&quot;);
 // OR
 
 await this.pushManager.UnRegisterByUser(&quot;UserId&quot;); // unregistered a userId from all platforms &amp; devices
-</code></pre>
-<h2 id="sending-a-push">Sending a Push</h2>
+</code></pre><h2 id="sending-a-push">Sending a Push</h2>
 <p>Sending allows you to not only provide a fully set notification, but also provide a rich set of criteria for who to send to</p>
 <pre><code class="lang-csharp">IPushManager pushManager; // inject this
 
@@ -174,8 +171,7 @@ await this.pushManager.Send(
         Platform = PushPlatforms.Apple // if set, will only send to users on this platform
     }
 );
-</code></pre>
-<h2 id="querying">Querying</h2>
+</code></pre><h2 id="querying">Querying</h2>
 <p>This is the exact same criteria as used by send, but obviously, without the sending :)</p>
 <pre><code class="lang-csharp">IPushManager pushManager; // inject this
 
@@ -186,8 +182,7 @@ var registrations = await this.pushManager.GetRegistrations(    new PushFilter
     Tags = new [] { &quot;tag1&quot; }, // if set, will only retrieve to users with these tags
     Platform = PushPlatforms.Apple // if set, will only retrieve users on this platform
 });
-</code></pre>
-</article>
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">

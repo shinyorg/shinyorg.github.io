@@ -53,7 +53,7 @@
                           <a href="../../extensions/push/index.html" title="Extensions">Extensions</a>
                       </li>
                       <li>
-                          <a href="../../release-notes/mobile/v250.html" title="Releases">Releases</a>
+                          <a href="../../release-notes/mobile/v300.html" title="Releases">Releases</a>
                       </li>
                       <li>
                           <a href="https://github.com/shinyorg" title="GitHub">GitHub</a>
@@ -275,19 +275,17 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="static-class-generation">Static Class Generation</h1>
 
-<p>Using Shiny without dependency injection is not only possible, it is quite easy to do.  Do also you like the old plugin style of CrossPlugin.Current?  Then you've come to the right document.  You may be thinking, why not just include these as part of the package?  Several reasons actually, first being - statics don't make as easily testable and the second, statics don't adhere to interfaces and Shiny is always evolving.  I got tired of trying to keep things in sync.  By adding a generation option, it makes things good for all of us.</p>
+<p>Using Shiny without dependency injection is not only possible, it is quite easy to do.  Do also you like the old plugin style of CrossPlugin.Current?  Then you&#39;ve come to the right document.  You may be thinking, why not just include these as part of the package?  Several reasons actually, first being - statics don&#39;t make as easily testable and the second, statics don&#39;t adhere to interfaces and Shiny is always evolving.  I got tired of trying to keep things in sync.  By adding a generation option, it makes things good for all of us.  </p>
 <p>Under the hood, you are still using dependency injection and you still need a startup file, BUT, you can have all of the static versions of each service generated in a project of your choice by simply adding the following to your assembly attributes:</p>
 <pre><code class="lang-csharp">[assembly: Shiny.GenerateStaticClasses]
-</code></pre>
-<p>After adding this attribute, perform a build.  The Shiny source generator will now scan for all Shiny nuget packages that are referenced in this project and generate corresponding static classes for the main services.</p>
+</code></pre><p>After adding this attribute, perform a build.  The Shiny source generator will now scan for all Shiny nuget packages that are referenced in this project and generate corresponding static classes for the main services.  </p>
 <pre><code class="lang-csharp">// BEFORE
 Shiny.ShinyHost.Resolve&lt;IJobManager&gt;().Run(...);
 
 // AFTER
 ShinyJobs.Run(...);
-</code></pre>
-<p>By adding this attribute, it will create static access classes for all of the Shiny services in the main namespace of the assembly you use the assembly attribute in.</p>
-<?! staticclasses=""?>
+</code></pre><p>By adding this attribute, it will create static access classes for all of the Shiny services in the main namespace of the assembly you use the assembly attribute in.</p>
+<p>&lt;?! StaticClasses /?&gt;</p>
 </article>
           </div>
           

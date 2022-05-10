@@ -5,11 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Title: Peripheral
-Order: 2 </title>
+    <title>Order: 2 </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Title: Peripheral
-Order: 2 ">
+    <meta name="title" content="Order: 2 ">
     <meta name="generator" content="docfx 2.56.7.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -55,7 +53,7 @@ Order: 2 ">
                           <a href="../../extensions/push/index.html" title="Extensions">Extensions</a>
                       </li>
                       <li>
-                          <a href="../../release-notes/mobile/v250.html" title="Releases">Releases</a>
+                          <a href="../../release-notes/mobile/v300.html" title="Releases">Releases</a>
                       </li>
                       <li>
                           <a href="https://github.com/shinyorg" title="GitHub">GitHub</a>
@@ -275,13 +273,13 @@ Order: 2 ">
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h2 id="title-peripheralorder-2">Title: Peripheral
-Order: 2</h2>
 
+<p>Title: Peripheral</p>
+<h2 id="order-2">Order: 2</h2>
 <h1 id="device">Device</h1>
 <p>This section deals with gatt connections and state monitoring for a device.
 You should maintain a reference to a device if you intend to connect to it.</p>
-<p>Once you have scanned and found your peripheral, you can move on to connecting to it.  BLE operates on something called GATT (Generic Attributes).</p>
+<p>Once you have scanned and found your peripheral, you can move on to connecting to it.  BLE operates on something called GATT (Generic Attributes).  </p>
 <p>GATT is composed of 3 components</p>
 <ol>
 <li>Services - this is a logical grouping of characteristics</li>
@@ -289,13 +287,11 @@ You should maintain a reference to a device if you intend to connect to it.</p>
 <li>Descriptors - these are less important in terms of use cases, but do support read/write scenarios.  They are grouped under each characteristic</li>
 </ol>
 <h2 id="peripheralconnect---void">Peripheral.Connect() - void</h2>
-<p>Connect simply issues a request to connect.  It may connect now or days from now when the device is nearby.  You should use IBleCentralDelegate when using this method.  We'll talk more about that later</p>
+<p>Connect simply issues a request to connect.  It may connect now or days from now when the device is nearby.  You should use IBleCentralDelegate when using this method.  We&#39;ll talk more about that later</p>
 <pre><code class="lang-csharp">peripheral.Connect();
-</code></pre>
-<p>If you need to wait for a connection and you know your device is nearby, you can use</p>
+</code></pre><p>If you need to wait for a connection and you know your device is nearby, you can use </p>
 <pre><code class="lang-csharp">await peripheral.ConnectAwait();
-</code></pre>
-<p>It is important to put your own timeout on these things using RX Timeout or supplying a cancellation token as shown below</p>
+</code></pre><p>It is important to put your own timeout on these things using RX Timeout or supplying a cancellation token as shown below</p>
 <pre><code class="lang-csharp">// this will throw an exception if it times out
 await peripheral.Timeout(TimeSpan.FromSeconds(10)).ConnectAwait();
 
@@ -304,8 +300,7 @@ var cancelSource = new CancellationTokenSource();
 await peripheral.ConnectAwait(cancelSource.Token);
 
 cancelSource.Cancel();
-</code></pre>
-<p><strong>Connect/Disconnect to a device</strong></p>
+</code></pre><p><strong>Connect/Disconnect to a device</strong></p>
 <pre><code class="lang-csharp">// connect
 device.Connect(new GattConnectionConfig 
 {
@@ -323,8 +318,7 @@ device.Connect(new GattConnectionConfig
 // this will disconnect a current connection, cancel a connection attempt, and
 // remove persistent connections
 device.CancelConnection();
-</code></pre>
-<p><strong>Reliable Write Transactions</strong></p>
+</code></pre><p><strong>Reliable Write Transactions</strong></p>
 <p><em>Android and UWP only</em></p>
 <pre><code class="lang-csharp">using (var trans = device.BeginReliableWriteTransaction()) 
 {
@@ -332,15 +326,13 @@ device.CancelConnection();
     // you should do multiple writes here as that is the reason for this mechanism
     trans.Commit();
 }
-</code></pre>
-<p><strong>Pairing with a device</strong></p>
+</code></pre><p><strong>Pairing with a device</strong></p>
 <pre><code class="lang-csharp">if (device.IsPairingRequestSupported &amp;&amp; device.PairingStatus != PairingStatus.Paired) 
 {
     // there is an optional argument to pass a PIN in PairRequest as well
     device.PairRequest().Subscribe(isSuccessful =&gt; {});
 }
-</code></pre>
-<p><strong>Request MTU size increase</strong></p>
+</code></pre><p><strong>Request MTU size increase</strong></p>
 <p><strong>MTU (Max Transmission Unit)</strong>
 If MTU requests are available (Android Only - API 21+)</p>
 <p>This is specific to Android only where this negotiation is not automatic.
@@ -353,8 +345,7 @@ device.GetCurrentMtu();
 
 // iOS will return current value and return, Android will continue to monitor changes
 device.WhenMtuChanged().Subscribe(...)
-</code></pre>
-<p><strong>Monitor device states</strong></p>
+</code></pre><p><strong>Monitor device states</strong></p>
 <pre><code class="lang-csharp">// This will tell you if the device name changes during a connection
 device.WhenNameChanged().Subscribe(string =&gt; {});
 
@@ -363,9 +354,7 @@ device.WhenStatusChanged().Subscribe(connectionState =&gt; {});
 
 // monitor MTU size changes (droid only)
 device.WhenMtuChanged().Subscribe(size =&gt; {});
-
-</code></pre>
-</article>
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">

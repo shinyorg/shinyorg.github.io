@@ -53,7 +53,7 @@
                           <a href="../../extensions/push/index.html" title="Extensions">Extensions</a>
                       </li>
                       <li>
-                          <a href="../../release-notes/mobile/v250.html" title="Releases">Releases</a>
+                          <a href="../../release-notes/mobile/v300.html" title="Releases">Releases</a>
                       </li>
                       <li>
                           <a href="https://github.com/shinyorg" title="GitHub">GitHub</a>
@@ -297,26 +297,22 @@ any object that support INotifyPropertyChanged &amp; has public get/set values</
         set =&gt; this.Set(ref this.myProperty, value);
     }
 }
-</code></pre>
-<p>Now, to start using this is simple - first add this to your shiny startup</p>
+</code></pre><p>Now, to start using this is simple - first add this to your shiny startup</p>
 <pre><code class="lang-csharp">services.AddSingleton&lt;MySettings&gt;();
-</code></pre>
-<p>Now to use it</p>
+</code></pre><p>Now to use it</p>
 <pre><code class="lang-chsarp">// inject or 
 var mySettings = ShinyHost.Resolve&lt;MySettings&gt;();
 
 mySettings.MyProperty = null; // to remove it 
 
 mySettings.MyProperty = &quot;hello&quot;;
-</code></pre>
-<p>And to make things EVEN COOLER.  Object bindings like this also support different key/value stores by
+</code></pre><p>And to make things EVEN COOLER.  Object bindings like this also support different key/value stores by
 adding the attribute [Shiny.ObjectBinder(&quot;alias of store&quot;)] on top of your class like so:</p>
 <pre><code class="lang-csharp">[Shiny.ObjectBinderAttribute(&quot;secure&quot;)]
 public class MySettings ...
-</code></pre>
-<p>There are 4 values currently supported by Shiny object binder - settings (default), secure, memory, and file</p>
+</code></pre><p>There are 4 values currently supported by Shiny object binder - settings (default), secure, memory, and file</p>
 <h2 id="manual-binding">Manual Binding</h2>
-<p>There may be cases where you want to manual restore an object, maybe you want to save viewmodel state in something like</p>
+<p>There may be cases where you want to manual restore an object, maybe you want to save viewmodel state in something like </p>
 <p><strong>EXAMPLE</strong></p>
 <pre><code class="lang-csharp">// within your viewmodel
 var binder = ShinyHost.Resolve&lt;Shiny.Stores.IObjectBinder&gt;();
@@ -326,8 +322,7 @@ binder.Bind(this);
 
 // NOTE: most viewmodels are transient (as they should be), so be sure to unbind the instance upon your viewmodel being navigated away from
 binder.UnBind(obj);
-</code></pre>
-</article>
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">

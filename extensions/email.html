@@ -53,7 +53,7 @@
                           <a href="../extensions/push/index.html" title="Extensions">Extensions</a>
                       </li>
                       <li>
-                          <a href="../release-notes/mobile/v250.html" title="Releases">Releases</a>
+                          <a href="../release-notes/mobile/v300.html" title="Releases">Releases</a>
                       </li>
                       <li>
                           <a href="https://github.com/shinyorg" title="GitHub">GitHub</a>
@@ -131,23 +131,44 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="mail-templating">Mail Templating</h1>
 
-<p>[!NugetShield(Shiny.Extensions.Mail)]</p>
-<p>There are tons of email engines out there, but we didn't see anything as comphrehensive as what we've made here.</p>
+<p><a href="https://www.nuget.org/packages/Shiny.Extensions.Mail/" target="Shiny.Extensions.Mail"><img src="https://img.shields.io/nuget/v/Shiny.Extensions.Mail.svg?style=for-the-badge"></a></p>
+<p>There are tons of email engines out there, but we didn&#39;t see anything as comphrehensive as what we&#39;ve made here.</p>
 <h2 id="the-engine-layers">The Engine Layers</h2>
 <h3 id="template-loaders">Template Loaders</h3>
 <p>These guys are responsible for going out and loading up your templates.  Templates can come from anywhere - a database, blob storage in azure, or even your local file system.  Why should it matter?</p>
-<p>Shiny.Extensions.Mail provides several out-of-the-box providers
-|Name|Description|NuGet|
-|----|-----------|-----|
-|File System|Loads templates from the file system|[!NugetShield(Shiny.Extensions.Mail.FileSystem)]|
-|SQL Server|Loads templates from a SQL Server database|[!NugetShield(Shiny.Extensions.Mail.SqlServer)]|
-|Storage.NET|Loads templates from FTP, filesystem, Azure Blobs, etc - read more about Storage.NET here: <a href="https://github.com/aloneguid/storage">GitHub</a>|[!NugetShield(Shiny.Extensions.Mail.StorageNet)]|</p>
+<p>Shiny.Extensions.Mail provides several out-of-the-box providers</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>NuGet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>File System</td>
+<td>Loads templates from the file system</td>
+<td><a href="https://www.nuget.org/packages/Shiny.Extensions.Mail.FileSystem/" target="Shiny.Extensions.Mail.FileSystem"><img src="https://img.shields.io/nuget/v/Shiny.Extensions.Mail.FileSystem.svg?style=for-the-badge"></a></td>
+</tr>
+<tr>
+<td>SQL Server</td>
+<td>Loads templates from a SQL Server database</td>
+<td><a href="https://www.nuget.org/packages/Shiny.Extensions.Mail.SqlServer/" target="Shiny.Extensions.Mail.SqlServer"><img src="https://img.shields.io/nuget/v/Shiny.Extensions.Mail.SqlServer.svg?style=for-the-badge"></a></td>
+</tr>
+<tr>
+<td>Storage.NET</td>
+<td>Loads templates from FTP, filesystem, Azure Blobs, etc - read more about Storage.NET here: <a href="https://github.com/aloneguid/storage">GitHub</a></td>
+<td><a href="https://www.nuget.org/packages/Shiny.Extensions.Mail.StorageNet/" target="Shiny.Extensions.Mail.StorageNet"><img src="https://img.shields.io/nuget/v/Shiny.Extensions.Mail.StorageNet.svg?style=for-the-badge"></a></td>
+</tr>
+</tbody>
+</table>
 <h3 id="template-parsers">Template Parsers</h3>
 <p>Template parsers are responsible for providing logic &amp; raw parsing capabilities before taking the content and creating a mail message.  Here, you can really customize your emails by customer such as looping through a list of order items.</p>
 <p>Shiny providers two parsers</p>
 <ul>
 <li>Razor (built-in to Shiny.Extensions.Mail)</li>
-<li>DotLiquid (Shiny.Extensions.Mail.DotLiquid) - [!NugetShield(Shiny.Extensions.Mail.DotLiquid)]</li>
+<li>DotLiquid (Shiny.Extensions.Mail.DotLiquid) - <a href="https://www.nuget.org/packages/Shiny.Extensions.Mail.DotLiquid/" target="Shiny.Extensions.Mail.DotLiquid"><img src="https://img.shields.io/nuget/v/Shiny.Extensions.Mail.DotLiquid.svg?style=for-the-badge"></a></li>
 </ul>
 <h3 id="mailmessage-converters">MailMessage Converters</h3>
 <p>Mail message parsers are the last line before sending your message.  Here, we take the raw string after the loader and template parser have taken their runs and convert the content into a mail message.  This is where formatting of your template becomes more important.  Out of the box, we have what we call a &quot;front matter mail template converter&quot;.  We will show you what this format looks like in the next section.</p>
@@ -175,13 +196,9 @@ All of your beautiful HTML content here
     @foreach (var item in Model.OrderItems) {
         {&lt;li&gt;@item.Description&lt;/li&gt;}
 &lt;/ul&gt;
-
-</code></pre>
-<h2 id="getting-started">Getting Started</h2>
-<p>Setting Shiny.Extensions.Mail up is very straight forward, but does require the use of Microsoft.Extensions.DependencyInjection</p>
-<div class="WARNING">
-<h5>Warning</h5>
-<p>The Shiny.Extensions.Mail engine can certainly run within your ASP.NET 5+ applications, however, it is recommended that as your site grows in traffic, that you offload this to an Azure Function or a Service Bus Queue.  This will allow you to scale your site without having to worry about the performance of your mail engine.</p>
+</code></pre><h2 id="getting-started">Getting Started</h2>
+<p>Setting Shiny.Extensions.Mail up is very straight forward, but does require the use of Microsoft.Extensions.DependencyInjection </p>
+<div class="WARNING"><h5>Warning</h5><p>The Shiny.Extensions.Mail engine can certainly run within your ASP.NET 5+ applications, however, it is recommended that as your site grows in traffic, that you offload this to an Azure Function or a Service Bus Queue.  This will allow you to scale your site without having to worry about the performance of your mail engine.</p>
 </div>
 <pre><code class="lang-csharp">
 protected override void ConfigureServices(IServiceCollection services) 
@@ -219,8 +236,7 @@ public async Task Order() {
         CultureInfo.CurrentCulture // optional - but should either user the culture from your browser headers or a customer profile setting within your application
     });
 }
-</code></pre>
-<h2 id="sql-server-template-loader">SQL Server Template Loader</h2>
+</code></pre><h2 id="sql-server-template-loader">SQL Server Template Loader</h2>
 <pre><code class="lang-csharp">protected override void ConfigureServices(IServiceCollection services) 
 {
     services.AddMailProcessor(x =&gt; x
@@ -228,33 +244,31 @@ public async Task Order() {
         .UseSqlServerTemplateLoader(Configuration.GetConnectionString(&quot;ConnectionString&quot;))
     );
 }
-</code></pre>
-<pre><code class="lang-sql">SET ANSI_NULLS ON
+</code></pre><pre><code class="lang-sql">SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[MailTemplates](
-	[MailTemplateId] [uniqueidentifier] NOT NULL,
-	[TemplateName] [nvarchar](255) NOT NULL,
-	[CultureCode] [varchar](5) NULL,
-	[Content] [nvarchar](max) NOT NULL,
+    [MailTemplateId] [uniqueidentifier] NOT NULL,
+    [TemplateName] [nvarchar](255) NOT NULL,
+    [CultureCode] [varchar](5) NULL,
+    [Content] [nvarchar](max) NOT NULL,
  CONSTRAINT [PK_MailTemplates] PRIMARY KEY CLUSTERED
 (
-	[MailTemplateId] ASC
+    [MailTemplateId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
  CONSTRAINT [UK_MailTemplates] UNIQUE NONCLUSTERED
 (
-	[TemplateName] ASC,
-	[CultureCode] ASC
+    [TemplateName] ASC,
+    [CultureCode] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
 SET ANSI_NULLS ON
 GO
-</code></pre>
-</article>
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">

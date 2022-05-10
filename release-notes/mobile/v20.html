@@ -53,7 +53,7 @@
                           <a href="../../extensions/push/index.html" title="Extensions">Extensions</a>
                       </li>
                       <li>
-                          <a href="../../release-notes/mobile/v250.html" title="Releases">Releases</a>
+                          <a href="../../release-notes/mobile/v300.html" title="Releases">Releases</a>
                       </li>
                       <li>
                           <a href="https://github.com/shinyorg" title="GitHub">GitHub</a>
@@ -96,6 +96,9 @@
                       <a class="">Mobile</a>
                         
                         <ul class="nav level2">
+                          <li class="">
+                            <a href="../mobile/v300.html" title="v3.0.0 ALPHA" class="">v3.0.0 ALPHA</a>
+                          </li>
                           <li class="">
                             <a href="../mobile/v250.html" title="v2.5.0" class="">v2.5.0</a>
                           </li>
@@ -172,15 +175,15 @@
 <li>[BREAKING] The original library has been split into 2 separate libraries (Client - Shiny.BluetoothLE and Server - Shiny.BluetoothLE.Hosting) with some common ties</li>
 <li>[BREAKING] DiscoverServices is now called GetServices and returns IEnumerable instead of a single service</li>
 <li>[BREAKING] DiscoverCharacteristics is now called GetCharacteristics and returns IEnumerable instead of a single characteristic</li>
-<li>[Feature] You don't like RX - there are new async extensions to skip the RX</li>
-<li>[Feature] ManagedScan now properly manages an observable collection of peripherals using all the best practices for safely updating the collection and even removing peripherals that haven't been seen for a configured time period</li>
+<li>[Feature] You don&#39;t like RX - there are new async extensions to skip the RX</li>
+<li>[Feature] ManagedScan now properly manages an observable collection of peripherals using all the best practices for safely updating the collection and even removing peripherals that haven&#39;t been seen for a configured time period</li>
 <li>[Feature] ManagedPeripheral now manages everything during the reconnection process like resubscription to characteristics and all of the internal discovery is done for you.  No more mass setup per peripheral connection.</li>
 </ul>
 <h2 id="beacons">Beacons</h2>
 <ul>
 <li>[BREAKING] Beacons are now separated into 2 different injection points, services.UseBeaconMonitoring()/IBeaconMonitoringManager and services.UseBeaconRanging()/IBeaconRangingManager</li>
 <li>[Feature][Android] Uses foreground services to achieve real time beacon scanning while your app is in the background</li>
-<li>[Feature] ManagedScan now properly manages an observable collection of beacons using all the best practices for safely updating the collection and even removing beacons that haven't been seen for a configured time period</li>
+<li>[Feature] ManagedScan now properly manages an observable collection of beacons using all the best practices for safely updating the collection and even removing beacons that haven&#39;t been seen for a configured time period </li>
 </ul>
 <h2 id="locations">Locations</h2>
 <ul>

@@ -53,7 +53,7 @@
                           <a href="../../extensions/push/index.html" title="Extensions">Extensions</a>
                       </li>
                       <li>
-                          <a href="../../release-notes/mobile/v250.html" title="Releases">Releases</a>
+                          <a href="../../release-notes/mobile/v300.html" title="Releases">Releases</a>
                       </li>
                       <li>
                           <a href="https://github.com/shinyorg" title="GitHub">GitHub</a>
@@ -276,11 +276,11 @@
 <h1 id="getting-started">Getting Started</h1>
 
 <p>Push notifications come in so many flavours these days.  The community needed one way of doing things, but the ability to swap providers in and out at will.  The reason, push providers, aside from native have been dropping
-like flies the last several years.  The latest to go was AppCenter which it turns out the Xamarin community was heavily invested in.</p>
+like flies the last several years.  The latest to go was AppCenter which it turns out the Xamarin community was heavily invested in. </p>
 <h2 id="setup">Setup</h2>
 <p>General OS setup is mostly the same on all platforms, but please review the specific provider you intend to use from the menu for more information</p>
 <h2 id="registration">Registration</h2>
-<p>Look to each appropriate provider to see setups for each.  The most important function otherwise, is RequestAccess shown below which will give you the push notification token that you can send to your backend.</p>
+<p>Look to each appropriate provider to see setups for each.  The most important function otherwise, is RequestAccess shown below which will give you the push notification token that you can send to your backend. </p>
 <p>All providers use the native implementations on the platform to some degree, as such, you will always need to call</p>
 <pre><code class="lang-cs">using System;
 using System.Threading.Tasks;
@@ -302,9 +302,7 @@ public class PushRegistration
         }
     }
 }
-
-</code></pre>
-<h2 id="background-delegate">Background Delegate</h2>
+</code></pre><h2 id="background-delegate">Background Delegate</h2>
 <pre><code class="lang-cs">using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -328,8 +326,7 @@ public class PushDelegate : IPushDelegate
         // fires when a push notification change is set by the operating system or provider
     }
 }
-</code></pre>
-<h2 id="foreground-monitoring">Foreground Monitoring</h2>
+</code></pre><h2 id="foreground-monitoring">Foreground Monitoring</h2>
 <p>It is quite often that you may want to change data due to a silent notification being received.  This is similar to watching a SignalR broadcast, but with observables because RX is awesome and Shiny dies on the RX hill!</p>
 <pre><code class="lang-cs">using System.Reactive.Linq;
 using Shiny;
@@ -349,9 +346,7 @@ public class PushForeground
             });
     }
 }
-
-</code></pre>
-<h2 id="additional-features">Additional Features</h2>
+</code></pre><h2 id="additional-features">Additional Features</h2>
 <p>Like other modules in Shiny, there are certain providers that support additional feature sets.  Push really only has 1 extra, tagging.</p>
 <p>The following providers, support tagging</p>
 <ul>
@@ -381,8 +376,7 @@ public class Extensions
         var permissionResult = await push.TryRequestAccessWithTags(&quot;tag1&quot;, &quot;tag2&quot;);
     }
 }
-</code></pre>
-</article>
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">

@@ -53,7 +53,7 @@
                           <a href="../../extensions/push/index.html" title="Extensions">Extensions</a>
                       </li>
                       <li>
-                          <a href="../../release-notes/mobile/v250.html" title="Releases">Releases</a>
+                          <a href="../../release-notes/mobile/v300.html" title="Releases">Releases</a>
                       </li>
                       <li>
                           <a href="https://github.com/shinyorg" title="GitHub">GitHub</a>
@@ -297,13 +297,11 @@ namespace Samples
 
     }
 }
-
-</code></pre>
-<h2 id="best-practices">Best Practices</h2>
+</code></pre><h2 id="best-practices">Best Practices</h2>
 <ol>
-<li>Always use the <theshinyservice>.RequestAccess to check if your user gives the right permissions to use the service in question.</theshinyservice></li>
-<li>Don't do UI centric things from a Shiny delegate, this includes things like calling RequestAccess.  Most Shiny services have an equivalent &quot;foreground&quot; type call on the service that can be used safely within the UI portion of your application.</li>
-<li>Don't try to setup background processes in a delegate or as your app is going to sleep.  The methods for setting up background processes in Shiny are all asyncc and the OS will not wait for things to complete.</li>
+<li>Always use the <theshinyservice>.RequestAccess to check if your user gives the right permissions to use the service in question. </theshinyservice></li>
+<li>Don&#39;t do UI centric things from a Shiny delegate, this includes things like calling RequestAccess.  Most Shiny services have an equivalent &quot;foreground&quot; type call on the service that can be used safely within the UI portion of your application.</li>
+<li>Don&#39;t try to setup background processes in a delegate or as your app is going to sleep.  The methods for setting up background processes in Shiny are all asyncc and the OS will not wait for things to complete.  </li>
 <li>Treat everything as a singleton in Shiny</li>
 </ol>
 <h3 id="registering-platform-specific-services">Registering Platform Specific Services</h3>
@@ -322,8 +320,7 @@ namespace Samples
         });
     }
 }
-</code></pre>
-<h3 id="android">Android</h3>
+</code></pre><h3 id="android">Android</h3>
 <pre><code class="lang-csharp">public class AndroidApplication : Android.App.Application
 {
     public override void OnCreate() 
@@ -337,8 +334,7 @@ namespace Samples
         })
     }
 }
-</code></pre>
-</article>
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">

@@ -53,7 +53,7 @@
                           <a href="../../extensions/push/index.html" title="Extensions">Extensions</a>
                       </li>
                       <li>
-                          <a href="../../release-notes/mobile/v250.html" title="Releases">Releases</a>
+                          <a href="../../release-notes/mobile/v300.html" title="Releases">Releases</a>
                       </li>
                       <li>
                           <a href="https://github.com/shinyorg" title="GitHub">GitHub</a>
@@ -96,6 +96,9 @@
                       <a class="">Mobile</a>
                         
                         <ul class="nav level2">
+                          <li class="">
+                            <a href="../mobile/v300.html" title="v3.0.0 ALPHA" class="">v3.0.0 ALPHA</a>
+                          </li>
                           <li class="">
                             <a href="../mobile/v250.html" title="v2.5.0" class="">v2.5.0</a>
                           </li>
@@ -160,8 +163,8 @@
 
 <h3 id="core">Core</h3>
 <ul>
-<li>[BREAKING] Shiny now uses it's own logger factory for Microsoft.Extension.Logging to provide a huge startup performance boost though this may break 3rd party providers.  Shiny comes with Debug, Sqlite, and AppCenter out-of-the-box and they all work! <a href="https://github.com/shinyorg/shiny/issues/625">GH0625</a></li>
-<li>[Enhancement] Source generators will initialize Dan Siegel's excellent Mobile.BuildTools.Configuration if present</li>
+<li>[BREAKING] Shiny now uses it&#39;s own logger factory for Microsoft.Extension.Logging to provide a huge startup performance boost though this may break 3rd party providers.  Shiny comes with Debug, Sqlite, and AppCenter out-of-the-box and they all work! <a href="https://github.com/shinyorg/shiny/issues/625">GH0625</a></li>
+<li>[Enhancement] Source generators will initialize Dan Siegel&#39;s excellent Mobile.BuildTools.Configuration if present</li>
 <li>[Enhancement] Add the necessary constructor to ShinyStartup to register xplat services</li>
 <li>[Enhancement][Android] Xamarin.Essentials is now wired in automatically by the source generators for Activity OnResume and OnNewIntent  <a href="https://github.com/shinyorg/shiny/issues/620">GH-620</a></li>
 <li>[Enhancement][iOS] Xamarin.Essentials is now wired in automatically by the source generators for AppDelegate OpenUrl (if MSAL is not present) and PerformActionForShortcutItem</li>
@@ -169,7 +172,7 @@
 <li>[Fix] Ensure global is generated in front of startup and XF app type names to ensure there is no collisions with other types</li>
 <li>[Fix][Android] Activity handler was not sending out proper resume state <a href="https://github.com/shinyorg/shiny/issues/640">GH-640</a></li>
 <li>[Fix][Android] Platform state was not monitoring properly <a href="https://github.com/shinyorg/shiny/issues/640">GH-640</a></li>
-<li>[Fix] Job foregrounding won't run your job multiple times on startup</li>
+<li>[Fix] Job foregrounding won&#39;t run your job multiple times on startup</li>
 <li>[Fix] BgTaskJobManager now calls the proper tasked jobs</li>
 <li>[Fix] Ensure all state bindables are completed before startup tasks</li>
 </ul>

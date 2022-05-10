@@ -53,7 +53,7 @@
                           <a href="../../extensions/push/index.html" title="Extensions">Extensions</a>
                       </li>
                       <li>
-                          <a href="../../release-notes/mobile/v250.html" title="Releases">Releases</a>
+                          <a href="../../release-notes/mobile/v300.html" title="Releases">Releases</a>
                       </li>
                       <li>
                           <a href="https://github.com/shinyorg" title="GitHub">GitHub</a>
@@ -277,12 +277,11 @@
 
 <p>Native push is the root of all other push providers.  It works at the native OS level and is usually feeding other providers like Azure Notification Hubs and Firebase.  As such, the setup instructions found
 within this document generally apply to all.</p>
-<?! packageinfo="" "shiny.push"=""?>
+<p>&lt;?! PackageInfo &quot;Shiny.Push&quot; /?&gt;</p>
 <h2 id="native-push-provider">Native Push Provider</h2>
-<p>If you don't intend to use a 3rd party provider, this library still uses everything applied from &quot;Getting Started&quot;.  To register it with Shiny, simply do the following in your Shiny Startup:</p>
+<p>If you don&#39;t intend to use a 3rd party provider, this library still uses everything applied from &quot;Getting Started&quot;.  To register it with Shiny, simply do the following in your Shiny Startup:</p>
 <pre><code class="lang-csharp">services.UsePush&lt;MyPushDelegate&gt;();
-</code></pre>
-<h2 id="android-additional-setup">Android Additional Setup</h2>
+</code></pre><h2 id="android-additional-setup">Android Additional Setup</h2>
 <p>The process of setting up Android is a bit of process</p>
 <pre><code class="lang-csharp">&lt;ItemGroup&gt;
     &lt;GoogleServicesJson Include=&quot;google-services.json&quot;&gt;
@@ -291,9 +290,7 @@ within this document generally apply to all.</p>
     &lt;PackageReference Include=&quot;Xamarin.GooglePlayServices.Basement&quot; Version=&quot;The same version Shiny.Push is using&quot; /&gt;
     &lt;PackageReference Include=&quot;Xamarin.GooglePlayServices.Tasks&quot; Version=&quot;The same version Shiny.Push is using&quot; /&gt;
 &lt;/ItemGroup&gt;
-
-</code></pre>
-</article>
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">

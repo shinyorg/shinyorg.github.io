@@ -53,7 +53,7 @@
                           <a href="../../extensions/push/index.html" title="Extensions">Extensions</a>
                       </li>
                       <li>
-                          <a href="../../release-notes/mobile/v250.html" title="Releases">Releases</a>
+                          <a href="../../release-notes/mobile/v300.html" title="Releases">Releases</a>
                       </li>
                       <li>
                           <a href="https://github.com/shinyorg" title="GitHub">GitHub</a>
@@ -303,9 +303,7 @@ var notifyCharacteristic = service.AddCharacteristic
     CharacteristicProperties.Indicate | CharacteristicProperties.Notify,
     GattPermissions.Read | GattPermissions.Write
 );
-
-</code></pre>
-<h2 id="characteristics">Characteristics</h2>
+</code></pre><h2 id="characteristics">Characteristics</h2>
 <p>These are the heart and soul of BLE.  This is where data is exchanged between client &amp; server</p>
 <h3 id="read">Read</h3>
 <p>When you have a read characteristic, you need to hook on to its read observable</p>
@@ -318,8 +316,7 @@ var notifyCharacteristic = service.AddCharacteristic
 
     x.Status = GattStatus.Success; // you can optionally set a status, but it defaults to Success
 });
-</code></pre>
-<h3 id="write">Write</h3>
+</code></pre><h3 id="write">Write</h3>
 <p>Same with write characteristic</p>
 <pre><code class="lang-csharp">characteristic.WhenWriteReceived().Subscribe(x =&gt;
 {
@@ -328,9 +325,8 @@ var notifyCharacteristic = service.AddCharacteristic
 
     // note that you can reply with a value and status here as well (like a read)
 });
-</code></pre>
-<h3 id="notification-subscriptions">Notification Subscriptions</h3>
-<p>It is important to know how many subscribers you have to know if you should be processing notifications</p>
+</code></pre><h3 id="notification-subscriptions">Notification Subscriptions</h3>
+<p>It is important to know how many subscribers you have to know if you should be processing notifications </p>
 <p>Subscribers are nothing more than device UUIDs for identification.  From an IOS perspective, there is almost zero you can do with them</p>
 <pre><code class="lang-csharp">notifyCharacteristic.WhenDeviceSubscriptionChanged().Subscribe(e =&gt;
 {
@@ -340,8 +336,7 @@ var notifyCharacteristic = service.AddCharacteristic
 // you can also see a current list of subscribers
 
 notifyCharacteristic.SubscribedDevices
-</code></pre>
-<h3 id="broadcasting">Broadcasting</h3>
+</code></pre><h3 id="broadcasting">Broadcasting</h3>
 <p>Now that you have some subscribers, lets say hello every second just for fun</p>
 <pre><code class="lang-csharp">notifyCharacteristic.Broadcast(bytes).Subscribe(); // passing no devices will cause a mass broadcast
 
@@ -353,8 +348,7 @@ notifyCharacteristic.Broadcast(bytes);
 
 // you can also listen to the callbacks for each broadcast
 notifyCharacteristic.BroadcastObserve(bytes).Subscribe(info =&gt; {});
-</code></pre>
-</article>
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">

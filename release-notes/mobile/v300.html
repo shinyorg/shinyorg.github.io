@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Bluetooth LE </title>
+    <title>3.0.0 Early Alpha </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Bluetooth LE ">
+    <meta name="title" content="3.0.0 Early Alpha ">
     <meta name="generator" content="docfx 2.56.7.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -96,14 +96,14 @@
                       <a class="">Mobile</a>
                         
                         <ul class="nav level2">
-                          <li class="">
-                            <a href="../mobile/v300.html" title="v3.0.0 ALPHA" class="">v3.0.0 ALPHA</a>
+                          <li class="active">
+                            <a href="../mobile/v300.html" title="v3.0.0 ALPHA" class="active">v3.0.0 ALPHA</a>
                           </li>
                           <li class="">
                             <a href="../mobile/v250.html" title="v2.5.0" class="">v2.5.0</a>
                           </li>
-                          <li class="active">
-                            <a href="../mobile/v243.html" title="v2.4.3" class="active">v2.4.3</a>
+                          <li class="">
+                            <a href="../mobile/v243.html" title="v2.4.3" class="">v2.4.3</a>
                           </li>
                           <li class="">
                             <a href="../mobile/v242.html" title="v2.4.2" class="">v2.4.2</a>
@@ -159,16 +159,21 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
+<h1 id="300-early-alpha">3.0.0 Early Alpha</h1>
 
-<p>Title: 2.4.3 (January 2022)</p>
-<h2 id="bluetooth-le">Bluetooth LE</h2>
+<div class="IMPORTANT"><h5>Important</h5><p>This is an EARLY ALPHA release!  There are big changes planned!  We are not taking bugs on things at this time.  Hosting has vastly changed in our model to support MAUI.<br>We have also removed several components such as AppCenter Logging and Firebase on iOS due to incompatible .NET6 iOS dependencies
+Lastly, Generators have been removed temporarily.  It has not been decided how/if we will support them in the future.</p>
+</div>
+<h2 id="core">Core</h2>
 <ul>
-<li>[Fix] ManagedPeripheral properly restores and set notifications <a href="https://github.com/shinyorg/shiny/issues/902">GH-902</a></li>
+<li>[BREAKING] IShinyStartup is gone - we now have a new HostBuilder pattern to allow classic to align with MAUI/NET6.  Use extensions methods to build on this for classic/non-MAUI setups</li>
+<li>[BREAKING] IShinyModule is gone - use extensions methods instead</li>
+<li>[BREAKING] Connectivity is gone (well, it was moved to jobs since it was only really used by jobs) - Switch to MAUI Essentials if you need it</li>
+<li>[BREAKING] PowerManager is gone - moved to jobs as well - Switch to MAUI Essentials if you need it</li>
 </ul>
-<h2 id="locations">Locations</h2>
+<h2 id="jobs">Jobs</h2>
 <ul>
-<li>[Enhancement][Android] RequestLocationUpdates now ensures main thread call</li>
-<li>[Fix][iOS] RequestAccess calls do not return immediately if user has previously denied access</li>
+<li>[BREAKING][iOS] We no longer support the background fetch style (old) job management - only bgtasks will be used going forward</li>
 </ul>
 </article>
           </div>
@@ -178,7 +183,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/shinyorg/docs/blob/master/docs/release-notes/mobile/v243.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/shinyorg/docs/blob/master/docs/release-notes/mobile/v300.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

@@ -53,7 +53,7 @@
                           <a href="../../extensions/push/index.html" title="Extensions">Extensions</a>
                       </li>
                       <li>
-                          <a href="../../release-notes/mobile/v250.html" title="Releases">Releases</a>
+                          <a href="../../release-notes/mobile/v300.html" title="Releases">Releases</a>
                       </li>
                       <li>
                           <a href="https://github.com/shinyorg" title="GitHub">GitHub</a>
@@ -141,26 +141,28 @@
 <tbody>
 <tr>
 <td>Push</td>
-<td>[!NugetShield(Shiny.Extensions.Push)]</td>
+<td><a href="https://www.nuget.org/packages/Shiny.Extensions.Push/" target="Shiny.Extensions.Push"><img src="https://img.shields.io/nuget/v/Shiny.Extensions.Push.svg?style=for-the-badge"></a></td>
 </tr>
 <tr>
 <td>EF Repository</td>
-<td>[!NugetShield(Shiny.Extensions.Push.Ef)]</td>
+<td><a href="https://www.nuget.org/packages/Shiny.Extensions.Push.Ef/" target="Shiny.Extensions.Push.Ef"><img src="https://img.shields.io/nuget/v/Shiny.Extensions.Push.Ef.svg?style=for-the-badge"></a></td>
 </tr>
 </tbody>
 </table>
 <p>There are tons of push management systems out there - Azure Notification Hubs, Amazon SQS, OneSignal, Firebase, etc, but what if you want to run this stuff local?  That also exists - PushSharp and others exist in the .NET ecosystem.</p>
-<p>Currently, this library supports Apple Notifications and Google Firebase Messaging.  It is important you understand the native API's before using this library
-* <a href="https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages">Firebase Cloud Messaging Documentation</a>
-* <a href="https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/generating_a_remote_notification">Apple Notification Documentation</a></p>
-<p>However, there is a bunch of things that they don't offer</p>
+<p>Currently, this library supports Apple Notifications and Google Firebase Messaging.  It is important you understand the native API&#39;s before using this library</p>
+<ul>
+<li><a href="https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages">Firebase Cloud Messaging Documentation</a></li>
+<li><a href="https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/generating_a_remote_notification">Apple Notification Documentation</a></li>
+</ul>
+<p>However, there is a bunch of things that they don&#39;t offer</p>
 <ol>
 <li>General purpose push notification abilities</li>
 <li>Management of the registration base (tokens, which user owns the token, etc)</li>
 <li>From the sender base, they lack a lot of deep customization</li>
-<li>What if I just want to hit the base OS providers without the middle man?</li>
+<li>What if I just want to hit the base OS providers without the middle man?  </li>
 </ol>
-<p>Shiny.Extensions.Push looks to solve all of these issues.</p>
+<p>Shiny.Extensions.Push looks to solve all of these issues.  </p>
 <pre><code class="lang-csharp">services.AddPushManagement(x =&gt; x
     .AddApplePush(new AppleConfiguration {
         IsProduction = true, // prod or sandbox
@@ -177,16 +179,15 @@
     })
     .UseEfRepository&lt;SampleDbContext&gt;()
 );
-</code></pre>
-<h2 id="register-a-deviceuser">Register a Device/User</h2>
-<p>Now that we've registered our push management components, we can assume they we will be injecting Shiny.Extensions.Push.IPushManager wherever we need it.</p>
+</code></pre><h2 id="register-a-deviceuser">Register a Device/User</h2>
+<p>Now that we&#39;ve registered our push management components, we can assume they we will be injecting Shiny.Extensions.Push.IPushManager wherever we need it.</p>
 <pre><code class="lang-csharp">using Shiny.Extensions.Push;
 
 
 public class ExampleController : ControllerBase {
     readonly IPushManager pushManager;
 
-    
+
     public ExampleController(IPushManager pushManager) {
         this.pushManager = pushManager;
     }
@@ -202,9 +203,8 @@ public class ExampleController : ControllerBase {
         });
     }
 }
-</code></pre>
-<h2 id="sending-a-push">Sending a Push</h2>
-<p>Sending a push cross platform, couldn't be easier (or more powerful)</p>
+</code></pre><h2 id="sending-a-push">Sending a Push</h2>
+<p>Sending a push cross platform, couldn&#39;t be easier (or more powerful)</p>
 <pre><code class="lang-csharp">await this.pushManager.Send(
     new Shiny.Extensions.Push.Notification
     {
@@ -223,8 +223,7 @@ public class ExampleController : ControllerBase {
         Platform = PushPlatforms.All
     }    
 );
-</code></pre>
-</article>
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">

@@ -53,7 +53,7 @@
                           <a href="../../extensions/push/index.html" title="Extensions">Extensions</a>
                       </li>
                       <li>
-                          <a href="../../release-notes/mobile/v250.html" title="Releases">Releases</a>
+                          <a href="../../release-notes/mobile/v300.html" title="Releases">Releases</a>
                       </li>
                       <li>
                           <a href="https://github.com/shinyorg" title="GitHub">GitHub</a>
@@ -275,14 +275,13 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="getting-started">Getting Started</h1>
 
-<?! packageinfo="" "shiny.net.http"=""?>
+<p>&lt;?! PackageInfo &quot;Shiny.Net.Http&quot; /?&gt;</p>
 <p>As developers, we often take internet connectivity and speed for granted.  Mobile phones are taking HUGE sized photos these days that can take quite some time to upload.</p>
 <h2 id="features">Features</h2>
 <ul>
 <li>Background Uploads &amp; Downloads on each platform</li>
 <li>Supports transfer filtering based on metered connections (iOS &amp; UWP only at the moment)</li>
-<li>Event Based Metrics
-<ul>
+<li>Event Based Metrics<ul>
 <li>Percentage Complete</li>
 <li>Total Bytes Expected</li>
 <li>Total Bytes Transferred</li>
@@ -291,7 +290,7 @@
 </ul>
 </li>
 </ul>
-<?! packageinfo="" "shiny.net.http"=""?>
+<p>&lt;?! PackageInfo &quot;Shiny.Net.Http&quot; /?&gt;</p>
 <h2 id="setup">Setup</h2>
 <ol>
 <li>Create a delegate in your shared code</li>
@@ -315,14 +314,12 @@ namespace YourNamespace
         }
     }
 }
-
-</code></pre>
-<ol start="2">
+</code></pre><ol>
 <li>Add the following to your <a href="xref:startup">Shiny Startup</a></li>
 </ol>
-<?! startup=""?>
-<p>services.UseHttpTransfers&lt;YourNamespace.MyHttpTransferDelegate&gt;();</p>
-<?! startup=""?>
+<p>&lt;?! Startup ?&gt;
+services.UseHttpTransfers&lt;YourNamespace.MyHttpTransferDelegate&gt;();
+&lt;?!/ Startup ?&gt;</p>
 </article>
           </div>
           

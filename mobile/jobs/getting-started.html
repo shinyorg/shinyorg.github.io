@@ -53,7 +53,7 @@
                           <a href="../../extensions/push/index.html" title="Extensions">Extensions</a>
                       </li>
                       <li>
-                          <a href="../../release-notes/mobile/v250.html" title="Releases">Releases</a>
+                          <a href="../../release-notes/mobile/v300.html" title="Releases">Releases</a>
                       </li>
                       <li>
                           <a href="https://github.com/shinyorg" title="GitHub">GitHub</a>
@@ -275,20 +275,16 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="getting-started">Getting Started</h1>
 
-<?! packageinfo="" "shiny.jobs"=""?>
+<p>&lt;?! PackageInfo &quot;Shiny.Jobs&quot; /?&gt;</p>
 <h2 id="features">Features</h2>
 <ul>
-<li><p>Cross Platform Background Jobs Framework</p>
-</li>
-<li><p>Run adhoc jobs in the background (mainly for use on iOS)</p>
-</li>
-<li><p>Define jobs with runtime parameters to run at regular intervals</p>
-</li>
-<li><p>Internal logging to let you know how often jobs are running, if they complete successfully or error</p>
-</li>
+<li>Cross Platform Background Jobs Framework</li>
+<li>Run adhoc jobs in the background (mainly for use on iOS)</li>
+<li>Define jobs with runtime parameters to run at regular intervals</li>
+<li>Internal logging to let you know how often jobs are running, if they complete successfully or error</li>
 <li><p>Place criteria as to when jobs can run responsibly</p>
 <ul>
-<li>device is charging</li>
+<li>device is charging </li>
 <li>battery is not low</li>
 <li>Internet connectivity via Mobile</li>
 <li>Internet connectivity via WiFi</li>
@@ -296,12 +292,9 @@
 </li>
 <li><p><a href="#adhoc">Running Adhoc One-Time Tasks</a></p>
 </li>
-<li><p><a href="#schedule">Scheduling Background Jobs</a></p>
-</li>
-<li><p><a href="#cancel">Cancelling Jobs</a></p>
-</li>
-<li><p><a href="#ondemand">Running Jobs On-Demand</a></p>
-</li>
+<li><a href="#schedule">Scheduling Background Jobs</a></li>
+<li><a href="#cancel">Cancelling Jobs</a></li>
+<li><a href="#ondemand">Running Jobs On-Demand</a></li>
 </ul>
 <h4 id="adhoc">Creating a One-Time Adhoc Job</h4>
 <pre><code class="lang-csharp">
@@ -310,8 +303,7 @@ CrossJobs.Current.RunTask(async () =&gt;
 {
     // your code
 });
-</code></pre>
-<h4 id="schedule">Scheduling a background job</h4>
+</code></pre><h4 id="schedule">Scheduling a background job</h4>
 <pre><code class="lang-csharp">// first define your job
 public class YourJob : IJob
 {
@@ -344,25 +336,21 @@ var job = new JobInfo
 job.SetValue(&quot;LoopCount&quot;, 10);
 
 
-// lastly, schedule it to go - don't worry about scheduling something more than once, we just update if your job name matches an existing one
+// lastly, schedule it to go - don&#39;t worry about scheduling something more than once, we just update if your job name matches an existing one
 CrossJobs.Current.Schedule(job);
-</code></pre>
-<h4 id="cancel">Cancelling Jobs</h4>
+</code></pre><h4 id="cancel">Cancelling Jobs</h4>
 <pre><code class="lang-csharp">// Cancelling A Job
 CrossJobs.Current.Cancel(&quot;YourJobName&quot;);
 
 // Cancelling All Jobs
 CrossJobs.Current.CancelAll();
-</code></pre>
-<h4 id="ondemand">Running Jobs On-Demand</h4>
+</code></pre><h4 id="ondemand">Running Jobs On-Demand</h4>
 <pre><code class="lang-csharp">// Run All Jobs On-Demand
 var results = await CrossJobs.Current.RunAll();
 
 // Run A Specific Job On-Demand
 var result = await CrossJobs.Current.Run(&quot;YourJobName&quot;);
-
-</code></pre>
-</article>
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">

@@ -53,7 +53,7 @@
                           <a href="../../extensions/push/index.html" title="Extensions">Extensions</a>
                       </li>
                       <li>
-                          <a href="../../release-notes/mobile/v250.html" title="Releases">Releases</a>
+                          <a href="../../release-notes/mobile/v300.html" title="Releases">Releases</a>
                       </li>
                       <li>
                           <a href="https://github.com/shinyorg" title="GitHub">GitHub</a>
@@ -275,22 +275,14 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="frequently-asked-questions">Frequently Asked Questions</h1>
 
-<blockquote>
-<p>Q: The delegate method 'OnReceived' is not firing on Android</p>
-<blockquote>
-<p>A: You must include data payload in your push notification</p>
+<blockquote><p>Q: The delegate method &#39;OnReceived&#39; is not firing on Android</p>
+<blockquote><p>A: You must include data payload in your push notification</p>
 </blockquote>
+<p>Q: The delegate method &#39;OnReceived&#39; is not firing on iOS</p>
+<blockquote><p>A: You must set content-available: 1 in your push notification</p>
 </blockquote>
-<blockquote>
-<p>Q: The delegate method 'OnReceived' is not firing on iOS</p>
-<blockquote>
-<p>A: You must set content-available: 1 in your push notification</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p>Q: I've been sending a push every few minutes and iOS stops firing the OnReceived delegate method</p>
-<blockquote>
-<p>A: In most production settings, iOS gives you about 3-5 silent push notifications per hour before Apple starts throttling/ignorning them.</p>
+<p>Q: I&#39;ve been sending a push every few minutes and iOS stops firing the OnReceived delegate method</p>
+<blockquote><p>A: In most production settings, iOS gives you about 3-5 silent push notifications per hour before Apple starts throttling/ignorning them.  </p>
 </blockquote>
 </blockquote>
 </article>

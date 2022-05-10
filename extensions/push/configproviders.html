@@ -53,7 +53,7 @@
                           <a href="../../extensions/push/index.html" title="Extensions">Extensions</a>
                       </li>
                       <li>
-                          <a href="../../release-notes/mobile/v250.html" title="Releases">Releases</a>
+                          <a href="../../release-notes/mobile/v300.html" title="Releases">Releases</a>
                       </li>
                       <li>
                           <a href="https://github.com/shinyorg" title="GitHub">GitHub</a>
@@ -131,7 +131,7 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="configuration-providers">Configuration Providers</h1>
 
-<p>Configuration providers were spawned out of the need for multitenancy without the need for mucking up our push providers.  For single tenant, you won't even
+<p>Configuration providers were spawned out of the need for multitenancy without the need for mucking up our push providers.  For single tenant, you won&#39;t even
 realize these things are there.</p>
 <h2 id="custom-provider">Custom Provider</h2>
 <ol>
@@ -174,17 +174,14 @@ public class PushConfigurationProvider : IAppleConfigurationProvider, IGoogleCon
 
     async 
 }
-</code></pre>
-<ol start="2">
+</code></pre><ol>
 <li>Register it with your DI container</li>
 </ol>
 <pre><code class="lang-csharp">services.AddPushManagement(x =&gt; x
     .AddApplePush&lt;PushConfigurationProvider&gt;()
     .AddGooglePush&lt;PushConfigurationProvider&gt;()
 );
-
-</code></pre>
-</article>
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">

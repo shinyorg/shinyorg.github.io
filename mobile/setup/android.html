@@ -5,13 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Title: Platform - Android
-Order: 3
-Xref: android </title>
+    <title>Xref: android </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Title: Platform - Android
-Order: 3
-Xref: android ">
+    <meta name="title" content="Xref: android ">
     <meta name="generator" content="docfx 2.56.7.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -57,7 +53,7 @@ Xref: android ">
                           <a href="../../extensions/push/index.html" title="Extensions">Extensions</a>
                       </li>
                       <li>
-                          <a href="../../release-notes/mobile/v250.html" title="Releases">Releases</a>
+                          <a href="../../release-notes/mobile/v300.html" title="Releases">Releases</a>
                       </li>
                       <li>
                           <a href="https://github.com/shinyorg" title="GitHub">GitHub</a>
@@ -277,13 +273,13 @@ Xref: android ">
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h2 id="title-platform---androidorder-3xref-android">Title: Platform - Android
-Order: 3
-Xref: android</h2>
 
+<p>Title: Platform - Android
+Order: 3</p>
+<h2 id="xref-android">Xref: android</h2>
 <p>Shiny integrates well with Android, but requires several hook points.  Unlike Xamarin Forms applications where you only need to hook into an activity, Shiny
-requires an Android application.  From an architectural standpoint, this is to ensure all of the Shiny services can be spun up before an Android broadcast receiver
-can run.</p>
+requires an Android application.  From an architectural standpoint, this is to ensure all of the Shiny services can be spun up before an Android broadcast receiver 
+can run. </p>
 <h1 id="todo">TODO</h1>
 <pre><code class="lang-csharp">using System;
 using Shiny;
@@ -294,18 +290,18 @@ using Android.Runtime;
 
 namespace Samples.Android
 {
-	[global::Android.App.ApplicationAttribute]
-	public partial class MainApplication : global::Android.App.Application
-	{
-		public MainApplication(IntPtr handle, JniHandleOwnership transfer) : base(handle, transfer) {}
+    [global::Android.App.ApplicationAttribute]
+    public partial class MainApplication : global::Android.App.Application
+    {
+        public MainApplication(IntPtr handle, JniHandleOwnership transfer) : base(handle, transfer) {}
 
-		public override void OnCreate()
-		{
-			this.ShinyOnCreate(new Samples.SampleStartup());
-			global::Xamarin.Essentials.Platform.Init(this);
-			base.OnCreate();
-		}
-	}
+        public override void OnCreate()
+        {
+            this.ShinyOnCreate(new Samples.SampleStartup());
+            global::Xamarin.Essentials.Platform.Init(this);
+            base.OnCreate();
+        }
+    }
 }
 
 
@@ -321,34 +317,32 @@ using Android.Runtime;
 
 namespace Samples.Droid
 {
-	public class MainActivity : Activity
-	{
-        
+    public class MainActivity : Activity
+    {
+
         protected override void OnCreate(Bundle savedInstanceState)
-		{
-			TabLayoutResource = Resource.Layout.Tabbar;
-			ToolbarResource = Resource.Layout.Toolbar;
-			global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-			this.LoadApplication(new Samples.App());
-		}
+        {
+            TabLayoutResource = Resource.Layout.Tabbar;
+            ToolbarResource = Resource.Layout.Toolbar;
+            global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            this.LoadApplication(new Samples.App());
+        }
 
-		protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
-		{
-			base.OnActivityResult(requestCode, resultCode, data);
-			this.ShinyOnActivityResult(requestCode, resultCode, data);
-		}
-	
-		public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
-		{
-			base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-			this.ShinyOnRequestPermissionsResult(requestCode, permissions, grantResults);
-			global::Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-		}
-	}
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            base.OnActivityResult(requestCode, resultCode, data);
+            this.ShinyOnActivityResult(requestCode, resultCode, data);
+        }
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
+        {
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            this.ShinyOnRequestPermissionsResult(requestCode, permissions, grantResults);
+            global::Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+    }
 }
-
-</code></pre>
-</article>
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">

@@ -53,7 +53,7 @@
                           <a href="../extensions/push/index.html" title="Extensions">Extensions</a>
                       </li>
                       <li>
-                          <a href="../release-notes/mobile/v250.html" title="Releases">Releases</a>
+                          <a href="../release-notes/mobile/v300.html" title="Releases">Releases</a>
                       </li>
                       <li>
                           <a href="https://github.com/shinyorg" title="GitHub">GitHub</a>
@@ -277,8 +277,8 @@
 
 <h2 id="setup">Setup</h2>
 <ol>
-<li><p>The first thing is to install <?! nugetshield="" "shiny"=""?> to your application head project (i.e. MyProject.iOS and MyProject.Android).  This library contains the Shiny.Core and source generators designed to plugin
-all of the boilerplate code you'll need.</p>
+<li><p>The first thing is to install &lt;?! NugetShield &quot;Shiny&quot; /?&gt; to your application head project (i.e. MyProject.iOS and MyProject.Android).  This library contains the Shiny.Core and source generators designed to plugin
+all of the boilerplate code you&#39;ll need.</p>
 </li>
 <li><p>Add the following in some .cs file in each head project:</p>
 </li>
@@ -288,10 +288,9 @@ all of the boilerplate code you'll need.</p>
     ShinyStartupTypeName = &quot;MyProject.ShinyStartupClass&quot;,
     XamarinFormsAppTypeName = &quot;MyProject.XamarinFormsAppClass&quot;
 )]
-</code></pre>
-<p>where</p>
+</code></pre><p>where</p>
 <ul>
-<li><em>MyProject</em> is your project's root namespace</li>
+<li><em>MyProject</em> is your project&#39;s root namespace</li>
 <li><em>ShinyStartupClass</em> is the name of your Shiny startup class (see next step)</li>
 <li><em>XamarinFormsAppClass</em> is the name of your shared project App class (usually <code>App</code>)</li>
 </ul>
@@ -301,20 +300,19 @@ startup class <code>YourShinyStartup</code>, you would add the following to each
     ShinyStartupTypeName = &quot;MyApp.YourShinyStartup&quot;,
     XamarinFormsAppTypeName = &quot;MyApp.App&quot;
 )]
-</code></pre>
-<ol start="3">
-<li>In your shared code project, install <?! nugetshield="" "shiny"=""?>.  Create a Shiny startup class as follows:</li>
+</code></pre><ol>
+<li>In your shared code project, install &lt;?! NugetShield &quot;Shiny&quot; /?&gt;.  Create a Shiny startup class as follows:</li>
 </ol>
-<?! startup=""?>
-<p>// this is where you'll load things like BLE, GPS, etc - those are covered in other sections
-// things like the jobs, environment, power, are all installed automatically</p>
-<?! startup=""?>
-<ol start="4">
-<li><p>For iOS AppDelegate is marked partial.  If you have any methods that Shiny uses already implemented, you'll receive
+<p>&lt;?! Startup ?&gt;
+// this is where you&#39;ll load things like BLE, GPS, etc - those are covered in other sections
+// things like the jobs, environment, power, are all installed automatically
+&lt;?!/ Startup ?&gt;</p>
+<ol>
+<li><p>For iOS AppDelegate is marked partial.  If you have any methods that Shiny uses already implemented, you&#39;ll receive
 a build warning to manually hook the method.</p>
 </li>
 <li><p>For Android, Shiny will automatically create the necessary Android application class.  For your main activity (or multiple activities),
-ensure each one is marked as <strong>partial</strong>.  Shiny will again, auto hook the necessary methods.</p>
+ensure each one is marked as <strong>partial</strong>.  Shiny will again, auto hook the necessary methods. </p>
 </li>
 <li><p>For Android, add a reference to the <code>Mono.Android.Export</code> assembly to your Android project. Also ensure you are targeting the latest major version of Android
 See <a href="https://stackoverflow.com/questions/31085554/you-need-to-add-a-reference-to-mono-android-export-dll-when-you-use-exportattrib">this StackOverflow post</a>

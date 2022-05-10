@@ -53,7 +53,7 @@
                           <a href="../extensions/push/index.html" title="Extensions">Extensions</a>
                       </li>
                       <li>
-                          <a href="../release-notes/mobile/v250.html" title="Releases">Releases</a>
+                          <a href="../release-notes/mobile/v300.html" title="Releases">Releases</a>
                       </li>
                       <li>
                           <a href="https://github.com/shinyorg" title="GitHub">GitHub</a>
@@ -131,13 +131,11 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="webhooks">WebHooks</h1>
 
-<p>This component is to help manage webhooks from the provider side.  Well the concept of webhooks isn't super difficult, there are some things to consider:</p>
-<ol>
-<li>How is the registering client able to verify the request is truly coming from you?</li>
-<li>How do you setup a consistent mechanism for calling the webhook registrations?</li>
-<li>What about responses from those webhooks</li>
-<li>Timeouts?  Maybe one client is given a bit more processing for any number of reasons?</li>
-</ol>
+<p>This component is to help manage webhooks from the provider side.  Well the concept of webhooks isn&#39;t super difficult, there are some things to consider:</p>
+<p>1) How is the registering client able to verify the request is truly coming from you?
+2) How do you setup a consistent mechanism for calling the webhook registrations?
+3) What about responses from those webhooks
+4) Timeouts?  Maybe one client is given a bit more processing for any number of reasons?</p>
 <p>This library covers all of that! Each registration gets to configuration for</p>
 <ul>
 <li>Allowed timeslice to return response</li>
@@ -145,15 +143,15 @@
 <li>The event they are interested in</li>
 </ul>
 <h2 id="setup">Setup</h2>
-<pre><code class="lang-csharp"></code></pre>
-<h2 id="registering-a-webhook">Registering a webhook</h2>
+<pre><code class="lang-csharp">
+</code></pre><h2 id="registering-a-webhook">Registering a webhook</h2>
 <p>The first thing is registering a webhook</p>
-<pre><code class="lang-csharp"></code></pre>
-<h2 id="calling-one-way-webhooks">Calling One-way Webhooks</h2>
-<pre><code class="lang-csharp"></code></pre>
-<h2 id="calling-requestresponse-based-webhooks">Calling Request/Response Based Webhooks</h2>
-<pre><code class="lang-csharp"></code></pre>
-</article>
+<pre><code class="lang-csharp">
+</code></pre><h2 id="calling-one-way-webhooks">Calling One-way Webhooks</h2>
+<pre><code class="lang-csharp">
+</code></pre><h2 id="calling-requestresponse-based-webhooks">Calling Request/Response Based Webhooks</h2>
+<pre><code class="lang-csharp">
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">

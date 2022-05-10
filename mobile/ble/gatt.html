@@ -53,7 +53,7 @@
                           <a href="../../extensions/push/index.html" title="Extensions">Extensions</a>
                       </li>
                       <li>
-                          <a href="../../release-notes/mobile/v250.html" title="Releases">Releases</a>
+                          <a href="../../release-notes/mobile/v300.html" title="Releases">Releases</a>
                       </li>
                       <li>
                           <a href="https://github.com/shinyorg" title="GitHub">GitHub</a>
@@ -282,24 +282,22 @@
 </ul>
 <h2 id="services">Services</h2>
 <p>Once connected to a device, you can initiate service discovery (it is pretty much all you can do against services).  It is important
-not to hold a reference to a service in your code as it will be invalidated with new connections.  You can called for WhenServicesDiscovered()
+not to hold a reference to a service in your code as it will be invalidated with new connections.  You can called for WhenServicesDiscovered() 
 with or without a connection.  When the device becomes connected, it will initiate the discovery process.  Note that you can call WhenServicesDiscovered() repeatedly
 and it will simply replay what has been discovered since the connection occurred.</p>
 <p><strong>Discover services on a device</strong></p>
 <pre><code class="lang-csharp">Device.GetServices().Subscribe(services =&gt; 
 {
 });
-</code></pre>
-<p><strong>Skip the Services</strong></p>
-<p>In a lot of cases, you won't care about the service discovery portion.  You can use the extension
+</code></pre><p><strong>Skip the Services</strong></p>
+<p>In a lot of cases, you won&#39;t care about the service discovery portion.  You can use the extension 
 device.WhenAnyCharacteristicDiscovered() to bypass and just discover all characteristics across all services.</p>
 <p>Characteristics are the heart and soul of the BLE GATT connections.  You can read, write, and monitor the values (depending on permissions) with this plugin.</p>
 <p><em>It important thing with characteristics is NOT to store a reference to an object.  This reference becomes invalidated between connections to a device!</em></p>
 <h2 id="general-usage">General Usage</h2>
 <p><strong>Discover characteristics on service</strong></p>
 <pre><code class="lang-csharp">Service.DiscoverCharacteristics().Subscribe(characteristics =&gt; {});
-</code></pre>
-<p><strong>Read and Write to a characteristic</strong></p>
+</code></pre><p><strong>Read and Write to a characteristic</strong></p>
 <pre><code class="lang-csharp">// once you have your characteristic instance from the service discovery
 Characteristic.Read().Subscribe(
     result =&gt; {
@@ -312,17 +310,15 @@ Characteristic.Read().Subscribe(
 
 Characteristic.Write(bytes).Subscribe(
     result =&gt; {
-        // you don't really need to do anything with the result
+        // you don&#39;t really need to do anything with the result
     },
     exception =&gt; {
         // writes can error!
     }
 );
-</code></pre>
-<p><strong>Write Without Response</strong></p>
+</code></pre><p><strong>Write Without Response</strong></p>
 <pre><code class="lang-csharp">Characteristic.WriteWithoutResponse(bytes).Subscribe();
-</code></pre>
-<p><strong>Notifications</strong></p>
+</code></pre><p><strong>Notifications</strong></p>
 <pre><code class="lang-csharp"> // pass true to use indications (if available on android or UWP)
 Characteristic.EnableNotifications(true);
 var sub = characteristic
@@ -331,42 +327,38 @@ var sub = characteristic
         result =&gt; { result.Data... }
     );
 
-// don't forget to turn them off when you're done
+// don&#39;t forget to turn them off when you&#39;re done
 characteristic.DisableNotifications().Subscribe(); // pass true to enable indications if supported
 
 // there are also some nice extensions to help speed this up
 Characteristic.RegisterAndNotify().Subscribe(result =&gt; {
-    // if you don't care when the notifications have been enabled
+    // if you don&#39;t care when the notifications have been enabled
 });
 
 // From the device, this will attempt to discover a known service /w a known characteristic and hook that characteristic
 // for notifications - 1 stop shop all the way
 Device.HookCharacteristic(serviceUuid, characteristicUuid).Subscribe(result =&gt; {
 });
-</code></pre>
-<p><strong>Discover descriptors on a characteristic</strong></p>
+</code></pre><p><strong>Discover descriptors on a characteristic</strong></p>
 <pre><code class="lang-csharp">// once you have your characteristic instance from the service discovery.
 
 var sub = characteristic.WhenDescriptorsDiscovered().Subscribe(bytes =&gt; {});
 
 characteristic.WhenDescriptorsDiscovered().Subscribe(descriptor =&gt; {});
-</code></pre>
-<p><strong>BLOB Writes</strong></p>
+</code></pre><p><strong>BLOB Writes</strong></p>
 <p>Used for sending larger arrays or streams of data without working with the MTU byte gap</p>
 <pre><code class="lang-csharp">characteristic.BlobWrite(stream).Subscribe(x =&gt; 
 {
-	// subscription will give you current position and pulse every time a buffer is written
-	// if write no response is used, a 100ms gap is placed after each write.  Note that this event will fire quicker as well
+    // subscription will give you current position and pulse every time a buffer is written
+    // if write no response is used, a 100ms gap is placed after each write.  Note that this event will fire quicker as well
 });
 
 
 // same as above but with a byte array
 characteristic.BlobWrite(bytes).Subscribe(x =&gt; {}); 
-</code></pre>
-<p><strong>Reliable Write Transactions</strong></p>
+</code></pre><p><strong>Reliable Write Transactions</strong></p>
 <pre><code class="lang-csharp">// TODO
-</code></pre>
-<pre><code class="lang-csharp">
+</code></pre><pre><code class="lang-csharp">
 // register and subscribe to notifications
 characteristic.RegisterAndNotify().Subscribe(result =&gt; {});
 
@@ -380,25 +372,21 @@ device.WhenAnyCharacteristicDiscovered().Subscribe(characteristic =&gt; {});
 
 // will continue to read in a loop until ending bytes (argument) is detected
 device.ReadUntil(new byte[] { 0x0 }).Subscribe(result =&gt; { result.Data... });
-</code></pre>
-<h2 id="descriptors">Descriptors</h2>
-<p>Descriptors have minimal functionality.  You can read &amp; write their values.</p>
+</code></pre><h2 id="descriptors">Descriptors</h2>
+<p>Descriptors have minimal functionality.  You can read &amp; write their values. </p>
 <p><em>It is important (like services and characteristics) that you do not maintain an instance to descriptors across connections</em></p>
 <p><strong>Read/Write to a Descriptor</strong></p>
 <pre><code class="lang-csharp">// once you have your characteristic instance from the characteristic
 await descriptor.Write(bytes);
 
 await descriptor.Read();
-</code></pre>
-<p><strong>Monitor Descriptor Read/Writes</strong></p>
+</code></pre><p><strong>Monitor Descriptor Read/Writes</strong></p>
 <pre><code class="lang-csharp">
 descriptor.WhenRead().Subscribe(x =&gt; {});
 
 
 descriptor.WhenWritten().Subscribe(x =&gt; {});
-
-</code></pre>
-</article>
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">

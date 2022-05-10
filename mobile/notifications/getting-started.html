@@ -5,11 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Title: Getting Started
-Order: 1 </title>
+    <title>Order: 1 </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Title: Getting Started
-Order: 1 ">
+    <meta name="title" content="Order: 1 ">
     <meta name="generator" content="docfx 2.56.7.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -55,7 +53,7 @@ Order: 1 ">
                           <a href="../../extensions/push/index.html" title="Extensions">Extensions</a>
                       </li>
                       <li>
-                          <a href="../../release-notes/mobile/v250.html" title="Releases">Releases</a>
+                          <a href="../../release-notes/mobile/v300.html" title="Releases">Releases</a>
                       </li>
                       <li>
                           <a href="https://github.com/shinyorg" title="GitHub">GitHub</a>
@@ -275,17 +273,17 @@ Order: 1 ">
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h2 id="title-getting-startedorder-1">Title: Getting Started
-Order: 1</h2>
 
+<p>Title: Getting Started</p>
+<h2 id="order-1">Order: 1</h2>
 <p>You may ask &quot;what does local notifications&quot; have to do with device or background services?  Well.... turns out quite a bit.  You need a way
-of letting your users know that you've done something in the background.  Maybe your job ran and determined that you need to do something OR you connected
-to a BLE peripheral... who knows, but you'll definitely need local notifications at some point well using Shiny</p>
-<?! packageinfo="" "shiny.notifications"=""?>
+of letting your users know that you&#39;ve done something in the background.  Maybe your job ran and determined that you need to do something OR you connected
+to a BLE peripheral... who knows, but you&#39;ll definitely need local notifications at some point well using Shiny </p>
+<p>&lt;?! PackageInfo &quot;Shiny.Notifications&quot; /?&gt;</p>
 <h2 id="ios-specifics">iOS Specifics</h2>
-<p>There isn't anything specific to setting up local notifications on iOS.  However,
+<p>There isn&#39;t anything specific to setting up local notifications on iOS.  However,
 iOS has one specific rule - While the application  is running in the <strong>FOREGROUND</strong>, notifications will not be displayed.
-You are responsible for notifying your users of actions happening while your app is running.</p>
+You are responsible for notifying your users of actions happening while your app is running.  </p>
 <h2 id="android-specifics">Android Specifics</h2>
 <p>Android has many different customization points - please review the <a href="xref:notifications-android">Android Specifics Documentation</a></p>
 <h1 id="notifications">Notifications</h1>
@@ -294,8 +292,7 @@ You are responsible for notifying your users of actions happening while your app
 if (result == PermissionState.Available) {
     // ... do something
 }
-</code></pre>
-<h2 id="send-a-notification">Send a Notification</h2>
+</code></pre><h2 id="send-a-notification">Send a Notification</h2>
 <h2 id="scheduling-a-notification">Scheduling a Notification</h2>
 <h2 id="getting-a-list-of-pending-notifications">Getting A List of Pending Notifications</h2>
 <h2 id="cancelling-individual-or-all-pending-notifications">Cancelling Individual or All Pending Notifications</h2>
@@ -309,9 +306,7 @@ public class NotificationDelegate : INotificationDelegate
     {
     }
 }
-
-</code></pre>
-</article>
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">

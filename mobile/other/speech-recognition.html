@@ -53,7 +53,7 @@
                           <a href="../../extensions/push/index.html" title="Extensions">Extensions</a>
                       </li>
                       <li>
-                          <a href="../../release-notes/mobile/v250.html" title="Releases">Releases</a>
+                          <a href="../../release-notes/mobile/v300.html" title="Releases">Releases</a>
                       </li>
                       <li>
                           <a href="https://github.com/shinyorg" title="GitHub">GitHub</a>
@@ -316,33 +316,29 @@
 </table>
 <h2 id="how-to">HOW TO</h2>
 <h4 id="ios">iOS</h4>
-<p>Add the following to your</p>
+<p>Add the following to your </p>
 <pre><code class="lang-xml">&lt;key&gt;NSSpeechRecognitionUsageDescription&lt;/key&gt;  
 &lt;string&gt;Say something useful here&lt;/string&gt;  
 &lt;key&gt;NSMicrophoneUsageDescription&lt;/key&gt;  
 &lt;string&gt;Say something useful here&lt;/string&gt; 
-</code></pre>
-<h4 id="android">Android</h4>
+</code></pre><h4 id="android">Android</h4>
 <p>Add the following to your AndroidManifest.xml</p>
 <pre><code class="lang-xml">&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
 &lt;uses-permission android:name=&quot;android.permission.RECORD_AUDIO&quot; /&gt;
-</code></pre>
-<h4 id="uwp">UWP</h4>
+</code></pre><h4 id="uwp">UWP</h4>
 <p>Add the following to your app manifest</p>
 <pre><code class="lang-xml">&lt;Capabilities&gt;
-	&lt;Capability Name=&quot;internetClient&quot; /&gt;
- 	&lt;DeviceCapability Name=&quot;microphone&quot; /&gt;
+    &lt;Capability Name=&quot;internetClient&quot; /&gt;
+    &lt;DeviceCapability Name=&quot;microphone&quot; /&gt;
 &lt;/Capabilities&gt;
-</code></pre>
-<h2 id="how-to-use">HOW TO USE</h2>
+</code></pre><h2 id="how-to-use">HOW TO USE</h2>
 <h3 id="request-permission">Request Permission</h3>
 <pre><code class="lang-csharp">var granted = await CrossSpeechRecognition.Current.RequestPermission();
 if (granted) 
 {
     // go!
 }
-</code></pre>
-<h3 id="continuous-dictation">Continuous Dictation</h3>
+</code></pre><h3 id="continuous-dictation">Continuous Dictation</h3>
 <pre><code class="lang-csharp">var listener = CrossSpeechRecognition
     .Current
     .ContinuousDictation()
@@ -352,27 +348,22 @@ if (granted)
 
 // make sure to dispose to stop listening
 listener.Dispose();
-
-</code></pre>
-<h3 id="listen-for-a-phrase-good-for-a-web-search">Listen for a phrase (good for a web search)</h3>
+</code></pre><h3 id="listen-for-a-phrase-good-for-a-web-search">Listen for a phrase (good for a web search)</h3>
 <pre><code class="lang-csharp">CrossSpeechRecognition
     .Current
     .ListenUntilPause()
     .Subscribe(phrase =&gt; {})
-</code></pre>
-<h3 id="listen-for-keywords">Listen for keywords</h3>
+</code></pre><h3 id="listen-for-keywords">Listen for keywords</h3>
 <pre><code class="lang-csharp">CrossSpeechRecognition
     .Current
     .ListenForKeywords(&quot;yes&quot;, &quot;no&quot;)
     .Subscribe(firstKeywordHeard =&gt; {})
-</code></pre>
-<h3 id="when-can-i-talk">When can I talk?</h3>
+</code></pre><h3 id="when-can-i-talk">When can I talk?</h3>
 <pre><code class="lang-csharp">CrossSpeechRecognition
     .Current
     .WhenListenStatusChanged()
     .Subscribe(isListening =&gt; { you can talk if this is true });
-</code></pre>
-<h2 id="faq">FAQ</h2>
+</code></pre><h2 id="faq">FAQ</h2>
 <p>Q. Why use reactive extensions and not async?</p>
 <p>A. Speech is very event stream oriented which fits well with RX</p>
 <p>Q. Should I use CrossSpeechRecognition.Current?</p>
