@@ -857,7 +857,7 @@
       "output": {
         ".html": {
           "relative_path": "release-notes/extensions/v130.html",
-          "hash": "0MjGRPWC5DTFn7xThms12w=="
+          "hash": "FixgEbnH6E2eXL1/amY3Mw=="
         }
       },
       "is_incremental": false,
@@ -869,163 +869,22 @@
       "output": {
         ".html": {
           "relative_path": "release-notes/index.html",
-          "hash": "MJOzVN7fXEnD7IlsudT0zQ=="
+          "hash": "wj+eUv4RGFCIPtltxk9/KA=="
         }
       },
       "is_incremental": false,
       "version": ""
     },
     {
+      "log_codes": [
+        "InvalidYamlHeader"
+      ],
       "type": "Conceptual",
-      "source_relative_path": "release-notes/mobile/v10.md",
+      "source_relative_path": "release-notes/mobile/v1x.md",
       "output": {
         ".html": {
-          "relative_path": "release-notes/mobile/v10.html",
-          "hash": "ImY8KQKa4/35uJCQEg+Dvg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "release-notes/mobile/v11.md",
-      "output": {
-        ".html": {
-          "relative_path": "release-notes/mobile/v11.html",
-          "hash": "Avi4mkr40DOLBmyPb5IELw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "release-notes/mobile/v12.md",
-      "output": {
-        ".html": {
-          "relative_path": "release-notes/mobile/v12.html",
-          "hash": "GxN86IuIBlFwpZCmk/Yxiw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "release-notes/mobile/v121.md",
-      "output": {
-        ".html": {
-          "relative_path": "release-notes/mobile/v121.html",
-          "hash": "McfjYSjn7CS46x+EREWlKg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "release-notes/mobile/v20.md",
-      "output": {
-        ".html": {
-          "relative_path": "release-notes/mobile/v20.html",
-          "hash": "NP7pA4tDhobKnm2kVmXFpA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "release-notes/mobile/v210.md",
-      "output": {
-        ".html": {
-          "relative_path": "release-notes/mobile/v210.html",
-          "hash": "PKfUuaihaVUDrSyJB1wGrQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "release-notes/mobile/v211.md",
-      "output": {
-        ".html": {
-          "relative_path": "release-notes/mobile/v211.html",
-          "hash": "b/t6km5lvcPxBWmBVbYB4g=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "release-notes/mobile/v220.md",
-      "output": {
-        ".html": {
-          "relative_path": "release-notes/mobile/v220.html",
-          "hash": "qNFYr0Rvmb8mc47UzvPVhQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "release-notes/mobile/v230.md",
-      "output": {
-        ".html": {
-          "relative_path": "release-notes/mobile/v230.html",
-          "hash": "lUswYxdbkWaxT9bSgiY4Cw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "release-notes/mobile/v240.md",
-      "output": {
-        ".html": {
-          "relative_path": "release-notes/mobile/v240.html",
-          "hash": "Io+BAGtSwvXaEbs/BIqBAA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "release-notes/mobile/v241.md",
-      "output": {
-        ".html": {
-          "relative_path": "release-notes/mobile/v241.html",
-          "hash": "uHKA02iosAjvqOSYstlv9g=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "release-notes/mobile/v242.md",
-      "output": {
-        ".html": {
-          "relative_path": "release-notes/mobile/v242.html",
-          "hash": "e6rohqtJ+JHzuaS00CW2Nw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "release-notes/mobile/v243.md",
-      "output": {
-        ".html": {
-          "relative_path": "release-notes/mobile/v243.html",
-          "hash": "qpeme2BFREJyLvSb4K3rLg=="
+          "relative_path": "release-notes/mobile/v1x.html",
+          "hash": "jnLeLwA09LotSRKAJ+R3GQ=="
         }
       },
       "is_incremental": false,
@@ -1037,7 +896,22 @@
       "output": {
         ".html": {
           "relative_path": "release-notes/mobile/v250.html",
-          "hash": "gX6VPCtH1+r+b18RHY6iWg=="
+          "hash": "9K9KXhs0+Y0fqWPfSgmzUw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "InvalidYamlHeader"
+      ],
+      "type": "Conceptual",
+      "source_relative_path": "release-notes/mobile/v2x.md",
+      "output": {
+        ".html": {
+          "relative_path": "release-notes/mobile/v2x.html",
+          "hash": "4tn7S+HObvPU0QBksVWksQ=="
         }
       },
       "is_incremental": false,
@@ -1049,7 +923,7 @@
       "output": {
         ".html": {
           "relative_path": "release-notes/mobile/v300.html",
-          "hash": "WolRyyQeBtztLT394WhtwQ=="
+          "hash": "uf31JekAtKfn7hbaECqRUA=="
         }
       },
       "is_incremental": false,
@@ -1070,7 +944,7 @@
         "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 86,
+          "total_file_count": 75,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {

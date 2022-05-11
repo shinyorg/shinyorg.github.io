@@ -1,0 +1,457 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>2.4.3 (January 2022) </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="2.4.3 (January 2022) ">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc">
+    <meta property="docfx:tocrel" content="../toc">
+    
+    
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+                
+                <ul class="nav level1 navbar-nav">
+                      <li>
+                          <a href="../../mobile/index.html" title="Mobile">Mobile</a>
+                      </li>
+                      <li>
+                          <a href="../../extensions/push/index.html" title="Extensions">Extensions</a>
+                      </li>
+                      <li>
+                          <a href="../../release-notes/mobile/v300.html" title="Releases">Releases</a>
+                      </li>
+                      <li>
+                          <a href="https://github.com/shinyorg" title="GitHub">GitHub</a>
+                      </li>
+                      <li>
+                          <a href="https://allanritchie.com" title="Blog">Blog</a>
+                      </li>
+                      <li>
+                          <a href="https://github.com/sponsors/aritchie" title="Sponsor">Sponsor</a>
+                      </li>
+                </ul>    </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div>
+              <div class="sidefilter">
+                <form class="toc-filter">
+                  <span class="glyphicon glyphicon-filter filter-icon"></span>
+                  <input type="text" id="toc_filter_input" placeholder="Enter here to filter..." onkeypress="if(event.keyCode==13) {return false;}">
+                </form>
+              </div>
+              <div class="sidetoc">
+                <div class="toc" id="toc">
+                  
+                  <ul class="nav level1">
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a class="">Mobile</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="../mobile/v300.html" title="v3.0.0 ALPHA" class="">v3.0.0 ALPHA</a>
+                          </li>
+                          <li class="">
+                            <a href="../mobile/v250.html" title="v2.5.0 (Stable)" class="">v2.5.0 (Stable)</a>
+                          </li>
+                          <li class="active">
+                            <a href="../mobile/v2x.html" title="v2.x" class="active">v2.x</a>
+                          </li>
+                          <li class="">
+                            <a href="../mobile/v1x.html" title="v1.x" class="">v1.x</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a class="">Extensions</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="../extensions/v130.html" title="v1.3.0" class="">v1.3.0</a>
+                          </li>
+                        </ul>  </li>
+                  </ul>        </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="243-january-2022">2.4.3 (January 2022)</h1>
+
+<h2 id="bluetooth-le">Bluetooth LE</h2>
+<ul>
+<li>[Fix] ManagedPeripheral properly restores and set notifications <a href="https://github.com/shinyorg/shiny/issues/902">GH-902</a></li>
+</ul>
+<h2 id="locations">Locations</h2>
+<ul>
+<li>[Enhancement][Android] RequestLocationUpdates now ensures main thread call</li>
+<li>[Fix][iOS] RequestAccess calls do not return immediately if user has previously denied access</li>
+</ul>
+<hr>
+<h1 id="242-december-2021">2.4.2 (December 2021)</h1>
+<h2 id="core">Core</h2>
+<ul>
+<li>[Enhancement] Jobs is now included as part of Shiny codegen package</li>
+<li>[Fix] GenerateStaticClasses requires a namespace - removed optional arg on it</li>
+</ul>
+<h2 id="jobs">Jobs</h2>
+<ul>
+<li>[Fix][iOS] Fallback job manager needs to requestaccess on the ui thread <a href="https://github.com/shinyorg/shiny/pull/835">GH-835</a></li>
+</ul>
+<h2 id="bluetooth-le-1">Bluetooth LE</h2>
+<ul>
+<li>[Fix] Ensure write is performed for ManagedPeripheral</li>
+<li>[Enhancement] Characteristic.WriteBlob now takes a timeout for individual packet sends</li>
+</ul>
+<h2 id="http-transfers">HTTP Transfers</h2>
+<ul>
+<li>[Fix][iOS] Fix line endings for file upload headers</li>
+</ul>
+<hr>
+<h1 id="v241-november-2021">v2.4.1 (November 2021)</h1>
+<h2 id="all">ALL</h2>
+<ul>
+<li>Fix UWP target for all modules</li>
+</ul>
+<h2 id="http-transfers-1">HTTP Transfers</h2>
+<ul>
+<li>[Fix][iOS] Additional header for file uploads (Big thanks to Guido Neele for all his help on this)</li>
+</ul>
+<hr>
+<h1 id="v240-november-2021">v2.4.0 (November 2021)</h1>
+<h2 id="core-1">Core</h2>
+<ul>
+<li>[BREAKING][Android] Now targets Android 11 by default</li>
+<li>[Fix] Message bus named events were not being published properly <a href="https://github.com/shinyorg/shiny/issues/772">GH-772</a></li>
+<li>[Fix] Android 11+ opens a complete app when requesting permissions for location, thus permission requests could fail on Shiny in race scenarios.  Shiny no longer checks if the request is made on the foreground</li>
+<li>[Fix] Message bus named broadcast was not publishing <a href="https://github.com/shinyorg/shiny/issues/772">GH-772</a></li>
+<li>[Enhancement] Now using latest versions of Microsoft Extensions</li>
+</ul>
+<h2 id="bluetoothle">BluetoothLE</h2>
+<ul>
+<li>[Fix][Android] Background permission is no longer inserted into the manifest</li>
+</ul>
+<h2 id="locations-1">Locations</h2>
+<ul>
+<li>[Fix][Android] Location permissions for background must be done separate from other permissions now as per Android 11+</li>
+<li>[Fix][Android] Locations permission on Android 12 requires coarse &amp; fine permissions, even if you only need fine</li>
+<li>[Fix][iOS] Background was not respecting deferrals <a href="https://github.com/shinyorg/shiny/issues/783">GH-783</a></li>
+<li>[Enhancement][Android] Background permission is no longer enforced on package, but will throw an exception if it is requested and not put in the manifest</li>
+<li>[Enhancement][Android] Motion activity permission is no longer inserted automatically into your AndroidManifest.xml.  An exception is thrown in its place if it is not present in the manifest when it is requested.</li>
+<li>[Enhancement][Android] GpsRequest now has GpsBackgroundMode (None, Standard, RealTime).  Realtime creates the foreground service &amp; background is a periodic ping with GPS coordinates</li>
+<li>[Enhancement][iOS][Android] GpsRequest now has Precise (Android: Fine) that (on Android requests) ensures fine requirements are met or at least return AccessState.Restricted when they are not</li>
+</ul>
+<h2 id="notifications">Notifications</h2>
+<ul>
+<li>[Fix][Android] Channels were not being set <a href="https://github.com/shinyorg/shiny/pull/774">GH-774</a></li>
+</ul>
+<h3 id="http-transfers-2">HTTP Transfers</h3>
+<ul>
+<li>[Fix][Android] Add postdata to uploads multipart content <a href="https://github.com/shinyorg/shiny/discussions/761">GH-761</a></li>
+<li>[Fix][Android] Ensure final response from upload is successful <a href="https://github.com/shinyorg/shiny/pull/771">GH-771</a></li>
+<li>[Fix][iOS] Fix invalid uploads not working <a href="https://github.com/shinyorg/shiny/issues/782">GH-782</a></li>
+<li>[Fix][iOS] Ensure delegate OnCompleted is called when upload is completed <a href="https://github.com/shinyorg/shiny/issues/782">GH-782</a></li>
+<li>[Enhancement][iOS] Now uploads files using form-data to ensure a consistent experience across platforms <a href="https://github.com/shinyorg/shiny/pull/794">GH-794</a></li>
+<li>[BREAKING][UWP] Uwp has been removed, however, you can use the netstandard httpclient drivers</li>
+</ul>
+<hr>
+<h1 id="v230-october-2021">v2.3.0 (October 2021)</h1>
+<h2 id="core-2">Core</h2>
+<ul>
+<li>[BREAKING] Jobs has been moved from Shiny.Core to its own module Shiny.Jobs</li>
+<li>[BREAKING][iOS] Default store is now secure storage (KeyChain) to deal with potential auto-start issues before device has been unlocked</li>
+<li>[Enhancement] Object binding failures now log specifics on what failed</li>
+<li>[Fix] Startup registration was failing on optional delegates</li>
+<li>[Fix] Update job registration to Shiny.Jobs</li>
+</ul>
+<h2 id="bluetoothle-1">BluetoothLE</h2>
+<ul>
+<li>[Fix] Managed Scan Result now returns as IAdvertisementData for consistency</li>
+<li>[Fix] ManagedScan.Start is now async to expose permission issues before starting the scan <a href="https://github.com/shinyorg/shiny/issues/698">GH-698</a></li>
+<li>[Fix] ManagedScan.Toggle has been moved to an extension method</li>
+</ul>
+<h2 id="beacons">Beacons</h2>
+<ul>
+<li>[Enhancement] Managed beacon ranging scan now has Start as async so permissions can be checked</li>
+<li>[Fix] ManagedBeacon result now includes the region identifier</li>
+</ul>
+<h2 id="locations-2">Locations</h2>
+<ul>
+<li>[Enhancement] GpsManager.GetCurrentPosition will start/stop the GPS tracking only if it wasn&#39;t started before</li>
+<li>[Enhancement] IGpsManager.StartAndReceive starts GPS when subscribe and turns it off when unsubscribed OR the app goes to the background</li>
+<li>[Fix] GPS setting state is only written to settings if background is used</li>
+<li>[Fix][iOS] Will only attempt to auto-start the GPS tracking in background if authorization status has been fully granted (Always Allow)</li>
+</ul>
+<h2 id="jobs-1">Jobs</h2>
+<ul>
+<li>[Enhancement] UsesJobs now allows you to manually register the job manager - RegisterJob will call this automatically</li>
+<li>[Enhancement] Foregrounding is now always available if you set your job as &quot;RunInForeground&quot;, there is no need to call UseForegroundJobs</li>
+<li>[Fix][iOS] BGTasks - Correct filters applied to all modes</li>
+<li>[Fix] Move up exception base for missing job types due to the job being deleted or renamed <a href="https://github.com/shinyorg/shiny/issues/762">GH-762</a></li>
+</ul>
+<h2 id="notifications-1">Notifications</h2>
+<ul>
+<li>[Enhancement] Foreground service notifications will use channel that does not show application badge notification <a href="https://github.com/shinyorg/shiny/issues/734">GH-734</a></li>
+<li>[Enhancement] Custom sounds work for critical notifications <a href="https://github.com/shinyorg/shiny/pull/757">GH-757</a></li>
+</ul>
+<h2 id="push">Push</h2>
+<ul>
+<li>[BREAKING] IPushDelegate.OnTokenChanged is now called IPushDelegate.OnTokenRefreshed</li>
+<li>[BREAKING] Channels are no longer registered within Push.  Use INotificationManager to do this.  If you need more customization over notification, send data messages and use INotificationManager</li>
+<li>[Fix][Android] OnEntry now functions under all modules</li>
+<li>[Fix][iOS][Native] IPushDelegate.OnTokenChanged is no longer called by RequestAccess and the proper token is returned</li>
+</ul>
+<h2 id="push---azure-notification-hubs">Push - Azure Notification Hubs</h2>
+<ul>
+<li>[Fix] ANH can often fail with &quot;Microsoft.Azure.NotificationHubs.Messaging.MessagingEntityNotFoundException: Installation not found.TrackingId:XXXX&quot; for rapid calls (ie. RequestAccess immediately followed by SetTags)</li>
+<li>[Enhancement] You can now configure a timespan for when azure installations should expire if not used. </li>
+</ul>
+<hr>
+<h1 id="v220-july-30-2021">v2.2.0 (July 30, 2021)</h1>
+<h2 id="core-3">Core</h2>
+<ul>
+<li>[BREAKING] Shiny now uses it&#39;s own logger factory for Microsoft.Extension.Logging to provide a huge startup performance boost though this may break 3rd party providers.  Shiny comes with Debug, Sqlite, and AppCenter out-of-the-box and they all work! <a href="https://github.com/shinyorg/shiny/issues/625">GH0625</a></li>
+<li>[Enhancement] Source generators will initialize Dan Siegel&#39;s excellent Mobile.BuildTools.Configuration if present</li>
+<li>[Enhancement] Add the necessary constructor to ShinyStartup to register xplat services</li>
+<li>[Enhancement][Android] Xamarin.Essentials is now wired in automatically by the source generators for Activity OnResume and OnNewIntent  <a href="https://github.com/shinyorg/shiny/issues/620">GH-620</a></li>
+<li>[Enhancement][iOS] Xamarin.Essentials is now wired in automatically by the source generators for AppDelegate OpenUrl (if MSAL is not present) and PerformActionForShortcutItem</li>
+<li>[Enhancement] New startup helper (services.ClearJobQueueBeforeRegistration) - this will clear any previously registered jobs before registering new startup jobs - this is useful if you only use startup jobs and you want to clean up potentially old versions of jobs</li>
+<li>[Fix] Ensure global is generated in front of startup and XF app type names to ensure there is no collisions with other types</li>
+<li>[Fix][Android] Activity handler was not sending out proper resume state <a href="https://github.com/shinyorg/shiny/issues/640">GH-640</a></li>
+<li>[Fix][Android] Platform state was not monitoring properly <a href="https://github.com/shinyorg/shiny/issues/640">GH-640</a></li>
+<li>[Fix] Job foregrounding won&#39;t run your job multiple times on startup</li>
+<li>[Fix] BgTaskJobManager now calls the proper tasked jobs</li>
+<li>[Fix] Ensure all state bindables are completed before startup tasks</li>
+</ul>
+<h2 id="bluetoothle-2">BluetoothLE</h2>
+<ul>
+<li>[BREAKING] IBleManager.WhenAccessStatusChanged &amp; IBleManager.Status removed - RequestAccess is a one stop shop</li>
+<li>[Fix][Android] IBleManager.WhenStateChanged now responds properly on Android 10+</li>
+<li>[Fix][Android] Pairing response now responds properly to accept and cancel of a request</li>
+<li>[Fix] Device Info extension method was not returning properly</li>
+</ul>
+<h2 id="locations-3">Locations</h2>
+<ul>
+<li>[BREAKING] IGpsManager/IGeofenceManager.WhenAccessStatusChanged &amp; IGpsManager/IGeofenceManager.Status removed - RequestAccess is a one stop shop</li>
+<li>[Enhancement] New extensions IGpsManager.GetCurrentPosition or IGpsManager.GetLastReadingOrCurrentPosition</li>
+<li>[Enhancement] NEW GetCurrentPosition will now engage the GPS and wait for a reading as opposed to GetLastReading which will only give the last reading if available</li>
+<li>[Fix][Android] Automatically ensure notifications are registered for foreground service <a href="https://github.com/shinyorg/shiny/issues/653">GH-653</a></li>
+<li>[Fix] GetLastReading will now request a reading if no location is current set on all platforms</li>
+</ul>
+<h2 id="beacons-1">Beacons</h2>
+<ul>
+<li>[BREAKING][Android] BeaconMonitorConfig is now a required parameter and requires you set the ScanServiceUuids property to allow for proper background scanning. Check your beacon provider for what this value should be.</li>
+<li>[Fix][Android][UWP] Allow multiple beacon regions to be ranged at once</li>
+<li>[Fix][Android][UWP] Allow additional beacon packet sizes</li>
+<li>[Enhancement][Android][UWP] Non-standard iBeacons are now supported</li>
+</ul>
+<h2 id="sensors">Sensors</h2>
+<ul>
+<li>[BREAKING] Heart rate sensor has been removed - too many people were having issues with linker and iOS &quot;health&quot; permission request</li>
+<li>[Enhancement][Android] Compass accuracy is now implemented</li>
+</ul>
+<hr>
+<h1 id="v211-july-2-2021">v2.1.1 (July 2, 2021)</h1>
+<h2 id="push---azure-notification-hubs-1">Push - Azure Notification Hubs</h2>
+<ul>
+<li>[Fix][iOS] Missing logger was causing NRE&#39;s</li>
+</ul>
+<h2 id="locations-4">Locations</h2>
+<ul>
+<li>[Android][Fix] Geofencing now checks all permission properly <a href="https://github.com/shinyorg/shiny/issues/623">#623</a></li>
+</ul>
+<hr>
+<h1 id="v210-june-10-2021">v2.1.0 (June 10, 2021)</h1>
+<h2 id="core-4">Core</h2>
+<ul>
+<li>[BREAKING][UWP] UWP has new boilerplate requirements</li>
+<li>[Fix][UWP] Application Data Settings issue with duplicate keys</li>
+<li>[Enhancement] RX helper - SelectAsync</li>
+<li>[Enhancement][Android] Improved permission requests</li>
+<li>[Enhancement] Under the hood improvements to state restoration and startup tasks</li>
+<li>[Enhancement] IPlatform now includes InvokeOnMainThread x-plat calls</li>
+</ul>
+<h2 id="code-generator">Code Generator</h2>
+<ul>
+<li>[Fix][iOS] MSAL wireup had a bad reference</li>
+<li>[Fix][Android] Generated activity code for RG popups call was wrong <a href="https://github.com/shinyorg/shiny/issues/591">591</a></li>
+<li>[Fix] Improve root namespace detection to deal with weird project/assembly names</li>
+</ul>
+<h2 id="bluetoothle-3">BluetoothLE</h2>
+<ul>
+<li>[Fix] Managed Peripheral was not respecting notify vs indicate when restoring subscriptions</li>
+<li>[Fix] Managed Scan will filter dead buffers (no scan results)</li>
+<li>[Fix] Managed Scan now has configurable buffer time - IManagedScan.BufferTimeSpan</li>
+<li>[Fix][Android] BLE Delegate OnConnected <a href="https://github.com/shinyorg/shiny/pull/579">PR</a></li>
+<li>[Fix][UWP] BLE Scans would return null results</li>
+<li>[Fix][Android] Many flavours of Droid won&#39;t fire Connecting/Disconnecting.  Shiny now covers the Connecting portion of this.</li>
+<li>[Fix][Android] Push adapter status events to both delegate and observable</li>
+<li>[Enhancement][Android][UWP] Support for 16bit UUID strings</li>
+<li>[Enhancement][Android] Improved synchronization mechanism </li>
+</ul>
+<h2 id="ble-hosting">BLE Hosting</h2>
+<ul>
+<li>[Enhancement][Android][UWP] Support for 16bit UUID strings</li>
+</ul>
+<h2 id="beacons-2">Beacons</h2>
+<ul>
+<li>[Fix] UseBeaconMonitoring in startup was returning false (unsupported) even though it had successfully been registered</li>
+<li>[Fix] Improved argument checks on beacon region</li>
+</ul>
+<h2 id="notifications-2">Notifications</h2>
+<ul>
+<li>[Feature][Android] App Icon badge numbers are now supported thanks to <a href="https://github.com/wcoder/ShortcutBadger">Xamarin.ShortcutBadger</a></li>
+<li>Repository extensions were internalized as they were meant to be used outside of the library</li>
+<li>[Fix][Android] Foreground services wouldn&#39;t log issues with the notification if something was setup wrong</li>
+</ul>
+<h2 id="push---azure-notification-hubs-2">Push - Azure Notification Hubs</h2>
+<ul>
+<li>[Fix][iOS] Device token could be invalid</li>
+</ul>
+<h2 id="speech-recognition">Speech Recognition</h2>
+<ul>
+<li>[Feature] Ability to pass cultureinfo to listening functions <a href="https://github.com/shinyorg/shiny/issues/569">#569</a></li>
+</ul>
+<h2 id="nfc">NFC</h2>
+<ul>
+<li>[Android][Fix] Uses wrong NFC manifest feature <a href="https://github.com/shinyorg/shiny/issues/585">#585</a></li>
+</ul>
+<hr>
+<h1 id="v202639-may-5-2021">v2.0.2639 (May 5, 2021)</h1>
+<h2 id="core-5">Core</h2>
+<ul>
+<li>[BREAKING] Jobs no longer return Task of bool, they now only return Task</li>
+<li>[BREAKING][Android] All previous monikers have been removed, only android 10+ targets are supported now, this includes only AndroidX compatibility</li>
+<li>[BREAKING] Caching has been removed.  Use Microsoft.Extensions.Caching</li>
+<li>[FEATURE] Source Generators - Generate all of the boilerplate needed by Shiny for iOS &amp; Android with nothing more than a single assembly attribute. Simply install Shiny (not Shiny.Core) on your head iOS &amp; Android projects</li>
+<li>[BREAKING] All Shiny logging has been replaced with Microsoft.Extensions.Logging</li>
+<li>[BREAKING] Settings is now gone - enter key/value stores with file, memory, settings, and secure storage</li>
+</ul>
+<h2 id="bluetoothle-4">BluetoothLE</h2>
+<ul>
+<li>[BREAKING] The original library has been split into 2 separate libraries (Client - Shiny.BluetoothLE and Server - Shiny.BluetoothLE.Hosting) with some common ties</li>
+<li>[BREAKING] DiscoverServices is now called GetServices and returns IEnumerable instead of a single service</li>
+<li>[BREAKING] DiscoverCharacteristics is now called GetCharacteristics and returns IEnumerable instead of a single characteristic</li>
+<li>[Feature] You don&#39;t like RX - there are new async extensions to skip the RX</li>
+<li>[Feature] ManagedScan now properly manages an observable collection of peripherals using all the best practices for safely updating the collection and even removing peripherals that haven&#39;t been seen for a configured time period</li>
+<li>[Feature] ManagedPeripheral now manages everything during the reconnection process like resubscription to characteristics and all of the internal discovery is done for you.  No more mass setup per peripheral connection.</li>
+</ul>
+<h2 id="beacons-3">Beacons</h2>
+<ul>
+<li>[BREAKING] Beacons are now separated into 2 different injection points, services.UseBeaconMonitoring()/IBeaconMonitoringManager and services.UseBeaconRanging()/IBeaconRangingManager</li>
+<li>[Feature][Android] Uses foreground services to achieve real time beacon scanning while your app is in the background</li>
+<li>[Feature] ManagedScan now properly manages an observable collection of beacons using all the best practices for safely updating the collection and even removing beacons that haven&#39;t been seen for a configured time period </li>
+</ul>
+<h2 id="locations-5">Locations</h2>
+<ul>
+<li>[BREAKING] IsListening is gone in favor of CurrentListener configuration</li>
+<li>[Feature][Android] Now uses foreground service to achieve fast &quot;background&quot; GPS</li>
+<li>[Feature] Minimum Distance is now supported on Android and iOS</li>
+</ul>
+<h3 id="notifications-3">Notifications</h3>
+<ul>
+<li>[BREAKING][Feature] Channels - this exists to fit with the Android channels model and iOS category model</li>
+<li>[Feature][Android] More Android specific configuration added</li>
+</ul>
+<h3 id="push-1">Push</h3>
+<ul>
+<li>[BREAKING] Delegate now returns a type of PushNotification for OnReceived</li>
+<li>[BREAKING] Delegate now returns a type of PushNotificationEntry for OnEntry</li>
+<li>[BREAKING] WhenReceived foreground listener returns type of PushNotification</li>
+<li>[Feature] New Firebase provider for iOS and Android (Shiny.Push.FirebaseMessaging)</li>
+<li>Azure Notification Hubs provider is now fully released</li>
+</ul>
+<h3 id="nfc-1">NFC</h3>
+<ul>
+<li>Full Release</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/shinyorg/docs/blob/master/docs/release-notes/mobile/v2x.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

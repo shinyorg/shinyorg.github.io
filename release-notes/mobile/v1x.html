@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>v1.2.0 (August 1, 2020) </title>
+    <title>v1.2.1 (September 1, 2020) </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="v1.2.0 (August 1, 2020) ">
+    <meta name="title" content="v1.2.1 (September 1, 2020) ">
     <meta name="generator" content="docfx 2.56.7.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -100,46 +100,13 @@
                             <a href="../mobile/v300.html" title="v3.0.0 ALPHA" class="">v3.0.0 ALPHA</a>
                           </li>
                           <li class="">
-                            <a href="../mobile/v250.html" title="v2.5.0" class="">v2.5.0</a>
+                            <a href="../mobile/v250.html" title="v2.5.0 (Stable)" class="">v2.5.0 (Stable)</a>
                           </li>
                           <li class="">
-                            <a href="../mobile/v243.html" title="v2.4.3" class="">v2.4.3</a>
-                          </li>
-                          <li class="">
-                            <a href="../mobile/v242.html" title="v2.4.2" class="">v2.4.2</a>
-                          </li>
-                          <li class="">
-                            <a href="../mobile/v241.html" title="v2.4.1" class="">v2.4.1</a>
-                          </li>
-                          <li class="">
-                            <a href="../mobile/v240.html" title="v2.4.0" class="">v2.4.0</a>
-                          </li>
-                          <li class="">
-                            <a href="../mobile/v230.html" title="v2.3.0" class="">v2.3.0</a>
-                          </li>
-                          <li class="">
-                            <a href="../mobile/v220.html" title="v2.2.0" class="">v2.2.0</a>
-                          </li>
-                          <li class="">
-                            <a href="../mobile/v210.html" title="v2.1.0" class="">v2.1.0</a>
-                          </li>
-                          <li class="">
-                            <a href="../mobile/v211.html" title="v2.1.1" class="">v2.1.1</a>
-                          </li>
-                          <li class="">
-                            <a href="../mobile/v20.html" title="v2.0" class="">v2.0</a>
-                          </li>
-                          <li class="">
-                            <a href="../mobile/v121.html" title="v1.2.1" class="">v1.2.1</a>
+                            <a href="../mobile/v2x.html" title="v2.x" class="">v2.x</a>
                           </li>
                           <li class="active">
-                            <a href="../mobile/v12.html" title="v1.2" class="active">v1.2</a>
-                          </li>
-                          <li class="">
-                            <a href="../mobile/v11.html" title="v1.1" class="">v1.1</a>
-                          </li>
-                          <li class="">
-                            <a href="../mobile/v10.html" title="v1.0" class="">v1.0</a>
+                            <a href="../mobile/v1x.html" title="v1.x" class="active">v1.x</a>
                           </li>
                         </ul>  </li>
                     <li class="">
@@ -159,9 +126,29 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h2 id="v120-august-1-2020">v1.2.0 (August 1, 2020)</h2>
+<h1 id="v121-september-1-2020">v1.2.1 (September 1, 2020)</h1>
 
 <h3 id="shinycore">Shiny.Core</h3>
+<ul>
+<li>[Fix][iOS] BG Tasks job manager registration issue</li>
+</ul>
+<h3 id="shinynotifications">Shiny.Notifications</h3>
+<ul>
+<li>[Fix][Android] Sound serialization was not working for scheduled notifications</li>
+</ul>
+<h3 id="shinypush--shinypushazurenotificationhubs">Shiny.Push &amp; Shiny.Push.AzureNotificationHubs</h3>
+<ul>
+<li>[BREAKING] RequestAccess with tags presented issues - there is now SetTags</li>
+<li>[Fix][Android] Token registration issues with azure notification hubs</li>
+<li>[Fix][Android] Ensure local notifications are registered</li>
+</ul>
+<h3 id="shinyintegrationssqlite">Shiny.Integrations.Sqlite</h3>
+<ul>
+<li>[Fix] Strings not saving properly</li>
+</ul>
+<hr>
+<h1 id="v120-august-1-2020">v1.2.0 (August 1, 2020)</h1>
+<h3 id="shinycore-1">Shiny.Core</h3>
 <ul>
 <li>[Enhancement][Jobs] Job arguments are now like other delegates</li>
 <li>[Enhancement][Jobs][iOS] Background processing JobManager is now smarter with how it deals with misconfiguration</li>
@@ -181,7 +168,7 @@
 <li>[Fix][GPS/Geofencing][Android] Properly check everything under Android 8.1</li>
 <li>[Fix][Geofencing][Android] StopAllMonitoring shouldn&#39;t error if there are no geofences</li>
 </ul>
-<h3 id="shinynotifications">Shiny.Notifications</h3>
+<h3 id="shinynotifications-1">Shiny.Notifications</h3>
 <ul>
 <li>[Enhancement] Multiple delegate registrations</li>
 <li>[Enhancement][Android] Ability to set custom launch activity type</li>
@@ -198,6 +185,133 @@
 <ul>
 <li>[Enhancement] RequestAccess with new tags support</li>
 </ul>
+<hr>
+<h1 id="v110-march-1-2020">v1.1.0 (March 1, 2020)</h1>
+<h3 id="shinycore-2">Shiny.Core</h3>
+<ul>
+<li>[Feature] App State Delegate - In your shiny startup, use services.AddAppState<yourappstatedelegate> that inherits from IAppStateDelegate.  Watch for app start, foreground, &amp; background</yourappstatedelegate></li>
+<li>[Feature] PowerManager now has property/inpc for IsEnergySavingEnabled that checks for ios low power, android doze, &amp; uwp energy saving mode</li>
+<li>[Feature] Ability to run jobs on timers while the application is in the foreground or app state changes (starting, resuming, or backgrounding)</li>
+<li>[Enhancement][Jobs][iOS] Jobs - now uses iOS 13 background processing</li>
+<li>[Enhancement] Increased discoverability via new AppDelegate &amp; Android app/activity extension methods.   Simply add the Shiny namespace and type this.Shiny to see all of the points you should be attaching</li>
+<li>[Enhancement][iOS][Android] Easier boilerplate setup</li>
+<li>[Enhancement][Android] JobManager.RunTask will now use wakeful locks to run tasks if available</li>
+<li>[Enhancement][Android] AndroidX support on android 10 targets - WorkManager replaces JobService under the hood</li>
+<li>[Enhancement] Message bus name-only void events</li>
+<li>[Enhancement] Connectivity now exposes cellular carrier</li>
+<li>[Enhancement] Power Manager now exposes energy saver mode detection</li>
+<li>[fix][breaking][uwp] UwpShinyHost.Init now requires the UWP application instance is passed as part of the arguments</li>
+</ul>
+<h3 id="shinynotifications-2">Shiny.Notifications</h3>
+<ul>
+<li>[Enhancement][Breaking] New way to set notification sounds which allows you to use system sounds - Notification.CustomSoundFilePath has been removed</li>
+<li>[Enhancement][Android] AndroidX support on android 10 targets</li>
+<li>[Enhancement][Android] Use Big Text Style via AndroidOptions argument of notification</li>
+<li>[Enhancement][Android] Use Large Icons via AndroidOptions argument of notification</li>
+</ul>
+<h3 id="shinylocations-1">Shiny.Locations</h3>
+<ul>
+<li>[Fix][Geofences][Android] Status observable now works</li>
+<li>[Fix][Geofences][Android] Status check now includes GPS radio checks + permissions</li>
+<li>[Fix][GPS] StartListening now checks permissions on start and allows for restricted for foreground only processing when user selects &quot;One Time&quot; or &quot;Only While In Application&quot;</li>
+<li>[Fix][GPS][BREAKING] RequestAccess, WhenStatusChanged, and GetCurrentStatus all now accept GpsRequest to increase the scope/accuracy of the necessary permission checks</li>
+<li>[Fix][GPS][Android] RequestAccess now checks for new Android 10 permission ACCESS_BACKGROUND_LOCATION</li>
+<li>[Fix][Motion Activity][Android] RequestAccess now checks for new ANdroid permission ACTIVITY_RECOGNITION</li>
+<li>[Feature] Added full background GPS geofence module - it is not friendly to battery</li>
+<li>[Feature][Android] If Google Play Services is not available, we switch to the GPS direct module</li>
+</ul>
+<h3 id="shinyintegrationsxamarinforms">Shiny.Integrations.XamarinForms</h3>
+<ul>
+<li>[Feature] Less boilerplate to wire into XF</li>
+<li>[Feature] Instead of ShinyHost.Resolve, you can now use the XF DependencyService.Get</li>
+</ul>
+<h3 id="new-shinypush">[NEW] Shiny.Push</h3>
+<ul>
+<li>BETA - while this does work with the push notification mechanics, its primary purpose is to provide<ul>
+<li>A wrapper for all push messaging systems - if appcenter dies today, you can be on azure notification hubs tomorrow with 1 line of code change</li>
+<li>A consistent event structure to work with in the background (delegates - like all other shiny services)</li>
+</ul>
+</li>
+</ul>
+<h3 id="new-shinypushazurenotificationhubs">[NEW] Shiny.Push.AzureNotificationHubs</h3>
+<ul>
+<li>Wraps the Azure Notification Hubs in an injectable/testable interface (and gives you comfort of being able to swap out mechanisms easily)</li>
+</ul>
+<h3 id="new-shinypushfirebasemessaging">[NEW] Shiny.Push.FirebaseMessaging</h3>
+<ul>
+<li>Wraps the Firebase messaging for Android &amp; iOS</li>
+</ul>
+<hr>
+<h1 id="v10-may-1-2019">v1.0 (May 1, 2019)</h1>
+<ul>
+<li><p>Shiny.Core</p>
+<ul>
+<li>Platforms<ul>
+<li>iOS</li>
+<li>Android</li>
+<li>UWP</li>
+</ul>
+</li>
+<li>Generalized Hosting Platform</li>
+<li>Environment Info</li>
+<li>Caching</li>
+<li>Logging</li>
+<li>Power Monitoring</li>
+<li>Settings</li>
+<li>Connectivity</li>
+<li>File System Access</li>
+<li>Background Jobs</li>
+</ul>
+</li>
+<li><p>Shiny.BluetoothLE (beta)</p>
+</li>
+<li><p>Shiny.Locations</p>
+<ul>
+<li>Geofencing</li>
+<li>GPS</li>
+</ul>
+</li>
+<li><p>Shiny.Net.Http</p>
+<ul>
+<li>Uploading &amp; Downloading in the background</li>
+<li>Metrics such as % complete, time remaining, speed in bytes</li>
+</ul>
+</li>
+<li><p>Shiny.Beacons</p>
+<ul>
+<li>Ranging in foreground </li>
+<li>Full background support for monitoring beacon regions</li>
+</ul>
+</li>
+<li><p>Shiny.Sensors</p>
+<ul>
+<li>Accelerometer</li>
+<li>Ambient Light</li>
+<li>Barometer</li>
+<li>Compass</li>
+<li>Gyroscope</li>
+<li>Heart Rate Monitor</li>
+<li>Humidity</li>
+<li>Magnetometer</li>
+<li>Pedometer</li>
+<li>Proximity</li>
+<li>Temperature</li>
+</ul>
+</li>
+<li><p>Shiny.Notifications</p>
+<ul>
+<li>What&#39;s a background task if you can&#39;t tell your users something happened?</li>
+<li>Scheduled notifications</li>
+<li>Get a list of pending notifications</li>
+<li>Cancel one or all pending notifications</li>
+</ul>
+</li>
+<li><p>Shiny.Testing</p>
+<ul>
+<li>A nice set of mocks to help with your unit testing</li>
+</ul>
+</li>
+</ul>
 </article>
           </div>
           
@@ -206,7 +320,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/shinyorg/docs/blob/master/docs/release-notes/mobile/v12.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/shinyorg/docs/blob/master/docs/release-notes/mobile/v1x.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
