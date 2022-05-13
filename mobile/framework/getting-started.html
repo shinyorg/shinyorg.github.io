@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Push </title>
+    <title>Shiny Framework Libraries </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Push ">
+    <meta name="title" content="Shiny Framework Libraries ">
     <meta name="generator" content="docfx 2.56.7.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -210,8 +210,8 @@
                           <li class="">
                             <a href="../push/azure.html" title="Azure Notification Hubs" class="">Azure Notification Hubs</a>
                           </li>
-                          <li class="active">
-                            <a href="../push/firebase.html" title="Firebase Messaging" class="active">Firebase Messaging</a>
+                          <li class="">
+                            <a href="../push/firebase.html" title="Firebase Messaging" class="">Firebase Messaging</a>
                           </li>
                           <li class="">
                             <a href="../push/onesignal.html" title="One Signal" class="">One Signal</a>
@@ -246,8 +246,8 @@
                       <a class="">Framework</a>
                         
                         <ul class="nav level2">
-                          <li class="">
-                            <a href="../framework/getting-started.html" title="Getting Started" class="">Getting Started</a>
+                          <li class="active">
+                            <a href="../framework/getting-started.html" title="Getting Started" class="active">Getting Started</a>
                           </li>
                           <li class="">
                             <a href="../framework/viewmodel.html" title="ViewModel" class="">ViewModel</a>
@@ -300,122 +300,145 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="push">Push</h1>
+<h1 id="shiny-framework-libraries">Shiny Framework Libraries</h1>
 
-<p>Firebase Push Provider for iOS and Android </p>
+<p>These libraries were written by the author for the author and thus are not open to issues, enhancements, or anything in between.</p>
+<h2 id="shinyframework">Shiny.Framework</h2>
+<p>Framework combines the best of MVVM using Prism &amp; ReactiveUI while also combining Shiny.  Find the sample at [<a href="https://github.com/shinyorg/samples/tree/main/Integration-Best-Prism-RXUI">https://github.com/shinyorg/samples/tree/main/Integration-Best-Prism-RXUI</a>]</p>
+<h4 id="features">Features</h4>
+<ul>
+<li>Simplified configuration - Prism &amp; Shiny setup under one file using FrameworkStartup</li>
+<li>No guess work about what dependency injection mechanism to install - Framework uses <a href="https://github.com/dadhi/DryIoc">DryIoc</a> under the hood, but guess what.... you&#39;ll NEVER know it even if this changes one day</li>
+<li>Dialogs - a pretty API that brings together <a href="https://github.com/Baseflow/XF-Material-Library">XF Material</a> (built on <a href="https://github.com/rotorgames/Rg.Plugins.Popup">RG Popups</a>)</li>
+<li>Localization - a simple to use localization framework that can be used everywhere including your viewmodels!  Localization DONE RIGHT!</li>
+<li>Global Navigator - allows you to inject a global navigator that you can use safely from your Shiny delegates.  Will ignore navigation requests when in the background</li>
+<li>Global Command Exception Handler - do you like ReactiveCommand, so do I... this little service brings together Shiny&#39;s logging services + localization (from above) + dialogs (also from above) into one singular place</li>
+<li>ViewModel Validation using Data Annotations by default (but can be changed to 3rd party by implementing IValidationService)</li>
+</ul>
+<h2 id="nugets">Nugets</h2>
 <table>
 <thead>
 <tr>
-<th>Area</th>
-<th>Value</th>
+<th>Release</th>
+<th>NuGet</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>NuGet</td>
-<td><a href="https://www.nuget.org/packages/Shiny.Push.FirebaseMessaging/"><img src="https://img.shields.io/nuget/v/Shiny.Push.FirebaseMessaging.svg?style=for-the-badge" alt="Shiny.Push.FirebaseMessaging"></a></td>
+<td>Stable</td>
+<td><img src="https://img.shields.io/nuget/v/shiny.framework?style=for-the-badge" alt="Nuget"></td>
 </tr>
 <tr>
-<td>Service</td>
-<td>Shiny.Push.IPushManager</td>
-</tr>
-<tr>
-<td>Auto-Register</td>
-<td>NO</td>
-</tr>
-<tr>
-<td>Delegate</td>
-<td>Shiny.Push.IPushDelegate</td>
-</tr>
-<tr>
-<td>Static Class</td>
-<td>ShinyPush</td>
+<td>Preview</td>
+<td><img src="https://img.shields.io/nuget/vpre/shiny.framework?style=for-the-badge" alt="Nuget (with prereleases)"></td>
 </tr>
 </tbody>
 </table>
-<h2 id="startup-file">Startup File</h2>
-<pre><code class="lang-csharp">using Microsoft.Extensions.DependencyInjection;
-using Shiny;
+<h2 id="wiring-up-prism-plus-shiny">Wiring Up (Prism Plus Shiny)</h2>
+<ul>
+<li>First install Shiny.Framework from NuGet</li>
+<li>Setup your App.xaml like so (NOTE: you can add resources like normal):</li>
+</ul>
+<pre><code class="lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+&lt;shiny:FrameworkApplication xmlns=&quot;http://xamarin.com/schemas/2014/forms&quot;
+                            xmlns:x=&quot;http://schemas.microsoft.com/winfx/2009/xaml&quot;
+                            xmlns:shiny=&quot;clr-namespace:Shiny;assembly=Shiny.Framework&quot;
+                            x:Class=&quot;Samples.App&quot;&gt;
+&lt;/shiny:FrameworkApplication&gt;
+</code></pre><ul>
+<li>add the following to your app.xaml.cs</li>
+</ul>
+<pre><code class="lang-csharp">using System;
 
 namespace YourNamespace
 {
-    public class YourShinyStartup : ShinyStartup
+    public partial class App : Shiny.FrameworkApplication
     {
-        public override void ConfigureServices(IServiceCollection services, IPlatform platform)
+        protected override void Initialize()
         {
-            services.UseFirebaseMessaging&lt;MyPushDelegate&gt;();
+            XF.Material.Forms.Material.Init(this); // if you are using XF Material dialogs
+            this.InitializeComponent();
+            base.Initialize();
         }
     }
 }
-</code></pre><h2 id="platform-setup">Platform Setup</h2>
-<div class="tabGroup" id="tabgroup_1ps04J07-c">
-<ul role="tablist">
-<li role="presentation">
-<a href="#tabpanel_1ps04J07-c_ios" role="tab" aria-controls="tabpanel_1ps04J07-c_ios" data-tab="ios" tabindex="0" aria-selected="true">iOS</a>
-</li>
-<li role="presentation">
-<a href="#tabpanel_1ps04J07-c_android" role="tab" aria-controls="tabpanel_1ps04J07-c_android" data-tab="android" tabindex="-1">Android</a>
-</li>
-</ul>
-<section id="tabpanel_1ps04J07-c_ios" role="tabpanel" data-tab="ios">
-<p>Minimum Version: 10</p>
-<h2 id="appdelegate">AppDelegate</h2>
-<pre><code class="lang-csharp">using System;
-using Foundation;
-using Xamarin.Forms.Platform.iOS;
-using Shiny;
-
-namespace YourIosApp
+</code></pre><ul>
+<li><p>Now you are ready to implement a Shiny Startup/Prism Definition.  Here is an example:</p>
+<pre><code class="lang-csharp">namespace YourNamespace
 {
-    [Register(&quot;AppDelegate&quot;)]
-    public partial class AppDelegate : FormsApplicationDelegate
+  public class YourStartupClassName : Shiny.FrameworkStartup
+  {
+      protected override void Configure(ILoggingBuilder builder, IServiceCollection services)
+      {
+          // any services you register with Prism or Shiny should go here
+      }
+
+      // your start page so Prism knows where to go
+      public override Task RunApp(INavigationService navigator)
+          =&gt; navigator.Navigate(&quot;NavigationPage/MainPage&quot;); 
+
+      // register your Prism pages
+      public override void ConfigureApp(Application app, IContainerRegistry containerRegistry)
+      {
+          containerRegistry.RegisterForNavigation&lt;OtherPage, OtherViewModel&gt;();
+      }
+  }
+}
+</code></pre></li>
+</ul>
+<h2 id="localization">Localization</h2>
+<p>This uses Shiny.Extensions.Localization </p>
+<pre><code class="lang-csharp">namespace YourNamespace
+{
+    public class YourStartupClassName : Shiny.FrameworkStartup
     {
-        public override bool FinishedLaunching(UIApplication app, NSDictionary options)
+        protected override void Configure(ILoggingBuilder builder, IServiceCollection services)
         {
-            this.ShinyFinishedLaunching(new Samples.SampleStartup(), options);
-            global::Xamarin.Forms.Forms.Init();
-            this.LoadApplication(new Samples.App());
+            services.ConfigureLocalization(x =&gt; 
+                .AddResource(&quot;Samples.Resources.Strings&quot;, this.GetType().Assembly, &quot;Strings&quot;)
+                .AddResource(&quot;Samples.Resources.Enums&quot;, this.GetType().Assembly, &quot;Enums&quot;)
+            );
         }
     }
-
-    public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
-        =&gt; this.ShinyRegisteredForRemoteNotifications(deviceToken);
-
-    public override void FailedToRegisterForRemoteNotifications(UIApplication application, NSError error)
-        =&gt; this.ShinyFailedToRegisterForRemoteNotifications(error);
-
-    public override void DidReceiveRemoteNotification(UIApplication application, NSDictionary userInfo, Action&lt;UIBackgroundFetchResult&gt; completionHandler)
-        =&gt; this.ShinyDidReceiveRemoteNotification(userInfo, completionHandler);
 }
-</code></pre><h2 id="infoplist">Info.plist</h2>
-<pre><code class="lang-xml">&lt;!DOCTYPE plist PUBLIC &quot; -//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
-&lt;plist version=\&quot;1.0\&quot;&gt;
-    &lt;dict&gt;
-        &lt;key&gt;UIBackgroundModes&lt;/key&gt;
-        &lt;array&gt;
-            &lt;string&gt;remote-notification&lt;/string&gt;
-        &lt;/array&gt;
-    &lt;/dict&gt;
-&lt;/plist&gt;
-</code></pre><h2 id="entitlementsplist">Entitlements.plist</h2>
-<pre><code class="lang-xml">&lt;!DOCTYPE plist PUBLIC &quot; -//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
-&lt;plist version=\&quot;1.0\&quot;&gt;
-    &lt;dict&gt;
-        &lt;key&gt;aps-environment&lt;/key&gt;
-        &lt;string&gt;development OR production&lt;/string&gt;
-    &lt;/dict&gt;
-&lt;/plist&gt;
-</code></pre></section>
-<section id="tabpanel_1ps04J07-c_android" role="tabpanel" data-tab="android" aria-hidden="true" hidden="hidden">
-<h3 id="minimum-version-80">Minimum Version: 8.0</h3>
-<h3 id="target-version-12">Target Version: 12</h3>
-</section>
-</div>
-<h2 id="samples">Samples</h2>
-<ul>
-<li><a href="https://github.com/shinyorg/samples/tree/main/Push">https://github.com/shinyorg/samples/tree/main/Push</a></li>
-</ul>
-</article>
+</code></pre><h2 id="dialogs">Dialogs</h2>
+<p>We recommend installing Shiny.Extensions.Dialogs.XfMaterial for a full experience.  However, if you don&#39;t, we use standard native dialogs under the hood.  However, you will be missing loading &amp; snackbar with the default implementation.</p>
+<p>To use XF Material Dialogs</p>
+<pre><code class="lang-csharp">public class SampleStartup : FrameworkStartup
+{
+    protected override void Configure(ILoggingBuilder builder, IServiceCollection services)
+    {
+        services.UseXfMaterialDialogs();
+    }
+}
+</code></pre><p>For examples on what methods are available in dialogs, take a look here: <a href="https://github.com/shinyorg/framework/blob/master/Samples/Samples/DialogsViewModel.cs">Dialog Samples</a></p>
+<h2 id="global-command-exception-handler">Global Command Exception Handler</h2>
+<p>Global command exception handling is something provided by ReactiveUI.  It saves you the hassle of putting a standard try {} catch (Exception ex) {} trap all in every command.</p>
+<p>Shiny builds on this by adding logging and a standard dialog message to handle trap-all scenarios.  To use it, simply add the following to your framework startup:</p>
+<pre><code class="lang-csharp">namespace YourNamespace
+{
+    public class YourStartupClassName : Shiny.FrameworkStartup
+    {
+        protected override void Configure(ILoggingBuilder builder, IServiceCollection services)
+        {
+            services.UseGlobalCommandExceptionHandler(options =&gt;
+            {
+#if DEBUG
+                options.AlertType = ErrorAlertType.FullError; // this will show the full error in a dialog during debug
+                options.LogError = false;
+#else
+                // you will need localization to be registered to use this
+                options.AlertType = ErrorAlertType.Localize; // you can use NoLocalize which will send a standard english message instead
+                options.LogError = true;
+                options.IgnoreTokenCancellations = true;
+                options.LocalizeErrorTitleKey = &quot;YourLocalizationTitleKey&quot;;
+                options.LocalizeErrorBodyKey = &quot;YourLocalizationErrorBodyMessageKey&quot;;
+#endif
+            });
+        }
+    }
+}
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
@@ -423,7 +446,7 @@ namespace YourIosApp
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/shinyorg/docs/blob/master/docs/mobile/push/firebase.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/shinyorg/docs/blob/master/docs/mobile/framework/getting-started.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

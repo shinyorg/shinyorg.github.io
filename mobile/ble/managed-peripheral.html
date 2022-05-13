@@ -243,6 +243,18 @@
                         </ul>  </li>
                     <li class="">
                       <span class="expand-stub"></span>
+                      <a class="">Framework</a>
+                        
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="../framework/getting-started.html" title="Getting Started" class="">Getting Started</a>
+                          </li>
+                          <li class="">
+                            <a href="../framework/viewmodel.html" title="ViewModel" class="">ViewModel</a>
+                          </li>
+                        </ul>  </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
                       <a class="">Sensors</a>
                         
                         <ul class="nav level2">
@@ -299,7 +311,9 @@
 <p>Unlike their counterpart IPeripheral, managed peripherals are NOT meant to deal with general scans and retrieval of &quot;all services/characteristics&quot;.  Generally, when you are working with
 BLE peripherals - you would know the device protocols you&#39;re using and how to work with its characteristics.  </p>
 <h2 id="creating-a-managed-peripheral">Creating a Managed Peripheral</h2>
-<pre><code class="lang-csharp">
+<p>After using the BleManager to scan/find an IPeripheral, you can use the following:</p>
+<pre><code class="lang-csharp">IPeripheral peripheral; // 
+var managed = peripheral.CreateManaged();
 </code></pre><h2 id="monitor-rssi">Monitor RSSI</h2>
 <pre><code class="lang-csharp">
 </code></pre></article>

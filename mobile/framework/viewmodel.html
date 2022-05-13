@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Push </title>
+    <title>ViewModel </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Push ">
+    <meta name="title" content="ViewModel ">
     <meta name="generator" content="docfx 2.56.7.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -210,8 +210,8 @@
                           <li class="">
                             <a href="../push/azure.html" title="Azure Notification Hubs" class="">Azure Notification Hubs</a>
                           </li>
-                          <li class="active">
-                            <a href="../push/firebase.html" title="Firebase Messaging" class="active">Firebase Messaging</a>
+                          <li class="">
+                            <a href="../push/firebase.html" title="Firebase Messaging" class="">Firebase Messaging</a>
                           </li>
                           <li class="">
                             <a href="../push/onesignal.html" title="One Signal" class="">One Signal</a>
@@ -249,8 +249,8 @@
                           <li class="">
                             <a href="../framework/getting-started.html" title="Getting Started" class="">Getting Started</a>
                           </li>
-                          <li class="">
-                            <a href="../framework/viewmodel.html" title="ViewModel" class="">ViewModel</a>
+                          <li class="active">
+                            <a href="../framework/viewmodel.html" title="ViewModel" class="active">ViewModel</a>
                           </li>
                         </ul>  </li>
                     <li class="">
@@ -300,121 +300,70 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="push">Push</h1>
+<h1 id="viewmodel">ViewModel</h1>
 
-<p>Firebase Push Provider for iOS and Android </p>
-<table>
-<thead>
-<tr>
-<th>Area</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>NuGet</td>
-<td><a href="https://www.nuget.org/packages/Shiny.Push.FirebaseMessaging/"><img src="https://img.shields.io/nuget/v/Shiny.Push.FirebaseMessaging.svg?style=for-the-badge" alt="Shiny.Push.FirebaseMessaging"></a></td>
-</tr>
-<tr>
-<td>Service</td>
-<td>Shiny.Push.IPushManager</td>
-</tr>
-<tr>
-<td>Auto-Register</td>
-<td>NO</td>
-</tr>
-<tr>
-<td>Delegate</td>
-<td>Shiny.Push.IPushDelegate</td>
-</tr>
-<tr>
-<td>Static Class</td>
-<td>ShinyPush</td>
-</tr>
-</tbody>
-</table>
-<h2 id="startup-file">Startup File</h2>
-<pre><code class="lang-csharp">using Microsoft.Extensions.DependencyInjection;
-using Shiny;
-
-namespace YourNamespace
-{
-    public class YourShinyStartup : ShinyStartup
-    {
-        public override void ConfigureServices(IServiceCollection services, IPlatform platform)
-        {
-            services.UseFirebaseMessaging&lt;MyPushDelegate&gt;();
-        }
-    }
-}
-</code></pre><h2 id="platform-setup">Platform Setup</h2>
-<div class="tabGroup" id="tabgroup_1ps04J07-c">
-<ul role="tablist">
-<li role="presentation">
-<a href="#tabpanel_1ps04J07-c_ios" role="tab" aria-controls="tabpanel_1ps04J07-c_ios" data-tab="ios" tabindex="0" aria-selected="true">iOS</a>
-</li>
-<li role="presentation">
-<a href="#tabpanel_1ps04J07-c_android" role="tab" aria-controls="tabpanel_1ps04J07-c_android" data-tab="android" tabindex="-1">Android</a>
-</li>
-</ul>
-<section id="tabpanel_1ps04J07-c_ios" role="tabpanel" data-tab="ios">
-<p>Minimum Version: 10</p>
-<h2 id="appdelegate">AppDelegate</h2>
-<pre><code class="lang-csharp">using System;
-using Foundation;
-using Xamarin.Forms.Platform.iOS;
-using Shiny;
-
-namespace YourIosApp
-{
-    [Register(&quot;AppDelegate&quot;)]
-    public partial class AppDelegate : FormsApplicationDelegate
-    {
-        public override bool FinishedLaunching(UIApplication app, NSDictionary options)
-        {
-            this.ShinyFinishedLaunching(new Samples.SampleStartup(), options);
-            global::Xamarin.Forms.Forms.Init();
-            this.LoadApplication(new Samples.App());
-        }
-    }
-
-    public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
-        =&gt; this.ShinyRegisteredForRemoteNotifications(deviceToken);
-
-    public override void FailedToRegisterForRemoteNotifications(UIApplication application, NSError error)
-        =&gt; this.ShinyFailedToRegisterForRemoteNotifications(error);
-
-    public override void DidReceiveRemoteNotification(UIApplication application, NSDictionary userInfo, Action&lt;UIBackgroundFetchResult&gt; completionHandler)
-        =&gt; this.ShinyDidReceiveRemoteNotification(userInfo, completionHandler);
-}
-</code></pre><h2 id="infoplist">Info.plist</h2>
-<pre><code class="lang-xml">&lt;!DOCTYPE plist PUBLIC &quot; -//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
-&lt;plist version=\&quot;1.0\&quot;&gt;
-    &lt;dict&gt;
-        &lt;key&gt;UIBackgroundModes&lt;/key&gt;
-        &lt;array&gt;
-            &lt;string&gt;remote-notification&lt;/string&gt;
-        &lt;/array&gt;
-    &lt;/dict&gt;
-&lt;/plist&gt;
-</code></pre><h2 id="entitlementsplist">Entitlements.plist</h2>
-<pre><code class="lang-xml">&lt;!DOCTYPE plist PUBLIC &quot; -//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
-&lt;plist version=\&quot;1.0\&quot;&gt;
-    &lt;dict&gt;
-        &lt;key&gt;aps-environment&lt;/key&gt;
-        &lt;string&gt;development OR production&lt;/string&gt;
-    &lt;/dict&gt;
-&lt;/plist&gt;
-</code></pre></section>
-<section id="tabpanel_1ps04J07-c_android" role="tabpanel" data-tab="android" aria-hidden="true" hidden="hidden">
-<h3 id="minimum-version-80">Minimum Version: 8.0</h3>
-<h3 id="target-version-12">Target Version: 12</h3>
-</section>
-</div>
-<h2 id="samples">Samples</h2>
+<p>Inherit Shiny.ViewModel on your viewmodel.  You will instantly gain the following:</p>
 <ul>
-<li><a href="https://github.com/shinyorg/samples/tree/main/Push">https://github.com/shinyorg/samples/tree/main/Push</a></li>
+<li>Features<ul>
+<li>Dialogs is built right in</li>
+<li>Localization is built right in (you need to register it though, we will cover that in the localization section)</li>
+<li>All of the Prism lifecycle stuff waiting to be used (just type override to see everything)</li>
+<li>All of the Reactive setup (WhenAny, WhenAnyValue) built right in</li>
+<li>Low Effort Validation</li>
 </ul>
+</li>
+</ul>
+<h2 id="validation">Validation</h2>
+<p>Validation is often the painful act of doing the same thing over and over and over.  There are tools out there that help such as FluentValidation and Data Annotations, but nothing out of the box.</p>
+<p>Shiny.Framework now includes optional support for DataAnnotations (with a pluggable model under IValidationService); </p>
+<p>Data Annotations is currently the only out-of-box provider for validation.  Take a look at <a href="https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations?view=net-6.0">Microsoft Data Annotations</a> for more documentation on Data Annotations</p>
+<h4 id="setup">Setup</h4>
+<p>NOTE: we recommend usage of <a href="https://www.nuget.org/packages/ReactiveUI.Fody/">ReactiveUI.Fody</a> for the use of the [Reactive] attribute which removes the boilerplate code for MVVM properties</p>
+<p>First, we need to tell Shiny.Framework to wire in the validation service to Data Annotations by doing the following in your shiny startup</p>
+<pre><code class="lang-csharp">public class SampleStartup : Shiny.FrameworkStartup
+{
+    protected override void Configure(ILoggingBuilder builder, IServiceCollection services)
+    {
+        services.UseDataAnnotationValidation();
+    }
+}
+</code></pre><p>Now, in your viewmodel:</p>
+<pre><code class="lang-csharp">public class MyViewModel : Shiny.ViewModel
+{
+    [Reactive]
+    [EmailAddress(ErrorMessage = &quot;Invalid Email&quot;)]
+    public string Email { get; set; }
+
+
+    [Reactive]
+    [MinLength(3, ErrorMessage = &quot;Min 3 Characters&quot;)]
+    [MaxLength(5, ErrorMessage = &quot;Max 5 Characters&quot;)]
+    public string LengthTest { get; set; }
+}
+</code></pre><h3 id="">#</h3>
+<h4 id="commands">Commands</h4>
+<pre><code class="lang-csharp">
+public class MyViewModel : Shiny.ViewModel
+{
+    public MyViewModel() {
+        this.Command = ReactiveCommand.Create(() =&gt; {}, this.WhenValid());
+    }
+
+    public ICommand Command { get; }
+
+    // add some data annotated MVVM properties below
+}
+</code></pre><h4 id="localization">Localization</h4>
+<p>Data annotations actually stinks for pluggable localization.  Shiny is big on pluggability so we&#39;ve &quot;hacked&quot; our way around this one.  Simply register your localization manager and follow this slight hack</p>
+<p>We recommand creating a secondary section called Validation.  Take a look at the sample app within this repo for examples.</p>
+<pre><code class="lang-csharp">public class MyViewModel : Shiny.ViewModel
+{
+    [Reactive]
+    [EmailAddress(ErrorMessage = &quot;localize:Validation:Required&quot;)]
+    public string Email { get; set; }
+}
+</code></pre><blockquote><p>NOTE: the use of &quot;localize:&quot; if front the localization key.  Also note, that uses the fully qualified path to your localization value (ie Section:Key)</p>
+</blockquote>
 </article>
           </div>
           
@@ -423,7 +372,7 @@ namespace YourIosApp
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/shinyorg/docs/blob/master/docs/mobile/push/firebase.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/shinyorg/docs/blob/master/docs/mobile/framework/viewmodel.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
