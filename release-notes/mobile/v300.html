@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>3.0.0 Early Alpha </title>
+    <title>3.0.0 ALPHA </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="3.0.0 Early Alpha ">
+    <meta name="title" content="3.0.0 ALPHA ">
     <meta name="generator" content="docfx 2.56.7.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -126,7 +126,7 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="300-early-alpha">3.0.0 Early Alpha</h1>
+<h1 id="300-alpha">3.0.0 ALPHA</h1>
 
 <div class="IMPORTANT"><h5>Important</h5><ul>
 <li>This is an EARLY ALPHA release!  There are big changes planned!  We are not taking bugs on things at this time.  Hosting has vastly changed in our model to support MAUI.  </li>
@@ -134,18 +134,102 @@
 <li>Lastly, Generators have been removed temporarily.  It has not been decided how/if we will support them in the future.</li>
 </ul>
 </div>
+<div class="NOTE"><h5>Note</h5><p>Shiny.Extensions.Configuration (Xamarin version of Microsoft.Extensions.Configuration) is now part of this repository</p>
+</div>
+<h2 id="maui">MAUI</h2>
+<ul>
+<li>Shiny.Hosting.Maui initial integration package created (Example how to setup shown below)</li>
+</ul>
 <h2 id="core">Core</h2>
 <ul>
 <li>[BREAKING] IShinyStartup is gone - we now have a new HostBuilder pattern to allow classic to align with MAUI/NET6.  Use extensions methods to build on this for classic/non-MAUI setups</li>
 <li>[BREAKING] IShinyModule is gone - use extensions methods instead</li>
 <li>[BREAKING] Connectivity is gone (well, it was moved to jobs since it was only really used by jobs) - Switch to MAUI Essentials if you need it</li>
 <li>[BREAKING] PowerManager is gone - moved to jobs as well - Switch to MAUI Essentials if you need it</li>
+<li>[Enhancement] IShinyStartupTask and INotifyPropertyChanged persistent services are now registered using the service collection extension .AddShinyService during your bootstrapping</li>
+<li>[Enhancement] New internal repository pattern is faster and easier to test</li>
+<li>[Enhancement] New hosting model that will support classic Xamarin, MAUI, and other platforms going forward</li>
+<li>[Enhancement] New internal lifecycle processor</li>
 </ul>
 <h2 id="jobs">Jobs</h2>
 <ul>
 <li>[BREAKING][iOS] We no longer support the background fetch style (old) job management - only bgtasks will be used going forward</li>
 </ul>
-</article>
+<h2 id="http-transfers">HTTP Transfers</h2>
+<ul>
+<li>[BREAKING] The android native process is gone in favour of a new foreground service for uploads &amp; downloads</li>
+</ul>
+<h3 id="maui-setup">MAUI Setup</h3>
+<p>Install the nuget packages shown above each comment below to get that functionality</p>
+<pre><code class="lang-csharp">using Shiny;
+
+namespace Sample;
+
+
+public static class MauiProgram
+{
+    public static MauiApp CreateMauiApp()
+    {
+        var builder = MauiApp
+            .CreateBuilder()
+
+            // THIS IS REQUIRED TO BE DONE FOR SHINY TO RUN
+            .UseMauiApp&lt;App&gt;()
+            .UseShiny()
+            .ConfigureFonts(fonts =&gt;
+            {
+                fonts.AddFont(&quot;OpenSans-Regular.ttf&quot;, &quot;OpenSansRegular&quot;);
+                fonts.AddFont(&quot;OpenSans-Semibold.ttf&quot;, &quot;OpenSansSemibold&quot;);
+            });
+
+        // shiny.sensors
+        builder.Services.AddAllSensors();
+
+        // shiny.nfc
+        builder.Services.AddNfc();
+
+        // shiny.locations
+        builder.Services.AddGps&lt;SampleGpsDelegate&gt;();
+        builder.Services.AddGeofencing&lt;SampleGeofenceDelegate&gt;();
+        builder.Services.AddMotionActivity();
+
+        // shiny.notifications
+        builder.Services.AddNotifications&lt;SampleNotificationDelegate&gt;();
+
+        // shiny.bluetoothle
+        builder.Services.AddBluetoothLE&lt;SampleBleDelegate&gt;();
+
+        // shiny.bluetoothle.hosting
+        builder.Services.AddBluetoothLeHosting();
+
+        // shiny.beacons
+        builder.Services.AddBeaconRanging();
+        builder.Services.AddBeaconMonitoring&lt;SampleBeaconMonitorDelegate&gt;();
+
+        // shiny.net.http
+        builder.Services.AddHttpTransfers&lt;SampleHttpTransferDelegate&gt;();
+
+        // shiny.speechrecognition
+        builder.Services.AddSpeechRecognition();
+
+        // shiny.push
+        builder.Services.AddPush&lt;SamplePushDelegate&gt;();
+
+        // shiny.jobs
+        builder.Services.AddJob(typeof(SampleJob));
+        builder.Services.AddJobs(); // not required if using above
+
+        // shiny.core - startup task &amp; persistent service registration
+        builder.Services.AddShinyService&lt;StartupTask&gt;();
+
+        // THIS IS REQUIRED TO BE DONE FOR SHINY TO RUN
+        var app = builder.Build();
+        app.RunShiny();
+
+        return app;
+    }
+}
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
