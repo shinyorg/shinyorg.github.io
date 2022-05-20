@@ -129,9 +129,14 @@
 <h1 id="300-alpha">3.0.0 ALPHA</h1>
 
 <div class="IMPORTANT"><h5>Important</h5><ul>
-<li>This is an EARLY ALPHA release!  There are big changes planned!  We are not taking bugs on things at this time.  Hosting has vastly changed in our model to support MAUI.  </li>
-<li>We have also removed several components such as AppCenter Logging and Firebase on iOS due to incompatible .NET6 iOS dependencies</li>
-<li>Lastly, Generators have been removed temporarily.  It has not been decided how/if we will support them in the future.</li>
+<li><p>This is an EARLY ALPHA release!  There are big changes planned!  We are not taking bugs on things at this time.  Hosting has vastly changed in our model to support MAUI.  </p>
+</li>
+<li><p>We have also removed several components such as AppCenter Logging and Firebase on iOS due to incompatible .NET6 iOS dependencies</p>
+</li>
+<li><p>Generators have been removed temporarily.  It has not been decided how/if we will support them in the future.</p>
+</li>
+<li><p>We are currently only supporting .NET 6 targets for iOS, MacCatalyst, and Android </p>
+</li>
 </ul>
 </div>
 <div class="NOTE"><h5>Note</h5><p>Shiny.Extensions.Configuration (Xamarin version of Microsoft.Extensions.Configuration) is now part of this repository</p>
@@ -160,7 +165,11 @@
 <li>[BREAKING] The android native process is gone in favour of a new foreground service for uploads &amp; downloads</li>
 </ul>
 <h3 id="maui-setup">MAUI Setup</h3>
-<p>Install the nuget packages shown above each comment below to get that functionality</p>
+<ol>
+<li>Install Shiny.Hosting.Maui</li>
+<li>Install the nuget package(s) shown above each comment below to get that functionality</li>
+<li>Ensure you add UseShiny and app.RunShiny as shown below</li>
+</ol>
 <pre><code class="lang-csharp">using Shiny;
 
 namespace Sample;
