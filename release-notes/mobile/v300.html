@@ -155,6 +155,7 @@
 <li>[Enhancement] New internal repository pattern is faster and easier to test</li>
 <li>[Enhancement] New hosting model that will support classic Xamarin, MAUI, and other platforms going forward</li>
 <li>[Enhancement] New internal lifecycle processor</li>
+<li>[Enhancement] New &quot;plugin&quot; model - check out example below</li>
 </ul>
 <h2 id="jobs">Jobs</h2>
 <ul>
@@ -238,7 +239,26 @@ public static class MauiProgram
         return app;
     }
 }
-</code></pre></article>
+</code></pre><h3 id="new-plugin-model">NEW &quot;Plugin&quot; Model</h3>
+<ol>
+<li>Install Shiny.Core</li>
+<li>Install the plugin package(s) you need</li>
+<li>From your Android Application.OnCreate (not main activity) or iOS AppDelegate.OnFinishedLauching, call the following:</li>
+</ol>
+<pre><code class="lang-csharp">
+ShinyContainer.Init(builder =&gt; 
+{
+    builder.Services.AddShinyStuff();
+});
+
+// to call within your code, simply use:
+ShinyContainer.Current.GetService&lt;IAShinyService&gt;();
+
+// most libraries (ie. BluetoothLE) offer easy ways to get at the service like
+var manager = ShinyContainer.Current.BluetoothLe();
+</code></pre><div class="WARNING"><h5>Warning</h5><p>Using the ShinyContainer does NOT negate the need for the standard boilerplate within your head projects</p>
+</div>
+</article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
