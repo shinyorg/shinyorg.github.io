@@ -169,7 +169,7 @@
 <ol>
 <li>Install Shiny.Hosting.Maui</li>
 <li>Install the nuget package(s) shown above each comment below to get that functionality</li>
-<li>Ensure you add UseShiny and app.RunShiny as shown below</li>
+<li>Ensure you add UseShiny as shown below</li>
 </ol>
 <pre><code class="lang-csharp">using Shiny;
 
@@ -181,22 +181,18 @@ public static class MauiProgram
     public static MauiApp CreateMauiApp()
     {
         var builder = MauiApp
-            .CreateBuilder()
-
-            // THIS IS REQUIRED TO BE DONE FOR SHINY TO RUN
+            .CreateBuilder()            
             .UseMauiApp&lt;App&gt;()
-            .UseShiny()
-            .ConfigureFonts(fonts =&gt;
-            {
-                fonts.AddFont(&quot;OpenSans-Regular.ttf&quot;, &quot;OpenSansRegular&quot;);
-                fonts.AddFont(&quot;OpenSans-Semibold.ttf&quot;, &quot;OpenSansSemibold&quot;);
-            });
+            // THIS IS REQUIRED TO BE DONE FOR SHINY TO RUN
+            .UseShiny();
 
         // shiny.sensors
         builder.Services.AddAllSensors();
 
-        // shiny.nfc
+#if !MACCATALYST
+        // shiny.nfc - ios &amp; android only
         builder.Services.AddNfc();
+#endif
 
         // shiny.locations
         builder.Services.AddGps&lt;SampleGpsDelegate&gt;();
@@ -232,11 +228,7 @@ public static class MauiProgram
         // shiny.core - startup task &amp; persistent service registration
         builder.Services.AddShinyService&lt;StartupTask&gt;();
 
-        // THIS IS REQUIRED TO BE DONE FOR SHINY TO RUN
-        var app = builder.Build();
-        app.RunShiny();
-
-        return app;
+        return builder.Build();
     }
 }
 </code></pre><h3 id="new-plugin-model">NEW &quot;Plugin&quot; Model</h3>
