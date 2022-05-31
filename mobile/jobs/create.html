@@ -347,18 +347,16 @@ public class YourJob : IJob
 // you can pass variables to your job
 job.SetValue(&quot;LoopCount&quot;, 10);
 </code></pre><p>Lastly, we need to register our job.  There are two ways to do this</p>
-<ol>
-<li>Through the shiny startup process (recommended)</li>
-</ol>
+<p>Through the shiny startup process (recommended)</p>
+<pre><code class="lang-csharp">services.RegisterJob(yourJobInfo);
+</code></pre><p>OR Dynamically in your code - in order to do this, you still have to register the job manager in your startup</p>
 <pre><code class="lang-csharp">
-</code></pre><ol>
-<li>Dynamically in your code</li>
-</ol>
-<pre><code class="lang-csharp">
-</code></pre><pre><code class="lang-csharp">IJobManager manager; // inject
+services.UseJobs();
+
+IJobManager manager; // inject
 
 // lastly, schedule it to go - don&#39;t worry about scheduling something more than once, we just update if your job name matches an existing one
-manager.AddJob(job);
+manager.RegisterJob(job);
 </code></pre><h2 id="foreground-jobs">Foreground Jobs</h2>
 <p>Foreground jobs aren&#39;t really anything special.  When your app comes to the foreground, we simply start a timer that schedules a job to run every X seconds.  </p>
 </article>

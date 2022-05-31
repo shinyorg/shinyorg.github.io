@@ -336,6 +336,11 @@ var result = await manager.Run(&quot;YourJobName&quot;);
 </code></pre><h2 id="querying-jobs">Querying Jobs</h2>
 <p>The job manager allows you to query registered jobs.  This is useful for debugging and testing.</p>
 <pre><code class="lang-csharp">IJobManager manager; // inject
+
+// get a list of jobs
+var jobs = await manager.GetJobs();
+
+var job = await manager.GetJob(&quot;YourJobName&quot;); // returns null if not found
 </code></pre></article>
           </div>
           
