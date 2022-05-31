@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Static Class Generation </title>
+    <title>Creating a Job </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Static Class Generation ">
+    <meta name="title" content="Creating a Job ">
     <meta name="generator" content="docfx 2.56.7.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -108,8 +108,8 @@
                           <li class="">
                             <a href="../setup/startup.html" title="Startup" class="">Startup</a>
                           </li>
-                          <li class="active">
-                            <a href="../setup/statics.html" title="Static Instances" class="active">Static Instances</a>
+                          <li class="">
+                            <a href="../setup/statics.html" title="Static Instances" class="">Static Instances</a>
                           </li>
                           <li class="">
                             <a href="../setup/ios.html" title="iOS" class="">iOS</a>
@@ -129,8 +129,8 @@
                           <li class="">
                             <a href="../jobs/index.html" title="Setup" class="">Setup</a>
                           </li>
-                          <li class="">
-                            <a href="../jobs/create.html" title="Create a Job" class="">Create a Job</a>
+                          <li class="active">
+                            <a href="../jobs/create.html" title="Create a Job" class="active">Create a Job</a>
                           </li>
                           <li class="">
                             <a href="../jobs/functions.html" title="Querying, Cancelling, and Adhoc" class="">Querying, Cancelling, and Adhoc</a>
@@ -306,19 +306,61 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="static-class-generation">Static Class Generation</h1>
+<h1 id="creating-a-job">Creating a Job</h1>
 
-<p>Using Shiny without dependency injection is not only possible, it is quite easy to do.  Do also you like the old plugin style of CrossPlugin.Current?  Then you&#39;ve come to the right document.  You may be thinking, why not just include these as part of the package?  Several reasons actually, first being - statics don&#39;t make as easily testable and the second, statics don&#39;t adhere to interfaces and Shiny is always evolving.  I got tired of trying to keep things in sync.  By adding a generation option, it makes things good for all of us.  </p>
-<p>Under the hood, you are still using dependency injection and you still need a startup file, BUT, you can have all of the static versions of each service generated in a project of your choice by simply adding the following to your assembly attributes:</p>
-<pre><code class="lang-csharp">[assembly: Shiny.GenerateStaticClasses(&quot;YourNamespace&quot;)]
-</code></pre><p>After adding this attribute, perform a build.  The Shiny source generator will now scan for all Shiny nuget packages that are referenced in this project and generate corresponding static classes for the main services.  </p>
-<pre><code class="lang-csharp">// BEFORE
-Shiny.ShinyHost.Resolve&lt;IJobManager&gt;().Run(...);
+<h2 id="create-your-job">Create your job</h2>
+<p>The first thing you&#39;ll want to do is create your job by implementing the Shiny.Jobs.IJob interface.</p>
+<pre><code class="lang-csharp">using Shiny.Jobs;
 
-// AFTER
-ShinyJobs.Run(...);
-</code></pre><p>By adding this attribute, it will create static access classes for all of the Shiny services in the main namespace of the assembly you use the assembly attribute in.</p>
-<p>&lt;?! StaticClasses /?&gt;</p>
+namespace YourNamespace;
+
+// first define your job
+public class YourJob : IJob
+{
+    public async Task Run(JobInfo jobInfo, CancellationToken cancelToken)
+    {
+        var loops = jobInfo.GetValue(&quot;LoopCount&quot;, 25);
+
+        for (var i = 0; i &lt; loops; i++)
+        {
+            if (cancelToken.IsCancellationRequested)
+                break;
+
+            await Task.Delay(1000, cancelToken).ConfigureAwait(false);
+        }
+    }
+}
+</code></pre><p>Next, we need to define our job run parameters by defining a JobInfo. The job info allows you to pass in a dictionary of parameters to use within your job.</p>
+<pre><code class="lang-csharp">var job = new JobInfo
+{
+    Name = &quot;YourJobName&quot;,
+    Type = typeof(YourJob),
+
+    // these are criteria that must be met in order for your job to run
+    BatteryNotLow = true,
+    DeviceCharging = false,
+    RunInForeground = true,
+    NetworkType = NetworkType.Any,
+    Repeat = true; //defaults to true, set to false to run once OR set it inside a job to cancel further execution
+};
+
+// you can pass variables to your job
+job.SetValue(&quot;LoopCount&quot;, 10);
+</code></pre><p>Lastly, we need to register our job.  There are two ways to do this</p>
+<ol>
+<li>Through the shiny startup process (recommended)</li>
+</ol>
+<pre><code class="lang-csharp">
+</code></pre><ol>
+<li>Dynamically in your code</li>
+</ol>
+<pre><code class="lang-csharp">
+</code></pre><pre><code class="lang-csharp">IJobManager manager; // inject
+
+// lastly, schedule it to go - don&#39;t worry about scheduling something more than once, we just update if your job name matches an existing one
+manager.AddJob(job);
+</code></pre><h2 id="foreground-jobs">Foreground Jobs</h2>
+<p>Foreground jobs aren&#39;t really anything special.  When your app comes to the foreground, we simply start a timer that schedules a job to run every X seconds.  </p>
 </article>
           </div>
           
@@ -327,7 +369,7 @@ ShinyJobs.Run(...);
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/shinyorg/docs/blob/master/docs/mobile/setup/statics.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/shinyorg/docs/blob/master/docs/mobile/jobs/create.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

@@ -152,7 +152,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/beacons/monitoring.html",
-          "hash": "8i4YMjyL1ayOjjCLze9Q1Q=="
+          "hash": "tja5Ld9Qo5BpyD1WkWtGCQ=="
         }
       },
       "is_incremental": false,
@@ -164,7 +164,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/beacons/ranging.html",
-          "hash": "e/TDxCMyx4IJoZKrr6X1qQ=="
+          "hash": "NucWSs+R0gZlTnmOmJhd1Q=="
         }
       },
       "is_incremental": false,
@@ -176,7 +176,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/ble/best-practices.html",
-          "hash": "DA+tQyGXEgv9sOHPYii9/A=="
+          "hash": "xd7ipWYHWmIcSNUSTUCLQA=="
         }
       },
       "is_incremental": false,
@@ -188,7 +188,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/ble/gatt.html",
-          "hash": "21Z2aAqpd2PG1ZRjHXsm2A=="
+          "hash": "fyG5X6F0DFoHB5V0KcV8Ew=="
         }
       },
       "is_incremental": false,
@@ -200,7 +200,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/ble/index.html",
-          "hash": "3Gthc1TI+0+SGMxskfrCYQ=="
+          "hash": "yNkI5JuV4y4wuiK/Iu/hKA=="
         }
       },
       "is_incremental": false,
@@ -212,7 +212,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/ble/managed-peripheral.html",
-          "hash": "jST+nCcKQt9PZDX5w6Oi0A=="
+          "hash": "WZ834jKOVotdUhppTo5mow=="
         }
       },
       "is_incremental": false,
@@ -224,7 +224,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/ble/managed-scan.html",
-          "hash": "XJACd4TLj4B2M40Af8FXbA=="
+          "hash": "YhhT6igU/iryK1hZoal6uw=="
         }
       },
       "is_incremental": false,
@@ -236,7 +236,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/ble/peripheral.html",
-          "hash": "sqPz7NfnFBdeWEJPr6J0uA=="
+          "hash": "z0tRr3ZoOKKos33e+iOOXQ=="
         }
       },
       "is_incremental": false,
@@ -248,7 +248,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/ble/scanning.html",
-          "hash": "lta3VeyCSLKqcp6Uiyh2xA=="
+          "hash": "bUQ3dwc2xbvCCPItLoy9IQ=="
         }
       },
       "is_incremental": false,
@@ -260,7 +260,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/blehosting/advertising.html",
-          "hash": "IXWS4RdV0wH6zpOtoiVx6w=="
+          "hash": "hZbW89EliKIykTNgC0AG1g=="
         }
       },
       "is_incremental": false,
@@ -272,7 +272,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/blehosting/getting-started.html",
-          "hash": "SixWEjadDUQoZoToZfLEAw=="
+          "hash": "+u05igX4w5wB0FEL7oYKcQ=="
         }
       },
       "is_incremental": false,
@@ -284,7 +284,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/blehosting/hosting.html",
-          "hash": "N5q5vOxov+zEMLIiB+yP8Q=="
+          "hash": "v/GVSuD3lXjVxofue6D/QQ=="
         }
       },
       "is_incremental": false,
@@ -296,7 +296,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/blehosting/index.html",
-          "hash": "HPHXH03WX3xvyErF/Cg0+A=="
+          "hash": "5hLCZxyI74PV7OhHR1nbfw=="
         }
       },
       "is_incremental": false,
@@ -308,7 +308,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/configuration.html",
-          "hash": "edFdzE3issUWld3sqPRg4g=="
+          "hash": "mr98JfLDCB5gxLLbR6DnCw=="
         }
       },
       "is_incremental": false,
@@ -320,7 +320,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/framework/getting-started.html",
-          "hash": "AT9rh3NXpn82ylTxjMN1tQ=="
+          "hash": "+6ih+KmB47caAABeuC+VsA=="
         }
       },
       "is_incremental": false,
@@ -332,7 +332,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/framework/viewmodel.html",
-          "hash": "pB9lzloAKHUWhzMBwegSrA=="
+          "hash": "WjTdigotUo0P0wckOQ2Ecg=="
         }
       },
       "is_incremental": false,
@@ -344,7 +344,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/httptransfers/advanced.html",
-          "hash": "qepfPb8EszDboG/IgxJLsQ=="
+          "hash": "Ix2Tv7955c8CDcrTBUfETg=="
         }
       },
       "is_incremental": false,
@@ -356,7 +356,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/httptransfers/getting-started.html",
-          "hash": "SV1DV7u68vROaFOjkge0yA=="
+          "hash": "pY9BraKVuOoIgAzgMn+tag=="
         }
       },
       "is_incremental": false,
@@ -368,7 +368,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/httptransfers/index.html",
-          "hash": "Vb2aTlwTn58OcI8HlhXrVQ=="
+          "hash": "daDbUdec+xaSGjpDQFGbuQ=="
         }
       },
       "is_incremental": false,
@@ -380,7 +380,19 @@
       "output": {
         ".html": {
           "relative_path": "mobile/index.html",
-          "hash": "a+80cbcfT3kwH7IiOqyr1g=="
+          "hash": "kvWBg1xPGZLJs/kACz0E8g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "mobile/jobs/create.md",
+      "output": {
+        ".html": {
+          "relative_path": "mobile/jobs/create.html",
+          "hash": "b9Bb/d/ddtYHVIWfM2/dHA=="
         }
       },
       "is_incremental": false,
@@ -395,7 +407,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/jobs/faq.html",
-          "hash": "EXp10m4k3XuAZAi4nb9woQ=="
+          "hash": "smERahojAvPBxnvHniTxCw=="
         }
       },
       "is_incremental": false,
@@ -403,11 +415,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "mobile/jobs/getting-started.md",
+      "source_relative_path": "mobile/jobs/functions.md",
       "output": {
         ".html": {
-          "relative_path": "mobile/jobs/getting-started.html",
-          "hash": "ZdNU8uGzlZsEYpjURObxkw=="
+          "relative_path": "mobile/jobs/functions.html",
+          "hash": "yANl3kWrMoKtwAyNAHbYqQ=="
         }
       },
       "is_incremental": false,
@@ -419,7 +431,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/jobs/index.html",
-          "hash": "AY1Y56F6G/ojq0dsMwtxtg=="
+          "hash": "FBciSVxBAqnWTmnoJKuaFQ=="
         }
       },
       "is_incremental": false,
@@ -431,7 +443,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/locations/geofencing.html",
-          "hash": "suDNfQkJ1BLO+jn48c2J6Q=="
+          "hash": "QTrkvYP9W9MxXSW4iv6l4w=="
         }
       },
       "is_incremental": false,
@@ -443,7 +455,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/locations/gps.html",
-          "hash": "67v29xb0BpHV6yMRcB0YTw=="
+          "hash": "QMGUXlGdw3JGxZuZDMqVGA=="
         }
       },
       "is_incremental": false,
@@ -455,7 +467,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/locations/motionactivity.html",
-          "hash": "krkW8YPZUagp6E8sl5Nlvg=="
+          "hash": "4IiNeTYD4cyo0m5L0LhbDQ=="
         }
       },
       "is_incremental": false,
@@ -467,7 +479,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/notifications/androidspecific.html",
-          "hash": "Fue1MW+fxU0N3MI9gRfVtA=="
+          "hash": "zFfUiSvrnPwkzRHwwWj4qw=="
         }
       },
       "is_incremental": false,
@@ -479,7 +491,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/notifications/channels.html",
-          "hash": "qgICwU5veBiCy+rTWR3+Rw=="
+          "hash": "jjZjmySEqD6YcuDDe9Nktg=="
         }
       },
       "is_incremental": false,
@@ -491,7 +503,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/notifications/delegate.html",
-          "hash": "suMkz/VqH7AhO/jqWtC8Xw=="
+          "hash": "5zvzwyZnQeqJ1wDB8DniXw=="
         }
       },
       "is_incremental": false,
@@ -506,7 +518,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/notifications/getting-started.html",
-          "hash": "IH+UBBx+abl43VaWkiV6Ww=="
+          "hash": "9NAevgr41OxYsq4LFkJyEw=="
         }
       },
       "is_incremental": false,
@@ -518,7 +530,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/notifications/index.html",
-          "hash": "IM4yeFIctJOQZX3yLBYoPw=="
+          "hash": "Cfa+x37f4HbbJaLkVGx+Hw=="
         }
       },
       "is_incremental": false,
@@ -530,7 +542,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/other/connectivity.html",
-          "hash": "DsHpbnXi+kyPpDkeI9hMGw=="
+          "hash": "XyqEBK6fmLNh1xM53kPgbA=="
         }
       },
       "is_incremental": false,
@@ -542,7 +554,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/other/keyvalue.html",
-          "hash": "p9b87EItWdHjXtBWcHWMoQ=="
+          "hash": "Bxtzq5cAOXvyGEzgBPhtrA=="
         }
       },
       "is_incremental": false,
@@ -554,7 +566,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/other/messagebus.html",
-          "hash": "dkLxFvdsVHKI6oZjtwTCpw=="
+          "hash": "SqzCG+vPyrXhFvSGzTSm7g=="
         }
       },
       "is_incremental": false,
@@ -566,7 +578,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/other/nfc.html",
-          "hash": "DAhLoQyFGYKftFGwAz4kPA=="
+          "hash": "9ccQdMXb75u3z0ji2c1daA=="
         }
       },
       "is_incremental": false,
@@ -578,7 +590,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/other/platform.html",
-          "hash": "+c/NrMjvbRotenDvTAXsew=="
+          "hash": "mOcBBsqRrX2fWoBxCs4gkg=="
         }
       },
       "is_incremental": false,
@@ -590,7 +602,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/other/power.html",
-          "hash": "9nBdQZTvw4Ep/f5ey5ui/w=="
+          "hash": "1d8yJJw6tVd1uxuFltqt9Q=="
         }
       },
       "is_incremental": false,
@@ -602,7 +614,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/other/speech-recognition.html",
-          "hash": "Cw85depta0bL+NzcHms7eA=="
+          "hash": "S2/T9F1LG+Cex6QeNQXoLg=="
         }
       },
       "is_incremental": false,
@@ -614,7 +626,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/push/azure.html",
-          "hash": "ODDxRk1gYppUddAcQ5mxqw=="
+          "hash": "aqcLapAsRaFDTPjvVOYTBw=="
         }
       },
       "is_incremental": false,
@@ -626,7 +638,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/push/firebase.html",
-          "hash": "9iYLbvhlJSDauy3m+BuoJg=="
+          "hash": "4OX0iOjnPjpAoVD0fF4Niw=="
         }
       },
       "is_incremental": false,
@@ -641,7 +653,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/push/getting-started.html",
-          "hash": "P29yX9gb0OpVGn9ZVc2Hmw=="
+          "hash": "j6Fx5wcROFrsu0iLXl9gvg=="
         }
       },
       "is_incremental": false,
@@ -653,7 +665,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/push/native.html",
-          "hash": "+sPvc/m1seBmOOavBjSxBQ=="
+          "hash": "aANkm/SXIiHguU916GTfhQ=="
         }
       },
       "is_incremental": false,
@@ -665,7 +677,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/push/onesignal.html",
-          "hash": "tSbDmjGLjPytQeyeRsiqVA=="
+          "hash": "XBiaKX5rxVusUeBfoX5HOg=="
         }
       },
       "is_incremental": false,
@@ -677,7 +689,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/quickstart.html",
-          "hash": "BEtTzpWbXgm5UzAXm6nPtw=="
+          "hash": "YPAdACVuBfFmxBT1YgfC3w=="
         }
       },
       "is_incremental": false,
@@ -689,7 +701,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/sensors/accelerometer.html",
-          "hash": "atMlwhH2hgiNtX8w+AZ/3g=="
+          "hash": "iyZAwOgQlPKnWr5aA3r4Xg=="
         }
       },
       "is_incremental": false,
@@ -701,7 +713,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/sensors/ambientlight.html",
-          "hash": "9pn8JcP/BlV03dfJ1IVK2w=="
+          "hash": "/fKKQZhq37dV1IgDmHNDtg=="
         }
       },
       "is_incremental": false,
@@ -713,7 +725,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/sensors/barometer.html",
-          "hash": "A8EyDvTl7K+7tDunO7wSag=="
+          "hash": "Hh2IIwYSce7sf9QcABIi2w=="
         }
       },
       "is_incremental": false,
@@ -725,7 +737,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/sensors/compass.html",
-          "hash": "5wnBFibibUDNwmQia/9WIw=="
+          "hash": "VWX4VltJ5K5eQgr3NdPlqg=="
         }
       },
       "is_incremental": false,
@@ -737,7 +749,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/sensors/getting-started.html",
-          "hash": "twQpAERgXahjKIRIbyxcGA=="
+          "hash": "iU4Vp+TjNtsvwrsmFzCARw=="
         }
       },
       "is_incremental": false,
@@ -749,7 +761,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/sensors/gyroscope.html",
-          "hash": "LtrwS4MgVOhDD+bnkWY/rA=="
+          "hash": "TAuVszsq4WkAV7Wjn3brwg=="
         }
       },
       "is_incremental": false,
@@ -761,7 +773,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/sensors/humidity.html",
-          "hash": "uoCWxyDA/9rwD9up+h5jYQ=="
+          "hash": "kfZKlp4qY5wu8pgyMzU2Dg=="
         }
       },
       "is_incremental": false,
@@ -773,7 +785,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/sensors/magnetometer.html",
-          "hash": "Ktbo3ABKVrj7g7ShFMjZjw=="
+          "hash": "WIRUYGHlaKFm+gEh+tedhg=="
         }
       },
       "is_incremental": false,
@@ -785,7 +797,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/sensors/pedometer.html",
-          "hash": "ikzVAoR39BvlbPy8knF+Sw=="
+          "hash": "6Y2tn4F7+ucqvl7knyLZNQ=="
         }
       },
       "is_incremental": false,
@@ -797,7 +809,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/sensors/proximity.html",
-          "hash": "C9lA8WwS9/6FnKgkJxIyWA=="
+          "hash": "kYhTWyKXhNrzSI/ipSIncw=="
         }
       },
       "is_incremental": false,
@@ -809,7 +821,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/sensors/temperature.html",
-          "hash": "R+/iANtp/kTqwfLNS9Q4Rg=="
+          "hash": "wgsOme22Ak1jAw4g8iPDnw=="
         }
       },
       "is_incremental": false,
@@ -821,7 +833,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/setup/android.html",
-          "hash": "SGWT62VlD1GiOxBqUQPOWw=="
+          "hash": "XR3zkhGDt+j+cEjWEvIGIg=="
         }
       },
       "is_incremental": false,
@@ -833,7 +845,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/setup/di.html",
-          "hash": "sPrCITVQ+aYEiGhwrpnvQQ=="
+          "hash": "7n83cHjtAg2/qlsoV7zilg=="
         }
       },
       "is_incremental": false,
@@ -845,7 +857,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/setup/ios.html",
-          "hash": "EyHz6v1Hdp1eU8ErC17cpA=="
+          "hash": "wcYU/9VW47xfagYFZqzYcA=="
         }
       },
       "is_incremental": false,
@@ -857,7 +869,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/setup/startup.html",
-          "hash": "LHjQarvr/8/VpWlDO6RLKQ=="
+          "hash": "d0480dZWf0suH9/s9aOuWw=="
         }
       },
       "is_incremental": false,
@@ -869,7 +881,7 @@
       "output": {
         ".html": {
           "relative_path": "mobile/setup/statics.html",
-          "hash": "xZxhDWaEkf13hjuB7ff6gA=="
+          "hash": "LOBKdYvliUpBxYk1N4mzuw=="
         }
       },
       "is_incremental": false,
@@ -968,7 +980,7 @@
         "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 77,
+          "total_file_count": 78,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {
