@@ -310,7 +310,7 @@
 
 <h2 id="setup">Setup</h2>
 <ol>
-<li><p>The first thing is to install &lt;?! NugetShield &quot;Shiny&quot; /?&gt; to your application head project (i.e. MyProject.iOS and MyProject.Android).  This library contains the Shiny.Core and source generators designed to plugin
+<li><p>The first thing is to install <a href="https://www.nuget.org/packages/Shiny/" target="Shiny"><img src="https://img.shields.io/nuget/v/Shiny.svg?style=for-the-badge"></a> to your application head project (i.e. MyProject.iOS and MyProject.Android).  This library contains the Shiny.Core and source generators designed to plugin
 all of the boilerplate code you&#39;ll need.</p>
 </li>
 <li><p>Add the following in some .cs file in each head project:</p>
@@ -334,12 +334,27 @@ startup class <code>YourShinyStartup</code>, you would add the following to each
     XamarinFormsAppTypeName = &quot;MyApp.App&quot;
 )]
 </code></pre><ol>
-<li>In your shared code project, install &lt;?! NugetShield &quot;Shiny&quot; /?&gt;.  Create a Shiny startup class as follows:</li>
+<li>In your shared code project, install <a href="https://www.nuget.org/packages/Shiny/" target="Shiny"><img src="https://img.shields.io/nuget/v/Shiny.svg?style=for-the-badge"></a>.  Create a Shiny startup class as follows:</li>
 </ol>
-<p>&lt;?! Startup ?&gt;
-// this is where you&#39;ll load things like BLE, GPS, etc - those are covered in other sections
+
+<pre>
+<code class="lang-csharp">
+using Microsoft.Extensions.DependencyInjection;
+using Shiny;
+
+namespace YourNamespace
+{
+    public class YourShinyStartup : ShinyStartup
+    {
+        public override void ConfigureServices(IServiceCollection services, IPlatform platform)
+        {
+            // this is where you'll load things like BLE, GPS, etc - those are covered in other sections
 // things like the jobs, environment, power, are all installed automatically
-&lt;?!/ Startup ?&gt;</p>
+        }
+    }
+}
+</code>
+</pre>
 <ol>
 <li><p>For iOS AppDelegate is marked partial.  If you have any methods that Shiny uses already implemented, you&#39;ll receive
 a build warning to manually hook the method.</p>
