@@ -231,6 +231,23 @@ public static class MauiProgram
         return builder.Build();
     }
 }
+</code></pre><div class="WARNING"><h5>Warning</h5><p>Currently, you will need to add the following to your MAUI project to compile with Shiny</p>
+</div>
+<pre><code class="lang-xml">    &lt;ItemGroup Condition=&quot;&#39;$(TargetFramework)&#39; == &#39;net6.0-android&#39;&quot;&gt;
+        &lt;!--needed by ALL shiny packages--&gt;
+        &lt;PackageReference Include=&quot;Xamarin.AndroidX.Core&quot; Version=&quot;1.7.0.2&quot; /&gt;
+        &lt;PackageReference Include=&quot;Xamarin.AndroidX.Lifecycle.Process&quot; Version=&quot;2.4.1.1&quot; /&gt;
+        &lt;PackageReference Include=&quot;Xamarin.AndroidX.Lifecycle.Common&quot; Version=&quot;2.4.1.1&quot; /&gt;
+
+        &lt;!--needed by Shiny.Jobs--&gt;
+        &lt;PackageReference Include=&quot;Xamarin.AndroidX.Work.Runtime&quot; Version=&quot;2.7.1.3&quot; /&gt;
+
+        &lt;!--needed by Shiny.Notifications &amp; Shiny.Locations--&gt;
+        &lt;PackageReference Include=&quot;Xamarin.GooglePlayServices.Location&quot; Version=&quot;119.0.1&quot; /&gt;
+
+        &lt;!--needed by Shiny.Push.*--&gt;
+        &lt;PackageReference Include=&quot;Xamarin.Firebase.Messaging&quot; Version=&quot;122.0.0.5&quot; /&gt;
+    &lt;/ItemGroup&gt;
 </code></pre><h3 id="new-plugin-model">NEW &quot;Plugin&quot; Model</h3>
 <ol>
 <li>Install Shiny.Core</li>
