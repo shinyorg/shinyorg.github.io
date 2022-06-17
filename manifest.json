@@ -927,12 +927,15 @@
       "version": ""
     },
     {
+      "log_codes": [
+        "InvalidYamlHeader"
+      ],
       "type": "Conceptual",
       "source_relative_path": "release-notes/mobile/v250.md",
       "output": {
         ".html": {
           "relative_path": "release-notes/mobile/v250.html",
-          "hash": "bXHaaqaVJtMX94ewHp58DA=="
+          "hash": "c12cewaJidrQ2Rekz5iALQ=="
         }
       },
       "is_incremental": false,
