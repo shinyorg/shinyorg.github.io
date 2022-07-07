@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>2.5.5 June 17, 2022 </title>
+    <title>2.5.6 July 7, 2022 </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="2.5.5 June 17, 2022 ">
+    <meta name="title" content="2.5.6 July 7, 2022 ">
     <meta name="generator" content="docfx 2.56.7.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -126,9 +126,18 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h2 id="255-june-17-2022">2.5.5 June 17, 2022</h2>
+<h2 id="256-july-7-2022">2.5.6 July 7, 2022</h2>
 
 <h3 id="core">Core</h3>
+<ul>
+<li>[Fix] InvokeTaskOnMainThread separated from InvokeOnMainThreadAsync to fix wrong signatures being used internally</li>
+</ul>
+<h3 id="notifications">Notifications</h3>
+<ul>
+<li>[iOS][Fix] Time sensitive permission is only used if enabled, channel importance of high, and a scheduled date is set</li>
+</ul>
+<h2 id="255-june-17-2022">2.5.5 June 17, 2022</h2>
+<h3 id="core-1">Core</h3>
 <ul>
 <li>[Android][Fix] Generators will generate OnCreate.  Only ShinyOnCreate has been removed since this hook is not required by Shiny any longer</li>
 </ul>
@@ -150,7 +159,7 @@
 </ul>
 <hr>
 <h2 id="252---may-24-2022">2.5.2 - May 24, 2022</h2>
-<h3 id="notifications">Notifications</h3>
+<h3 id="notifications-1">Notifications</h3>
 <ul>
 <li>[Android][Fix] Notification permission on Android 11 &amp; under</li>
 <li>[Fix] IntervalTrigger was not calculating next date properly when day was chosen</li>
@@ -162,7 +171,7 @@
 </ul>
 <hr>
 <h2 id="250---may-5-2022">2.5.0 - May 5, 2022</h2>
-<h3 id="core-1">Core</h3>
+<h3 id="core-2">Core</h3>
 <ul>
 <li>[BREAKING][Android] Major target is now Android 12</li>
 <li>[Enhancement][Android] Bump all AndroidX libraries to next required version of Android 12 functionality</li>
@@ -195,7 +204,7 @@
 <li>[Enhancement] MTU property now available on a connected peripheral <a href="https://github.com/shinyorg/shiny/pull/970">GH-970</a></li>
 <li>[Enhancement] Service builder AddReadCharacteristic and AddWriteCharacteristic trap errors underneath the hood to send back failures to central.  New signature also provides the actual central performing the action</li>
 </ul>
-<h3 id="notifications-1">Notifications</h3>
+<h3 id="notifications-2">Notifications</h3>
 <ul>
 <li>[BREAKING] Badge is no longer a property - Use SetBadge (async) and GetBadge (async) instead (thank iOS for this change)</li>
 <li>[BREAKING] Clear is now Cancel</li>
