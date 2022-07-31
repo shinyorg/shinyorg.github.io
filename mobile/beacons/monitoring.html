@@ -334,8 +334,6 @@
 </tr>
 </tbody>
 </table>
-<div class="WARNING"><h5>Warning</h5><p>Android uses a foreground service!  You must have an application icon set or a drawable resource called notification in order for background GPS to work</p>
-</div>
 <h2 id="startup-file">Startup File</h2>
 <pre><code class="lang-csharp">using Microsoft.Extensions.DependencyInjection;
 using Shiny;
@@ -361,11 +359,17 @@ namespace YourNamespace
 </li>
 </ul>
 <section id="tabpanel_SPDZEFDD8b_ios" role="tabpanel" data-tab="ios">
-<p>Minimum Version: 10</p>
+<p>Minimum Version: 12</p>
 <h2 id="infoplist">Info.plist</h2>
 <pre><code class="lang-xml">&lt;!DOCTYPE plist PUBLIC &quot; -//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
 &lt;plist version=\&quot;1.0\&quot;&gt;
     &lt;dict&gt;
+        &lt;key&gt;NSLocationAlwaysUsageDescription&lt;/key&gt;
+        &lt;string&gt;&gt;Say something useful here that your users will understand&lt;/string&gt;
+        &lt;key&gt;NSLocationAlwaysAndWhenInUseUsageDescription&lt;/key&gt;
+        &lt;string&gt;&gt;Say something useful here that your users will understand&lt;/string&gt;
+        &lt;key&gt;NSLocationWhenInUseUsageDescription&lt;/key&gt;
+        &lt;string&gt;&gt;Say something useful here that your users will understand&lt;/string&gt;
         &lt;key&gt;UIBackgroundModes&lt;/key&gt;
         &lt;array&gt;
             &lt;string&gt;location&lt;/string&gt;
@@ -380,7 +384,7 @@ namespace YourNamespace
 <pre><code class="lang-xml">&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; android:versionCode=&quot;1&quot; android:versionName=&quot;1.0&quot; package=&quot;com.org.yourapp&quot; android:installLocation=&quot;preferExternal&quot;&gt;
     &lt;uses-permission android:name=&quot;android.permission.ACCESS_COARSE_LOCATION&quot; /&gt;
     &lt;uses-permission android:name=&quot;android.permission.ACCESS_FINE_LOCATION&quot; /&gt;
-    &lt;uses-permission android:name=&quot;android.permission.BLUETOOTH_PRIVILEGED&quot; /&gt;
+    &lt;uses-permission android:name=&quot;android.permission.BLUETOOTH_SCAN&quot; /&gt;
     &lt;uses-permission android:name=&quot;android.permission.BLUETOOTH_ADMIN&quot; /&gt;
     &lt;uses-permission android:name=&quot;android.permission.BLUETOOTH&quot; /&gt;
 &lt;/manifest&gt;

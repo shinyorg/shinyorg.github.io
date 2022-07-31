@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title> </title>
+    <title>BLE Hosting </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content=" ">
+    <meta name="title" content="BLE Hosting ">
     <meta name="generator" content="docfx 2.56.7.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -306,7 +306,7 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="-"></h1>
+<h1 id="ble-hosting">BLE Hosting</h1>
 
 <table>
 <thead>
@@ -317,8 +317,16 @@
 </thead>
 <tbody>
 <tr>
-<td></td>
-<td></td>
+<td>Service</td>
+<td>Shiny.BluetoothLE.IBleHostingManager</td>
+</tr>
+<tr>
+<td>Auto-Register</td>
+<td>NO</td>
+</tr>
+<tr>
+<td>Static Class</td>
+<td>ShinyBleHosting</td>
 </tr>
 </tbody>
 </table>
@@ -347,11 +355,15 @@ namespace YourNamespace
 </li>
 </ul>
 <section id="tabpanel_hJcVVJzAMh_ios" role="tabpanel" data-tab="ios">
-<p>Minimum Version: 10</p>
+<p>Minimum Version: 12</p>
 <h2 id="infoplist">Info.plist</h2>
 <pre><code class="lang-xml">&lt;!DOCTYPE plist PUBLIC &quot; -//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
 &lt;plist version=\&quot;1.0\&quot;&gt;
     &lt;dict&gt;
+        &lt;key&gt;NSBluetoothPeripheralUsageDescription&lt;/key&gt;
+        &lt;string&gt;&gt;Say something useful here that your users will understand&lt;/string&gt;
+        &lt;key&gt;NSBluetoothAlwaysUsageDescription&lt;/key&gt;
+        &lt;string&gt;&gt;Say something useful here that your users will understand&lt;/string&gt;
         &lt;key&gt;UIBackgroundModes&lt;/key&gt;
         &lt;array&gt;
             &lt;string&gt;bluetooth-peripheral&lt;/string&gt;
@@ -362,7 +374,16 @@ namespace YourNamespace
 <section id="tabpanel_hJcVVJzAMh_android" role="tabpanel" data-tab="android" aria-hidden="true" hidden="hidden">
 <h3 id="minimum-version-80">Minimum Version: 8.0</h3>
 <h3 id="target-version-12">Target Version: 12</h3>
-</section>
+<h2 id="manifest">Manifest</h2>
+<pre><code class="lang-xml">&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; android:versionCode=&quot;1&quot; android:versionName=&quot;1.0&quot; package=&quot;com.org.yourapp&quot; android:installLocation=&quot;preferExternal&quot;&gt;
+    &lt;uses-permission android:name=&quot;android.permission.ACCESS_COARSE_LOCATION&quot; /&gt;
+    &lt;uses-permission android:name=&quot;android.permission.ACCESS_FINE_LOCATION&quot; /&gt;
+    &lt;uses-permission android:name=&quot;android.permission.BLUETOOTH_ADVERTISE&quot; /&gt;
+    &lt;uses-permission android:name=&quot;android.permission.BLUETOOTH_CONNECT&quot; /&gt;
+    &lt;uses-permission android:name=&quot;android.permission.BLUETOOTH_ADMIN&quot; /&gt;
+    &lt;uses-permission android:name=&quot;android.permission.BLUETOOTH&quot; /&gt;
+&lt;/manifest&gt;
+</code></pre></section>
 </div>
 <h2 id="samples">Samples</h2>
 <ul>

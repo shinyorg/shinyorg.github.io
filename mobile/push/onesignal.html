@@ -333,10 +333,6 @@
 <td>Delegate</td>
 <td>Shiny.Push.IPushDelegate</td>
 </tr>
-<tr>
-<td>Static Class</td>
-<td>ShinyPush</td>
-</tr>
 </tbody>
 </table>
 <h2 id="startup-file">Startup File</h2>
@@ -349,7 +345,7 @@ namespace YourNamespace
     {
         public override void ConfigureServices(IServiceCollection services, IPlatform platform)
         {
-            services.UseOneSignal&lt;MyPushDelegate&gt;();
+            services.UseOneSignal&lt;MyPushDelegate&gt;(&quot;YourOneSignalAppId&quot;);
         }
     }
 }
@@ -364,7 +360,7 @@ namespace YourNamespace
 </li>
 </ul>
 <section id="tabpanel_X7e7nliqCj_ios" role="tabpanel" data-tab="ios">
-<p>Minimum Version: 10</p>
+<p>Minimum Version: 12</p>
 <h2 id="appdelegate">AppDelegate</h2>
 <pre><code class="lang-csharp">using System;
 using Foundation;

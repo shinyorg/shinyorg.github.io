@@ -329,8 +329,17 @@
 <td>Auto-Register</td>
 <td>NO</td>
 </tr>
+<tr>
+<td>Static Class</td>
+<td>ShinyJobs</td>
+</tr>
 </tbody>
 </table>
+<h2 id="features">Features</h2>
+<ul>
+<li>Cross platform periodic background jobs</li>
+<li>Runtime based criteria - charging, low battery, connectivity, and more</li>
+</ul>
 <h2 id="platform-setup">Platform Setup</h2>
 <div class="tabGroup" id="tabgroup_OPj5Im7aaK">
 <ul role="tablist">
@@ -342,7 +351,7 @@
 </li>
 </ul>
 <section id="tabpanel_OPj5Im7aaK_ios" role="tabpanel" data-tab="ios">
-<p>Minimum Version: 10</p>
+<p>Minimum Version: 12</p>
 <h2 id="appdelegate">AppDelegate</h2>
 <pre><code class="lang-csharp">using System;
 using Foundation;
@@ -402,17 +411,6 @@ namespace YourIosApp
 <ul>
 <li><a href="https://github.com/shinyorg/samples/tree/main/Jobs">https://github.com/shinyorg/samples/tree/main/Jobs</a></li>
 </ul>
-<h2 id="faq">FAQ</h2>
-<blockquote><p>Q: How often will my jobs run on Android?</p>
-<blockquote><p>A: If Doze is enabled, the reschedule period is not guaranteed to be an average of 15 mins. It may be much longer.</p>
-</blockquote>
-<p>Q: When should I register my jobs? Should I do everytime I start the app</p>
-<blockquote><p>A: The best is to register your jobs with the Shiny startup</p>
-</blockquote>
-<p>Q: How long do I have to run a job?</p>
-<blockquote><p>A: On iOS, 30 seconds - not a penny more.  Android will give you several minutes depending on the device, OS version, etc</p>
-</blockquote>
-</blockquote>
 </article>
           </div>
           
