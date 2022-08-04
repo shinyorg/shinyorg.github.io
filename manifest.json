@@ -893,7 +893,7 @@
       "output": {
         ".html": {
           "relative_path": "release-notes/extensions/v130.html",
-          "hash": "FixgEbnH6E2eXL1/amY3Mw=="
+          "hash": "AY7JVpBtH6jnli+nAf6q8g=="
         }
       },
       "is_incremental": false,
@@ -905,7 +905,7 @@
       "output": {
         ".html": {
           "relative_path": "release-notes/index.html",
-          "hash": "wj+eUv4RGFCIPtltxk9/KA=="
+          "hash": "jH87MlkwXB+is102tQGQ6Q=="
         }
       },
       "is_incremental": false,
@@ -920,22 +920,19 @@
       "output": {
         ".html": {
           "relative_path": "release-notes/mobile/v1x.html",
-          "hash": "jnLeLwA09LotSRKAJ+R3GQ=="
+          "hash": "rL9ZwZ9tvjWHRZqviiFPfg=="
         }
       },
       "is_incremental": false,
       "version": ""
     },
     {
-      "log_codes": [
-        "InvalidYamlHeader"
-      ],
       "type": "Conceptual",
-      "source_relative_path": "release-notes/mobile/v250.md",
+      "source_relative_path": "release-notes/mobile/v260.md",
       "output": {
         ".html": {
-          "relative_path": "release-notes/mobile/v250.html",
-          "hash": "INzsoT1XOMnMbMSTJRU/pw=="
+          "relative_path": "release-notes/mobile/v260.html",
+          "hash": "bbGKjQ4jDBwwkha/Ty+YaQ=="
         }
       },
       "is_incremental": false,
@@ -950,7 +947,7 @@
       "output": {
         ".html": {
           "relative_path": "release-notes/mobile/v2x.html",
-          "hash": "4tn7S+HObvPU0QBksVWksQ=="
+          "hash": "aOPsEkZhzvTWjuvImRD1Tg=="
         }
       },
       "is_incremental": false,
@@ -962,7 +959,7 @@
       "output": {
         ".html": {
           "relative_path": "release-notes/mobile/v300.html",
-          "hash": "FOCTDyJu95rRl9dHGFn+2Q=="
+          "hash": "XUx4gsxBEdiw2I94HyCemQ=="
         }
       },
       "is_incremental": false,
