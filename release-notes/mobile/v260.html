@@ -145,8 +145,15 @@
 </ul>
 <h3 id="notifications">Notifications</h3>
 <ul>
-<li>[iOS][BREAKING][Enhancement] Time Sensitive notifications are no longer used by default as they require an extra entitlement being setup, thus you must now specify NotificationManager.UseTimeSensitiveAlerts = true; on iOS in order to enable them</li>
 <li>[BREAKING][Fix] Attachment (FileInfo) is now LocalAttachmentPath (string) to prevent confusion</li>
+<li>[BREAKING] Notification.Sound is now an enum with the following values:<ul>
+<li>High</li>
+<li>Default</li>
+<li>Custom</li>
+<li>None</li>
+</ul>
+</li>
+<li>[iOS][BREAKING][Enhancement] Time Sensitive notifications are no longer used by default as they require an extra entitlement being setup, thus you must now specify NotificationManager.UseTimeSensitiveAlerts = true; on iOS in order to enable them</li>
 <li>[iOS][Fix] Time sensitive permission is only used if enabled, channel importance of high, and a scheduled date is set</li>
 <li>[iOS][Enhancement] Local notification acknowledgement now uses Banner instead of Alert to remove iOS deprecation <a href="https://github.com/orgs/shinyorg/discussions/1055">GH-1055</a></li>
 <li>[Android][iOS][Fix] Notification.ImageUri is replaced with Notification.Attachment (FileInfo) as files must be local for attachments</li>
