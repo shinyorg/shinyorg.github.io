@@ -160,13 +160,14 @@
 <h2 id="notifications">Notifications</h2>
 <ul>
 <li>[Enhancement] OS specific configuration for Android &amp; iOS</li>
-<li>[Enhancement] Native &quot;customizer&quot; interfaces that allow you to alter the native notifications</li>
+<li>[Enhancement] Ability to customize actual native notification before it is sent/queued</li>
 <li>[Enhancement] Improved sound customization via new channel flag - Channel.Sound = ChannelSound.Custom|High|Default|None</li>
 </ul>
 <h2 id="bluetoothle">BluetoothLE</h2>
 <ul>
 <li>[Enhancement] L2Cap supported</li>
 <li>[Enhancement][Android] RequestAccess(bool connect) now allows you to additionally request access to GATT connections (defaults to true).  This allows Shiny to use Android API 31 properly.  It will always ask for scan permissions.</li>
+<li>[BREAKING][Android] Adapter control is no longer support through the Shiny API, but you do have raw access to the native adapter if needed</li>
 </ul>
 <h2 id="bluetoothle-hosting">BluetoothLE Hosting</h2>
 <ul>
