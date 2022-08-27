@@ -376,12 +376,15 @@ namespace YourNamespace
 <h3 id="target-version-12">Target Version: 12</h3>
 <h2 id="manifest">Manifest</h2>
 <pre><code class="lang-xml">&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; android:versionCode=&quot;1&quot; android:versionName=&quot;1.0&quot; package=&quot;com.org.yourapp&quot; android:installLocation=&quot;preferExternal&quot;&gt;
-    &lt;uses-permission android:name=&quot;android.permission.ACCESS_COARSE_LOCATION&quot; /&gt;
-    &lt;uses-permission android:name=&quot;android.permission.ACCESS_FINE_LOCATION&quot; /&gt;
     &lt;uses-permission android:name=&quot;android.permission.BLUETOOTH_ADVERTISE&quot; /&gt;
     &lt;uses-permission android:name=&quot;android.permission.BLUETOOTH_CONNECT&quot; /&gt;
-    &lt;uses-permission android:name=&quot;android.permission.BLUETOOTH_ADMIN&quot; /&gt;
-    &lt;uses-permission android:name=&quot;android.permission.BLUETOOTH&quot; /&gt;
+
+
+    &lt;uses-permission
+        android:name=&quot;android.permission.BLUETOOTH&quot;
+        android:maxSdkVersion=&quot;30&quot;
+    /&gt;
+
 &lt;/manifest&gt;
 </code></pre></section>
 </div>

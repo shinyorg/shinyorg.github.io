@@ -389,8 +389,10 @@ namespace YourNamespace
     &lt;uses-permission android:name=&quot;android.permission.ACCESS_FINE_LOCATION&quot; /&gt;
     &lt;uses-permission android:name=&quot;android.permission.ACCESS_BACKGROUND_LOCATION&quot; /&gt;
     &lt;uses-permission android:name=&quot;android.permission.FOREGROUND_SERVICE&quot; /&gt;
-    &lt;uses-feature android:name=&quot;android.hardware.location.gps&quot; /&gt;
-    &lt;uses-feature android:name=&quot;android.hardware.location.network&quot; /&gt;
+
+
+    &lt;uses-feature android:name=&quot;android.hardware.location.gps&quot; android:required=&quot;false&quot; /&gt;
+    &lt;uses-feature android:name=&quot;android.hardware.location.network&quot; android:required=&quot;false&quot; /&gt;
 &lt;/manifest&gt;
 </code></pre></section>
 </div>
