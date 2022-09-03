@@ -223,6 +223,11 @@ public static class MauiProgram
         // shiny.nfc - ios &amp; android only
         builder.Services.AddNfc();
 #endif
+        // battery (Shiny.Core)
+        builder.Services.AddBattery();
+
+        // connectivity (Shiny.Core)
+        builder.Services.AddConnectivity();
 
         // shiny.locations
         builder.Services.AddGps&lt;SampleGpsDelegate&gt;();
@@ -278,7 +283,34 @@ public static class MauiProgram
         &lt;!--needed by Shiny.Push.*--&gt;
         &lt;PackageReference Include=&quot;Xamarin.Firebase.Messaging&quot; Version=&quot;122.0.0.5&quot; /&gt;
     &lt;/ItemGroup&gt;
-</code></pre><h3 id="new-plugin-model">NEW &quot;Plugin&quot; Model</h3>
+</code></pre><h3 id="blazor-support">Blazor Support</h3>
+<p>Blazor follows the same basic principle set by the MAUI hosting model</p>
+<ol>
+<li>Install any Shiny.*.Blazor nuget package</li>
+<li>In your Blazor Program.cs, you must first add:</li>
+</ol>
+<pre><code class="lang-csharp">using Shiny;
+
+builder.UseShiny();
+
+// you can now add shiny services
+builder.Services.AddGps();
+builder.Services.AddConnectivity();
+builder.Services.AddBattery();
+</code></pre><p>Ready for initial usage:</p>
+<ul>
+<li>Shiny.Core.Blazor</li>
+<li>Shiny.Locations.Blazor</li>
+</ul>
+<p>NOT Ready for initial usage:</p>
+<ul>
+<li>Shiny.Notifications.Blazor</li>
+<li>Shiny.BluetoothLE.Blazor</li>
+<li>Shiny.Push.Blazor</li>
+<li>Shiny.SpeechRecognition.Blazor</li>
+<li>Shiny.Nfc.Blazor</li>
+</ul>
+<h3 id="new-plugin-model">NEW &quot;Plugin&quot; Model</h3>
 <ol>
 <li>Install Shiny.Core</li>
 <li>Install the plugin package(s) you need</li>
