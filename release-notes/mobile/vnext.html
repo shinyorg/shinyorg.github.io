@@ -129,9 +129,7 @@
 <h1 id="30-alpha">3.0 ALPHA</h1>
 
 <div class="IMPORTANT"><h5>Important</h5><ul>
-<li><p>This is an ALPHA release!  There are still changes planned!  We are not taking bugs on things at this time.  Hosting has vastly changed in our model to support MAUI.  </p>
-</li>
-<li><p>We have also removed several components such as AppCenter Logging and Firebase on iOS due to incompatible .NET6 iOS dependencies</p>
+<li><p>This is an ALPHA release!  There are still changes planned!  We are not taking bugs on things at this time.  Hosting has vastly changed in our model to support MAUI, Blazor, and other future platforms we intend to support</p>
 </li>
 <li><p>Generators have been removed temporarily.  It has not been decided how/if we will support them in the future.</p>
 </li>
@@ -155,6 +153,12 @@
 <ul>
 <li>Shiny.Hosting.Maui initial integration package created (Example how to setup shown below)</li>
 </ul>
+<h2 id="blazor-core">Blazor (Core)</h2>
+<ul>
+<li>Initial settings library built on top of local storage</li>
+<li>Connectivity service</li>
+<li>Battery service</li>
+</ul>
 <h2 id="core">Core</h2>
 <ul>
 <li>[BREAKING] IShinyStartup is gone - we now have a new HostBuilder pattern to allow classic to align with MAUI/NET6.  Use extensions methods to build on this for classic/non-MAUI setups</li>
@@ -169,12 +173,19 @@
 </ul>
 <h2 id="notifications">Notifications</h2>
 <ul>
+<li>[PLATFORM][Blazor] Shiny.BluetoothLE.Notifications added</li>
 <li>[Enhancement] OS specific configuration for Android &amp; iOS</li>
 <li>[Enhancement] Ability to customize actual native notification before it is sent/queued</li>
 <li>[Enhancement] Improved sound customization via new channel flag - Channel.Sound = ChannelSound.Custom|High|Default|None</li>
 </ul>
+<h2 id="push">Push</h2>
+<ul>
+<li>[PLATFORM][Blazor] Shiny.BluetoothLE.Push added</li>
+<li>[Enhancement] Now works on new xplat lifecycle management from Core</li>
+</ul>
 <h2 id="bluetoothle">BluetoothLE</h2>
 <ul>
+<li>[PLATFORM][Blazor] Shiny.BluetoothLE.Blazor added</li>
 <li>[Enhancement] L2Cap supported</li>
 <li>[Enhancement][Android] RequestAccess(bool connect) now allows you to additionally request access to GATT connections (defaults to true).  This allows Shiny to use Android API 31 properly.  It will always ask for scan permissions.</li>
 <li>[BREAKING][Android] Adapter control is no longer support through the Shiny API, but you do have raw access to the native adapter if needed</li>
