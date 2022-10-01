@@ -163,13 +163,12 @@
 <ul>
 <li>[BREAKING] IShinyStartup is gone - we now have a new HostBuilder pattern to allow classic to align with MAUI/NET6.  Use extensions methods to build on this for classic/non-MAUI setups</li>
 <li>[BREAKING] IShinyModule is gone - use extensions methods instead</li>
-<li>[BREAKING] Connectivity is gone (well, it was moved to jobs since it was only really used by jobs) - Switch to MAUI Essentials if you need it</li>
-<li>[BREAKING] PowerManager is gone - moved to jobs as well - Switch to MAUI Essentials if you need it</li>
 <li>[Enhancement] IShinyStartupTask and INotifyPropertyChanged persistent services are now registered using the service collection extension .AddShinyService during your bootstrapping</li>
 <li>[Enhancement] New internal repository pattern is faster and easier to test</li>
 <li>[Enhancement] New hosting model that is meant to carry Shiny forward to other platforms and improve on the original ShinyHost model</li>
 <li>[Enhancement] New internal lifecycle processor</li>
 <li>[Enhancement] New &quot;plugin&quot; model - check out example below</li>
+<li>[Enhancement] Any Shiny library that uses an Android foreground service (Beacon Monitoring, GPS, HTTP Transfers) now has a new mechanism that allows for FULL control over the persistent notification</li>
 </ul>
 <h2 id="notifications">Notifications</h2>
 <ul>
@@ -186,6 +185,7 @@
 <h2 id="locations">Locations</h2>
 <ul>
 <li>[Enhancement][Apple] You can now control location manager properties like ActivityType &amp; ShowsBackgroundLocationIndicator via AppleLocationConfiguration service</li>
+<li>[Enhancement][Android] To configure the foreground service notification, your IGpsDelegate can also implement IAndroidForegroundServiceDelegate with #if ANDROID preprocessor directives</li>
 </ul>
 <h2 id="bluetoothle">BluetoothLE</h2>
 <ul>
@@ -202,6 +202,10 @@
 <li>[Enhancement] New &quot;managed&quot; model</li>
 <li>[Enhancement] Advertise iBeacons is now supported - it exists here instead of Shiny.Beacons because all of the advertising code is here</li>
 </ul>
+<h2 id="beacons">Beacons</h2>
+<ul>
+<li>[Enhancement][Android] To configure the foreground service notification on beacon monitoring, your IBeaconMonitorDelegate can also implement IAndroidForegroundServiceDelegate with #if ANDROID preprocessor directives</li>
+</ul>
 <h2 id="jobs">Jobs</h2>
 <ul>
 <li>[BREAKING][iOS] We no longer support the background fetch style (old) job management - only bgtasks will be used going forward</li>
@@ -209,6 +213,7 @@
 <h2 id="http-transfers">HTTP Transfers</h2>
 <ul>
 <li>[BREAKING] The android native process is gone in favour of a new foreground service for uploads &amp; downloads</li>
+<li>[Enhancement][Android] To configure the foreground service notification, your IHttpTransferDelegate can also implement IAndroidForegroundServiceDelegate with #if ANDROID preprocessor directives</li>
 </ul>
 <h3 id="maui-setup">MAUI Setup</h3>
 <ol>
@@ -325,7 +330,28 @@ builder.Services.AddBattery();
 <li>Shiny.SpeechRecognition.Blazor</li>
 <li>Shiny.Nfc.Blazor</li>
 </ul>
-<h3 id="new-plugin-model">NEW &quot;Plugin&quot; Model</h3>
+<h3 id="new-android-foreground-service-notification-customization">New Android Foreground Service Notification Customization</h3>
+<pre><code class="lang-csharp">// ex. this is using a GPS background delegate
+public class MyGpsDelegate : Shiny.Locations.IGpsDelegate 
+#if ANDROID
+    , Shiny.Locations.IAndroidForegroundServiceDelegate
+#endif
+{
+    // .. implementation details left out for brevity
+
+#if ANDROID
+    public void Configure(Android.NotificationCompat.Builder builder)
+    {
+        var builder = new NotificationCompat.Builder(this.Context, &quot;gps&quot;);
+        builder.SetContentTitle(&quot;GPS&quot;);
+        builder.SetContentText(&quot;GPS is running in the background&quot;);
+        builder.SetSmallIcon(Resource.Drawable.ic_launcher_foreground);
+        builder.SetPriority((int)NotificationCompat.PriorityHigh);
+        builder.SetCategory(NotificationCompat.CategoryService);
+    }
+#endif    
+}
+</code></pre><h3 id="new-plugin-model">NEW &quot;Plugin&quot; Model</h3>
 <ol>
 <li>Install Shiny.Core</li>
 <li>Install the plugin package(s) you need</li>
