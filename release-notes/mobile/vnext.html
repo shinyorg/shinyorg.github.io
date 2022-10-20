@@ -193,6 +193,7 @@
 <li>[Enhancement] L2Cap supported</li>
 <li>[Enhancement][Android] RequestAccess(bool connect) now allows you to additionally request access to GATT connections (defaults to true).  This allows Shiny to use Android API 31 properly.  It will always ask for scan permissions.</li>
 <li>[BREAKING][Android] Adapter control is no longer support through the Shiny API, but you do have raw access to the native adapter if needed</li>
+<li>[BREAKING] Managed scan now require you to set scan configuration values in Start instead of the constructor &amp; property setters</li>
 </ul>
 <h2 id="bluetoothle-hosting">BluetoothLE Hosting</h2>
 <ul>
