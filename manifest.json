@@ -881,19 +881,22 @@
       "output": {
         ".html": {
           "relative_path": "release-notes/extensions/v130.html",
-          "hash": "4WLBBX8WZFUnD3BBLzCFOQ=="
+          "hash": "LcVNv5CTT6486drfQTtP6A=="
         }
       },
       "is_incremental": false,
       "version": ""
     },
     {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
       "type": "Conceptual",
       "source_relative_path": "release-notes/index.md",
       "output": {
         ".html": {
           "relative_path": "release-notes/index.html",
-          "hash": "jyANHghU8ZS4wyu7C7OXyA=="
+          "hash": "wh4pXaFX+AKMawm6ilzdxQ=="
         }
       },
       "is_incremental": false,
@@ -908,7 +911,7 @@
       "output": {
         ".html": {
           "relative_path": "release-notes/mobile/v1x.html",
-          "hash": "Rchimy+/PAzJR/IoYkDNaw=="
+          "hash": "FEf7SjR91spDjh02Qw0log=="
         }
       },
       "is_incremental": false,
@@ -916,11 +919,11 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "release-notes/mobile/v260.md",
+      "source_relative_path": "release-notes/mobile/v270.md",
       "output": {
         ".html": {
-          "relative_path": "release-notes/mobile/v260.html",
-          "hash": "C9R93czzZlE8UX2TOCoA3g=="
+          "relative_path": "release-notes/mobile/v270.html",
+          "hash": "wF7NQ7bBGlRiFKRmS09C1w=="
         }
       },
       "is_incremental": false,
@@ -935,7 +938,7 @@
       "output": {
         ".html": {
           "relative_path": "release-notes/mobile/v2x.html",
-          "hash": "JGw/0YBvEeHEplicK9Xrmw=="
+          "hash": "ApFEOmyaVl4mK89IJCGJ3A=="
         }
       },
       "is_incremental": false,
@@ -947,7 +950,7 @@
       "output": {
         ".html": {
           "relative_path": "release-notes/mobile/v300.html",
-          "hash": "/rarzXjkLna0R9EL9/jnkA=="
+          "hash": "woJGR03GyXoJK6kVL2MKQw=="
         }
       },
       "is_incremental": false,
@@ -959,7 +962,7 @@
       "output": {
         ".html": {
           "relative_path": "release-notes/mobile/vnext.html",
-          "hash": "dPyZnbTGRlHD9FyUzEbcJA=="
+          "hash": "eUp4lv+nj6GbDNN6DkshwA=="
         }
       },
       "is_incremental": false,

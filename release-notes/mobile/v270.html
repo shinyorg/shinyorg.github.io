@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>2.6.4 TBD - October, 2022 </title>
+    <title>2.7.0 October 29, 2022 </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="2.6.4 TBD - October, 2022 ">
+    <meta name="title" content="2.7.0 October 29, 2022 ">
     <meta name="generator" content="docfx 2.56.7.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -100,7 +100,7 @@
                             <a href="../mobile/vnext.html" title="v3.0 ALPHA" class="">v3.0 ALPHA</a>
                           </li>
                           <li class="active">
-                            <a href="../mobile/v260.html" title="v2.6.0 (Stable)" class="active">v2.6.0 (Stable)</a>
+                            <a href="../mobile/v270.html" title="v2.7.0 (Stable)" class="active">v2.7.0 (Stable)</a>
                           </li>
                           <li class="">
                             <a href="../mobile/v2x.html" title="v2.x" class="">v2.x</a>
@@ -126,7 +126,7 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h2 id="264-tbd---october-2022">2.6.4 TBD - October, 2022</h2>
+<h2 id="270-october-29-2022">2.7.0 October 29, 2022</h2>
 
 <h3 id="bluetoothle">BluetoothLE</h3>
 <ul>
@@ -139,65 +139,6 @@
 <ul>
 <li>[Fix][iOS] Token was not getting refreshed on start (bug with old firebase library)</li>
 </ul>
-<h2 id="263-september-25-2022">2.6.3 September 25, 2022</h2>
-<h3 id="bluetoothle-1">BluetoothLE</h3>
-<ul>
-<li>[Android] Removing BLUETOOTH_PRIVILEGED permission </li>
-</ul>
-<h3 id="push---firebase">Push - Firebase</h3>
-<ul>
-<li>[Android][Fix] Delegate method was no longer being detected</li>
-</ul>
-<h2 id="262-august-25-2022">2.6.2 August 25, 2022</h2>
-<h3 id="nfc">NFC</h3>
-<ul>
-<li>[Fix][iOS] Read errors on certain tag/ndef types</li>
-</ul>
-<h3 id="bluetoothle-2">BluetoothLE</h3>
-<ul>
-<li>[Enhancement][Android] Improved error messaging with regards to missing manifest permissions</li>
-</ul>
-<h2 id="261-august-15-2022">2.6.1 August 15, 2022</h2>
-<h3 id="bluetooth-le">Bluetooth LE</h3>
-<ul>
-<li>[Fix][Android] Remove another old permission that is only needed for everything before Android 12</li>
-</ul>
-<h2 id="260-august-9-2022">2.6.0 August 9, 2022</h2>
-<h3 id="core">Core</h3>
-<ul>
-<li>[Fix] InvokeTaskOnMainThread separated from InvokeOnMainThreadAsync to fix wrong signatures being used internally</li>
-</ul>
-<h3 id="bluetoothle-3">BluetoothLE</h3>
-<ul>
-<li>[Enhancement][Android] Now only requests BLUETOOTH_SCAN and BLUETOOTH_CONNECT if necessary for API level 31 <a href="https://github.com/shinyorg/shiny/issues/1060">GH-1060</a></li>
-</ul>
-<h3 id="bluetoothle-hosting">BluetoothLE Hosting</h3>
-<ul>
-<li>[BREAKING][Enhancement] All characteristic hooks are now async</li>
-<li>[BREAKING][Android] All android specific properties and manufacturer data advertising options have been removed</li>
-<li>[Enhancement][Android] IBleHostingManager.RequestAccess(bool advertise = true, bool connect = true) allows user to request appropriate permissions</li>
-<li>[Enhancement][Android] Now only uses the appropriate on API level 31</li>
-<li>[Enhancement][Android] LocalName is now advertised</li>
-</ul>
-<h3 id="notifications">Notifications</h3>
-<ul>
-<li>[BREAKING][Fix] Attachment (FileInfo) is now LocalAttachmentPath (string) to prevent confusion</li>
-<li>[BREAKING] Notification.Sound is now an enum with the following values:<ul>
-<li>High</li>
-<li>Default</li>
-<li>Custom</li>
-<li>None</li>
-</ul>
-</li>
-<li>[iOS][BREAKING][Enhancement] Time Sensitive notifications are no longer used by default as they require an extra entitlement being setup, thus you must now specify NotificationManager.UseTimeSensitiveAlerts = true; on iOS in order to enable them</li>
-<li>[iOS][Fix] Time sensitive permission is only used if enabled, channel importance of high, and a scheduled date is set</li>
-<li>[iOS][Enhancement] Local notification acknowledgement now uses Banner instead of Alert to remove iOS deprecation <a href="https://github.com/orgs/shinyorg/discussions/1055">GH-1055</a></li>
-<li>[Android][iOS][Fix] Notification.ImageUri is replaced with Notification.Attachment (FileInfo) as files must be local for attachments</li>
-</ul>
-<h3 id="http-transfers">HTTP Transfers</h3>
-<ul>
-<li>[iOS][Fix] Error messages for downloads are now provided <a href="https://github.com/shinyorg/shiny/pull/1048">GH-1048</a></li>
-</ul>
 </article>
           </div>
           
@@ -206,7 +147,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/shinyorg/docs/blob/master/docs/release-notes/mobile/v260.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/shinyorg/docs/blob/master/docs/release-notes/mobile/v270.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
