@@ -129,7 +129,7 @@
 <h1 id="30-alpha">3.0 ALPHA</h1>
 
 <div class="IMPORTANT"><h5>Important</h5><ul>
-<li><p>This is an ALPHA release!  There are still changes planned!  We are not taking bugs on things at this time.  Hosting has vastly changed in our model to support MAUI, Blazor, and other future platforms we intend to support</p>
+<li><p>This is an ALPHA release!  There are still changes planned!  We are not taking bugs on things at this time.  Hosting has vastly changed in our model to support MAUI, WebAssembly, and other future platforms we intend to support</p>
 </li>
 <li><p>Generators have been removed temporarily.  It has not been decided how/if we will support them in the future.</p>
 </li>
@@ -142,7 +142,7 @@
 <li>.NET Standard 2.1 only for abstractions</li>
 <li>Xamarin iOS</li>
 <li>Xamarin Android</li>
-<li>COMING SOON: Blazor</li>
+<li>COMING SOON: WebAssembly</li>
 </ul>
 </li>
 </ul>
@@ -153,7 +153,7 @@
 <ul>
 <li>Shiny.Hosting.Maui initial integration package created (Example how to setup shown below)</li>
 </ul>
-<h2 id="blazor-core">Blazor (Core)</h2>
+<h2 id="webassembly-core">WebAssembly (Core)</h2>
 <ul>
 <li>Initial settings library built on top of local storage</li>
 <li>Connectivity service</li>
@@ -167,19 +167,21 @@
 <li>[Enhancement] New internal repository pattern is faster and easier to test</li>
 <li>[Enhancement] New hosting model that is meant to carry Shiny forward to other platforms and improve on the original ShinyHost model</li>
 <li>[Enhancement] New internal lifecycle processor</li>
-<li>[Enhancement] New &quot;plugin&quot; model - check out example below</li>
 <li>[Enhancement] Any Shiny library that uses an Android foreground service (Beacon Monitoring, GPS, HTTP Transfers) now has a new mechanism that allows for FULL control over the persistent notification</li>
+</ul>
+<h2 id="configuration">Configuration</h2>
+<ul>
+<li>Configuration is now part of the core library</li>
+<li>[Enhancement] Now loads platform specific json assets like appsettings.android.json, appsettings.ios.json, appsettings.maccatalyst.json, &amp; appsettings.apple.json</li>
 </ul>
 <h2 id="notifications">Notifications</h2>
 <ul>
-<li>[PLATFORM][Blazor] Shiny.BluetoothLE.Notifications added</li>
 <li>[Enhancement] OS specific configuration for Android &amp; iOS</li>
 <li>[Enhancement] Ability to customize actual native notification before it is sent/queued</li>
 <li>[Enhancement] Improved sound customization via new channel flag - Channel.Sound = ChannelSound.Custom|High|Default|None</li>
 </ul>
 <h2 id="push">Push</h2>
 <ul>
-<li>[PLATFORM][Blazor] Shiny.BluetoothLE.Push added</li>
 <li>[Enhancement] Now works on new xplat lifecycle management from Core</li>
 </ul>
 <h2 id="locations">Locations</h2>
@@ -189,7 +191,6 @@
 </ul>
 <h2 id="bluetoothle">BluetoothLE</h2>
 <ul>
-<li>[PLATFORM][Blazor] Shiny.BluetoothLE.Blazor added</li>
 <li>[Enhancement] L2Cap supported</li>
 <li>[Enhancement][Android] RequestAccess(bool connect) now allows you to additionally request access to GATT connections (defaults to true).  This allows Shiny to use Android API 31 properly.  It will always ask for scan permissions.</li>
 <li>[BREAKING][Android] Adapter control is no longer support through the Shiny API, but you do have raw access to the native adapter if needed</li>
@@ -211,10 +212,10 @@
 <ul>
 <li>[BREAKING][iOS] We no longer support the background fetch style (old) job management - only bgtasks will be used going forward</li>
 </ul>
-<h2 id="http-transfers">HTTP Transfers</h2>
+<h2 id="libraries-that-will-not-move-to-v3">Libraries that will not move to v3</h2>
 <ul>
-<li>[BREAKING] The android native process is gone in favour of a new foreground service for uploads &amp; downloads</li>
-<li>[Enhancement][Android] To configure the foreground service notification, your IHttpTransferDelegate can also implement IAndroidForegroundServiceDelegate with #if ANDROID preprocessor directives</li>
+<li>Shiny.NFC</li>
+<li>Shiny.Sensors</li>
 </ul>
 <h3 id="maui-setup">MAUI Setup</h3>
 <ol>
