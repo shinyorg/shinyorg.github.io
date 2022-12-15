@@ -135,10 +135,10 @@
 </li>
 <li><p>We now support the following platforms:</p>
 <ul>
-<li>.NET 6 - only for abstractions</li>
-<li>.NET 6 for iOS</li>
-<li>.NET 6 for MacCatalyst</li>
-<li>.NET 6 for Android</li>
+<li>.NET 7 - only for abstractions</li>
+<li>.NET 7 for iOS</li>
+<li>.NET 7 for MacCatalyst</li>
+<li>.NET 7 for Android</li>
 <li>.NET Standard 2.1 only for abstractions</li>
 <li>Xamarin iOS</li>
 <li>Xamarin Android</li>
@@ -176,13 +176,16 @@
 </ul>
 <h2 id="notifications">Notifications</h2>
 <ul>
+<li>[Enhancement][Android] Android 13 Support for new POST_NOTIFICATION permissions</li>
 <li>[Enhancement] OS specific configuration for Android &amp; iOS</li>
 <li>[Enhancement] Ability to customize actual native notification before it is sent/queued</li>
 <li>[Enhancement] Improved sound customization via new channel flag - Channel.Sound = ChannelSound.Custom|High|Default|None</li>
 </ul>
 <h2 id="push">Push</h2>
 <ul>
+<li>[Enhancement][Android] Android 13 Support for new POST_NOTIFICATION permissions</li>
 <li>[Enhancement] Now works on new xplat lifecycle management from Core</li>
+<li>[Enhancement] Internally rewritten to make architecture easier going forward - firebase, azure, etc all become plugins on top of native instead of full implementations</li>
 </ul>
 <h2 id="locations">Locations</h2>
 <ul>
@@ -203,6 +206,12 @@
 <li>[Enhancement] All characteristic hooks are now async</li>
 <li>[Enhancement] New &quot;managed&quot; model</li>
 <li>[Enhancement] Advertise iBeacons is now supported - it exists here instead of Shiny.Beacons because all of the advertising code is here</li>
+</ul>
+<h2 id="http-transfers">HTTP Transfers</h2>
+<ul>
+<li>[Enhancement] Rewritten API makes it easier than ever to monitor metrics of your transfers</li>
+<li>[Enhancement][Android] Now supports persistent progress notifications</li>
+<li>[Enhancement] Downloads now support pause &amp; resume of transfers</li>
 </ul>
 <h2 id="beacons">Beacons</h2>
 <ul>
