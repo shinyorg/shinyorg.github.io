@@ -293,54 +293,19 @@ public static class MauiProgram
         // shiny.core - startup task &amp; persistent service registration
         builder.Services.AddShinyService&lt;StartupTask&gt;();
 
+        // shiny.push
+        builder.Services.AddPush&lt;SamplePushDelegate&gt;();
+
+        // or shiny.push.firebasemessaging
+        builder.Services.AddPushFirebaseMessaging&lt;SamplePushDelegate&gt;();
+
+        // or shiny.push.azurenotificationhubs
+        builder.Services.AddPushAzureNotificationHubs&lt;SamplePushDelegate&gt;();
+
         return builder.Build();
     }
 }
-</code></pre><div class="WARNING"><h5>Warning</h5><p>Currently, you will need to add the following to your MAUI project to compile with Shiny</p>
-</div>
-<pre><code class="lang-xml">    &lt;ItemGroup Condition=&quot;&#39;$(TargetFramework)&#39; == &#39;net6.0-android&#39;&quot;&gt;
-        &lt;!--needed by ALL shiny packages--&gt;
-        &lt;PackageReference Include=&quot;Xamarin.AndroidX.Core&quot; Version=&quot;1.7.0.2&quot; /&gt;
-        &lt;PackageReference Include=&quot;Xamarin.AndroidX.Lifecycle.Process&quot; Version=&quot;2.5.0&quot; /&gt;
-        &lt;PackageReference Include=&quot;Xamarin.AndroidX.Lifecycle.Process&quot; Version=&quot;2.5.0&quot; /&gt;
-
-        &lt;!--needed by Shiny.Jobs--&gt;
-        &lt;PackageReference Include=&quot;Xamarin.AndroidX.Work.Runtime&quot; Version=&quot;2.7.1.3&quot; /&gt;
-
-        &lt;!--needed by Shiny.Notifications &amp; Shiny.Locations--&gt;
-        &lt;PackageReference Include=&quot;Xamarin.GooglePlayServices.Location&quot; Version=&quot;119.0.1&quot; /&gt;
-
-        &lt;!--needed by Shiny.Push.*--&gt;
-        &lt;PackageReference Include=&quot;Xamarin.Firebase.Messaging&quot; Version=&quot;122.0.0.5&quot; /&gt;
-    &lt;/ItemGroup&gt;
-</code></pre><h3 id="blazor-support">Blazor Support</h3>
-<p>Blazor follows the same basic principle set by the MAUI hosting model</p>
-<ol>
-<li>Install any Shiny.*.Blazor nuget package</li>
-<li>In your Blazor Program.cs, you must first add:</li>
-</ol>
-<pre><code class="lang-csharp">using Shiny;
-
-builder.UseShiny();
-
-// you can now add shiny services
-builder.Services.AddGps();
-builder.Services.AddConnectivity();
-builder.Services.AddBattery();
-</code></pre><p>Ready for initial usage:</p>
-<ul>
-<li>Shiny.Core.Blazor</li>
-<li>Shiny.Locations.Blazor</li>
-</ul>
-<p>NOT Ready for initial usage:</p>
-<ul>
-<li>Shiny.Notifications.Blazor</li>
-<li>Shiny.BluetoothLE.Blazor</li>
-<li>Shiny.Push.Blazor</li>
-<li>Shiny.SpeechRecognition.Blazor</li>
-<li>Shiny.Nfc.Blazor</li>
-</ul>
-<h3 id="new-android-foreground-service-notification-customization">New Android Foreground Service Notification Customization</h3>
+</code></pre><h3 id="new-android-foreground-service-notification-customization">New Android Foreground Service Notification Customization</h3>
 <pre><code class="lang-csharp">// ex. this is using a GPS background delegate
 public class MyGpsDelegate : Shiny.Locations.IGpsDelegate 
 #if ANDROID
@@ -361,23 +326,6 @@ public class MyGpsDelegate : Shiny.Locations.IGpsDelegate
     }
 #endif    
 }
-</code></pre><h3 id="new-plugin-model">NEW &quot;Plugin&quot; Model</h3>
-<ol>
-<li>Install Shiny.Core</li>
-<li>Install the plugin package(s) you need</li>
-<li>From your Android Application.OnCreate (not main activity) or iOS AppDelegate.OnFinishedLauching, call the following:</li>
-</ol>
-<pre><code class="lang-csharp">
-ShinyContainer.Init(builder =&gt; 
-{
-    builder.Services.AddShinyStuff();
-});
-
-// to call within your code, simply use:
-ShinyContainer.Current.GetService&lt;IAShinyService&gt;();
-
-// most libraries (ie. BluetoothLE) offer easy ways to get at the service like
-var manager = ShinyContainer.Current.BluetoothLe();
 </code></pre></article>
           </div>
           
