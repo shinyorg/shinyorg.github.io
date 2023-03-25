@@ -246,19 +246,6 @@ public static class MauiProgram
             // THIS IS REQUIRED TO BE DONE FOR SHINY TO RUN
             .UseShiny();
 
-        // shiny.sensors
-        builder.Services.AddAllSensors();
-
-#if !MACCATALYST
-        // shiny.nfc - ios &amp; android only
-        builder.Services.AddNfc();
-#endif
-        // battery (Shiny.Core)
-        builder.Services.AddBattery();
-
-        // connectivity (Shiny.Core)
-        builder.Services.AddConnectivity();
-
         // shiny.locations
         builder.Services.AddGps&lt;SampleGpsDelegate&gt;();
         builder.Services.AddGeofencing&lt;SampleGeofenceDelegate&gt;();
