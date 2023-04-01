@@ -1,8 +1,0 @@
-{
-  "short_name": "Shiny .NET Boilerplate Builder",
-  "name": "Easily create all of the necessary files for a new Shiny .NET mobile application",
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
-}
