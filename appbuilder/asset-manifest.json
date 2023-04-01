@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "https://shinylib.net/appbuilder/static/css/main.168976f9.css",
-    "main.js": "https://shinylib.net/appbuilder/static/js/main.d9b85765.js",
+    "main.css": "https://shinylib.net/appbuilder/static/css/main.3b0275cf.css",
+    "main.js": "https://shinylib.net/appbuilder/static/js/main.e5ddb20a.js",
     "static/media/logo.svg": "https://shinylib.net/appbuilder/static/media/logo.31f58645b39bbad1d2d61ea1b9081cf4.svg",
     "index.html": "https://shinylib.net/appbuilder/index.html",
-    "main.168976f9.css.map": "https://shinylib.net/appbuilder/static/css/main.168976f9.css.map",
-    "main.d9b85765.js.map": "https://shinylib.net/appbuilder/static/js/main.d9b85765.js.map"
+    "main.3b0275cf.css.map": "https://shinylib.net/appbuilder/static/css/main.3b0275cf.css.map",
+    "main.e5ddb20a.js.map": "https://shinylib.net/appbuilder/static/js/main.e5ddb20a.js.map"
   },
   "entrypoints": [
-    "static/css/main.168976f9.css",
-    "static/js/main.d9b85765.js"
+    "static/css/main.3b0275cf.css",
+    "static/js/main.e5ddb20a.js"
   ]
 }
